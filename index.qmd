@@ -15,7 +15,7 @@ link-external-newwindow: true
 ::: g-col-7
 # BSTA 513/613: Categorical Data Analysis
 
-### Spring 2025
+### Spring 2026
 
  
 
@@ -26,66 +26,71 @@ Welcome to BSTA 513/613! In this course, we will continue to learn about regress
 :::
 :::
 
-::: {style="background-color: #FFFFFF"}
-::: {style="color: #000000"}
+::: {style="background-color: #F2EFEA"}
+::: {style="color: #000"}
 
- 
+::: columns
 
-::: grid
-
-::: {.g-col-3}
-
+::: {.column width="2%"}
 :::
 
-::: {.g-col-4}
-[{{< iconify material-symbols folder size=34px >}}](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/S25_BSTA_513/Student_files?csf=1&web=1&e=uO9lgt) OneDrive Folder
+::: {.column width="16%"}
+### Links
+
+[{{< iconify material-symbols folder size=24px >}}]{style="color:#C2352F;"} [OneDrive Folder](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513?csf=1&web=1&e=Q8KOMt)
+
+[{{< iconify mdi video size=28px >}}]{style="color:#C2352F;"}[Echo 360](https://echo360.org/section/87bbad0a-58f2-4758-a290-b95378fbbab4/home)
 :::
 
-
-::: {.g-col-4}
-[{{< iconify mdi video size=34px >}}](https://echo360.org/section/1f512230-df7b-40f0-86b4-1d3d2e23478f/home) Echo360
-:::
-
-:::
-:::
-:::
-
-------------------------------------------------------------------------
-
-::: grid
-::: g-col-3
+::: {.column width="17%"}
 ### Instructor
 
-{{< iconify fluent person-24-filled size=24px >}} [Dr. Nicky Wakim](instructors.qmd)
+[{{< iconify fluent person-24-filled size=24px >}}]{style="color:#C2352F;"} [Dr. Nicky Wakim](instructors.qmd)
 
-{{< iconify bi building-fill size=24px >}} Vanport 622A
+[{{< iconify bi building-fill size=24px >}}]{style="color:#C2352F;"} Vanport 622A
 
-{{< iconify tabler mail-filled size=24px >}} [wakim\@ohsu.edu](mailto:wakim@ohsu.edu)
+[{{< iconify tabler mail-filled size=24px >}}]{style="color:#C2352F;"} [wakim\@ohsu.edu](mailto:wakim@ohsu.edu)
 :::
 
-::: g-col-3
+::: {.column width="22%"}
 ### Office Hours
+::: columns
+::: {.column width="30%"}
+[Sheetal](https://ohsu.webex.com/meet/akula)
 
-TBD
+[Kelsey](https://pdx.zoom.us/j/87663146835)
 
+Sophia
+:::
+::: {.column width="70%"}
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} W 11:30-12:30
+
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} T 10-11
+
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} M 3-4
+:::
+:::
 :::
 
-::: g-col-3
+::: {.column width="21%"}
 ### Course details
 
-{{< iconify fa6-solid calendar-days size=24px >}} Mondays, Wednesdays
+[{{< iconify fa6-solid calendar-days size=24px >}}]{style="color:#C2352F;"} Mondays, Wednesdays
 
-{{< iconify fa6-solid calendar size=24px >}} March 31 - June 9
+[{{< iconify fa6-solid calendar size=24px >}}]{style="color:#C2352F;"} March 30 - June 9
 
-{{< iconify icon-park-solid time size=24px >}} 1:00 PM - 2:50 PM
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} 1:00 PM - 2:50 PM
 
-{{< iconify fa6-solid person-chalkboard size=24px >}} In-person, RLSB 3A001
+[{{< iconify fa6-solid person-chalkboard size=24px >}}]{style="color:#C2352F;"} In-person, RLSB 3A001
 :::
 
-::: g-col-3
+::: {.column width="20%"}
 ### Contacting me
 
 E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 24 hours Monday-Friday.
+:::
+:::
+
 :::
 :::
 
