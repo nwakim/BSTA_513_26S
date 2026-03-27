@@ -7,7 +7,7 @@ editor:
 
 ## Instructor: Nicole (Nicky) Wakim, PhD
 
-::: columns
+:::::: columns
 ::: {.column width="68%"}
 -   **Email:** [wakim\@ohsu.edu](mailto:wakim@ohsu.edu)
 
@@ -29,7 +29,7 @@ questions or E-mail/Calendly appointments for private communication.
 ::: {.column width="30%"}
 ![](images/N_Wakim.jpg){fig-align="right" width="256"}
 :::
-:::
+::::::
 
 **Brief professor statement:** As a professor, my main goal is to
 instill a growth mindset into my students. Growth mindset means we are
@@ -41,26 +41,54 @@ whenever needed.
 
 ### Office Hours
 
--   Wednesdays 3-4pm in RLSB 3A003B
+TBD
 
 ## Teaching Assistants
 
-Katie Hand and Miyuki Sun will serve as our TAs for the quarter!! They will have the following office hours and will help answer questions over email.
+Sheetal Akula, Kelsey Mackenzie, and Sophia Mann will serve as our TAs
+for the quarter!! They will have the following office hours and will
+help answer questions over email.
 
-### Katie Hand
-
-- Office hours: Fridays 11am-12pm 
-  - [Online Webex Link](https://ohsu.webex.com/ohsu/j.php?MTID=mfe567e2468a0cc7cd8c05d96f171b32c)
-- **Email:** [handka@ohsu.edu](mailto:handka@ohsu.edu)
-
-### Miyuki Sun
-
-- Office hours: Mondays 3-4pm
-  - [Online Webex Link](https://ohsu.webex.com/ohsu/j.php?MTID=m9dee83f01330f54f7787ba9fd95737fb)
-- **Email:** [sunm@ohsu.edu](mailto:sunm@ohsu.edu)
+| TA | Email | Day | Time | Location |
+|---------------|---------------|---------------|---------------|---------------|
+| Sheetal Akula | [akula\@ohsu.edu](mailto:akula@ohsu.edu){.email} | TBD | TBD | TBD |
+| Kelsey Mackenzie | [mackenzie\@ohsu.edu](mailto:mackenzie@ohsu.edu){.email} | TBD | TBD | TBD |
+| Sophia Mann | [mannso\@ohsu.edu](mailto:mannso@ohsu.edu){.email} | TBD | TBD | TBD |
 
 ## Academic Success Center Tutors
 
-The Academic Success Center has biostatistics/epidemiology tutors available. Unlike TAs, tutors are not closely associated with any particular course sections or professors, nor do they have any grading responsibilities. Consider meeting with a tutor when you feel stuck on a project, need help with R coding, want to review course concepts, or simply complete assignments in a social learning environment. There is no cost to use tutoring. 
- 
-**Your tutors this year are Mickey McVeety (MPH Epi program) and Sofia Chapela Lara (PhD program).** They are looking forward to working with you in a one-to-one or group setting, depending on your needs. Please schedule to meet with them at least 24 hours in advance. If you have questions about tutoring or need assistance with the schedule, contact one of the tutors or the Academic Success Center:  <mcveety@ohsu.edu>, <chapelal@ohsu.edu>, <learningsupport@ohsu.edu>
+The Academic Success Center has biostatistics/epidemiology tutors
+available. Unlike TAs, tutors are not closely associated with any
+particular course sections or professors, nor do they have any grading
+responsibilities. Consider meeting with a tutor when you feel stuck on a
+project, need help with R coding, want to review course concepts, or
+simply complete assignments in a social learning environment. There is
+no cost to use tutoring.
+
+**Your tutor this year is Charles Parker** He is looking forward to
+working with you in a one-to-one or group setting, depending on your
+needs. Please schedule to meet with them at least 24 hours in advance.
+If you have questions about tutoring or need assistance with the
+schedule, contact one of the tutors or the Academic Success Center:
+[parkecha\@ohsu.edu](mailto:parkecha@ohsu.edu){.email} or
+[learningsupport\@ohsu.edu](mailto:learningsupport@ohsu.edu){.email}
+
+## My scope of practice
+
+If you are interested in what I consider my Scope of Practice, here is
+an adapted table from Dr. Costa's [An Educator’s Scope of
+Practice](http://dx.doi.org/10.1007/978-3-030-92705-9_15):
+
+| What I do | What I do not do |
+|------------------------------------|------------------------------------|
+| Create positive learning conditions for all learners | Police my students’ attention |
+| Create assessments that accommodate all students' learning styles | Focus on eliminating any opportunity for cheating |
+| Consistently maintain expertise in my subject matter area | Ignore recent updates in my subject matter area |
+| Know and apply work in pedagogy and learning sciences | Focus only on subject matter expertise |
+| Empathy | Counseling |
+| Work to dismantle racism, sexism, and oppression in all forms, apply DEI principles | Ignore equity concerns |
+| Recognize the probability of trauma in my classroom | Try to assess individual trauma histories |
+| Develop self-awareness and cultural humility | Overly focus on behaviors or culture of others |
+| Recognize and respond to impact of trauma on learning | Rigidity or over-reliance on what worked for me (or others in past) as a learner |
+| Refer you to resources in school, city, local government | Ignore your concerns nor tell you it's “not my problem” |
+| Scaffold work in the course to gradually build knowledge | Eliminate all struggle while learning |

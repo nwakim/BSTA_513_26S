@@ -20,25 +20,32 @@ editor_options:
 }
 ```
 
+```{r setup, include=FALSE}
+library(here)
+source(here("class_dates.R"))
+```
+
 ## Labs
 
-| Lab | Rubric | Due Date | Discussion Date | Topics |
-|----|----|----|----|----|
-| [Lab 1](/project/Lab_01_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_01_rubric.qmd)]{style="color:#f8f5f0;"} | 4/11 | 4/16 | Exploring the question and data |
-| [Lab 2](/project/Lab_02_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_02_rubric.qmd)]{style="color:#f8f5f0;"} | 4/25 | 4/30 | EDA continued + Simple logistic regression |
-| [Lab 3](/project/Lab_03_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_03_rubric.qmd)]{style="color:#f8f5f0;"} | 5/9 | 5/12 | Temporary multiple logistic regression + practice interpreting ORs |
-| [Lab 4](/project/Lab_04_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_04_rubric.qmd)]{style="color:#f8f5f0;"} | 5/23 | 5/28 | Building and interpreting final model |
+| Lab | Rubric | Due Date | Topics |
+|----|----|----|----|
+| [Lab 1](/project/Lab_01_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_01_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab1 %>% format("%m/%d")` | Exploring the question and data |
+| [Lab 2](/project/Lab_02_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_02_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab2 %>% format("%m/%d")` | EDA continued + Simple logistic regression |
+| [Lab 3](/project/Lab_03_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_03_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab3 %>% format("%m/%d")` | Temporary multiple logistic regression + practice interpreting ORs |
+| [Lab 4](/project/Lab_04_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_04_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab4 %>% format("%m/%d")` | Building and interpreting final model |
 
 -   [Lab make-up assignment](/project/Lab_discussion_make-up.qmd) if you missed a discussion day
--   2 points will be deducted from labs that are late (without an approved extension)
+-   1 point will be deducted per day late (without an approved extension)
 
-## Poster
+## Final Poster
 
 [Poster Instructions](/project/Project_poster_instructions.qmd)
 
 [Please see the excel spreadsheet if you would like to check if you have all the needed components for the poster!](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1C6F4620-298D-4D42-A15E-8B5522E6A995%7D&file=Project_Rubric.xlsx&action=default&mobileredirect=true)
 
-Due 6/9/2025 @11pm
+-   Poster presentation day on `{r} w11d1 %>% format("%m/%d")` at 1pm in class
+
+-   Poster due [**`r proj %>% format("%m/%d")`**]{style="color:#5B9BD5;"} at 11pm
 
 ```{r}
 #| echo: false
