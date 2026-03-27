@@ -17,10 +17,12 @@ website:
         text: Syllabus
       - href: instructors.qmd
         text: Instructors
+      - href: quiz.qmd
+        text: Quizzes
       - href: homeworks.qmd
         text: Homework
       - href: project.qmd
-        text: Projects
+        text: Project
           
 execute:
   freeze: auto
