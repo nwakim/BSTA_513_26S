@@ -1,0 +1,20 @@
+---
+title: "Key Info and Announcements"
+date-modified: "today"
+format: 
+  html:
+    link-external-newwindow: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Announcements
+
+- Poster session on 6/9!
+  - Feel free to bring food again!
+  - A few faculty and staff will be joining us!
+  - Will take place at VPT 515!!
+
+## Key Dates
+
+## Last class

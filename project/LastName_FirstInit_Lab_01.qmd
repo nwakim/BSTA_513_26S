@@ -1,0 +1,104 @@
+---
+title: "Lab 1"
+author: "Your name here!!!"
+subtitle: "BSTA 513/613"
+description: "Due: April 18, 2024 at 11pm"
+date-modified: "today"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    self-contained: true
+    embed-resources: true
+    number-sections: true
+    number-depth: 4
+editor_options: 
+  chunk_output_type: console
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+## Lab activities
+
+### Reading and listening activities
+
+### Familiarize yourself with the Well-Being and Basic Needs Survey
+
+::: callout-important
+#### Task
+
+Answer the following questions using information on WBNS:
+
+-   What is the motivation for this study? 
+-   How could an analysis that looks at associations with food insecurity help facilitate change in policy?
+-   Why is it important to study food insecurity?
+:::
+
+### File organization
+
+::: callout-important
+#### Task
+
+Display your working directory using the `here` package and `here()` function.
+:::
+
+### Access and download the data
+
+::: callout-important
+#### Task
+
+No task to report back on. Just make sure you have the data!
+:::
+
+### Decide on list of variables to focus on {#sec-pred}
+
+::: callout-important
+#### Task
+
+List the 10 predictors that you plan to use in your analysis. Note which variables are numeric, binary, or multi-level categorical. 
+:::
+
+### Get a sense of how you would like to analyze the data
+
+::: callout-important
+#### Task
+
+Complete the following statement to identify your research question: 
+
+We will investigate the association between food insecurity and \_\_\_\_.
+:::
+
+### Save data for processing with `.Rda`
+
+::: callout-important
+#### Task
+
+Include a screenshot showing the new `.Rda` file within your Data folder.
+:::
+
+### Getting data in working format
+
+::: callout-important
+#### Task
+
+-   Select the variables that will be used in your analysis and make a new dataset. Include the code that you used.
+-   Remove the parentheses with values that are in front of the category names.
+:::
+
+### Explore the outcome and predictors
+
+::: callout-important
+#### Task
+
+-   To check that you have looked that the variables, please report the percent of respondents that were food insecure in the past 12 months.
+-   List any categorical variables that have less than 100 observations in a group
+:::
+
+### Compile above work into an introduction
+
+::: callout-important
+#### Task
+
+Write an introduction to the analysis. 
+:::

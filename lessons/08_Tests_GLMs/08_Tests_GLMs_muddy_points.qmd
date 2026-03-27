@@ -1,0 +1,52 @@
+---
+title: "Muddy Points"
+subtitle: "Lesson 8: Tests GLMs"
+date-modified: "today"
+format: 
+  html:
+    link-external-newwindow: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Muddy Points from Spring 2025
+
+### Deviance for LRT. Specifically slide 27 I got really lost, but I started to grasp it on the next couple slides a little bit better.
+
+#### So just to clarify when we actually run a LRT we do not need the saturated models correct that is only for calculating deviance?
+
+### the nested in LRT vs a moving coefficient target in Wald. Wald is one model, and how the coefficient changes within the model, and LRT is with and without age in the same model? why would we omit a covariate, is it to see if adding it in gets us closer to our saturated model? Still confused on what Wald is actually looking at TBH
+
+### I was wondering on what is the "difference" in the Wald test represents? You mention B_1 and \widehat Beta_1 -- is it just the difference between the two? What does B_1 and \widehat Beta_1 mean in case?
+
+### In the RStudio GLM output, is the Wald test used for the multilevel variables? When we would report these, would we still use that estimate and CI or use LRT? The LRT measures the "difference of likelihoods". Is this the same as comparing the deviance with/without the covariate.?
+
+
+### If we're interested in learning more about the Score test, are there any resources you recommend to look into this?
+
+### Do you have the diagram with the different distributions transformations.
+
+### For the Wald test we treat "1" as our new "0" correct? so if the 95% CI crosses 1 then it is invalid (like 0.5 to 1.3) , if it crosses 0 (like -0.5 to 0.2) it is fine? why is that?
+
+### Just to be clear, we can use LRT in place of the score test?
+
+## Muddy Points from Spring 2024
+
+### 1. By the end of class (Lesson 6) my understanding is that the saturated model likelihood is the same between the two models being compared, right?
+
+Yep!!
+
+### 2. The differences between each test and when to use them.
+
+In terms of what each test is measuring:
+
+-   The Wald test measures the distance between two potential values of $\beta$. One under the null and one under the alternative. The further they are from each other, the more evidence we have that they are different.
+
+    -   The Wald test approximates the differences in the likelihood function, but we do not actually compare the likelihoods under the null vs. alternative. We are only comparing the difference in the $\beta$ value, that is a reasonable approximation of the difference in the likelihood.
+
+-   The Score test measures how close the tangent line of the likelihood function is to 0 (under the null). If it is close to 0 under the null, this indicates that our MLE of $\beta$ is not far from 0. Again, this is no a direct comparison of the likelihoods, but only an approximation of the difference.
+
+-   The likelihood ratio test measures the difference in the log-likelihoods. This is a direct comparison of likelihoods, and is not an approximation!
+
+    -   Thus, we compare the likelihoods (horizontally, as someone asked) because we are making direct comparisons between the likelihood under the null and under the alternative.
+

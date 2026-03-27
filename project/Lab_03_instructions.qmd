@@ -1,0 +1,96 @@
+---
+title: "Lab 3 Instructions"
+author: "Nicky Wakim"
+subtitle: "BSTA 513/613"
+date-modified: "today"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    self-contained: true
+    embed-resources: true
+    number-sections: true
+    number-depth: 4
+    code-annotations: hover
+editor_options: 
+  chunk_output_type: console
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+::: callout-caution
+This lab is ready to be worked on!! (Nicky 4/29/25)
+:::
+
+```{r}
+#| message: false
+#| echo: false
+
+# PLEASE DO NOT REMOVE THIS CODE CHUNK!!!
+### ADD YOUR LIBRARIES HERE!!! ####
+
+library(tidyverse)
+library(gtsummary)
+library(here)
+```
+
+## Directions
+
+[You can download the `.qmd` file for this lab here.](https://github.com/nwakim/BSTA_513_S25/blob/main/project/LastName_FirstInit_Lab_03.qmd)
+
+The above link will take you to your **editing** file. **Please do not remove anything from this editing file!!** You will only add your code and work to this file.
+
+### Purpose
+
+The purpose of this lab is to fit a multiple logistic regression model and practice how we would interpret our results for this study.
+
+## Lab activities
+
+::: callout-note
+I have left it up to you to load the needed packages for this lab.
+:::
+
+### Restate research question
+
+::: callout-important
+#### Task
+
+Please restate your research question below using the provided format (1 sentence). You can change the wording if you'd like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.
+:::
+
+In this study, we will investigate the association between food insecurity and ________. 
+
+### Fit a multiple logistic regression model
+
+Recall, we have not removed missing observations. In homework 1, we discussed what `glm()` does with missing values automatically. 
+
+::: callout-important
+#### Task
+
+Fit a main effects model with 5 of your covariates. This will not necessarily be your final model, but we can construct interpretations and code that will be useful in your final model. 
+:::
+
+### Present the odds ratio in a table
+
+::: callout-important
+#### Task
+
+Use the `tbl_regression()` function to make a table of the odds ratios from your fitted model.
+:::
+
+### Present the odds ratio in a forest plot
+
+::: callout-important
+#### Task
+
+Use the code from our lesson on Multiple Logistic Regression (Lesson 9) to make a forest plot of the odds ratio from your fitted model. Make sure your main variable looks presentable! The other ones do not need to look perfect since they may not be in your final model. 
+:::
+
+### Interpret the odds ratio for your main covariate
+
+::: callout-important
+#### Task
+
+Interpret the estimated odds ratio(s) for the covariate from your research question. Make sure to include the 95% confidence intervals and what other variables you adjusted for. 
+:::

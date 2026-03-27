@@ -1,0 +1,169 @@
+---
+title: "Lesson 1: Welcome!"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#C2352F"
+date: "03/31/2025"
+format: 
+  revealjs:
+    theme: "../simple_NW.scss"
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: "Lesson 1: Welcome"
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+---
+
+# Still me!
+
+## Check the Echo360 link
+
+-   Let's check the link and make sure we can see everything!
+
+## Course Learning Objectives
+
+At the end of this course, students should be able to...
+
+1.  Apply and interpret some hypothesis-testing procedures for two-way and three-way **contingency tables**
+
+2.  Compute and **interpret measures of association** for **binary and ordinal data**.
+
+3.  Calculate and correctly interpret **odds ratios using logistic regression**, make comparison across groups and examine relationship between binary outcome and predictor variables.
+
+4.  Apply appropriate **model-building strategies for logistic regression**. Effectively use statistical computing packages for contingency table and logistic regression procedures.
+
+5.  Perform **Poisson regression** analysis using count data and interpret model estimates, make comparison across groups and examine relationship between outcome and predictor variables.
+
+6.  Coherently **summarize methods and results of data analyses**, and discuss in context of original health-related research questions to audiences with varied statistical background.
+
+## New way to record/view lectures
+
+-   I will be using Echo360 to automatically record time from 1-3pm in this room!
+
+-   It will be LIVE
+
+    -   So you can watch in real time, but won't be able to interact with us
+
+    -   Might have a 10 second lag
+
+    -   No need to tell me if you cannot make class
+
+-   [Here is the link to the Echo site!](https://echo360.org/section/6e6935cc-2428-4a3e-842c-537121bffd64/home) I'll keep posting it on the weekly pages
+
+    -   Everyone should be added! Please check that you have access.
+
+-   I don't have to post anything after class, so no issues with me forgetting to post it
+
+## Some important tasks
+
+-   Star the class website: <https://nwakim.github.io/S25_BSTA_513/>
+
+-   Complete the [when2meet](https://www.when2meet.com/?29781152-juu4v) for office hours
+
+    -   If your calendar feels set, take 5 minutes to fill this out now!
+
+    -   **Complete by Thursday at 11pm!!!**
+
+-   Highly suggest that you make an appointment with a learning specialist through [Student Academic Support Services](https://sakai.ohsu.edu/portal/site/Student_Support)!
+
+```{r}
+#| echo: false
+countdown::countdown(5)
+```
+
+## Syllabus
+
+-   Not *many* changes from last quarters syllabus
+-   Changes from last quarter
+    -   **Lab discussion days**
+    -   **Quizzes**
+    -   No midterm feedback
+
+## Assessment Breakdown
+
+-   We will have quizzes and required in-person lab discussions (on schedule)
+
+|  |  |  |  |  |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| **Course activity** | **Type of Assessment** | **Due Date** | **Percentage of final grade (BSTA 513)** | **Percentage of final grade (BSTA 613)** |
+| Homework | Formative | Every 1-2 weeks | 30% | 25% |
+| **Quizzes** | **Summative** | **4/27, 5/18, 6/1** | **25%** | **25%** |
+| Project Labs | Formative/Summative | Every 2-3 weeks | 25% | 25% |
+| **Lab Discussion + Poster Day Participation** | **N/A** | **Every 2-3 weeks** | **5%** | **5%** |
+| Project Poster | Summative | 6/13 | 10% | 10% |
+| Exit tickets (Attendance) | N/A | Twice Weekly | 5% | 5% |
+| 613 Readings | Formative | Approx. every other week | 0% | 5% |
+
+## Quizzes
+
+-   In BSTA 512/612, I removed the quizzes that I implemented in W24
+
+-   I noticed there were some key learning objectives that many of us were not meeting in the project
+
+    -   Not your fault
+
+-   Leading me to implement some new assessment practices (quizzes and lab discussions)
+
+-   I think quizzes are a helpful way to embed a checkpoint for understanding
+
+-   Quizzes will NOT be in class
+
+    -   Quizzes will open at 3pm on Wednesday and close at 11pm on Sunday
+
+    -   I'm open to changing the exact timing of this, so let me know in the exit ticket!
+
+## Lab Discussion + Poster Day Participation
+
+-   We will have 5 classes with required in-person attendance
+
+    -   4 lab discussion days
+
+    -   1 poster day
+
+-   Lab discussions will either take the full or half class time
+
+    -   They will always follow the due date for a lab
+
+-   You will spend the time in a pair or group to discuss what you did in your lab
+
+-   If you have extenuating circumstances, you can complete a make-up assignment for credit (Syllabus)
+
+# Any questions on how this quarter is going to go?
+
+## How to print slides
+
+-   Anyone have issues with this?
+
+    -   I can show how to do it in Chrome and Safari
+
+-   [Instructions on Quarto page](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf)
+
+## Let's take 10 minutes for Student Survey
+
+::::: columns
+::: {.column width="50%"}
+![](images/Student_survey.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](images/Survey_QR.png){fig-align="center"}
+
+```{r}
+#| echo: false
+countdown::countdown(11)
+```
+:::
+:::::
+
+## Now we take a 5 minute break!
+
+```{r}
+#| echo: false
+countdown::countdown(5)
+```

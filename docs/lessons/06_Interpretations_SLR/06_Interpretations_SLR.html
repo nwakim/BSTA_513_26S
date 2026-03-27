@@ -1,0 +1,5568 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <meta name="author" content="Nicky Wakim">
+  <meta name="dcterms.date" content="2025-04-14">
+  <title>Categorical Data Analysis – Lesson 6: Interpretations and Visualizations of Odds Ratios</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #575f66;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #575f66; } /* Normal */
+    code span.al { color: #f51818; background-color: #faefef; font-weight: bold; } /* Alert */
+    code span.an { color: #e6ba7e; } /* Annotation */
+    code span.at { color: #399ee6; } /* Attribute */
+    code span.bn { color: #ff9940; } /* BaseN */
+    code span.bu { color: #4cbf99; } /* BuiltIn */
+    code span.cf { color: #fa8d3e; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4cbf99; } /* Char */
+    code span.cn { color: #a37acc; } /* Constant */
+    code span.co { color: #607880; font-style: italic; } /* Comment */
+    code span.cv { color: #a37acc; } /* CommentVar */
+    code span.do { color: #607880; } /* Documentation */
+    code span.dt { color: #fa8d3e; } /* DataType */
+    code span.dv { color: #ff9940; } /* DecVal */
+    code span.er { color: #f51818; text-decoration: underline; } /* Error */
+    code span.ex { color: #399ee6; font-weight: bold; } /* Extension */
+    code span.fl { color: #ff9940; } /* Float */
+    code span.fu { color: #f2ae49; } /* Function */
+    code span.im { color: #86b300; } /* Import */
+    code span.in { color: #ff9940; } /* Information */
+    code span.kw { color: #fa8d3e; font-weight: bold; } /* Keyword */
+    code span.op { color: #ed9366; } /* Operator */
+    code span.ot { color: #55b4d4; } /* Other */
+    code span.pp { color: #f07171; } /* Preprocessor */
+    code span.re { color: #399ee6; background-color: #ddecf3; } /* RegionMarker */
+    code span.sc { color: #4cbf99; } /* SpecialChar */
+    code span.ss { color: #4cbf99; } /* SpecialString */
+    code span.st { color: #86b300; } /* String */
+    code span.va { color: #55b4d4; } /* Variable */
+    code span.vs { color: #86b300; } /* VerbatimString */
+    code span.wa { color: #f07171; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-879b85e47848f420eaf0aa30a5c8b01f.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#C2352F" class="quarto-title-block center">
+  <h1 class="title">Lesson 6: Interpretations and Visualizations of Odds Ratios</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Nicky Wakim 
+</div>
+</div>
+</div>
+
+  <p class="date">2025-04-14</p>
+</section>
+<section>
+<section id="learning-objectives" class="title-slide slide level1 center">
+<h1>Learning Objectives</h1>
+<ol type="1">
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a continuous explanatory variable.</p></li>
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a binary explanatory variable.</p></li>
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a multi-level categorical explanatory variable.</p></li>
+<li><p>Report the odds ratio using a table and/or a forest plot.</p></li>
+</ol>
+</section>
+<section id="recall-our-example-late-stage-breast-cancer-diagnosis" class="slide level2">
+<h2>Recall our example: Late stage breast cancer diagnosis</h2>
+<ul>
+<li>Recall that we fitted a simple logistic regression for late stage breast cancer diagnosis using the predictor, age:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>bc_reg <span class="ot">=</span> bc <span class="sc">%&gt;%</span> <span class="fu">glm</span>(<span class="at">formula =</span> Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">family =</span> binomial)</span>
+<span id="cb1-2"><a></a><span class="fu">tidy</span>(bc_reg, <span class="at">conf.int=</span>T) <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">38</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="ierkyyiolk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ierkyyiolk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ierkyyiolk thead, #ierkyyiolk tbody, #ierkyyiolk tfoot, #ierkyyiolk tr, #ierkyyiolk td, #ierkyyiolk th {
+  border-style: none;
+}
+
+#ierkyyiolk p {
+  margin: 0;
+  padding: 0;
+}
+
+#ierkyyiolk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 38px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ierkyyiolk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ierkyyiolk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ierkyyiolk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ierkyyiolk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ierkyyiolk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ierkyyiolk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ierkyyiolk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ierkyyiolk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ierkyyiolk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ierkyyiolk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ierkyyiolk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ierkyyiolk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ierkyyiolk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ierkyyiolk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ierkyyiolk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ierkyyiolk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ierkyyiolk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ierkyyiolk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ierkyyiolk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ierkyyiolk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ierkyyiolk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ierkyyiolk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ierkyyiolk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ierkyyiolk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ierkyyiolk .gt_left {
+  text-align: left;
+}
+
+#ierkyyiolk .gt_center {
+  text-align: center;
+}
+
+#ierkyyiolk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ierkyyiolk .gt_font_normal {
+  font-weight: normal;
+}
+
+#ierkyyiolk .gt_font_bold {
+  font-weight: bold;
+}
+
+#ierkyyiolk .gt_font_italic {
+  font-style: italic;
+}
+
+#ierkyyiolk .gt_super {
+  font-size: 65%;
+}
+
+#ierkyyiolk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ierkyyiolk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ierkyyiolk .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ierkyyiolk .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ierkyyiolk .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ierkyyiolk .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ierkyyiolk .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ierkyyiolk .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ierkyyiolk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">−0.989</td>
+<td class="gt_row gt_right" headers="std.error">0.023</td>
+<td class="gt_row gt_right" headers="statistic">−42.637</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">−1.035</td>
+<td class="gt_row gt_right" headers="conf.high">−0.944</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Age_c</td>
+<td class="gt_row gt_right" headers="estimate">0.057</td>
+<td class="gt_row gt_right" headers="std.error">0.003</td>
+<td class="gt_row gt_right" headers="statistic">17.780</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.051</td>
+<td class="gt_row gt_right" headers="conf.high">0.063</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column">
+<div class="fact">
+<div class="fact-title">
+<p>Population logistic regression model</p>
+</div>
+<div class="fact-cont">
+<p><span class="math display">\[\text{logit}(\pi(Age)) = \beta_0 + \beta_1 \cdot Age\]</span></p>
+</div>
+</div>
+</div><div class="column">
+<div class="proposition">
+<div class="prop-title">
+<p>Fitted logistic regression model</p>
+</div>
+<div class="prop-cont">
+<p><span class="math display">\[\text{logit}(\widehat{\pi}(Age)) = -0.989 + 0.057 \cdot Age\]</span></p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="coefficients-on-the-log-odds-scale" class="slide level2">
+<h2>Coefficients on the log-odds scale</h2>
+<div class="columns">
+<div class="column">
+<div class="fact">
+<div class="fact-title">
+<p>Population logistic regression model</p>
+</div>
+<div class="fact-cont">
+<p><span class="math display">\[\text{logit}(\pi(X)) = \beta_0 + \beta_1 \cdot X\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span>: log-odds of <span class="math inline">\(Y=1\)</span> when <span class="math inline">\(X\)</span> is 0</li>
+<li><span class="math inline">\(\beta_1\)</span>: increase in log-odds of <span class="math inline">\(Y=1\)</span> for every 1 unit increase in <span class="math inline">\(X\)</span></li>
+</ul>
+</div>
+</div>
+</div><div class="column">
+<div class="proposition">
+<div class="prop-title">
+<p>Fitted logistic regression model</p>
+</div>
+<div class="prop-cont">
+<p><span class="math display">\[\text{logit}(\widehat{\pi}(X)) = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot X\]</span></p>
+<ul>
+<li><span class="math inline">\(\widehat{\beta}_0\)</span>: estimated log-odds of <span class="math inline">\(Y=1\)</span> when <span class="math inline">\(X\)</span> is 0</li>
+<li><span class="math inline">\(\widehat{\beta}_1\)</span>: estimated increase in log-odds of <span class="math inline">\(Y=1\)</span> for every 1 unit increase in <span class="math inline">\(X\)</span></li>
+<li>Can use expected instead of estimated</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="recall-our-example-late-stage-breast-cancer-diagnosis-1" class="slide level2">
+<h2>Recall our example: Late stage breast cancer diagnosis</h2>
+<ul>
+<li>Fitted logistic regression model: <span class="math display">\[\text{logit}(\widehat{\pi}(Age)) = -0.989 + 0.057 \cdot Age\]</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p><span class="math inline">\(\widehat{\beta}_0\)</span>: The estimated log-odds is -0.989 for someone who is 61.71 years (95% CI: -1.035, -0.944)</p></li>
+<li><p><span class="math inline">\(\widehat{\beta}_1\)</span>: The estimated increase in log-odds is 0.057 for every 1 year increase in age (95% CI: 0.051, 0.063).</p></li>
+</ul>
+<p>&nbsp; &nbsp;</p>
+<ul>
+<li><p>What does a log-odds even mean?? Or an increase in log-odds??</p></li>
+<li><p>We will need to calculate the <strong>odds ratio</strong> and its confidence interval</p>
+<ul>
+<li>Then we will visualize the odds ratio</li>
+</ul></li>
+</ul>
+<div class="cell">
+<style type="text/css">
+.reveal code {
+  max-height: 80% !important;
+}
+</style>
+</div>
+</section>
+<section id="poll-everywhere-question-1" class="slide level2">
+<h2>Poll Everywhere Question 1</h2>
+</section>
+<section id="we-typically-interpret-our-results-using-odds-ratios" class="slide level2">
+<h2>We typically interpret our results using odds ratios</h2>
+<p>For our <em>fitted</em> simple logistic regression model with a continuous predictor <span class="math display">\[\text{logit}(\widehat{\pi}(X)) = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot X\]</span></p>
+<ul>
+<li>How do we go from interpretations of <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> using log odds to odds ratios?</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>We will need to take the exponential of our model:</p>
+<ul>
+<li><span class="math inline">\(\text{exp}(\widehat{\beta}_0)\)</span>: expected odds that <span class="math inline">\(Y=1\)</span> when X is 0.</li>
+<li><span class="math inline">\(\text{exp}(\widehat{\beta}_1)\)</span>: expected odds ratio that <span class="math inline">\(Y=1\)</span> for every 1 unit increase in X</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p><strong>Important distinction:</strong></p>
+<ul>
+<li>We take the <strong>inverse logit</strong> to find our <strong>predicted probability</strong></li>
+<li>We take the <strong>exponential</strong> to interpret the <strong>odds/odds ratios</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="introrecap-of-interpreting-fitted-model" class="slide level2">
+<h2>Intro/Recap of Interpreting Fitted Model</h2>
+<ul>
+<li><p>Interpret coefficients from fitted logistic regression model</p>
+<ul>
+<li><strong>Goodness-of-fit of model should be assessed before summarizing findings</strong> (have not covered yet)</li>
+<li>In this lecture: assume model fits data well</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>The interpretation of the coefficients involves two issues:</p>
+<ul>
+<li>The functional relationship between the dependent variable and the independent variable (<em>link function</em>)</li>
+<li>Unit of change for the independent variable</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>We will learn the interpretation for</p>
+<ul>
+<li><p>Binary independent variable</p></li>
+<li><p>Categorical independent variable with multiple groups</p>
+<ul>
+<li>We looked at this for our race and ethnicity variable</li>
+</ul></li>
+<li><p>Continuous independent variable</p></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="learning-objectives-1" class="title-slide slide level1 center">
+<h1>Learning Objectives</h1>
+<div class="lob">
+<ol type="1">
+<li>Interpret odds ratios from fitted simple logistic regression model for a continuous explanatory variable.</li>
+</ol>
+</div>
+<ol start="2" type="1">
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a binary explanatory variable.</p></li>
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a multi-level categorical explanatory variable.</p></li>
+<li><p>Report the odds ratio using a table and/or a forest plot.</p></li>
+</ol>
+</section>
+<section id="coefficient-interpretation-continuous-independent-variable" class="slide level2">
+<h2>Coefficient interpretation: Continuous Independent Variable</h2>
+<ul>
+<li>For simplicity, we assume the linear relationship between logit and continuous variable <span class="math inline">\(X\)</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Again using simple logistic regression model to illustrate the interpretation of <span class="math inline">\(\widehat{\beta}\)</span> for a continuous variable <span class="math inline">\(X\)</span> <span class="math display">\[\text{logit}(\widehat{\pi}(X)) = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot X\]</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>The estimated slope coefficient, <span class="math inline">\(\widehat{\beta}_1\)</span>, is the <strong>expected change in the log odds for 1 unit increase in</strong> <span class="math inline">\(X\)</span></p>
+<ul>
+<li>Additional attention should be paid to picking a meaningful units of change in <span class="math inline">\(X\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="how-do-we-get-the-odds-ratio-for-xs-coefficient" class="slide level2">
+<h2>How do we get the odds ratio for X’s coefficient?</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<p>For <span class="math inline">\(\text{exp}(\widehat{\beta}_1)\)</span></p>
+<ul>
+<li>We compare <span class="math inline">\(X=x\)</span> and <span class="math inline">\(X=x+1\)</span>,</li>
+<li>So we have <span class="math display">\[\text{logit}(\widehat{\pi}(X = x)) = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x\]</span> and <span class="math display">\[\text{logit}(\widehat{\pi}(X = x+1)) = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot (x+1)\]</span></li>
+<li>And… <span class="math display">\[\begin{aligned} &amp; \text{logit}(\widehat{\pi}(X = x+1)) - \text{logit}(\widehat{\pi}(X = x)) \\ &amp; =  
+\widehat{\beta}_0 + \widehat{\beta}_1 \cdot (x+1) - \big[\widehat{\beta}_0 + \widehat{\beta}_1 \cdot x \big] \\ &amp;= \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x + \widehat{\beta}_1 - \widehat{\beta}_0 - \widehat{\beta}_1 \cdot x \\ &amp; =
+\widehat{\beta}_1 \end{aligned}\]</span></li>
+</ul>
+</div><div class="column" style="width:58%;">
+<ul>
+<li>Thus, <span class="math display">\[\begin{aligned} \widehat{\beta}_1 &amp; =  \text{logit}(\widehat{\pi}(X = x+1)) - \text{logit}(\widehat{\pi}(X = x)) \\
+\widehat{\beta}_1 &amp; =  \text{log}\Bigg(\dfrac{\widehat{\pi}(X=x+1)}{1-\widehat{\pi}(X=x+1)}\Bigg) - \text{log}\Bigg(\dfrac{\widehat{\pi}(X=x)}{1-\widehat{\pi}(X=x)}\Bigg) \\
+\widehat{\beta}_1 &amp; =  \text{log}\left(\dfrac{\dfrac{\widehat{\pi}(X=x+1)}{1-\widehat{\pi}(X=x+1)}} {\dfrac{\widehat{\pi}(X=x)}{1-\widehat{\pi}(X=x)}}\right) \\
+\text{exp}\big[\widehat{\beta}_1\big] &amp; =  \text{exp}\left[\text{log}\left(\dfrac{\widehat{\text{odds}}_{X=x+1}} {\widehat{\text{odds}}_{X=x}}\right) \right] \\
+\text{exp}\big[\widehat{\beta}_1\big] &amp; =  \dfrac{\widehat{\text{odds}}_{X=x+1}} {\widehat{\text{odds}}_{X=x}} \\
+\end{aligned}\]</span></li>
+</ul>
+</div></div>
+</section>
+<section id="example-interpretation-of-age-coefficientor" class="slide level2">
+<h2>Example: Interpretation of Age Coefficient/OR</h2>
+<ul>
+<li><span class="math inline">\(\widehat{\beta}_1\)</span> is 0.057, suggesting that one year increase in age is associated with 0.057 increase in log odds of receiving a late stage breast cancer diagnosis</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p><span class="math inline">\(\exp\left({\widehat{\beta}}_1\right)\)</span> is 1.06, suggesting that one year increase in age is associated with 1.06 times the odds of receiving a late stage breast cancer diagnosis</p>
+<ul>
+<li>Can also say: For every one year increase in age, the odds of late stage breast cancer diagnosis is 1.06 times.</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>For continuous covariates in logistic regression model, it is helpful to subtract 1 from the odds ratio and multiply by 100 to obtain the percentage change in odds for 1-unit increase.</p>
+<ul>
+<li>The estimated OR for age is 1.06, suggesting that a 1-year increase in age is associated with a 6% increase in the predicted odds of late stage diagnosis</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-age-and-late-stage-diagnosis-15" class="slide level2">
+<h2>Example: Age and Late Stage Diagnosis (1/5)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>Compute the estimate and 95% confidence interval for odds ratio for late stage breast cancer diagnosis for every 1 year increase in age.</p>
+</div>
+</div>
+<p><strong>Needed steps:</strong></p>
+<ol type="1">
+<li>Fit the regression model</li>
+<li>Transform the coefficients into odds ratios</li>
+<li>Interpret the odds ratio</li>
+</ol>
+</section>
+<section id="example-age-and-late-stage-diagnosis-25" class="slide level2">
+<h2>Example: Age and Late Stage Diagnosis (2/5)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>Compute the estimate and 95% confidence interval for odds ratio for late stage breast cancer diagnosis for every 1 year increase in age.</p>
+</div>
+</div>
+<ol type="1">
+<li>Fit the regression model</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>bc_reg <span class="ot">=</span> bc <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">glm</span>(<span class="at">formula =</span> Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">family =</span> binomial)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-age-and-late-stage-diagnosis-35" class="slide level2">
+<h2>Example: Age and Late Stage Diagnosis (3/5)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>Compute the estimate and 95% confidence interval for odds ratio for late stage breast cancer diagnosis for every 1 year increase in age.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Transform the coefficients into odds ratios</li>
+</ol>
+<ul>
+<li>Option 1: <code>tidy()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>tidy_bc_reg <span class="ot">=</span> <span class="fu">tidy</span>(bc_reg, <span class="at">conf.int=</span>T, <span class="at">exponentiate =</span> T) </span>
+<span id="cb3-2"><a></a>tidy_bc_reg <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="bxzbpwbvip" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bxzbpwbvip table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bxzbpwbvip thead, #bxzbpwbvip tbody, #bxzbpwbvip tfoot, #bxzbpwbvip tr, #bxzbpwbvip td, #bxzbpwbvip th {
+  border-style: none;
+}
+
+#bxzbpwbvip p {
+  margin: 0;
+  padding: 0;
+}
+
+#bxzbpwbvip .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 35px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bxzbpwbvip .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bxzbpwbvip .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bxzbpwbvip .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bxzbpwbvip .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bxzbpwbvip .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bxzbpwbvip .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bxzbpwbvip .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bxzbpwbvip .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bxzbpwbvip .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bxzbpwbvip .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bxzbpwbvip .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bxzbpwbvip .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bxzbpwbvip .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bxzbpwbvip .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxzbpwbvip .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bxzbpwbvip .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bxzbpwbvip .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bxzbpwbvip .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxzbpwbvip .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bxzbpwbvip .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxzbpwbvip .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bxzbpwbvip .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxzbpwbvip .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bxzbpwbvip .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bxzbpwbvip .gt_left {
+  text-align: left;
+}
+
+#bxzbpwbvip .gt_center {
+  text-align: center;
+}
+
+#bxzbpwbvip .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bxzbpwbvip .gt_font_normal {
+  font-weight: normal;
+}
+
+#bxzbpwbvip .gt_font_bold {
+  font-weight: bold;
+}
+
+#bxzbpwbvip .gt_font_italic {
+  font-style: italic;
+}
+
+#bxzbpwbvip .gt_super {
+  font-size: 65%;
+}
+
+#bxzbpwbvip .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bxzbpwbvip .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bxzbpwbvip .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bxzbpwbvip .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bxzbpwbvip .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bxzbpwbvip .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bxzbpwbvip .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bxzbpwbvip .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bxzbpwbvip div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">0.372</td>
+<td class="gt_row gt_right" headers="std.error">0.023</td>
+<td class="gt_row gt_right" headers="statistic">−42.637</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.355</td>
+<td class="gt_row gt_right" headers="conf.high">0.389</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Age_c</td>
+<td class="gt_row gt_right" headers="estimate">1.059</td>
+<td class="gt_row gt_right" headers="std.error">0.003</td>
+<td class="gt_row gt_right" headers="statistic">17.780</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">1.052</td>
+<td class="gt_row gt_right" headers="conf.high">1.065</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>tidy_bc_reg<span class="sc">$</span>conf.low <span class="co"># I prefer tidy() bc now I can grab each component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3551931 1.0520321</code></pre>
+</div>
+</div>
+</section>
+<section id="example-age-and-late-stage-diagnosis-45" class="slide level2">
+<h2>Example: Age and Late Stage Diagnosis (4/5)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>Compute the estimate and 95% confidence interval for odds ratio for late stage breast cancer diagnosis for every 1 year increase in age.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Transform the coefficients into odds ratios</li>
+</ol>
+<ul>
+<li>Option 2: <code>logistic.display()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">logistic.display</span>(bc_reg) <span class="co"># Cannot grab each component in this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Logistic regression predicting Late_stage_diag : 1 vs 0 
+ 
+                   OR(95%CI)         P(Wald's test) P(LR-test)
+Age_c (cont. var.) 1.06 (1.05,1.07)  &lt; 0.001        &lt; 0.001   
+                                                              
+Log-likelihood = -5754.8442
+No. of observations = 10000
+AIC value = 11513.6884</code></pre>
+</div>
+</div>
+</section>
+<section id="poll-everywhere-question-2" class="slide level2">
+<h2>Poll Everywhere Question 2</h2>
+</section>
+<section id="example-age-and-late-stage-diagnosis-55" class="slide level2">
+<h2>Example: Age and Late Stage Diagnosis (5/5)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>Compute the estimate and 95% confidence interval for odds ratio for late stage breast cancer diagnosis for every 1 year increase in age.</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Interpret the odds ratio</li>
+</ol>
+<p>For every one year increase in age, there is an expected 5.86% increase in the odds of late stage breast cancer diagnosis (95% CI: 5.2%, 6.53%).</p>
+</section>
+<section id="transformations-of-continuous-variable-to-make-more-interpretable" class="slide level2">
+<h2>Transformations of continuous variable to make more interpretable</h2>
+<ul>
+<li>Sometimes a change in “1” unit may not be considered clinically interesting</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>For example, a 1 year increase in age or a 1 mm Hg increase in systolic blood pressure may be too small for a meaningful change in log odds</p>
+<ul>
+<li>Instead, we may be interested to find out the log odds change for a increase of 10 years in age or 10 mm Hg in systolic blood pressure</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>On the other hand, if the range of <span class="math inline">\(X\)</span> is small (say 0-1), than a change in 1 unit of <span class="math inline">\(X\)</span> is too large to be meaningful</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>We should be able to compute and interpret coefficients for a continuous independent covariate <span class="math inline">\(x\)</span> for an arbitrary change of “c” units in <span class="math inline">\(x\)</span></li>
+</ul>
+</section>
+<section id="transformations-of-continuous-variable-to-make-more-interpretable-1" class="slide level2">
+<h2>Transformations of continuous variable to make more interpretable</h2>
+<ul>
+<li><p>The estimated log odds ratio for a change of c units in x can be obtained from <span class="math display">\[\hat{g}\left(x+c\right)-\hat{g}\left(x\right)=c{\hat{\beta}}_1\]</span></p>
+<ul>
+<li><span class="math inline">\(\widehat{OR}\left(c\right)=\exp\left(c{\hat{\beta}}_1\right)\)</span></li>
+</ul></li>
+<li><p>The 95% CI for <span class="math inline">\(\widehat{OR}(c)\)</span> is: <span class="math display">\[\exp \left( c \hat{\beta}_1 \pm 1.96 \cdot c \cdot SE_{\hat{\beta}_1} \right)\]</span></p></li>
+<li><p>The <span class="math inline">\(c\)</span> is chosen to be a clinically meaningful unit change in <span class="math inline">\(x\)</span></p></li>
+<li><p>The value of 𝑐 should be clearly specified in all tables and calculations</p>
+<ul>
+<li>Because the estimated OR and the corresponding CI depends on the choice of 𝑐 value</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-10-year-increase-in-age-and-late-stage-diagnosis" class="slide level2">
+<h2>Example: 10 year increase in age and Late Stage Diagnosis</h2>
+<ul>
+<li>What if we are interested in learning the OR corresponding to 10-year increase in age?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>bc_reg <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">data =</span> bc, <span class="at">family =</span> binomial)</span>
+<span id="cb8-2"><a></a><span class="fu">tidy</span>(bc_reg, <span class="at">conf.int=</span>T) <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="coplqwfvek" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#coplqwfvek table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#coplqwfvek thead, #coplqwfvek tbody, #coplqwfvek tfoot, #coplqwfvek tr, #coplqwfvek td, #coplqwfvek th {
+  border-style: none;
+}
+
+#coplqwfvek p {
+  margin: 0;
+  padding: 0;
+}
+
+#coplqwfvek .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 35px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#coplqwfvek .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#coplqwfvek .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#coplqwfvek .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#coplqwfvek .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#coplqwfvek .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#coplqwfvek .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#coplqwfvek .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#coplqwfvek .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#coplqwfvek .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#coplqwfvek .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#coplqwfvek .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#coplqwfvek .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#coplqwfvek .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#coplqwfvek .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#coplqwfvek .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#coplqwfvek .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#coplqwfvek .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#coplqwfvek .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#coplqwfvek .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#coplqwfvek .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#coplqwfvek .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#coplqwfvek .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#coplqwfvek .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#coplqwfvek .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#coplqwfvek .gt_left {
+  text-align: left;
+}
+
+#coplqwfvek .gt_center {
+  text-align: center;
+}
+
+#coplqwfvek .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#coplqwfvek .gt_font_normal {
+  font-weight: normal;
+}
+
+#coplqwfvek .gt_font_bold {
+  font-weight: bold;
+}
+
+#coplqwfvek .gt_font_italic {
+  font-style: italic;
+}
+
+#coplqwfvek .gt_super {
+  font-size: 65%;
+}
+
+#coplqwfvek .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#coplqwfvek .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#coplqwfvek .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#coplqwfvek .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#coplqwfvek .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#coplqwfvek .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#coplqwfvek .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#coplqwfvek .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#coplqwfvek div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">−0.989</td>
+<td class="gt_row gt_right" headers="std.error">0.023</td>
+<td class="gt_row gt_right" headers="statistic">−42.637</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">−1.035</td>
+<td class="gt_row gt_right" headers="conf.high">−0.944</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Age_c</td>
+<td class="gt_row gt_right" headers="estimate">0.057</td>
+<td class="gt_row gt_right" headers="std.error">0.003</td>
+<td class="gt_row gt_right" headers="statistic">17.780</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.051</td>
+<td class="gt_row gt_right" headers="conf.high">0.063</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="example-10-year-increase-in-age-and-late-stage-diagnosis-1" class="slide level2">
+<h2>Example: 10 year increase in age and Late Stage Diagnosis</h2>
+<ul>
+<li>What if we are interested in learning the OR corresponding to 10-year increase in age?</li>
+</ul>
+<p><span class="math display">\[ \widehat{OR}\left(10\right)=\exp{\left(10\cdot{\hat{\beta}}_1\right)}=\exp{\left(0.56965\right)}=\mathrm{\mathrm{1.767}}\]</span></p>
+<ul>
+<li>The 95% CI for <span class="math inline">\(\widehat{OR}\left(10\right)\)</span> is: <span class="math display">\[\begin{aligned} \widehat{OR}\left(10\right) &amp;=\exp{\left(10\cdot{\hat{\beta}}_1\pm1.96\cdot10\cdot SE_{\hat{\beta}_1} \right)} \\ &amp;=\exp{\left(10\cdot0.056965\pm1.96\cdot10\cdot0.003204\right)}\\
+&amp;=(1.66,\ 1.88) \end{aligned}\]</span></li>
+</ul>
+</section>
+<section id="example-10-year-increase-in-age-and-late-stage-diagnosis-2" class="slide level2">
+<h2>Example: 10 year increase in age and Late Stage Diagnosis</h2>
+<ul>
+<li>What if we are interested in learning the OR corresponding to 10-year increase in age?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>bc2 <span class="ot">=</span> bc <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Age_c_10 =</span> Age_c<span class="sc">/</span><span class="dv">10</span>)</span>
+<span id="cb9-2"><a></a>bc_reg_10 <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c_10, <span class="at">data =</span> bc2, <span class="at">family =</span> binomial)</span>
+<span id="cb9-3"><a></a><span class="fu">tidy</span>(bc_reg_10, <span class="at">conf.int=</span>T, <span class="at">exponentiate =</span> T) <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tnivqkplpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tnivqkplpn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#tnivqkplpn thead, #tnivqkplpn tbody, #tnivqkplpn tfoot, #tnivqkplpn tr, #tnivqkplpn td, #tnivqkplpn th {
+  border-style: none;
+}
+
+#tnivqkplpn p {
+  margin: 0;
+  padding: 0;
+}
+
+#tnivqkplpn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 35px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#tnivqkplpn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#tnivqkplpn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#tnivqkplpn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#tnivqkplpn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#tnivqkplpn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#tnivqkplpn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#tnivqkplpn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#tnivqkplpn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#tnivqkplpn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#tnivqkplpn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tnivqkplpn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#tnivqkplpn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#tnivqkplpn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#tnivqkplpn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tnivqkplpn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#tnivqkplpn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#tnivqkplpn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#tnivqkplpn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tnivqkplpn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#tnivqkplpn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tnivqkplpn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#tnivqkplpn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tnivqkplpn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tnivqkplpn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tnivqkplpn .gt_left {
+  text-align: left;
+}
+
+#tnivqkplpn .gt_center {
+  text-align: center;
+}
+
+#tnivqkplpn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#tnivqkplpn .gt_font_normal {
+  font-weight: normal;
+}
+
+#tnivqkplpn .gt_font_bold {
+  font-weight: bold;
+}
+
+#tnivqkplpn .gt_font_italic {
+  font-style: italic;
+}
+
+#tnivqkplpn .gt_super {
+  font-size: 65%;
+}
+
+#tnivqkplpn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#tnivqkplpn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#tnivqkplpn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#tnivqkplpn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#tnivqkplpn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#tnivqkplpn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#tnivqkplpn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#tnivqkplpn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#tnivqkplpn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">0.372</td>
+<td class="gt_row gt_right" headers="std.error">0.023</td>
+<td class="gt_row gt_right" headers="statistic">−42.637</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.355</td>
+<td class="gt_row gt_right" headers="conf.high">0.389</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Age_c_10</td>
+<td class="gt_row gt_right" headers="estimate">1.768</td>
+<td class="gt_row gt_right" headers="std.error">0.032</td>
+<td class="gt_row gt_right" headers="statistic">17.780</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">1.661</td>
+<td class="gt_row gt_right" headers="conf.high">1.883</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="last-note-about-continuous-independent-variable" class="slide level2">
+<h2>Last Note About Continuous Independent Variable</h2>
+<ul>
+<li><p>Notice that the logistic regression model suggests that logit is linear in the covariate</p></li>
+<li><p>The model implies the additional risk of late stage breast cancer diagnosis for a 40 year-old compared to a 30 year-old is the same as the additional risk of late stage breast cancer diagnosis for a 60 year-old compared to a 50-year-old</p></li>
+<li><p>This assumption may not be realistic</p></li>
+<li><p>To address this, we may consider using higher order terms (e.g., <span class="math inline">\(x^2\)</span>, <span class="math inline">\(x^3\)</span>,…) or other nonlinear transformation(e.g., <span class="math inline">\(log(x)\)</span>)</p></li>
+<li><p>Categorize the continuous variable may be another option</p></li>
+</ul>
+</section>
+<section id="how-do-we-get-the-odds-for-the-intercept" class="slide level2">
+<h2>How do we get the odds for the intercept?</h2>
+<p>For <span class="math inline">\(\text{exp}(\widehat{\beta}_0)\)</span></p>
+<ul>
+<li><p>When <span class="math inline">\(X=0\)</span>, we have <span class="math display">\[\text{logit}(\widehat{\pi}(X=0)) = \widehat{\beta}_0\]</span></p></li>
+<li><p>Thus, <span class="math display">\[\begin{aligned} \widehat{\beta}_0 &amp; = \text{logit}(\widehat{\pi}(X)) \\
+\text{exp}\big[\widehat{\beta}_0\big] &amp; = \text{exp}\big[\text{logit}(\widehat{\pi}(X))\big] \\
+\text{exp}\big[\widehat{\beta}_0\big] &amp; = \text{exp}\Bigg[\text{log}\Bigg(\dfrac{\widehat{\pi}(X)}{1-\widehat{\pi}(X)}\Bigg)\Bigg] \\
+\text{exp}\big[\widehat{\beta}_0\big] &amp; = \dfrac{\widehat{\pi}(X)}{1-\widehat{\pi}(X)} \\
+\end{aligned}\]</span></p></li>
+</ul>
+</section></section>
+<section>
+<section id="learning-objectives-2" class="title-slide slide level1 center">
+<h1>Learning Objectives</h1>
+<ol type="1">
+<li>Interpret odds ratios from fitted simple logistic regression model for a continuous explanatory variable.</li>
+</ol>
+<div class="lob">
+<ol start="2" type="1">
+<li>Interpret odds ratios from fitted simple logistic regression model for a binary explanatory variable.</li>
+</ol>
+</div>
+<ol start="3" type="1">
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a multi-level categorical explanatory variable.</p></li>
+<li><p>Report the odds ratio using a table and/or a forest plot.</p></li>
+</ol>
+</section>
+<section id="coefficient-interpretation-binary-independent-variable" class="slide level2">
+<h2>Coefficient Interpretation: Binary Independent Variable</h2>
+<ul>
+<li>Independent variable <span class="math inline">\(X\)</span> is a binary variable (<span class="math inline">\(X\)</span> can take values: 0 or 1)</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>We are fitting the simple logistic regression model: <span class="math display">\[\text{logit}\left(\pi(X) \right) = \beta_0 + \beta_1 \cdot I(X=1)\]</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>The logit difference is <span class="math inline">\(\beta_1\)</span> for binary independent variable</p>
+<ul>
+<li><span class="math inline">\(\beta_1\)</span> represents the change/difference in the logit for <span class="math inline">\(X=1\)</span> vs.&nbsp;<span class="math inline">\(X=0\)</span></li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>It will be much easier to understand if we can interpret the coefficient using odds ratio (OR)</li>
+</ul>
+</section>
+<section id="binary-how-do-we-interpret-the-coefficient-i" class="slide level2">
+<h2>Binary: How do we interpret the coefficient? (I)</h2>
+<ul>
+<li>For individuals with <span class="math inline">\(X=0\)</span>: <span class="math display">\[\text{logit}\left(\pi(X=0)\right)=\beta_0+\beta_1\times\left(0\right)=\beta_0\]</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>For individuals with <span class="math inline">\(X=1\)</span>: <span class="math display">\[\text{logit}\left(\pi(X=1)\right)=\beta_0+\beta_1\times\left(1\right)=\beta_0 + \beta_1\]</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>To solve for <span class="math inline">\(\beta_1\)</span>, we take the difference of the logits: <span class="math display">\[ \text{logit}\left(\pi(X=1)\right) - \text{logit}\left(\pi(X=0)\right) = \left( \beta_0 + \beta_1 \right) - \left( \beta_0 \right) = \beta_1\]</span></li>
+</ul>
+</section>
+<section id="binary-how-do-we-interpret-the-coefficient-ii" class="slide level2">
+<h2>Binary: How do we interpret the coefficient? (II)</h2>
+<p><span class="math display">\[ \text{logit}\left(\pi(X=1)\right) - \text{logit}\left(\pi(X=0)\right) = \left( \beta_0 + \beta_1 \right) - \left( \beta_0 \right) = \beta_1\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+\beta_1&amp;=l\mathrm{ogit}\left(\pi(X=1)\right)\ -l\mathrm{ogit}\left(\pi\left(X=0\right)\right) \\  \beta_1&amp;=l\mathrm{og}\left(\dfrac{\pi(X=1)}{1-\pi(X=1)}\right)-l\mathrm{og}\left(\dfrac{\pi\left(X=0\right)}{1-\pi\left(X=0\right)}\right) \\
+\beta_1&amp;=\log{\left(\dfrac{\dfrac{\pi(X=1)}{1-\pi(X=1)}}{\dfrac{\pi(X=0)}{1-\pi(X=0)}}\right)} \\ \exp{\left(\beta_1\right)}&amp;=\dfrac{\dfrac{\pi(X=1)}{1-\pi(X=1)}}{\dfrac{\pi(X=0)}{1-\pi(X=0)}}
+\end{aligned}\]</span></p>
+</section>
+<section id="review-of-odds-ratio" class="slide level2">
+<h2>Review of Odds Ratio</h2>
+<ul>
+<li><p>Odds for a subject with <span class="math inline">\(X=1\)</span>: <span class="math display">\[\text{odds}_1 = \dfrac{\pi(X=1)}{1-\pi(X=1)}\]</span></p></li>
+<li><p>Odds for a subject with <span class="math inline">\(X=0\)</span>: <span class="math display">\[\text{odds}_0 = \dfrac{\pi(X=0)}{1-\pi(X=0)}\]</span></p></li>
+<li><p>Odds Ratio for <span class="math inline">\(X=1\)</span> vs.&nbsp;<span class="math inline">\(X=0\)</span>: <span class="math display">\[OR = \dfrac{\dfrac{\pi(X=1)}{1-\pi(X=1)}}{\dfrac{\pi(X=0)}{1-\pi(X=0)}}\]</span></p></li>
+</ul>
+</section>
+<section id="how-does-this-relate-to-a-2x2-table" class="slide level2">
+<h2>How does this relate to a 2x2 table?</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<ul>
+<li>2x2 table with the respective logistic functions in each cell</li>
+</ul>
+<p><img data-src="images/binary_ct.png"></p>
+</div><div class="column" style="width:25%;">
+<p><img data-src="images/recall_pi.png"></p>
+</div></div>
+</section>
+<section id="poll-everywhere-question-3" class="slide level2">
+<h2>Poll Everywhere Question 3</h2>
+</section>
+
+<section id="example-binary-age-and-late-stage-diagnosis-14" class="slide level2">
+<h2>Example: Binary age and Late Stage Diagnosis (1/4)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for older individuals (&gt;65 years old) compared to younger individuals (≤65 years old)?</p>
+</div>
+</div>
+<ul>
+<li><p>Two options to calculate this value:</p>
+<ul>
+<li><p><span style="color:#ED7D31; font-weight: bold;">Option 1:</span> Calculate <span class="math inline">\(\widehat{OR}\)</span> from 2x2 contingency table</p>
+<ul>
+<li>Try at home: Refer to <a href="https://nwakim.github.io/S2024_BSTA_513/lectures/03_Meas_Assoc_CT/03_Meas_Assoc_CT.html#/title-slide">Lesson 3</a> for this process</li>
+</ul></li>
+<li><p><span style="color:#D6295E; font-weight: bold;">Option 2:</span> Calculate <span class="math inline">\(\widehat{OR}\)</span> from logistic regression</p></li>
+</ul></li>
+</ul>
+<p><strong>Needed steps for <span style="color:#D6295E; font-weight: bold;">Option 2</span>:</strong></p>
+<ol type="1">
+<li>Fit the regression model</li>
+<li>Transform the coefficients into odds ratios</li>
+<li>Interpret the odds ratio</li>
+</ol>
+</section>
+<section id="example-binary-age-and-late-stage-diagnosis-24" class="slide level2">
+<h2>Example: Binary age and Late Stage Diagnosis (2/4)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for older individuals (&gt;65 years old) compared to younger individuals (≤65 years old)?</p>
+</div>
+</div>
+<ol type="1">
+<li>Fit the regression model</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>bc3 <span class="ot">=</span> bc <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Age_binary =</span> <span class="fu">ifelse</span>(Age <span class="sc">&gt;</span> <span class="dv">65</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb10-2"><a></a>age_bin_glm <span class="ot">=</span> bc3 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(<span class="at">formula =</span> Late_stage_diag <span class="sc">~</span> Age_binary, <span class="at">family =</span> binomial)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-binary-age-and-late-stage-diagnosis-34" class="slide level2">
+<h2>Example: Binary age and Late Stage Diagnosis (3/4)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for older individuals (&gt;65 years old) compared to younger individuals (≤65 years old)?</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Transform the coefficients into odds ratios</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>age_bin_tidy <span class="ot">=</span> <span class="fu">tidy</span>(age_bin_glm, <span class="at">conf.int=</span>T, <span class="at">exponentiate =</span> T) </span>
+<span id="cb11-2"><a></a>age_bin_tidy <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="csbbiiboyz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#csbbiiboyz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#csbbiiboyz thead, #csbbiiboyz tbody, #csbbiiboyz tfoot, #csbbiiboyz tr, #csbbiiboyz td, #csbbiiboyz th {
+  border-style: none;
+}
+
+#csbbiiboyz p {
+  margin: 0;
+  padding: 0;
+}
+
+#csbbiiboyz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 35px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#csbbiiboyz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#csbbiiboyz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#csbbiiboyz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#csbbiiboyz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#csbbiiboyz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#csbbiiboyz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#csbbiiboyz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#csbbiiboyz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#csbbiiboyz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#csbbiiboyz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#csbbiiboyz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#csbbiiboyz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#csbbiiboyz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#csbbiiboyz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csbbiiboyz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#csbbiiboyz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#csbbiiboyz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#csbbiiboyz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csbbiiboyz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#csbbiiboyz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csbbiiboyz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#csbbiiboyz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csbbiiboyz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#csbbiiboyz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#csbbiiboyz .gt_left {
+  text-align: left;
+}
+
+#csbbiiboyz .gt_center {
+  text-align: center;
+}
+
+#csbbiiboyz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#csbbiiboyz .gt_font_normal {
+  font-weight: normal;
+}
+
+#csbbiiboyz .gt_font_bold {
+  font-weight: bold;
+}
+
+#csbbiiboyz .gt_font_italic {
+  font-style: italic;
+}
+
+#csbbiiboyz .gt_super {
+  font-size: 65%;
+}
+
+#csbbiiboyz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#csbbiiboyz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#csbbiiboyz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#csbbiiboyz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#csbbiiboyz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#csbbiiboyz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#csbbiiboyz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#csbbiiboyz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#csbbiiboyz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">0.297</td>
+<td class="gt_row gt_right" headers="std.error">0.031</td>
+<td class="gt_row gt_right" headers="statistic">−39.608</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.280</td>
+<td class="gt_row gt_right" headers="conf.high">0.315</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Age_binary</td>
+<td class="gt_row gt_right" headers="estimate">1.875</td>
+<td class="gt_row gt_right" headers="std.error">0.045</td>
+<td class="gt_row gt_right" headers="statistic">13.928</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">1.716</td>
+<td class="gt_row gt_right" headers="conf.high">2.048</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="poll-everywhere-question-4" class="slide level2">
+<h2>Poll Everywhere Question 4</h2>
+</section>
+<section id="example-binary-age-and-late-stage-diagnosis-44" class="slide level2">
+<h2>Example: Binary age and Late Stage Diagnosis (4/4)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for older individuals (&gt;65 years old) compared to younger individuals (≤65 years old)?</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Interpret the odds ratio</li>
+</ol>
+<p>The estimated odds of late stage breast cancer among individuals over 65 years old is 1.87 (95% CI: (1.72, 2.05)) times that of individuals 65 years or younger.</p>
+</section></section>
+<section>
+<section id="learning-objectives-3" class="title-slide slide level1 center">
+<h1>Learning Objectives</h1>
+<ol type="1">
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a continuous explanatory variable.</p></li>
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a binary explanatory variable.</p></li>
+</ol>
+<div class="lob">
+<ol start="3" type="1">
+<li>Interpret odds ratios from fitted simple logistic regression model for a multi-level categorical explanatory variable.</li>
+</ol>
+</div>
+<ol start="4" type="1">
+<li>Report the odds ratio using a table and/or a forest plot.</li>
+</ol>
+</section>
+<section id="coefficient-interpretation-multi-group-categorical-variable" class="slide level2">
+<h2>Coefficient Interpretation: Multi-group Categorical Variable</h2>
+<ul>
+<li>Independent variable <span class="math inline">\(X\)</span> is a multi-level categorical variable</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Let’s say <span class="math inline">\(X\)</span> takes values: a, b, c, or d</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>We are fitting the simple logistic regression model: <span class="math display">\[\text{logit}\left(\pi(X) \right) = \beta_0 + \beta_1 \cdot I(X=b) + \beta_2 \cdot I(X=c) + \beta_3 \cdot I(X=d)\]</span></p>
+<ul>
+<li>Where <span class="math inline">\(a\)</span> is our reference group</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><span class="math inline">\(\beta_1\)</span> represents the change/difference in the log-odds for <span class="math inline">\(X=b\)</span> vs.&nbsp;<span class="math inline">\(X=a\)</span></li>
+</ul>
+</section>
+<section id="coefficient-interpretation-multi-group-categorical-variable-1" class="slide level2">
+<h2>Coefficient Interpretation: Multi-group Categorical Variable</h2>
+<p>We are fitting the simple logistic regression model with reference group <span class="math inline">\(a\)</span>: <span class="math display">\[\text{logit}\left(\pi(X) \right) = \beta_0 + \beta_1 \cdot I(X=b) + \beta_2 \cdot I(X=c) + \beta_3 \cdot I(X=d)\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span>: the log-odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(a\)</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><span class="math inline">\(\beta_1\)</span>: the difference in log-odds of event <span class="math inline">\(Y=1\)</span> comparing group <span class="math inline">\(b\)</span> to group <span class="math inline">\(a\)</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><span class="math inline">\(\beta_2\)</span>: the difference in log-odds of event <span class="math inline">\(Y=1\)</span> comparing group <span class="math inline">\(c\)</span> to group <span class="math inline">\(a\)</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><span class="math inline">\(\beta_3\)</span>: the difference in log-odds of event <span class="math inline">\(Y=1\)</span> comparing group <span class="math inline">\(d\)</span> to group <span class="math inline">\(a\)</span></li>
+</ul>
+</section>
+<section id="multi-level-categorical-how-do-we-interpret-the-coefficient-ii" class="slide level2">
+<h2>Multi-level categorical: How do we interpret the coefficient? (II)</h2>
+<p><span class="math display">\[ \text{logit}\left(\pi(X=c)\right) - \text{logit}\left(\pi(X=a)\right) = \left( \beta_0 + \beta_1\cdot 0 + \beta_2\cdot 1 + \beta_3\cdot 0  \right) - \left( \beta_0 + \beta_1\cdot 0 + \beta_2\cdot 0 + \beta_3\cdot 0 \right) = \beta_2\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+\beta_2&amp;=l\mathrm{ogit}\left(\pi(X=c)\right)\ -l\mathrm{ogit}\left(\pi\left(X=a\right)\right) \\  \beta_2&amp;=l\mathrm{og}\left(\dfrac{\pi(X=c)}{1-\pi(X=c)}\right)-l\mathrm{og}\left(\dfrac{\pi\left(X=a\right)}{1-\pi\left(X=a\right)}\right) \\
+\beta_2&amp;=\log{\left(\dfrac{\dfrac{\pi(X=c)}{1-\pi(X=c)}}{\dfrac{\pi(X=a)}{1-\pi(X=a)}}\right)} \\ \exp{\left(\beta_2\right)}&amp;=\dfrac{\dfrac{\pi(X=c)}{1-\pi(X=c)}}{\dfrac{\pi(X=a)}{1-\pi(X=a)}}
+\end{aligned}\]</span></p>
+</section>
+<section id="coefficient-interpretation-multi-group-categorical-variable-2" class="slide level2">
+<h2>Coefficient Interpretation: Multi-group Categorical Variable</h2>
+<p>We are fitting the simple logistic regression model with reference group <span class="math inline">\(a\)</span>: <span class="math display">\[\text{logit}\left(\pi(X) \right) = \beta_0 + \beta_1 \cdot I(X=b) + \beta_2 \cdot I(X=c) + \beta_3 \cdot I(X=d)\]</span></p>
+<ul>
+<li><span class="math inline">\(\exp\left(\beta_0\right)\)</span>: the odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(a\)</span></li>
+<li><span class="math inline">\(\exp\left(\beta_1\right)\)</span>: the odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(b\)</span> is <span class="math inline">\(\exp\left(\beta_1\right)\)</span> times the odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(a\)</span></li>
+<li><span class="math inline">\(\exp\left(\beta_2\right)\)</span>: the odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(c\)</span> is <span class="math inline">\(\exp\left(\beta_2\right)\)</span> times the odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(a\)</span></li>
+<li><span class="math inline">\(\exp\left(\beta_3\right)\)</span>: the odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(d\)</span> is <span class="math inline">\(\exp\left(\beta_3\right)\)</span> times the odds of event <span class="math inline">\(Y=1\)</span> for group <span class="math inline">\(a\)</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Remember, as soon as we fit the regression model, we talk about the “expected odds” or “estimated odds”</li>
+</ul>
+</section>
+<section id="how-do-we-pick-the-reference-group" class="slide level2">
+<h2>How do we pick the reference group?</h2>
+<ul>
+<li>The choice can be more apparent for multi-group categorical independent variables within studies</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><p>For example, if we want to evaluate the association between clinical response and four treatments.</p>
+<ul>
+<li><p>The treatment variable has 4 categories: “active treatment A”, “active treatment B”, “active treatment C” and “Placebo treatment”</p></li>
+<li><p>The investigator is interested in comparing each of the three active treatment with the placebo treatment</p></li>
+<li><p>Then the placebo treatment should be picked as the reference group</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-late-stage-diagnosis-and-race-and-ethnicity" class="slide level2">
+<h2>Example: Late stage diagnosis and race and ethnicity</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>We chose Non-Hispanic White individuals as reference group</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Underlying health disparities linked to racism in healthcare and in clinical studies</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>There is evidence that white individuals receive a certain standard of care that is not paralleled for POC (<span class="citation" data-cites="yedjou2019">Mateo and Williams (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>)</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="./images/bc_ct.png"></p>
+</div></div>
+<ul>
+<li>Something else to consider: if your reference group does not have a lot of individuals, then you may not see any statistical significance!</li>
+</ul>
+</section>
+<section id="example-late-stage-diagnosis-and-race-and-ethnicity-1" class="slide level2">
+<h2>Example: Late stage diagnosis and race and ethnicity</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for Non-Hispanic Asian/Pacific Islander individuals compared to Non-Hispanic White individuals?</p>
+</div>
+</div>
+<p><strong>Needed steps:</strong></p>
+<ol type="1">
+<li>Fit the regression model</li>
+<li>Transform the coefficients into odds ratios</li>
+<li>Interpret the odds ratio</li>
+</ol>
+</section>
+<section id="example-late-stage-diagnosis-and-race-and-ethnicity-2" class="slide level2">
+<h2>Example: Late stage diagnosis and race and ethnicity</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for Non-Hispanic Asian/Pacific Islander individuals compared to Non-Hispanic White individuals?</p>
+</div>
+</div>
+<ol type="1">
+<li>Fit the regression model</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>RE_glm <span class="ot">=</span> bc <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">glm</span>(<span class="at">formula =</span> Late_stage_diag <span class="sc">~</span> Race_Ethnicity, <span class="at">family =</span> binomial)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-late-stage-diagnosis-and-race-and-ethnicity-3" class="slide level2">
+<h2>Example: Late stage diagnosis and race and ethnicity</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for Non-Hispanic Asian/Pacific Islander individuals compared to Non-Hispanic White individuals?</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Transform the coefficients into odds ratios</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>RE_tidy <span class="ot">=</span> <span class="fu">tidy</span>(RE_glm, <span class="at">conf.int=</span>T, <span class="at">exponentiate =</span> T) </span>
+<span id="cb13-2"><a></a>RE_tidy <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="jespulhddg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jespulhddg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jespulhddg thead, #jespulhddg tbody, #jespulhddg tfoot, #jespulhddg tr, #jespulhddg td, #jespulhddg th {
+  border-style: none;
+}
+
+#jespulhddg p {
+  margin: 0;
+  padding: 0;
+}
+
+#jespulhddg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 35px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jespulhddg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jespulhddg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jespulhddg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jespulhddg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jespulhddg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jespulhddg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jespulhddg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jespulhddg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jespulhddg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jespulhddg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jespulhddg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jespulhddg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jespulhddg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jespulhddg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jespulhddg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jespulhddg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jespulhddg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jespulhddg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jespulhddg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jespulhddg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jespulhddg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jespulhddg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jespulhddg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jespulhddg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jespulhddg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jespulhddg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jespulhddg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jespulhddg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jespulhddg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jespulhddg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jespulhddg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jespulhddg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jespulhddg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jespulhddg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jespulhddg .gt_left {
+  text-align: left;
+}
+
+#jespulhddg .gt_center {
+  text-align: center;
+}
+
+#jespulhddg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jespulhddg .gt_font_normal {
+  font-weight: normal;
+}
+
+#jespulhddg .gt_font_bold {
+  font-weight: bold;
+}
+
+#jespulhddg .gt_font_italic {
+  font-style: italic;
+}
+
+#jespulhddg .gt_super {
+  font-size: 65%;
+}
+
+#jespulhddg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jespulhddg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jespulhddg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jespulhddg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jespulhddg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jespulhddg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jespulhddg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#jespulhddg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#jespulhddg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">0.372</td>
+<td class="gt_row gt_right" headers="std.error">0.026</td>
+<td class="gt_row gt_right" headers="statistic">−37.553</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.353</td>
+<td class="gt_row gt_right" headers="conf.high">0.392</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Race_EthnicityHispanic-Latino</td>
+<td class="gt_row gt_right" headers="estimate">0.968</td>
+<td class="gt_row gt_right" headers="std.error">0.082</td>
+<td class="gt_row gt_right" headers="statistic">−0.398</td>
+<td class="gt_row gt_right" headers="p.value">0.691</td>
+<td class="gt_row gt_right" headers="conf.low">0.822</td>
+<td class="gt_row gt_right" headers="conf.high">1.135</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">Race_EthnicityNH American Indian/Alaskan Native</td>
+<td class="gt_row gt_right" headers="estimate">0.948</td>
+<td class="gt_row gt_right" headers="std.error">0.476</td>
+<td class="gt_row gt_right" headers="statistic">−0.111</td>
+<td class="gt_row gt_right" headers="p.value">0.911</td>
+<td class="gt_row gt_right" headers="conf.low">0.342</td>
+<td class="gt_row gt_right" headers="conf.high">2.287</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Race_EthnicityNH Asian/Pacific Islander</td>
+<td class="gt_row gt_right" headers="estimate">1.131</td>
+<td class="gt_row gt_right" headers="std.error">0.082</td>
+<td class="gt_row gt_right" headers="statistic">1.497</td>
+<td class="gt_row gt_right" headers="p.value">0.134</td>
+<td class="gt_row gt_right" headers="conf.low">0.961</td>
+<td class="gt_row gt_right" headers="conf.high">1.327</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">Race_EthnicityNH Black</td>
+<td class="gt_row gt_right" headers="estimate">1.405</td>
+<td class="gt_row gt_right" headers="std.error">0.070</td>
+<td class="gt_row gt_right" headers="statistic">4.826</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">1.223</td>
+<td class="gt_row gt_right" headers="conf.high">1.611</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="example-late-stage-diagnosis-and-race-and-ethnicity-4" class="slide level2">
+<h2>Example: Late stage diagnosis and race and ethnicity</h2>
+<div class="example">
+<div class="ex-title">
+<p>Odds ratio from logistic regression</p>
+</div>
+<div class="ex-cont">
+<p>What is the odds ratio of late stage breast cancer diagnosis for Non-Hispanic Asian/Pacific Islander individuals compared to Non-Hispanic White individuals?</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Interpret the odds ratio</li>
+</ol>
+<p>The estimated odds of late stage breast cancer among Non-Hispanic Asian/Pacific Islander individuals is 1.13 (95% CI: (0.96, 1.33)) times that of Non-Hispanic White individuals.</p>
+</section>
+<section id="what-if-you-want-to-compare-other-groups" class="slide level2">
+<h2>What if you want to compare other groups?</h2>
+<ul>
+<li><p>What if we want to estimate OR comparing Non-Hispanic Asian Pacific Islander to Non-Hispanic Black individuals?</p></li>
+<li><p><span style="color:#ED7D31; font-weight: bold;">Option 1:</span> Change reference group and refit the model (maybe the easiest option)</p></li>
+<li><p><span style="color:#D6295E; font-weight: bold;">Option 2:</span> Estimate OR using fitted coefficients (<span class="math inline">\(\widehat{\beta}\)</span>’s) in the current model: <span class="math display">\[\begin{aligned} \text{log}\left( OR (\text{NH API}, \text{NH B}) \right) &amp;= \text{logit}\left(\pi \left(X = \text{NH API}\right)\right) - \text{logit}\left(\pi \left(X = \text{NH B}\right)\right) \\
+&amp; = \left[\beta_0 + \beta_3 \cdot 1\right] - \left[\beta_0 + \beta_4 \cdot 1 \right] \\
+\text{log}\left( \widehat{OR} (\text{NH API}, \text{NH B}) \right) &amp;= \widehat{\beta}_3 - \widehat{\beta}_4 \\
+\widehat{OR} (\text{NH API}, \text{NH B}) &amp;= \exp \left( \widehat{\beta}_3 - \widehat{\beta}_4 \right)
+\end{aligned}\]</span></p></li>
+</ul>
+</section>
+<section id="reference-using-estimable-in-option-2" class="slide level2">
+<h2>Reference: Using <code>estimable()</code> in <span style="color:#D6295E; font-weight: bold;">Option 2</span></h2>
+<ul>
+<li>We could use <code>estimable()</code> to calculate this linear combination of coefficients (<a href="https://nwakim.github.io/BSTA_512_W25/lessons/12_Interactions_02/12_Interactions_02.html#/we-can-use-r-and-estimable-to-find-the-estimate-and-ci">see BSTA 512 Lesson</a>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(gmodels)</span>
+<span id="cb14-2"><a></a>RE_glm <span class="sc">%&gt;%</span> <span class="fu">estimable</span>(</span>
+<span id="cb14-3"><a></a>                   <span class="fu">c</span>(<span class="st">"(Intercept)"</span>                                     <span class="ot">=</span> <span class="dv">0</span>,   <span class="co"># beta0</span></span>
+<span id="cb14-4"><a></a>                     <span class="st">"Race_EthnicityHispanic-Latino"</span>                   <span class="ot">=</span> <span class="dv">0</span>,   <span class="co"># beta1</span></span>
+<span id="cb14-5"><a></a>                     <span class="st">"Race_EthnicityNH American Indian/Alaskan Native"</span> <span class="ot">=</span> <span class="dv">0</span>,   <span class="co"># beta2</span></span>
+<span id="cb14-6"><a></a>                     <span class="st">"Race_EthnicityNH Asian/Pacific Islander"</span>         <span class="ot">=</span> <span class="dv">1</span>,   <span class="co"># beta3</span></span>
+<span id="cb14-7"><a></a>                     <span class="st">"Race_EthnicityNH Black"</span>                          <span class="ot">=</span> <span class="sc">-</span><span class="dv">1</span>), <span class="co"># beta4</span></span>
+<span id="cb14-8"><a></a>                   <span class="at">conf.int =</span> <span class="fl">0.95</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-9"><a></a>  <span class="fu">exp</span>(.)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Estimate Std. Error X^2 value       DF Pr(&gt;|X^2|)  Lower.CI
+(0 0 0 1 -1) 0.8051811   1.107021  93.89366 2.718282   1.033623 0.6580966
+              Upper.CI
+(0 0 0 1 -1) 0.9851389</code></pre>
+</div>
+</div>
+</section>
+<section id="poll-everywhere-question-5" class="slide level2">
+<h2>Poll Everywhere Question 5</h2>
+</section>
+<section id="what-if-you-want-to-compare-other-groups-option-1" class="slide level2">
+<h2>What if you want to compare other groups? <span style="color:#ED7D31; font-weight: bold;">Option 1</span></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>bc3 <span class="ot">=</span> bc <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Race_Ethnicity =</span> <span class="fu">relevel</span>(Race_Ethnicity, <span class="at">ref =</span> <span class="st">"NH Black"</span>))</span>
+<span id="cb16-3"><a></a>RE_glm2 <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Race_Ethnicity, <span class="at">data =</span> bc3, </span>
+<span id="cb16-4"><a></a>               <span class="at">family =</span> binomial)</span>
+<span id="cb16-5"><a></a><span class="fu">tidy</span>(RE_glm2, <span class="at">conf.int=</span>T, <span class="at">exponentiate =</span> T) <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">38</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="hlvtswvefw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hlvtswvefw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hlvtswvefw thead, #hlvtswvefw tbody, #hlvtswvefw tfoot, #hlvtswvefw tr, #hlvtswvefw td, #hlvtswvefw th {
+  border-style: none;
+}
+
+#hlvtswvefw p {
+  margin: 0;
+  padding: 0;
+}
+
+#hlvtswvefw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 38px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hlvtswvefw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hlvtswvefw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hlvtswvefw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hlvtswvefw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hlvtswvefw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hlvtswvefw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hlvtswvefw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hlvtswvefw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hlvtswvefw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hlvtswvefw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hlvtswvefw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hlvtswvefw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hlvtswvefw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hlvtswvefw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hlvtswvefw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hlvtswvefw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hlvtswvefw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hlvtswvefw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hlvtswvefw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hlvtswvefw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hlvtswvefw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hlvtswvefw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hlvtswvefw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hlvtswvefw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hlvtswvefw .gt_left {
+  text-align: left;
+}
+
+#hlvtswvefw .gt_center {
+  text-align: center;
+}
+
+#hlvtswvefw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hlvtswvefw .gt_font_normal {
+  font-weight: normal;
+}
+
+#hlvtswvefw .gt_font_bold {
+  font-weight: bold;
+}
+
+#hlvtswvefw .gt_font_italic {
+  font-style: italic;
+}
+
+#hlvtswvefw .gt_super {
+  font-size: 65%;
+}
+
+#hlvtswvefw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hlvtswvefw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hlvtswvefw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hlvtswvefw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hlvtswvefw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hlvtswvefw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hlvtswvefw .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hlvtswvefw .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hlvtswvefw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">0.523</td>
+<td class="gt_row gt_right" headers="std.error">0.065</td>
+<td class="gt_row gt_right" headers="statistic">−9.934</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.459</td>
+<td class="gt_row gt_right" headers="conf.high">0.594</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Race_EthnicityNH White</td>
+<td class="gt_row gt_right" headers="estimate">0.712</td>
+<td class="gt_row gt_right" headers="std.error">0.070</td>
+<td class="gt_row gt_right" headers="statistic">−4.826</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.621</td>
+<td class="gt_row gt_right" headers="conf.high">0.818</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">Race_EthnicityHispanic-Latino</td>
+<td class="gt_row gt_right" headers="estimate">0.689</td>
+<td class="gt_row gt_right" headers="std.error">0.102</td>
+<td class="gt_row gt_right" headers="statistic">−3.664</td>
+<td class="gt_row gt_right" headers="p.value">0.000</td>
+<td class="gt_row gt_right" headers="conf.low">0.564</td>
+<td class="gt_row gt_right" headers="conf.high">0.840</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Race_EthnicityNH American Indian/Alaskan Native</td>
+<td class="gt_row gt_right" headers="estimate">0.675</td>
+<td class="gt_row gt_right" headers="std.error">0.479</td>
+<td class="gt_row gt_right" headers="statistic">−0.819</td>
+<td class="gt_row gt_right" headers="p.value">0.413</td>
+<td class="gt_row gt_right" headers="conf.low">0.242</td>
+<td class="gt_row gt_right" headers="conf.high">1.641</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">Race_EthnicityNH Asian/Pacific Islander</td>
+<td class="gt_row gt_right" headers="estimate">0.805</td>
+<td class="gt_row gt_right" headers="std.error">0.102</td>
+<td class="gt_row gt_right" headers="statistic">−2.131</td>
+<td class="gt_row gt_right" headers="p.value">0.033</td>
+<td class="gt_row gt_right" headers="conf.low">0.659</td>
+<td class="gt_row gt_right" headers="conf.high">0.982</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="learning-objectives-4" class="title-slide slide level1 center">
+<h1>Learning Objectives</h1>
+<ol type="1">
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a continuous explanatory variable.</p></li>
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a binary explanatory variable.</p></li>
+<li><p>Interpret odds ratios from fitted simple logistic regression model for a multi-level categorical explanatory variable.</p></li>
+</ol>
+<div class="lob">
+<ol start="4" type="1">
+<li>Report the odds ratio using a table and/or a forest plot.</li>
+</ol>
+</div>
+</section>
+<section id="how-to-present-odds-ratios-table" class="slide level2">
+<h2>How to present odds ratios: Table</h2>
+<ul>
+<li><code>tbl_regression()</code> in the <code>gtsummary</code> package is helpful for presenting the odds ratios in a clean way</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb17-2"><a></a><span class="fu">tbl_regression</span>(RE_glm, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span> <span class="co"># allows us to use tab_options()</span></span>
+<span id="cb17-4"><a></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">38</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="uvrpuevcir" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uvrpuevcir table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#uvrpuevcir thead, #uvrpuevcir tbody, #uvrpuevcir tfoot, #uvrpuevcir tr, #uvrpuevcir td, #uvrpuevcir th {
+  border-style: none;
+}
+
+#uvrpuevcir p {
+  margin: 0;
+  padding: 0;
+}
+
+#uvrpuevcir .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 38px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#uvrpuevcir .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#uvrpuevcir .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#uvrpuevcir .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#uvrpuevcir .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#uvrpuevcir .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#uvrpuevcir .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#uvrpuevcir .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#uvrpuevcir .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#uvrpuevcir .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#uvrpuevcir .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#uvrpuevcir .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#uvrpuevcir .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#uvrpuevcir .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#uvrpuevcir .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uvrpuevcir .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#uvrpuevcir .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#uvrpuevcir .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#uvrpuevcir .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uvrpuevcir .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#uvrpuevcir .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uvrpuevcir .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#uvrpuevcir .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uvrpuevcir .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uvrpuevcir .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uvrpuevcir .gt_left {
+  text-align: left;
+}
+
+#uvrpuevcir .gt_center {
+  text-align: center;
+}
+
+#uvrpuevcir .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#uvrpuevcir .gt_font_normal {
+  font-weight: normal;
+}
+
+#uvrpuevcir .gt_font_bold {
+  font-weight: bold;
+}
+
+#uvrpuevcir .gt_font_italic {
+  font-style: italic;
+}
+
+#uvrpuevcir .gt_super {
+  font-size: 65%;
+}
+
+#uvrpuevcir .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#uvrpuevcir .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#uvrpuevcir .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#uvrpuevcir .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#uvrpuevcir .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#uvrpuevcir .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#uvrpuevcir .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#uvrpuevcir .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#uvrpuevcir div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Race_Ethnicity</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;NH White</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hispanic-Latino</td>
+<td class="gt_row gt_center" headers="estimate">0.97</td>
+<td class="gt_row gt_center" headers="conf.low">0.82, 1.14</td>
+<td class="gt_row gt_center" headers="p.value">0.7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;NH American Indian/Alaskan Native</td>
+<td class="gt_row gt_center" headers="estimate">0.95</td>
+<td class="gt_row gt_center" headers="conf.low">0.34, 2.29</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;NH Asian/Pacific Islander</td>
+<td class="gt_row gt_center" headers="estimate">1.13</td>
+<td class="gt_row gt_center" headers="conf.low">0.96, 1.33</td>
+<td class="gt_row gt_center" headers="p.value">0.13</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;NH Black</td>
+<td class="gt_row gt_center" headers="estimate">1.40</td>
+<td class="gt_row gt_center" headers="conf.low">1.22, 1.61</td>
+<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> OR = Odds Ratio, CI = Confidence Interval</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-present-odds-ratios-forest-plot-setup" class="slide level2">
+<h2>How to present odds ratios: Forest Plot Setup</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(broom.helpers)</span>
+<span id="cb18-2"><a></a>RE_tidy <span class="ot">=</span> <span class="fu">tidy_and_attach</span>(RE_glm, <span class="at">conf.int=</span>T, <span class="at">exponentiate =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">tidy_remove_intercept</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">tidy_add_reference_rows</span>() <span class="sc">%&gt;%</span> <span class="fu">tidy_add_estimate_to_reference_rows</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a></a>  <span class="fu">tidy_add_term_labels</span>()</span>
+<span id="cb18-6"><a></a><span class="fu">glimpse</span>(RE_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5
+Columns: 16
+$ term           &lt;chr&gt; "Race_EthnicityNH White", "Race_EthnicityHispanic-Latin…
+$ variable       &lt;chr&gt; "Race_Ethnicity", "Race_Ethnicity", "Race_Ethnicity", "…
+$ var_label      &lt;chr&gt; "Race_Ethnicity", "Race_Ethnicity", "Race_Ethnicity", "…
+$ var_class      &lt;chr&gt; "factor", "factor", "factor", "factor", "factor"
+$ var_type       &lt;chr&gt; "categorical", "categorical", "categorical", "categoric…
+$ var_nlevels    &lt;int&gt; 5, 5, 5, 5, 5
+$ contrasts      &lt;chr&gt; "contr.treatment", "contr.treatment", "contr.treatment"…
+$ contrasts_type &lt;chr&gt; "treatment", "treatment", "treatment", "treatment", "tr…
+$ reference_row  &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE
+$ label          &lt;chr&gt; "NH White", "Hispanic-Latino", "NH American Indian/Alas…
+$ estimate       &lt;dbl&gt; 1.0000000, 0.9678002, 0.9484848, 1.1310170, 1.4046741
+$ std.error      &lt;dbl&gt; NA, 0.08224948, 0.47558680, 0.08224988, 0.07041472
+$ statistic      &lt;dbl&gt; NA, -0.3979312, -0.1112089, 1.4968682, 4.8257715
+$ p.value        &lt;dbl&gt; NA, 6.906809e-01, 9.114507e-01, 1.344276e-01, 1.394623e…
+$ conf.low       &lt;dbl&gt; NA, 0.8223138, 0.3417844, 0.9612074, 1.2226824
+$ conf.high      &lt;dbl&gt; NA, 1.135332, 2.286596, 1.327092, 1.611466</code></pre>
+</div>
+</div>
+</section>
+<section id="how-to-present-odds-ratios-forest-plot" class="slide level2">
+<h2>How to present odds ratios: Forest Plot</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>RE_tidy, <span class="fu">aes</span>(<span class="at">y=</span>label, <span class="at">x=</span>estimate, <span class="at">xmin=</span>conf.low, <span class="at">xmax=</span>conf.high)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="fu">geom_errorbarh</span>(<span class="at">height=</span>.<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb20-3"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">'#C2352F'</span>, <span class="at">linetype=</span><span class="st">'dashed'</span>, <span class="at">alpha=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb20-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimated OR (95% CI)"</span>, <span class="at">y =</span> <span class="st">"Race and ethnicity"</span>, </span>
+<span id="cb20-6"><a></a>       <span class="at">title =</span> <span class="st">"Odds ratios of late stage breast cancer diagnosis"</span>) <span class="sc">+</span></span>
+<span id="cb20-7"><a></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>), <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>), <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">24</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="06_Interpretations_SLR_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1440"></section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-mateo2021" class="csl-entry" role="listitem">
+Mateo, Camila M., and David R. Williams. 2021. <span>“Racism: A Fundamental Driver of Racial Disparities in Health-Care Quality.”</span> <em>Nature Reviews Disease Primers</em> 7 (1): 1–2. <a href="https://doi.org/10.1038/s41572-021-00258-1">https://doi.org/10.1038/s41572-021-00258-1</a>.
+</div>
+<div id="ref-yedjou2019" class="csl-entry" role="listitem">
+Yedjou, Clement G., Jennifer N. Sims, Lucio Miele, Felicite Noubissi, Leroy Lowe, Duber D. Fonseca, Richard A. Alo, Marinelle Payton, and Paul B. Tchounwou. 2019. <span>“Health and Racial Disparity in Breast Cancer.”</span> <em>Advances in Experimental Medicine and Biology</em> 1152: 31–49. <a href="https://doi.org/10.1007/978-3-030-20301-6_3">https://doi.org/10.1007/978-3-030-20301-6_3</a>.
+</div>
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Lesson 6: Interpretations and Visualizations of Odds Ratios</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1955,
+
+        height: 1100,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

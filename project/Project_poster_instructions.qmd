@@ -1,0 +1,261 @@
+---
+title: "Project Poster Instructions"
+subtitle: "BSTA 512/612"
+description: "Due: Monday June 9, 2025"
+date-modified: "today"
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    self-contained: true
+    number-sections: true
+    number-depth: 4
+    number-offset: -1
+    embed-resources: true
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---
+
+::: callout-important
+Ready to go! (Nicky 5/30)
+
+[And check out the excel spreadsheet I made that tallies all the needed components for 100%](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1C6F4620-298D-4D42-A15E-8B5522E6A995%7D&file=Project_Rubric.xlsx&action=default&mobileredirect=true)
+:::
+
+------------------------------------------------------------------------
+
+The purpose section was partially developed using ChatGPT by feeding in my previous project report instructions and asking ChatGPT to edit for a poster.
+
+## Directions
+
+### Purpose
+
+A scientific poster serves as a visual and concise way to communicate research findings. For this project, your poster should highlight your linear regression analysis and results while ensuring the context and methods are clearly explained. Posters should balance visuals (e.g., tables, figures) with text to engage an audience effectively.
+
+### Formatting guide
+
+#### Poster specifications
+
+-   This poster can be done in any program you would like
+    -   Powerpoint is a common way to make a poster
+        -   This option is easier to start but more annoying when you have to edit visuals and fix the poster
+        -   [Some help creating it](https://www.slidesai.io/blog/how-to-make-a-poster-powerpoint)
+    -   There are poster templates in Quarto
+        -   This will be a little harder to start, but easier to edit visuals
+        -   [Quarto template](https://github.com/quarto-ext/typst-templates/tree/main/poster)
+-   **Please submit a PDF of your poster**
+-   Poster dimensions: 36" by 24"
+    -   Mostly important to keep the ratio as 6:4
+    -   Use a landscape layout
+-   Font size should be no less than 20pt
+-   Sectioning of the report
+    -   Main sections that were required: Introduction, Methods, Results, Conclusion, and References
+    -   Other sections that might help group specific methods or results
+-   Title information at the top of the poster
+    -   This includes the title itself, your name, and the date
+-   Poster printing for class on 3/17
+    -   Print in color!!
+    -   Using your PDF, and opening in Adobe Reader, then use the print function
+    -   You should see something like this: ![](/project/images/poster_printing.png)
+    -   Choose the poster print option then choose the appropriate Tile Scale to make the poster span 4 pages
+    -   Note: not all printers accommodate this
+    -   You should be able to print in Vanport
+        -   I do not want you to pay for printing - please let me know if you are unable to print for free
+        -   Here are two documents in the Student files to help with printing
+            -   [Printer info](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Resources/Printers.pdf?csf=1&web=1&e=2CD9k5)
+            -   [Printer guidance](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Resources/Printing,%20Copying,%20Scanning%20Overview%20(OHSU%20and%20PSU).pdf?csf=1&web=1&e=K93grX)
+    -   **Posters presented on 6/9 in class do NOT need to be what you turn in at 11pm in Sakai**
+
+#### Tables and figures
+
+-   Tables and figures should NOT have variable names as they appear in the data frame
+    -   Variable names should be understood by a reader
+    -   Variable names should be written in full words
+    -   Include a title or caption for all figures
+    -   Figure and tables appear on same page or close to same page where they are first referenced
+    -   Tables and figures are an appropriate size in the html
+    -   Nicky is able to read all words in figures and tables
+-   Figures and tables should be clear and crisp
+    -   Make sure they are not blurred
+    -   Screenshots are okay, but will likely make them blurry if you're not careful
+    -   Best option is to use the `save()` to save a jpg or png
+
+#### Writing
+
+-   Writing, spelling, and grammar should be admissible
+    -   This means I can generally follow your thought/what you are trying to communicate
+    -   Some spelling and grammar mistakes are allowed
+        -   I will not take off points if there are a few sprinkled in
+        -   If *every or close to every* sentence has mistakes, then I will take off
+
+::: callout-note
+#### The project report is a separate file from the labs
+
+You can save tables and figures from labs or separate files, then load them in the report
+
+-   Save R objects in analyses file:
+    -   Suppose you named the Table 1 as `table1`
+    -   `save(table1, file = "table1.Rdata")`
+-   Load R objects in report file: `load(file = "table1.Rdata")`
+:::
+
+### Poster template
+
+-   [Powerpoint Template](https://ohsuitg-my.sharepoint.com/:p:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Resources/poster_template.pptx?d=w171b4f2e4f1d4ee1a72f499f15d736af&csf=1&web=1&e=Nsqqqs)
+    -   Feel free to adjust this poster visually
+-   [Quarto Template]
+    -   Only works if you followed the steps in the Quarto template in the Formatting Guide
+    -   Feel free to adjust this poster visually
+
+### Poster examples
+
+-   [Poster 1](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Sample_poster/McVeety_Trans_Single_Payer_Poster.pdf?csf=1&web=1&e=PsN3TI)
+    -   Good example of layouts and well-executed visuals
+-   [Poster 2](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Sample_poster/Analysis%20of%20Veterans%27%20Non-disclosure%20of%20Suicidal%20Thoughts.pdf?csf=1&web=1&e=z7V8cv)
+    -   Good example of a forest plot to display coefficient estimates of many covariates
+    -   Good example of patient information displayed
+    -   Good highlight of the study goals in the background
+-   [Poster 3](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Sample_poster/nwakim_prop_score.pdf?csf=1&web=1&e=xefr7T)
+    -   Done by Nicky (a long time ago) so please excuse a lot of the poor language around race/ethnicity
+        -   I have learned a lot since then! My statistics education did not do a great job of incorporating responsible practice around participant's identities
+    -   Showing this poster because it is a good example of the level of detail expected in our poster's background, methods, and conclusions
+
+### Grading
+
+The project report is out of 36 points. Note that the Statistical Methods and Results sections are graded on an 8-point scale, while all other components are graded on a 4-point scale.
+
+[Please see the excel spreadsheet if you would like to check if you have all the needed components for the poster!](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1C6F4620-298D-4D42-A15E-8B5522E6A995%7D&file=Project_Rubric.xlsx&action=default&mobileredirect=true)
+
+-   In formatting, an example of a report with little editing needed is one that has zero to some grammar or spelling mistakes, no code chunks showing, and no output warnings nor messages showing.
+-   Professional figures mean
+    -   I can read the words and numbers in the html
+        -   Variable names are converted from the data frame version to readable text
+        -   For example: `iam_001` does not show up on axes, instead something like: `Response to "Currently, I am..."`
+    -   Colors are only used if conveying information
+    -   Intended message of the figure is easily understood
+        -   If you are trying to show a trend of mean IAT vs. an ordered categorical variable, then the variable is ordered on the x-axis
+-   For the references
+    -   I will not be overly critical about the formatting
+    -   By consistency, I mean that you if you are citing things like (Last Name, Year) it doesn't suddenly change to number citations.
+    -   If you would like to use Quarto's citation tool, you can! I actually pair it with Zotero and it works beautifully! (But I would not embark on this if you haven't used Zotero before)
+
+## Sections
+
+### Title
+
+-   **Purpose:** Create an identifiable name for your research project that includes the main research question's variables and gives some context to the analysis or results
+  - If you did LASSO, this should emphasize that you are focusing on predicting food insecurity
+
+### Introduction
+
+-   **Length: 5-8 bullets**
+-   **Purpose:** Introduce the research question and why it is important to study
+-   This section is non-technical.
+    -   By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are
+-   You may start with your bullets from Lab 1, but you should edit it and make sure it flows into your report well!
+- This should hit on three main points:
+  - What is the context of this research? What is going in the world or public health sector that has led us to study this outcome? Why is the outcome important to study?
+  - Required for purposeful model selection, but not for LASSO:
+    - What prior research leads us to our research question?
+  - What is your guiding question? If you perform LASSO, it would be good to mention prediction here
+- The intro should start broad and get more focused towards the end
+-   Should contain some references
+
+### Methods
+
+-   **Length: 8-10 bullets**
+-   **Purpose:** Describe the analyses that were conducted and methods used to select variables and check diagnostics
+-   **Some important methods to discuss** (You may divide these into your sections, not necessarily with these names)
+    -   General approach to the dataset
+        -   2-3 bullets
+        -   Where did the data come from?
+        -   Did you need to do any quality control?
+        -   Missing data: we performed complete case analysis
+            -   1 bullet
+            -   Can be included in the Exploratory data analysis section
+        -   What program did you use to analyze the data?
+    -   Variables and variable creation
+        -   This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+            -   More on creation of Table 1, not discussing the results of Table 1
+        -   Includes (only include if you did one of the following)
+            -   Indicators for gender identity or race
+            -   Creating BMI
+            -   Categorizing a continuous variable (even if performed in model selection)
+            -   Using scoring for an ordered categorical variable (that is not your explanatory variable)
+        -   1 bullet for all variables
+    -   Model building: we performed purposeful selection OR LASSO
+        -   1-3 bullets
+        -   [For purposeful model selection]{style="color:#70AD47"}, this includes
+            -   Describe purposeful selection: combining existing literature, clinical significance, and analysis
+            -   How did you build the model? Describe the process
+            -   Did you consider confounders and effect modifiers?
+            -   Example: We considered the following potential confounders: list fo them. Based on our research question, existing literature, and clinical significance, we used purposeful selection to identify confounders and effect modifiers.
+        -   [For LASSO]{style="color:#D6295E"}, this includes
+            -   Percent split for training and testing data
+            -   What was the value of your penalty?
+    -   Final model
+        -   1 bullet
+        -   Write out your final model: It can be an equation, but a list might be nicer. 
+            - Example: Our final model included main effects for ____ and an interaction between __ and __. 
+    -   Model diagnostics
+        -   1-2 bullets
+        -   Includes
+            -   Process of investigating model diagnostics
+
+::: callout-caution
+### Important to keep in mind
+
+Methods typically describe your approach and process, not the results of that process
+
+-   For example: I might say "We investigated the linearity of each continuous covariate visually. If continuous variables were not linear, then we divided the variable into categories using existing guidelines from \<insert reference here\> or creating quartiles."
+-   In the methods section, I would NOT say: "We investigated the linearity of each continuous covariate visually. We found that age was not linearly related to IAT scores. Thus, we categorized age into the following groups: \_\_\_, \_\_\_\_, \_\_\_\_, \_\_\_\_, and \_\_\_\_."
+-   The last two sentences about age would be more appropriate in the Results section
+:::
+
+### Results
+
+-   **Length: mostly figures with 2-3 bullet points**
+-   **Purpose:** Relay the results from our sample's analysis typically focusing on the numbers and interpretations
+-   Tables & figures (2-3 tables or figures)
+    -   The following are required tables or figures
+        -   Table 1 summarizing participant characteristics both **overall**
+        -   If purposeful model selection: Table or figure with regression results
+            -   Can be a forest plot
+            -   If you have A LOT of coefficient estimates, the forest plot may not work well!
+        - If LASSO: table or figure with variable importance
+    -   **1-2 figures that you think are helpful in understanding the results, for example**
+        -   DAG explaining connection between variables (if you did this)
+        -   Figure for the AUC-ROC
+        -   Table or figure to compare model fit statistics (if you did this)
+        -   Table or figure for unadjusted relationship between outcome and explanatory variables
+-   [For purposeful model selection:]{style="color:#70AD47"} Interpret the **important** model coefficients in the context of the research question
+    -   2-3 bullets
+    -   Interpreting the explanatory variable's relationship with IAT score is the most important thing to report!!
+        -   When doing this, make sure you account for ALL interactions: If your explanatory variable has multiple interactions and you are trying to interpret one, then what does that mean about the other variables involved in the other interactions? If this is confusing, please make an appointment with me!!
+- [For LASSO:]{style="color:#D6295E"} Discuss the important variables and identify the 1-3 most important ones
+    - 2-3 bullets
+    - Since our main focus is prediction, we want to discuss variables that most contribute to the prediction of the outcome
+
+### Conclusion/Discussion
+
+-   **Length: 5-10 bullets**
+-   **Purpose:** Describe the main conclusions to a non-technical audience and discuss the results and give them context outside of the sample and its analysis
+-   [For purposeful model selection:]{style="color:#70AD47"} What was the answer to your research question?
+    -   Mention the direction of the association if there was one
+-   [For LASSO:]{style="color:#D6295E"} What was the biggest predictor of food insecurity?
+    - Did your original variable of interest have any importance?
+-   Any other interesting results?
+-   Some important things to include
+    -   Include limitations and consequences of the limitations on the results
+        -   You don't need to hit all the limitations, but think about the big ones (generalizability? independence of samples? large sample size vs. clinical significance? the way we handled variables?)
+    -   After limitations, discuss the positive parts of the results
+        -   What can we do with these results? What impact can it have?
+    -   Any overarching trends that are worth noting? [@Giebel2024]
+-   Should contain some references
+
+### References
+
+-   Include your references here!
+-   You introduction should have references, especially when discussing the social science behind the analysis
+-   You must reference the WBNS data source!!
