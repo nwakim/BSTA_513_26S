@@ -28,13 +28,14 @@ source(here("class_dates.R"))
 ## Labs
 
 | Lab | Rubric | Due Date | Topics |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | [Lab 1](/project/Lab_01_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_01_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab1 %>% format("%m/%d")` | Exploring the question and data |
 | [Lab 2](/project/Lab_02_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_02_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab2 %>% format("%m/%d")` | EDA continued + Simple logistic regression |
 | [Lab 3](/project/Lab_03_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_03_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab3 %>% format("%m/%d")` | Temporary multiple logistic regression + practice interpreting ORs |
 | [Lab 4](/project/Lab_04_instructions.qmd) | [[{{< iconify material-symbols rubric-rounded size=30px >}}](/project/Lab_04_rubric.qmd)]{style="color:#f8f5f0;"} | `r lab4 %>% format("%m/%d")` | Building and interpreting final model |
 
 -   [Lab make-up assignment](/project/Lab_discussion_make-up.qmd) if you missed a discussion day
+    -   This is due one week after the lab discussion day
 -   1 point will be deducted per day late (without an approved extension)
 
 ## Final Poster

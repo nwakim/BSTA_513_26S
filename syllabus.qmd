@@ -5,6 +5,7 @@ categories: [""]
 format: 
   html:
     link-external-newwindow: true
+    page-layout: full
     toc: true
   pdf: default
 editor_options: 
@@ -35,7 +36,7 @@ source(here("class_dates.R"))
         -   After that, 1 point deducted per day late
 -   **Attendance policy:** attend in person and fill out exit tickets for 12 out of the 19 classes
     -   There are **FIVE required in-person attendance days** (4 lab discussions and 1 project poster day)
--   The class will end on June 9, 2026. **All coursework MUST be completed by June 12, 2026 at 11pm.**
+-   The class will end on `{r} w11d1 %>% format("%B %d, %Y")`. **All coursework MUST be completed by `{r} last_day %>% format("%B %d, %Y")`**
 -   Feel free to fill out the [Ongoing Course Feedback](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDc2S1dGNTlTRVJVUFoyQUUzNFJMS0JXUi4u) with any concerns or questions.
 
 ## Description
@@ -95,9 +96,9 @@ g=3
 
 While most course materials will be delivered online through this website, assignments will be turned in through [Sakai](https://sakai.ohsu.edu/), OHSU's course management system. I will include a link on this website to the Sakai assignment page. 
 
-#### Webex
+#### Webex/Zoom
 
-Webex software will be used for virtual office hours. To give everyone the best possible experience with Webex, I recommend the following best practices:
+Webex or Zoom software will be used for virtual office hours. To give everyone the best possible experience with Webex/Zoom, I recommend the following best practices:
 
 -   Please stay muted until you want to participate
 -   During office hours, please send a message in chat with your question or with a statement like "I have a question." This makes sure I or the TA can address everyone's questions in order. 
@@ -111,7 +112,7 @@ During lectures I will pose questions to the class. These questions are designed
 
 #### PennState STAT 504 Website
 
-PennState has a class offered to online MS students that has some overlap with our class. They have all their [course notes posted on this page](https://online.stat.psu.edu/stat504/lesson/welcome-stat-504). This is a great source if you would like to see class notes with different phrasing.
+PennState has a class offered to online MS students that has some overlap with our class. They have all their [course notes posted on this page](https://online.stat.psu.edu/stat504/). This is a great source if you would like to see class notes with different phrasing.
 
 Not all of our topics are covered in their notes, but the most important ones are. If you are having trouble finding our course's concepts on their page, please make ask me at Office Hours, after class, or in a private meeting. I do not explicitly state corresponding sections under our schedule because I believe it is important for you to develop skills involving resources and learning key words that can help you find answers. 
 
@@ -132,7 +133,7 @@ You will need to download the following three things:
 The course is structured around the following four components:
 
 |  |  |  |  |
-|:-----------:|:-----------:|:-----------:|:---------------------------------|
+|:--------------:|:--------------:|:--------------:|:------------------------|
 | **Component** | **Modality** | **Frequency** | **Description** |
 | Lecture | In person | Twice, Weekly | Course content is provided through in-person lectures. Lectures will consist of didactic lessons, interactive examples, and PollEverywhere questions. Sessions will be recorded through Explain Everything and posted to Sakai. **Attending or viewing the lecture within 7 days of the original lecture date is mandatory.** Class attendance will be taken through an Exit Ticket. If viewing the lecture asynchronously, you must take the Exit Ticket to verify your attendance. |
 | Homework | Online | Weekly | The course includes 5 homework assignments. They are an opportunity for you to engage with important concepts, practice coding, and apply calculating skills. Homework assignments should be submitted online, and will be graded by me. Students are encouraged to work in groups for homework assignments, but each person should do their own summary and hand in their work. **Homework assignments will be due on Sunday at 11 PM.** |
@@ -198,120 +199,23 @@ At the conclusion of the course, you will be asked to complete a formal online r
 
 [Please refer to the Schedule page.](/schedule.qmd) I will make changes to this schedule if we need more or less time on a concept. You do not need to read the corresponding chapters in the textbook for each class.
 
-## How to succeed in this course
-
-Every professor has different expectations when assigning certain work or providing certain resources. I want to walk through each class resource and assignment so that you know what you can do to succeed in *this class*. For resources, I want you to optimize the opportunities to learn. For assignments, I want you to know the strategies that students can use to learn the most and prepare for future exams.
-
-### Resources
-
-|  |  |  |
-|:----------------:|:---------------------|:--------------------------------|
-| **Resource** | **What is it?** | **How do I use it?** |
-| Office Hours | Blocks of time a professor or TA dedicates for questions. The teaching staff will be located in a specific room. Several students may enter the space at a time and will ask specific or broad questions. If many students attend office hours, a queue will be created so that students can be served equally. | The main use of office hours is to ask questions about an assignment or lecture notes. You are welcome to sit and do homework in office hours. OH are also an informal way of meeting fellow students to collaborate with. |
-| Lectures and lecture recordings | Time shared between the professor and students where the professor conveys important class material. Material discussed in lectures include concepts, calculations, code, and examples. Lectures are a mix of presentation of information, working through examples together, interactive activities, and in-class polls. | Students should attend lectures in person if possible. You should attempt to understand new material presented by following the presentation slides, taking notes on additional details that may conveyed verbally, and working through examples with the professor. Students are encouraged to ask questions when you don't understand the material at any point in the lecture. |
-| Textbooks | Written and published material that explains concepts, steps through calculations, provides examples, and provides practice problems. The listed textbooks is the basis for this course. While I am to cover all topics in class, the textbook provides alternative explanations and additional examples. | While coming to class having read the accompanying textbook chapters helps understanding during class, I do not expect students to have read it. I see the textbook as a good resource if you are struggling with a specific topic after class, in need of an example while working on homework, or want additional practice when studying for the exam. |
-| Website | The course website is designed by me so that you have access to all the course materials in a more organized and flexible way. All resources delivered from me to you will be available on the website. Any assignments turned in will be through Sakai. | You can navigate through different course resources and information using the left-side tabs or top navigation bar. Course materials, like lecture notes, homework, data examples, and recordings, can be found under each week's page under the schedule tab. You can also find the individual resources under the "Course Materials" tab on the left. Links to turn in assignments through Sakai will be given on the website. Please explore the tabs and get a sense of the organization. |
-| Sakai | Sakai is a learning management system for higher ed. This is the university sanctioned LMS where we will submit assignments. | You will turn in assignments through Sakai under the "Submissions" tab. Generally, there will be a link to each assignment on the course website. You can also view your grades under "Gradebook" and links to Webex under "Webex." |
-
-### Assignments
-
-<table style="width:95%;">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 28%" />
-</colgroup>
-<tbody>
-<tr>
-<td style="text-align: center;"><p><strong>Assignment</strong></p></td>
-<td style="text-align: center;"><p><strong>Type of assessment</strong></p></td>
-<td style="text-align: left;"><p><strong>Before you submit/take it</strong></p></td>
-<td style="text-align: left;"><p><strong>After it is graded</strong></p></td>
-</tr>
-<tr>
-<td style="text-align: center;"><p>Homework</p></td>
-<td style="text-align: center;"><p>Formative</p></td>
-<td style="text-align: left;"><ul>
-<li><p>Work out each problem on your own as much as you can</p></li>
-<li><p>Talk through problems with a peer</p></li>
-<li><p>Go to Office Hours for help</p></li>
-<li><p>Write down work that shows your thought process</p></li>
-<li><p>Search your issue on Stack Exchange/Stack Overflow</p></li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li><p>Review the solutions</p></li>
-<li><p>Review your mistakes</p></li>
-<li><p>For solutions that involve writing sentences, check with me or a TA if your answer fits the solution</p></li>
-<li><p>Go to Office Hours to ask about your solutions</p></li>
-</ul></td>
-</tr>
-<tr>
-<td style="text-align: center;"><p>Quizzes</p></td>
-<td style="text-align: center;"><p>Summative</p></td>
-<td style="text-align: left;"><ul>
-<li><p>Identify and achieve learning objectives in each lecture</p></li>
-<li><p>Understand why certain statistics tools are used for certain cases</p></li>
-<li><p>Practice testing yourself and others on concepts</p></li>
-<li><p>Come to Office Hours for help with specific problems or concepts</p></li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li><p>Review the solutions</p></li>
-<li><p>Review your mistakes</p></li>
-<li><p>For solutions that involve writing sentences, check with me or a TA if your answer fits the solution</p></li>
-<li><p>Go to Office Hours to ask about your solutions</p></li>
-<li><p>Do not ask for a regrade unless you have viewed the solutions</p></li>
-</ul></td>
-</tr>
-<tr>
-<td style="text-align: center;"><p>Project Labs and Poster</p></td>
-<td style="text-align: center;"><p>Formative and Summtive</p></td>
-<td style="text-align: left;"><ul>
-<li><p>Start the lab as early as possible</p></li>
-<li><p>Work on R coding and check with classmates on work</p></li>
-<li><p>Come to Office Hours for help with specific R work</p></li>
-<li><p>For the report, compile your work from the labs, and decide what is important in the analysis.</p></li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li><p>This will be graded at the end of the semester, so you will not have a chance to interact with my feedback as much</p></li>
-<li><p>If you have questions about your grade, you may email me</p></li>
-<li><p>Keep the project paper for future reference</p></li>
-<li><p>You can add this project to your resume!</p></li>
-</ul></td>
-</tr>
-<tr>
-<td style="text-align: center;"><p>Class Exit Tickets</p></td>
-<td style="text-align: center;"><p>N/A</p></td>
-<td style="text-align: left;"><ul>
-<li><p>Bring appropriate electronic device to participate in polls</p></li>
-<li><p>Complete the survey during the last 5 minutes of class or after class within 7 days</p></li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li><p>Review muddiest and clearest points from the week</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
-
-If you would like any other course resources explained in this format, please request it through the [Ongoing Course Feedback](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDc2S1dGNTlTRVJVUFoyQUUzNFJMS0JXUi4u). 
-
 ## Course Policies and Resources
 
 ### Late Work Policy
 
 I encourage you to make your best effort to submit all assignments on time, but I understand circumstances arise that are beyond our control. Please see this [Swansea University's page on extenuating circumstances](https://myuni.swansea.ac.uk/academic-life/extenuating-circumstances/#how-can-the-university-support-me-and-what-should-i-do=is-expanded&what-are-extenuating-circumstances=is-expanded&what-isnt-an-extenuating-circumstance=is-expanded&what-supporting-evidence-is-required=is-expanded&who-should-i-contact-to-make-an-extenuating-circumstances-application=is-expanded&who-will-make-a-decision-on-my-application=is-expanded) for some examples. Not all circumstances are covered here, so please reach out if you have questions. 
 
--   The class will end on June 8, 2026. **All coursework is expected to be completed by June 12, 2026 at 11pm.** If you have *extenuating circumstances*, and need additional time to complete class assignments, please contact me. Together, we will come up with a plan for completion and to sort out registrar logistics.
+-   The class will end on `{r} w11d1 %>% format("%B %d, %Y")`. **All coursework MUST be completed by `{r} last_day %>% format("%B %d, %Y")`** If you have *extenuating circumstances*, and need additional time to complete class assignments, please contact me. Together, we will come up with a plan for completion and to sort out registrar logistics.
 
 -   If you have extenuating circumstances that may jeopardize your ability to do work for several weeks, please contact me. We will come up with a plan to keep you on track in the course and prevent any delay in your education.
 
--   For homework, there is a due date posted, but you may turn in the assignment any time before the class ends. I will give you the check regardless of when you submit the assignment. **However, if you would like feedback on the homework, you must turn it in on time OR email me asking for feedback for your late homework.**
+-   For **homework**, there is a due date posted, but you may turn in the assignment any time before the class ends. I will give you the check regardless of when you submit the assignment. **However, if you would like feedback on the homework, you must turn it in on time OR email me asking for feedback for your late homework.**
 
--   For non-homework assignments, including labs, I ask you to email me directly. You can explain your circumstances and may ask me for an extension, but I won't necessarily grant one.
+-   For non-homework assignments, including **labs**, I ask you to email me directly. You can explain your circumstances and may ask me for an extension, but I won't necessarily grant one.
 
--   For labs, you will have ONE no-questions-asked, 3-day extension. Please use this wisely! You just need to send me a quick email saying "I am using my no-questions-asked extension for Lab \_\_."
+-   For **labs**, you will have **ONE no-questions-asked, 3-day extension**. Please use this wisely! You just need to send me a quick email saying "I am using my no-questions-asked extension for Lab \_\_."
 
-    -   After you have used the one no-questions-asked extension, 1 point will be deducted for each day that the lab is late
+    -   After you have used the one no-questions-asked extension, **1 point will be deducted for each day that the lab is late**
 
 -   If you have a emergency involving your self, family, pet, friend, classmate, or anything/one deemed important to you, please do not worry about immediately contacting me. We can work something out after your emergency. If I contact you during an emergency, it is only because I am worried, and you do NOT need to respond until you are able. 
 
@@ -321,7 +225,9 @@ If you think a question was incorrectly graded, first compare your answer to the
 
 ### Attendance Policy
 
-You are expected to attend class, participate in-class polls, and complete the exit ticket. For students who miss class or need a review, I will make video and audio recordings of lectures available. There are no guarantees against technical or other challenges for the recording availability or quality. For students who are unable to attend the class in-person and synchronously, **viewing the recording within 7 days** is acceptable. This is meant to keep you on track within the course and prevent a pile up of material. Make sure to complete the exit ticket to demonstrate attendance.
+You are expected to attend class, participate in-class polls, and complete the exit ticket. For students who miss class or need a review, I will make video and audio recordings of lectures available. There are no guarantees against technical or other challenges for the recording availability or quality. For students who are unable to attend the class in-person and synchronously, **viewing the recording within 7 days** is acceptable. This is meant to keep you on track within the course and prevent a pile up of material. 
+
+**Make sure to complete the exit ticket to demonstrate attendance.**
 
 #### Attendance for the required in-person days
 
@@ -337,21 +243,78 @@ Please note that Nicky's approval of a missed discussion, and thus a make-up, is
 
 Please note that this section has been motivated by [Dr. Steven Bedrick's Course Policies and Grading site](https://dmice.ohsu.edu/bedricks/courses/bmi525/policies.html) for BMI 525. (Note that this is a good example of informal attribution of someone else's work.)
 
-In this class, it is easy to use ChatGPT or other AI tools to solve your homework for you. Many problems follow a basic structure that is especially easy for ChatGPT to solve. In this class, you may use ChatGPT to help with your homework. You may even ask for direct answers. However, there are a few things I do not want you to do:
+In this class, it is easy to use generative AI tools to solve your homework for you. Many problems follow a basic structure that is especially easy for generative AI to solve. In this class, you may use generative AI to help with your homework. You may even ask for direct answers. However, there are a few things I do not want you to do:
 
--   **Do not copy ChatGPT's answer directly into your homework.** Your homework is graded for full credit if you turn it in, in any state, so turning in ChatGPT's answers is unacceptable. I rather see half-written answers that show what you're thinking than see a correct answer from ChatGPT.
+-   **Do not copy generative AI's answer directly into your homework.** Your homework is graded for full credit if you turn it in, in any state, so turning in generative AI's answers is unacceptable. I rather see half-written answers that show what you're thinking than see a correct answer from generative AI.
 
--   **Do not stop once ChatGPT answered a question.** If it gives an explanation, interact with it! Make sure you understand the thought process of ChatGPT. Try writing out the process to help cement it in your head. Check the answer with what we learn in class.
+-   **Do not stop once generative AI answered a question.** If it gives an explanation, interact with it! Make sure you understand the thought process of generative AI. Try writing out the process to help cement it in your head. Check the answer with what we learn in class.
 
--   **Do not use ChatGPT on our quizzes!** Hence, you need to really understand how to solve these problems even if you use ChatGPT on the homework.
+-   **Do not use generative AI on our quizzes!** Hence, you need to really understand how to solve these problems even if you use generative AI on the homework.
 
-At the end of the day, ChatGPT is a resource that will be available to you in a job and outside of school. Thus, we should use it as a tool in school as well! Let me know if ChatGPT helped you understand something! I would love to incorporate it into future classes!
+At the end of the day, generative AI is a resource that will be available to you in a job and outside of school. Thus, we should use it as a tool in school as well! Let me know if generative AI helped you understand something! I would love to incorporate it into future classes!
 
 ::: callout-important
 You can think of this class as assembling a toolbox. When a handyperson starts working for the first time, they need to buy their tools. For their first few jobs, they might need help finding their tools, or remembering which tool is best used for what action. Eventually, they get to know their tools well, and using them appropriately becomes second nature.
 
-**For now, ChatGPT can help us find and use our tools, but we need to work towards using them as second nature!**
+**For now, generative AI can help us find and use our tools, but we need to work towards using them as second nature!**
 :::
+
+## How to succeed in this course
+
+Every professor has different expectations when assigning certain work or providing certain resources. I want to walk through each class resource and assignment so that you know what you can do to succeed in *this class*. For resources, I want you to optimize the opportunities to learn. For assignments, I want you to know the strategies that students can use to learn the most and prepare for future exams.
+
+### Resources
+
+|  |  |  |
+|:----------------:|:---------------------|:-------------------------------|
+| **Resource** | **What is it?** | **How do I use it?** |
+| Office Hours | Blocks of time a professor or TA dedicates for questions. The teaching staff will be located in a specific room. Several students may enter the space at a time and will ask specific or broad questions. If many students attend office hours, a queue will be created so that students can be served equally. | The main use of office hours is to ask questions about an assignment or lecture notes. You are welcome to sit and do homework in office hours. OH are also an informal way of meeting fellow students to collaborate with. |
+| Lectures and lecture recordings | Time shared between the professor and students where the professor conveys important class material. Material discussed in lectures include concepts, calculations, code, and examples. Lectures are a mix of presentation of information, working through examples together, interactive activities, and in-class polls. | Students should attend lectures in person if possible. You should attempt to understand new material presented by following the presentation slides, taking notes on additional details that may conveyed verbally, and working through examples with the professor. Students are encouraged to ask questions when you don't understand the material at any point in the lecture. |
+| Textbooks | Written and published material that explains concepts, steps through calculations, provides examples, and provides practice problems. The listed textbooks is the basis for this course. While I am to cover all topics in class, the textbook provides alternative explanations and additional examples. | While coming to class having read the accompanying textbook chapters helps understanding during class, I do not expect students to have read it. I see the textbook as a good resource if you are struggling with a specific topic after class, in need of an example while working on homework, or want additional practice when studying for the exam. |
+| Website | The course website is designed by me so that you have access to all the course materials in a more organized and flexible way. All resources delivered from me to you will be available on the website. Any assignments turned in will be through Sakai. | You can navigate through different course resources and information using the left-side tabs or top navigation bar. Course materials, like lecture notes, homework, data examples, and recordings, can be found under each week's page under the schedule tab. You can also find the individual resources under the "Course Materials" tab on the left. Links to turn in assignments through Sakai will be given on the website. Please explore the tabs and get a sense of the organization. |
+| Sakai | Sakai is a learning management system for higher ed. This is the university sanctioned LMS where we will submit assignments. | You will turn in assignments through Sakai under the "Submissions" tab. Generally, there will be a link to each assignment on the course website. You can also view your grades under "Gradebook" and links to Webex under "Webex." |
+
+### Assignments
+
++:-----------------------:+:----------------------:+:---------------------------------------------------------------------------------------------------+:-----------------------------------------------------------------------------------------------------------------------+
+| **Assignment**          | **Type of assessment** | **Before you submit/take it**                                                                      | **After it is graded**                                                                                                 |
++-------------------------+------------------------+----------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Homework                | Formative              | -   Work out each problem on your own as much as you can                                           | -   Review the solutions                                                                                               |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Talk through problems with a peer                                                              | -   Review your mistakes                                                                                               |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Go to Office Hours for help                                                                    | -   For solutions that involve writing sentences, check with me or a TA if your answer fits the solution               |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Write down work that shows your thought process                                                | -   Go to Office Hours to ask about your solutions                                                                     |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Search your issue on Stack Exchange/Stack Overflow                                             |                                                                                                                        |
++-------------------------+------------------------+----------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Quizzes                 | Summative              | -   Identify and achieve learning objectives in each lecture                                       | -   Review the solutions                                                                                               |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Understand why certain statistics tools are used for certain cases                             | -   Review your mistakes                                                                                               |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Practice testing yourself and others on concepts                                               | -   For solutions that involve writing sentences, check with me or a TA if your answer fits the solution               |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Come to Office Hours for help with specific problems or concepts                               | -   Go to Office Hours to ask about your solutions                                                                     |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        |                                                                                                    | -   Do not ask for a regrade unless you have viewed the solutions                                                      |
++-------------------------+------------------------+----------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Project Labs and Poster | Formative and Summtive | -   Start the lab as early as possible                                                             | -   This will be graded at the end of the semester, so you will not have a chance to interact with my feedback as much |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Work on R coding and check with classmates on work                                             | -   If you have questions about your grade, you may email me                                                           |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Come to Office Hours for help with specific R work                                             | -   Keep the project paper for future reference                                                                        |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   For the report, compile your work from the labs, and decide what is important in the analysis. | -   You can add this project to your resume!                                                                           |
++-------------------------+------------------------+----------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| Class Exit Tickets      | N/A                    | -   Bring appropriate electronic device to participate in polls                                    | -   Review muddiest and clearest points from the week                                                                  |
+|                         |                        |                                                                                                    |                                                                                                                        |
+|                         |                        | -   Complete the survey during the last 5 minutes of class or after class within 7 days            |                                                                                                                        |
++-------------------------+------------------------+----------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+
+If you would like any other course resources explained in this format, please request it through the [Ongoing Course Feedback](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDc2S1dGNTlTRVJVUFoyQUUzNFJMS0JXUi4u). 
+
+
 
 ## Course Expectations
 
@@ -405,14 +368,12 @@ Cheating and other forms of academic misconduct will not be tolerated in this co
 
 ## Course Communications
 
-**Sakai/Slack announcements\
-**For important/urgent matters, I will communicate with you using announcements via Sakai that will be delivered to your OHSU Email account as well as displayed in the Sakai course site Announcements section. I will copy these announcements in Slack if they do not involve changes to the schedule. Unfortunately, there are certain announcements that OHSU requires I initiate behind the firewall.
+### Sakai announcements
 
-**General course questions\
-**It is normal to have many questions about things that relate to the course, such as clarification about assignments, course materials, or assessments. Please post these on our Slack Workspace. Please use the channels that I created for questions. You are encouraged to give answers and help each other. I will monitor these threads, so I will endorse or correct responses as needed. Please give me 24 hours to respond to questions within Monday-Friday. Work-life balance is important for me as well, so I will try to respond as quickly as I can within my healthy limits. 
+For important/urgent matters, I will communicate with you using announcements via Sakai that will be delivered to your OHSU Email account as well as displayed in the Sakai course site Announcements section. 
 
-**E-mail**\
-E-mail should be used only for messages that are private in nature. Please send private messages to my OHSU email address (wakim\@ohsu.edu). **Messages sent through Sakai Inbox will not be answered.** Do not send messages asking general information about the class; please post those on Slack instead.
+### E-mail
+E-mail should be used only for messages that are private in nature. Please send private messages to my OHSU email address (wakim\@ohsu.edu). **Messages sent through Sakai Inbox will not be answered.**
 
 ## Further Student Resources
 
@@ -452,59 +413,53 @@ The School of Public Health values diversity and inclusion; we are committed to 
 
 **Resource Table**
 
-<table style="width:97%;">
-<colgroup>
-<col style="width: 60%" />
-<col style="width: 36%" />
-</colgroup>
-<tbody>
-<tr>
-<td><p><em><strong>Enrollment University and Standing</strong></em></p></td>
-<td><p><em><strong>Where to Seek Accommodations</strong></em></p></td>
-</tr>
-<tr>
-<td><p><em>Undergraduate School of Public Health major</em></p></td>
-<td><p><a href="http://www.pdx.edu/drc" title="PSU’s Disability Resource Center"><em>PSUs Disability Resource Center</em></a></p>
-<ul>
-<li><p><em>503-725-4150</em></p></li>
-<li><p><em>Smith Memorial Student Union, Room 116</em></p></li>
-<li><p><a href="mailto:drc@pdx.edu"><em>drcpdx.edu</em></a></p></li>
-</ul></td>
-</tr>
-<tr>
-<td><p>All PSU-registering Dual Degree (MSW/MPH and MURP/MPH) Graduate School of Public Health Majors and all PSU-registering PhD students admitted prior to fall 2016.</p></td>
-<td><p><em>PSUs Disability Resource Center</em></p>
-<ul>
-<li><p><em>503-725-4150</em></p></li>
-<li><p><em>Smith Memorial Student Union, Room 116</em></p></li>
-<li><p><a href="mailto:drc@pdx.edu"><em>drcpdx.edu</em></a></p></li>
-<li><p><a href="http://www.pdx.edu/drc"><em>www.pdx.edu/drc</em></a></p></li>
-</ul></td>
-</tr>
-<tr>
-<td><p><em>Graduate School of Public Health major (irrespective of institution at which you register)</em></p></td>
-<td><p><em>OHSUs Office for Student Access</em></p>
-<p><em>(503) 494-0082</em></p>
-<p><a href="mailto:StudentAccess@OHSU.edu"><em>StudentAccessOHSU.edu</em></a></p>
-<p><em>OHSU Auditorium Building 330</em></p></td>
-</tr>
-<tr>
-<td><p><em>Non-SPH major, PSU-enrolled student</em></p></td>
-<td><p><em>PSUs Disability Resource Center</em></p>
-<p><em>503-725-4150</em></p>
-<p><em>Smith Memorial Student Union, Room 116</em></p>
-<p><a href="mailto:drc@pdx.edu"><em>drcpdx.edu</em></a></p>
-<p><a href="http://www.pdx.edu/drc"><em>www.pdx.edu/drc</em></a></p></td>
-</tr>
-<tr>
-<td><p><em>Non-SPH major, OHSU-enrolled student</em></p></td>
-<td><p><em>OHSUs Office for Student Access</em></p>
-<p><em>(503) 494-0082</em></p>
-<p><a href="mailto:StudentAccess@OHSU.edu"><em>StudentAccessOHSU.edu</em></a></p>
-<p><em>OHSU Auditorium Building 330</em></p></td>
-</tr>
-</tbody>
-</table>
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| ***Enrollment University and Standing***                                                                                                                         | ***Where to Seek Accommodations***                                                              |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| *Undergraduate School of Public Health major*                                                                                                                    | [*PSU's Disability Resource Center*](http://www.pdx.edu/drc "PSU’s Disability Resource Center") |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | -   *503-725-4150*                                                                              |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | -   *Smith Memorial Student Union, Room 116*                                                    |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | -   [*drc\@pdx.edu*](mailto:drc@pdx.edu "drc@pdx.edu")                                          |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| All PSU-registering Dual Degree (MSW/MPH and MURP/MPH) Graduate School of Public Health Majors and all PSU-registering PhD students admitted prior to fall 2016. | *PSU's Disability Resource Center*                                                              |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | -   *503-725-4150*                                                                              |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | -   *Smith Memorial Student Union, Room 116*                                                    |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | -   [*drc\@pdx.edu*](mailto:drc@pdx.edu)                                                        |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | -   [*www.pdx.edu/drc*](http://www.pdx.edu/drc)                                                 |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| *Graduate School of Public Health major (irrespective of institution at which you register)*                                                                     | *OHSU's Office for Student Access*                                                              |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | *(503) 494-0082*                                                                                |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | [*StudentAccess\@OHSU.edu*](mailto:StudentAccess@OHSU.edu)                                      |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | *OHSU Auditorium Building 330*                                                                  |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| *Non-SPH major, PSU-enrolled student*                                                                                                                            | *PSU's Disability Resource Center*                                                              |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | *503-725-4150*                                                                                  |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | *Smith Memorial Student Union, Room 116*                                                        |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | [*drc\@pdx.edu*](mailto:drc@pdx.edu)                                                            |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | [*www.pdx.edu/drc*](http://www.pdx.edu/drc)                                                     |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| *Non-SPH major, OHSU-enrolled student*                                                                                                                           | *OHSU's Office for Student Access*                                                              |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | *(503) 494-0082*                                                                                |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | [*StudentAccess\@OHSU.edu*](mailto:StudentAccess@OHSU.edu)                                      |
+|                                                                                                                                                                  |                                                                                                 |
+|                                                                                                                                                                  | *OHSU Auditorium Building 330*                                                                  |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
 
  
 
