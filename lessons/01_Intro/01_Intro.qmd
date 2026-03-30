@@ -3,7 +3,7 @@ title: "Lesson 1: Welcome!"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "03/31/2025"
+date: "`r library(here); source(here('class_dates.R')); w1d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -20,11 +20,12 @@ execute:
   freeze: auto  # re-render only when source changes
 ---
 
+```{r setup, include=FALSE}
+library(here)
+source(here("class_dates.R"))
+```
+
 # Still me!
-
-## Check the Echo360 link
-
--   Let's check the link and make sure we can see everything!
 
 ## Course Learning Objectives
 
@@ -54,7 +55,7 @@ At the end of this course, students should be able to...
 
     -   No need to tell me if you cannot make class
 
--   [Here is the link to the Echo site!](https://echo360.org/section/6e6935cc-2428-4a3e-842c-537121bffd64/home) I'll keep posting it on the weekly pages
+-   [Here is the link to the Echo site!](https://echo360.org/section/87bbad0a-58f2-4758-a290-b95378fbbab4/home) I'll keep posting it on the weekly pages
 
     -   Everyone should be added! Please check that you have access.
 
@@ -62,9 +63,9 @@ At the end of this course, students should be able to...
 
 ## Some important tasks
 
--   Star the class website: <https://nwakim.github.io/S25_BSTA_513/>
+-   Star the class website: <https://nwakim.github.io/BSTA_513_26S/>
 
--   Complete the [when2meet](https://www.when2meet.com/?29781152-juu4v) for office hours
+-   Complete the [when2meet](https://whenisgood.net/fpgdi2q) for office hours
 
     -   If your calendar feels set, take 5 minutes to fill this out now!
 
@@ -79,11 +80,20 @@ countdown::countdown(5)
 
 ## Syllabus
 
--   Not *many* changes from last quarters syllabus
--   Changes from last quarter
-    -   **Lab discussion days**
-    -   **Quizzes**
-    -   No midterm feedback
+-   No changes from last quarter! 
+
+## Key Course Info (at the top of the syllabus)
+
+-   If an assignment on Sakai is closed or you are submitting late work, **please email me AND the TAs your work** (see [instructor page](instructors.qmd) for all email addresses)
+-   If you are emailing for an extension, please email me AND the TAs. (see [instructor page](instructors.qmd) for all email addresses)
+-   Latework policy
+    -   **For homework:** can be turned in any time before course ends, but you will not receive feedback on late work
+    -   **For labs:** one "no questions asked", 3-day extension
+        -   After that, 1 point deducted per day late
+-   **Attendance policy:** attend in person and fill out exit tickets for 12 out of the 19 classes
+    -   There are **FIVE required in-person attendance days** (4 lab discussions and 1 project poster day)
+-   The class will end on `{r} w11d1 %>% format("%B %d, %Y")`. **All coursework MUST be completed by `{r} last_day %>% format("%B %d, %Y")`**
+-   Feel free to fill out the [Ongoing Course Feedback](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDc2S1dGNTlTRVJVUFoyQUUzNFJMS0JXUi4u) with any concerns or questions.
 
 ## Assessment Breakdown
 
@@ -93,48 +103,13 @@ countdown::countdown(5)
 |:--------------|:--------------|:--------------|:--------------|:--------------|
 | **Course activity** | **Type of Assessment** | **Due Date** | **Percentage of final grade (BSTA 513)** | **Percentage of final grade (BSTA 613)** |
 | Homework | Formative | Every 1-2 weeks | 30% | 25% |
-| **Quizzes** | **Summative** | **4/27, 5/18, 6/1** | **25%** | **25%** |
+| Quizzes | Summative | `r q1_close %>% format("%m/%d")`, `r q2_close %>% format("%m/%d")`, `r q3_close %>% format("%m/%d")` | 25% | 25% |
 | Project Labs | Formative/Summative | Every 2-3 weeks | 25% | 25% |
-| **Lab Discussion + Poster Day Participation** | **N/A** | **Every 2-3 weeks** | **5%** | **5%** |
-| Project Poster | Summative | 6/13 | 10% | 10% |
+| Lab Discussion + Poster Day Participation | N/A | Every 2-3 weeks | 5% | 5% |
+| Project Poster | Summative | `r proj %>% format("%m/%d")` | 10% | 10% |
 | Exit tickets (Attendance) | N/A | Twice Weekly | 5% | 5% |
 | 613 Readings | Formative | Approx. every other week | 0% | 5% |
 
-## Quizzes
-
--   In BSTA 512/612, I removed the quizzes that I implemented in W24
-
--   I noticed there were some key learning objectives that many of us were not meeting in the project
-
-    -   Not your fault
-
--   Leading me to implement some new assessment practices (quizzes and lab discussions)
-
--   I think quizzes are a helpful way to embed a checkpoint for understanding
-
--   Quizzes will NOT be in class
-
-    -   Quizzes will open at 3pm on Wednesday and close at 11pm on Sunday
-
-    -   I'm open to changing the exact timing of this, so let me know in the exit ticket!
-
-## Lab Discussion + Poster Day Participation
-
--   We will have 5 classes with required in-person attendance
-
-    -   4 lab discussion days
-
-    -   1 poster day
-
--   Lab discussions will either take the full or half class time
-
-    -   They will always follow the due date for a lab
-
--   You will spend the time in a pair or group to discuss what you did in your lab
-
--   If you have extenuating circumstances, you can complete a make-up assignment for credit (Syllabus)
-
-# Any questions on how this quarter is going to go?
 
 ## How to print slides
 
@@ -144,26 +119,3 @@ countdown::countdown(5)
 
 -   [Instructions on Quarto page](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf)
 
-## Let's take 10 minutes for Student Survey
-
-::::: columns
-::: {.column width="50%"}
-![](images/Student_survey.png){fig-align="center"}
-:::
-
-::: {.column width="50%"}
-![](images/Survey_QR.png){fig-align="center"}
-
-```{r}
-#| echo: false
-countdown::countdown(11)
-```
-:::
-:::::
-
-## Now we take a 5 minute break!
-
-```{r}
-#| echo: false
-countdown::countdown(5)
-```

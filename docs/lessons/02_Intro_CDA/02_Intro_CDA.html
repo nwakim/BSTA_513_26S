@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-29987c632d9c708eba81ba88d1291502.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Nicky Wakim">
-  <meta name="dcterms.date" content="2025-03-31">
+  <meta name="dcterms.date" content="2026-03-30">
   <title>Categorical Data Analysis – Lesson 2: Introduction to Categorical Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,8 +30,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -42,7 +43,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -95,7 +96,7 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-879b85e47848f420eaf0aa30a5c8b01f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-9605518811a95c63daa41485a0d708b3.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -205,7 +206,7 @@ Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2025-03-31</p>
+  <p class="date">2026-03-30</p>
 </section>
 <section id="learning-objectives" class="title-slide slide level1 center">
 <h1>Learning Objectives</h1>
@@ -390,7 +391,7 @@ Nicky Wakim
 </div>
 <p><span class="math display">\[P(X=2) = {10 \choose 2} 0.2^2 (1-0.2)^{10-2}  = 0.3020\]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">dbinom</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="fl">0.2</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">dbinom</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="fl">0.2</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.302</code></pre>
 </div>
@@ -500,7 +501,7 @@ Nicky Wakim
 </ol>
 <p><span class="math display">\[ \widehat{p} \pm z^*_{0.975} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">3841</span>, <span class="at">n =</span> <span class="dv">8681</span>, <span class="at">correct =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">3841</span>, <span class="at">n =</span> <span class="dv">8681</span>, <span class="at">correct =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     1-sample proportions test with continuity correction
@@ -560,9 +561,6 @@ sample estimates:
 <li>Using <span class="math inline">\(SE_{\hat{p}_1 - \hat{p}_2} = \sqrt{\frac{\hat{p}_1\cdot(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2\cdot(1-\hat{p}_2)}{n_2}}\)</span> because we don’t know exactly what <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are</li>
 </ul>
 </section>
-<section id="poll-everywhere-question-3" class="slide level2">
-<h2>Poll Everywhere Question 3</h2>
-</section>
 <section id="example-strong-heart-study-12" class="slide level2">
 <h2>Example: Strong Heart Study (1/2)</h2>
 <div class="columns">
@@ -585,10 +583,10 @@ sample estimates:
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co">#shs_data = read.csv(file = here("./data/SHS_data.csv"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co">#shs_data = read.csv(file = here("./data/SHS_data.csv"))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>SHS <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">Diabetes =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Not diabetic"</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>SHS <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">Diabetes =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Not diabetic"</span>, </span>
 <span id="cb6-2"><a></a>                   <span class="dv">1338</span>), </span>
 <span id="cb6-3"><a></a>                   <span class="fu">rep</span>(<span class="st">"Diabetic"</span>, <span class="dv">326</span>)),</span>
 <span id="cb6-4"><a></a>              <span class="at">Glucose =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Normal"</span>, </span>
@@ -596,38 +594,38 @@ sample estimates:
 <span id="cb6-6"><a></a>          <span class="fu">rep</span>(<span class="st">"Impaired"</span>, <span class="dv">334</span>),</span>
 <span id="cb6-7"><a></a>          <span class="fu">rep</span>(<span class="st">"Normal"</span>, </span>
 <span id="cb6-8"><a></a>              <span class="dv">128</span>), <span class="co">#Diabetic</span></span>
-<span id="cb6-9"><a></a>          <span class="fu">rep</span>(<span class="st">"Impaired"</span>, <span class="dv">198</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a></a>          <span class="fu">rep</span>(<span class="st">"Impaired"</span>, <span class="dv">198</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:40%;">
 <div class="cell">
 <details class="code-fold">
 <summary>Displaying the contingency table in R</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>SHS <span class="sc">%&gt;%</span> <span class="fu">tabyl</span>(Glucose, Diabetes) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>SHS <span class="sc">%&gt;%</span> <span class="fu">tabyl</span>(Glucose, Diabetes) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">"row"</span>, <span class="st">"col"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb7-4"><a></a>  <span class="fu">tab_stubhead</span>(<span class="at">label =</span> <span class="st">"Glucose Impairment"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-5"><a></a>  <span class="fu">tab_spanner</span>(<span class="at">label =</span> <span class="st">"Diabetes"</span>, </span>
 <span id="cb7-6"><a></a>              <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">"Not diabetic"</span>, <span class="st">"Diabetic"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-7"><a></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-7"><a></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">45</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="rdrvpkfuvp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rdrvpkfuvp table {
+<div id="tdhkohrqtn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tdhkohrqtn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rdrvpkfuvp thead, #rdrvpkfuvp tbody, #rdrvpkfuvp tfoot, #rdrvpkfuvp tr, #rdrvpkfuvp td, #rdrvpkfuvp th {
+#tdhkohrqtn thead, #tdhkohrqtn tbody, #tdhkohrqtn tfoot, #tdhkohrqtn tr, #tdhkohrqtn td, #tdhkohrqtn th {
   border-style: none;
 }
 
-#rdrvpkfuvp p {
+#tdhkohrqtn p {
   margin: 0;
   padding: 0;
 }
 
-#rdrvpkfuvp .gt_table {
+#tdhkohrqtn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -653,12 +651,12 @@ sample estimates:
   border-left-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_caption {
+#tdhkohrqtn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rdrvpkfuvp .gt_title {
+#tdhkohrqtn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -670,7 +668,7 @@ sample estimates:
   border-bottom-width: 0;
 }
 
-#rdrvpkfuvp .gt_subtitle {
+#tdhkohrqtn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -682,7 +680,7 @@ sample estimates:
   border-top-width: 0;
 }
 
-#rdrvpkfuvp .gt_heading {
+#tdhkohrqtn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -694,13 +692,13 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_bottom_border {
+#tdhkohrqtn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_col_headings {
+#tdhkohrqtn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -715,7 +713,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_col_heading {
+#tdhkohrqtn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -735,7 +733,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#rdrvpkfuvp .gt_column_spanner_outer {
+#tdhkohrqtn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -747,15 +745,15 @@ sample estimates:
   padding-right: 4px;
 }
 
-#rdrvpkfuvp .gt_column_spanner_outer:first-child {
+#tdhkohrqtn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rdrvpkfuvp .gt_column_spanner_outer:last-child {
+#tdhkohrqtn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rdrvpkfuvp .gt_column_spanner {
+#tdhkohrqtn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -767,11 +765,11 @@ sample estimates:
   width: 100%;
 }
 
-#rdrvpkfuvp .gt_spanner_row {
+#tdhkohrqtn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rdrvpkfuvp .gt_group_heading {
+#tdhkohrqtn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -797,7 +795,7 @@ sample estimates:
   text-align: left;
 }
 
-#rdrvpkfuvp .gt_empty_group_heading {
+#tdhkohrqtn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -812,15 +810,15 @@ sample estimates:
   vertical-align: middle;
 }
 
-#rdrvpkfuvp .gt_from_md > :first-child {
+#tdhkohrqtn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rdrvpkfuvp .gt_from_md > :last-child {
+#tdhkohrqtn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rdrvpkfuvp .gt_row {
+#tdhkohrqtn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -839,7 +837,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#rdrvpkfuvp .gt_stub {
+#tdhkohrqtn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -852,7 +850,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#rdrvpkfuvp .gt_stub_row_group {
+#tdhkohrqtn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -866,15 +864,15 @@ sample estimates:
   vertical-align: top;
 }
 
-#rdrvpkfuvp .gt_row_group_first td {
+#tdhkohrqtn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rdrvpkfuvp .gt_row_group_first th {
+#tdhkohrqtn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rdrvpkfuvp .gt_summary_row {
+#tdhkohrqtn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -884,16 +882,16 @@ sample estimates:
   padding-right: 5px;
 }
 
-#rdrvpkfuvp .gt_first_summary_row {
+#tdhkohrqtn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_first_summary_row.thick {
+#tdhkohrqtn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rdrvpkfuvp .gt_last_summary_row {
+#tdhkohrqtn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -903,7 +901,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_grand_summary_row {
+#tdhkohrqtn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -913,7 +911,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#rdrvpkfuvp .gt_first_grand_summary_row {
+#tdhkohrqtn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -923,7 +921,7 @@ sample estimates:
   border-top-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_last_grand_summary_row_top {
+#tdhkohrqtn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -933,11 +931,11 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_striped {
+#tdhkohrqtn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rdrvpkfuvp .gt_table_body {
+#tdhkohrqtn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -946,7 +944,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_footnotes {
+#tdhkohrqtn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -960,7 +958,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_footnote {
+#tdhkohrqtn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -969,7 +967,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#rdrvpkfuvp .gt_sourcenotes {
+#tdhkohrqtn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -983,7 +981,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#rdrvpkfuvp .gt_sourcenote {
+#tdhkohrqtn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -991,77 +989,77 @@ sample estimates:
   padding-right: 5px;
 }
 
-#rdrvpkfuvp .gt_left {
+#tdhkohrqtn .gt_left {
   text-align: left;
 }
 
-#rdrvpkfuvp .gt_center {
+#tdhkohrqtn .gt_center {
   text-align: center;
 }
 
-#rdrvpkfuvp .gt_right {
+#tdhkohrqtn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rdrvpkfuvp .gt_font_normal {
+#tdhkohrqtn .gt_font_normal {
   font-weight: normal;
 }
 
-#rdrvpkfuvp .gt_font_bold {
+#tdhkohrqtn .gt_font_bold {
   font-weight: bold;
 }
 
-#rdrvpkfuvp .gt_font_italic {
+#tdhkohrqtn .gt_font_italic {
   font-style: italic;
 }
 
-#rdrvpkfuvp .gt_super {
+#tdhkohrqtn .gt_super {
   font-size: 65%;
 }
 
-#rdrvpkfuvp .gt_footnote_marks {
+#tdhkohrqtn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rdrvpkfuvp .gt_asterisk {
+#tdhkohrqtn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rdrvpkfuvp .gt_indent_1 {
+#tdhkohrqtn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rdrvpkfuvp .gt_indent_2 {
+#tdhkohrqtn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rdrvpkfuvp .gt_indent_3 {
+#tdhkohrqtn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rdrvpkfuvp .gt_indent_4 {
+#tdhkohrqtn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rdrvpkfuvp .gt_indent_5 {
+#tdhkohrqtn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rdrvpkfuvp .katex-display {
+#tdhkohrqtn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rdrvpkfuvp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tdhkohrqtn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -1140,23 +1138,23 @@ Diabetes
 <div class="column">
 <div class="cell">
 <div class="cell-output-display">
-<div id="xoqazjoops" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xoqazjoops table {
+<div id="lnqzodukzb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lnqzodukzb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xoqazjoops thead, #xoqazjoops tbody, #xoqazjoops tfoot, #xoqazjoops tr, #xoqazjoops td, #xoqazjoops th {
+#lnqzodukzb thead, #lnqzodukzb tbody, #lnqzodukzb tfoot, #lnqzodukzb tr, #lnqzodukzb td, #lnqzodukzb th {
   border-style: none;
 }
 
-#xoqazjoops p {
+#lnqzodukzb p {
   margin: 0;
   padding: 0;
 }
 
-#xoqazjoops .gt_table {
+#lnqzodukzb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1182,12 +1180,12 @@ Diabetes
   border-left-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_caption {
+#lnqzodukzb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xoqazjoops .gt_title {
+#lnqzodukzb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1199,7 +1197,7 @@ Diabetes
   border-bottom-width: 0;
 }
 
-#xoqazjoops .gt_subtitle {
+#lnqzodukzb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1211,7 +1209,7 @@ Diabetes
   border-top-width: 0;
 }
 
-#xoqazjoops .gt_heading {
+#lnqzodukzb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1223,13 +1221,13 @@ Diabetes
   border-right-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_bottom_border {
+#lnqzodukzb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_col_headings {
+#lnqzodukzb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1244,7 +1242,7 @@ Diabetes
   border-right-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_col_heading {
+#lnqzodukzb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1264,7 +1262,7 @@ Diabetes
   overflow-x: hidden;
 }
 
-#xoqazjoops .gt_column_spanner_outer {
+#lnqzodukzb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1276,15 +1274,15 @@ Diabetes
   padding-right: 4px;
 }
 
-#xoqazjoops .gt_column_spanner_outer:first-child {
+#lnqzodukzb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xoqazjoops .gt_column_spanner_outer:last-child {
+#lnqzodukzb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xoqazjoops .gt_column_spanner {
+#lnqzodukzb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1296,11 +1294,11 @@ Diabetes
   width: 100%;
 }
 
-#xoqazjoops .gt_spanner_row {
+#lnqzodukzb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xoqazjoops .gt_group_heading {
+#lnqzodukzb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1326,7 +1324,7 @@ Diabetes
   text-align: left;
 }
 
-#xoqazjoops .gt_empty_group_heading {
+#lnqzodukzb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1341,15 +1339,15 @@ Diabetes
   vertical-align: middle;
 }
 
-#xoqazjoops .gt_from_md > :first-child {
+#lnqzodukzb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xoqazjoops .gt_from_md > :last-child {
+#lnqzodukzb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xoqazjoops .gt_row {
+#lnqzodukzb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1368,7 +1366,7 @@ Diabetes
   overflow-x: hidden;
 }
 
-#xoqazjoops .gt_stub {
+#lnqzodukzb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1381,7 +1379,7 @@ Diabetes
   padding-right: 5px;
 }
 
-#xoqazjoops .gt_stub_row_group {
+#lnqzodukzb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1395,15 +1393,15 @@ Diabetes
   vertical-align: top;
 }
 
-#xoqazjoops .gt_row_group_first td {
+#lnqzodukzb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xoqazjoops .gt_row_group_first th {
+#lnqzodukzb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xoqazjoops .gt_summary_row {
+#lnqzodukzb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1413,16 +1411,16 @@ Diabetes
   padding-right: 5px;
 }
 
-#xoqazjoops .gt_first_summary_row {
+#lnqzodukzb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_first_summary_row.thick {
+#lnqzodukzb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xoqazjoops .gt_last_summary_row {
+#lnqzodukzb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1432,7 +1430,7 @@ Diabetes
   border-bottom-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_grand_summary_row {
+#lnqzodukzb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1442,7 +1440,7 @@ Diabetes
   padding-right: 5px;
 }
 
-#xoqazjoops .gt_first_grand_summary_row {
+#lnqzodukzb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1452,7 +1450,7 @@ Diabetes
   border-top-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_last_grand_summary_row_top {
+#lnqzodukzb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1462,11 +1460,11 @@ Diabetes
   border-bottom-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_striped {
+#lnqzodukzb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xoqazjoops .gt_table_body {
+#lnqzodukzb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1475,7 +1473,7 @@ Diabetes
   border-bottom-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_footnotes {
+#lnqzodukzb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1489,7 +1487,7 @@ Diabetes
   border-right-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_footnote {
+#lnqzodukzb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1498,7 +1496,7 @@ Diabetes
   padding-right: 5px;
 }
 
-#xoqazjoops .gt_sourcenotes {
+#lnqzodukzb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1512,7 +1510,7 @@ Diabetes
   border-right-color: #D3D3D3;
 }
 
-#xoqazjoops .gt_sourcenote {
+#lnqzodukzb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1520,77 +1518,77 @@ Diabetes
   padding-right: 5px;
 }
 
-#xoqazjoops .gt_left {
+#lnqzodukzb .gt_left {
   text-align: left;
 }
 
-#xoqazjoops .gt_center {
+#lnqzodukzb .gt_center {
   text-align: center;
 }
 
-#xoqazjoops .gt_right {
+#lnqzodukzb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xoqazjoops .gt_font_normal {
+#lnqzodukzb .gt_font_normal {
   font-weight: normal;
 }
 
-#xoqazjoops .gt_font_bold {
+#lnqzodukzb .gt_font_bold {
   font-weight: bold;
 }
 
-#xoqazjoops .gt_font_italic {
+#lnqzodukzb .gt_font_italic {
   font-style: italic;
 }
 
-#xoqazjoops .gt_super {
+#lnqzodukzb .gt_super {
   font-size: 65%;
 }
 
-#xoqazjoops .gt_footnote_marks {
+#lnqzodukzb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xoqazjoops .gt_asterisk {
+#lnqzodukzb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xoqazjoops .gt_indent_1 {
+#lnqzodukzb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xoqazjoops .gt_indent_2 {
+#lnqzodukzb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xoqazjoops .gt_indent_3 {
+#lnqzodukzb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xoqazjoops .gt_indent_4 {
+#lnqzodukzb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xoqazjoops .gt_indent_5 {
+#lnqzodukzb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xoqazjoops .katex-display {
+#lnqzodukzb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xoqazjoops div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lnqzodukzb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -1644,8 +1642,8 @@ Diabetes
 <li>Construct 95% confidence interval</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">table</span>(SHS<span class="sc">$</span>Glucose, SHS<span class="sc">$</span>Diabetes), </span>
-<span id="cb8-2"><a></a>          <span class="at">correct =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">table</span>(SHS<span class="sc">$</span>Glucose, SHS<span class="sc">$</span>Diabetes), </span>
+<span id="cb8-2"><a></a>          <span class="at">correct =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     2-sample test for equality of proportions with continuity correction
@@ -1667,10 +1665,13 @@ sample estimates:
 <p>Additional interpretation of CI: We are 95% confident that the difference in (population) proportions of American Indians who have normal glucose tolerance and impaired glucose tolerance that developed diabetes is between 0.213 and 0.306.</p>
 </div></div>
 </section>
+<section id="poll-everywhere-question-3" class="slide level2">
+<h2>Poll Everywhere Question 3</h2>
+</section>
 <section id="mcnemars-test" class="slide level2">
 <h2>McNemar’s Test</h2>
 <ul>
-<li>McNemar’s test should be used if data is from a matched pairs study</li>
+<li>McNemar’s test should be used if data (in a 2x2 table) are from a matched pairs study</li>
 </ul>
 <p>&nbsp;</p>
 <ul>
@@ -1929,16 +1930,16 @@ sample estimates:
 <li>In the Strong Heart Study…</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>SHS_table <span class="ot">=</span> <span class="fu">table</span>(SHS<span class="sc">$</span>Glucose, SHS<span class="sc">$</span>Diabetes)</span>
-<span id="cb10-2"><a></a>SHS_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>SHS_table <span class="ot">=</span> <span class="fu">table</span>(SHS<span class="sc">$</span>Glucose, SHS<span class="sc">$</span>Diabetes)</span>
+<span id="cb10-2"><a></a>SHS_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          
            Diabetic Not diabetic
   Impaired      198          334
   Normal        128         1004</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(epitools)</span>
-<span id="cb12-2"><a></a><span class="fu">expected</span>(SHS_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(epitools)</span>
+<span id="cb12-2"><a></a><span class="fu">expected</span>(SHS_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          
            Diabetic Not diabetic
@@ -1966,7 +1967,7 @@ sample estimates:
 <li>Check expected cell counts threshold</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">expected</span>(SHS_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">expected</span>(SHS_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          
            Diabetic Not diabetic
@@ -1988,7 +1989,7 @@ sample estimates:
 <li>Calculate the test statistic and p-value for Chi-squared test in R</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">chisq.test</span>(<span class="at">x =</span> SHS_table, <span class="at">correct =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">chisq.test</span>(<span class="at">x =</span> SHS_table, <span class="at">correct =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test with Yates' continuity correction
@@ -2075,23 +2076,23 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="wkyuygcvqa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wkyuygcvqa table {
+<div id="tlyatwutla" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tlyatwutla table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wkyuygcvqa thead, #wkyuygcvqa tbody, #wkyuygcvqa tfoot, #wkyuygcvqa tr, #wkyuygcvqa td, #wkyuygcvqa th {
+#tlyatwutla thead, #tlyatwutla tbody, #tlyatwutla tfoot, #tlyatwutla tr, #tlyatwutla td, #tlyatwutla th {
   border-style: none;
 }
 
-#wkyuygcvqa p {
+#tlyatwutla p {
   margin: 0;
   padding: 0;
 }
 
-#wkyuygcvqa .gt_table {
+#tlyatwutla .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2117,12 +2118,12 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-left-color: #D5D5D5;
 }
 
-#wkyuygcvqa .gt_caption {
+#tlyatwutla .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wkyuygcvqa .gt_title {
+#tlyatwutla .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2134,7 +2135,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-bottom-width: 0;
 }
 
-#wkyuygcvqa .gt_subtitle {
+#tlyatwutla .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2146,7 +2147,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-top-width: 0;
 }
 
-#wkyuygcvqa .gt_heading {
+#tlyatwutla .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2158,13 +2159,13 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wkyuygcvqa .gt_bottom_border {
+#tlyatwutla .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#wkyuygcvqa .gt_col_headings {
+#tlyatwutla .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -2179,7 +2180,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wkyuygcvqa .gt_col_heading {
+#tlyatwutla .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -2199,7 +2200,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   overflow-x: hidden;
 }
 
-#wkyuygcvqa .gt_column_spanner_outer {
+#tlyatwutla .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -2211,15 +2212,15 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   padding-right: 4px;
 }
 
-#wkyuygcvqa .gt_column_spanner_outer:first-child {
+#tlyatwutla .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wkyuygcvqa .gt_column_spanner_outer:last-child {
+#tlyatwutla .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wkyuygcvqa .gt_column_spanner {
+#tlyatwutla .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -2231,11 +2232,11 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   width: 100%;
 }
 
-#wkyuygcvqa .gt_spanner_row {
+#tlyatwutla .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wkyuygcvqa .gt_group_heading {
+#tlyatwutla .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2261,7 +2262,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   text-align: left;
 }
 
-#wkyuygcvqa .gt_empty_group_heading {
+#tlyatwutla .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2276,15 +2277,15 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   vertical-align: middle;
 }
 
-#wkyuygcvqa .gt_from_md > :first-child {
+#tlyatwutla .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wkyuygcvqa .gt_from_md > :last-child {
+#tlyatwutla .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wkyuygcvqa .gt_row {
+#tlyatwutla .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2303,7 +2304,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   overflow-x: hidden;
 }
 
-#wkyuygcvqa .gt_stub {
+#tlyatwutla .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2316,7 +2317,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#wkyuygcvqa .gt_stub_row_group {
+#tlyatwutla .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2330,15 +2331,15 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   vertical-align: top;
 }
 
-#wkyuygcvqa .gt_row_group_first td {
+#tlyatwutla .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wkyuygcvqa .gt_row_group_first th {
+#tlyatwutla .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wkyuygcvqa .gt_summary_row {
+#tlyatwutla .gt_summary_row {
   color: #333333;
   background-color: #89D3FE;
   text-transform: inherit;
@@ -2348,16 +2349,16 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#wkyuygcvqa .gt_first_summary_row {
+#tlyatwutla .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#wkyuygcvqa .gt_first_summary_row.thick {
+#tlyatwutla .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wkyuygcvqa .gt_last_summary_row {
+#tlyatwutla .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2367,7 +2368,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-bottom-color: #D5D5D5;
 }
 
-#wkyuygcvqa .gt_grand_summary_row {
+#tlyatwutla .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #00A1FF;
   text-transform: inherit;
@@ -2377,7 +2378,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#wkyuygcvqa .gt_first_grand_summary_row {
+#tlyatwutla .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2387,7 +2388,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-top-color: #D5D5D5;
 }
 
-#wkyuygcvqa .gt_last_grand_summary_row_top {
+#tlyatwutla .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2397,11 +2398,11 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-bottom-color: #D5D5D5;
 }
 
-#wkyuygcvqa .gt_striped {
+#tlyatwutla .gt_striped {
   background-color: #F4F4F4;
 }
 
-#wkyuygcvqa .gt_table_body {
+#tlyatwutla .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -2410,7 +2411,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-bottom-color: #D5D5D5;
 }
 
-#wkyuygcvqa .gt_footnotes {
+#tlyatwutla .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2424,7 +2425,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wkyuygcvqa .gt_footnote {
+#tlyatwutla .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2433,7 +2434,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#wkyuygcvqa .gt_sourcenotes {
+#tlyatwutla .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2447,7 +2448,7 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wkyuygcvqa .gt_sourcenote {
+#tlyatwutla .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2455,77 +2456,77 @@ X-squared = 152.6, df = 1, p-value &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#wkyuygcvqa .gt_left {
+#tlyatwutla .gt_left {
   text-align: left;
 }
 
-#wkyuygcvqa .gt_center {
+#tlyatwutla .gt_center {
   text-align: center;
 }
 
-#wkyuygcvqa .gt_right {
+#tlyatwutla .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wkyuygcvqa .gt_font_normal {
+#tlyatwutla .gt_font_normal {
   font-weight: normal;
 }
 
-#wkyuygcvqa .gt_font_bold {
+#tlyatwutla .gt_font_bold {
   font-weight: bold;
 }
 
-#wkyuygcvqa .gt_font_italic {
+#tlyatwutla .gt_font_italic {
   font-style: italic;
 }
 
-#wkyuygcvqa .gt_super {
+#tlyatwutla .gt_super {
   font-size: 65%;
 }
 
-#wkyuygcvqa .gt_footnote_marks {
+#tlyatwutla .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wkyuygcvqa .gt_asterisk {
+#tlyatwutla .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wkyuygcvqa .gt_indent_1 {
+#tlyatwutla .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wkyuygcvqa .gt_indent_2 {
+#tlyatwutla .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wkyuygcvqa .gt_indent_3 {
+#tlyatwutla .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wkyuygcvqa .gt_indent_4 {
+#tlyatwutla .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wkyuygcvqa .gt_indent_5 {
+#tlyatwutla .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wkyuygcvqa .katex-display {
+#tlyatwutla .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wkyuygcvqa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tlyatwutla div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -2547,19 +2548,19 @@ Postoperative Neuropathy
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">No</td>
+<th id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">No</th>
 <td class="gt_row gt_right" headers="stub_1_1 No">145</td>
 <td class="gt_row gt_right" headers="stub_1_1 Yes">4</td>
 <td class="gt_row gt_right" headers="stub_1_1 Total">149</td>
 </tr>
 <tr class="even">
-<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Yes</td>
+<th id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Yes</th>
 <td class="gt_row gt_right gt_striped" headers="stub_1_2 No">78</td>
 <td class="gt_row gt_right gt_striped" headers="stub_1_2 Yes">5</td>
 <td class="gt_row gt_right gt_striped" headers="stub_1_2 Total">83</td>
 </tr>
 <tr class="odd">
-<td id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Total</td>
+<th id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">Total</th>
 <td class="gt_row gt_right" headers="stub_1_3 No">223</td>
 <td class="gt_row gt_right" headers="stub_1_3 Yes">9</td>
 <td class="gt_row gt_right" headers="stub_1_3 Total">232</td>
@@ -2579,7 +2580,7 @@ Postoperative Neuropathy
 <li>Check expected cell counts threshold</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">expected</span>(neuro_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">expected</span>(neuro_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     
              No      Yes
@@ -2601,7 +2602,7 @@ Postoperative Neuropathy
 <li>Calculate the test statistic and p-value for Fisher Exact test</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">fisher.test</span>(<span class="at">x =</span> neuro_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">fisher.test</span>(<span class="at">x =</span> neuro_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Fisher's Exact Test for Count Data
@@ -2703,10 +2704,15 @@ odds ratio
 <p>Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</p>
 </div>
 <div class="proof-cont">
-<p>The proportions of successes tend to increase as ordinal value of the explanatory variable increases</p>
+<p>Need to pick ONE of the following:</p>
+<ol type="1">
+<li>The proportions of successes tend to increase as ordinal value of the explanatory variable increases</li>
+</ol>
 <p><span class="math display">\[p_1 \leq p_2 \leq ... \leq p_C\]</span></p>
 <p>OR</p>
-<p>The proportions of successes tend to decrease as ordinal value of the explanatory variable increases</p>
+<ol start="2" type="1">
+<li>The proportions of successes tend to decrease as ordinal value of the explanatory variable increases</li>
+</ol>
 <p><span class="math display">\[p_1 \geq p_2 \geq ... \geq p_C\]</span></p>
 </div>
 </div>
@@ -2715,6 +2721,7 @@ odds ratio
 <section id="cochran-armitage-test-process" class="slide level2">
 <h2>Cochran-Armitage test: Process</h2>
 <ol type="1">
+<li><p><span style="color:#70AD47"><strong>Check assumptions</strong></span>: expected cell counts is greater than 5.</p></li>
 <li><p>Set the <span style="color:#70AD47"><strong>level of significance</strong></span> <span class="math inline">\(\alpha\)</span></p></li>
 <li><p>Specify the <span style="color:#70AD47"><strong>null</strong></span> ( <span class="math inline">\(H_0\)</span> ) and <span style="color:#70AD47"><strong>alternative</strong></span> ( <span class="math inline">\(H_A\)</span> ) <span style="color:#70AD47"><strong>hypotheses</strong></span></p>
 <ul>
@@ -2747,12 +2754,12 @@ odds ratio
 <li>Before we go into the hypothesis test procedure, we need to construct the contingency table in R</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>Cancer <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">320</span>, <span class="dv">1206</span>, <span class="dv">1011</span>, <span class="dv">463</span>, <span class="dv">220</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>Cancer <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">320</span>, <span class="dv">1206</span>, <span class="dv">1011</span>, <span class="dv">463</span>, <span class="dv">220</span>)</span>
 <span id="cb22-2"><a></a>No_Cancer <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1422</span>, <span class="dv">4432</span>, <span class="dv">2893</span>, <span class="dv">1092</span>, <span class="dv">406</span>)</span>
 <span id="cb22-3"><a></a>bscancer <span class="ot">=</span> <span class="fu">matrix</span> (<span class="fu">c</span>(Cancer, No_Cancer), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> T)</span>
 <span id="cb22-4"><a></a><span class="fu">rownames</span>(bscancer) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Cancer"</span>,<span class="st">"No Cancer"</span>)</span>
 <span id="cb22-5"><a></a><span class="fu">colnames</span>(bscancer) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"&lt;20"</span>,<span class="st">"20-24"</span>,<span class="st">"25-29"</span>,<span class="st">"30-34"</span>,<span class="st">"&gt;=35"</span>)</span>
-<span id="cb22-6"><a></a>bscancer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-6"><a></a>bscancer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           &lt;20 20-24 25-29 30-34 &gt;=35
 Cancer     320  1206  1011   463  220
@@ -2768,6 +2775,18 @@ No Cancer 1422  4432  2893  1092  406</code></pre>
 <div class="columns">
 <div class="column">
 <ol type="1">
+<li>Check expected cell counts</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">expected</span>(bscancer) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             &lt;20  20-24  25-29  30-34  &gt;=35
+Cancer     416.6 1348.3  933.6  371.9 149.7
+No Cancer 1325.4 4289.7 2970.4 1183.1 476.3</code></pre>
+</div>
+</div>
+<p>All expected cells are greater than 5.</p>
+<ol start="2" type="1">
 <li><p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
 <li><p>Hypothesis test:</p>
 <ul>
@@ -2777,12 +2796,12 @@ No Cancer 1422  4432  2893  1092  406</code></pre>
 </ol>
 <p><span class="math display">\[p_1 \leq p_2 \leq ... \leq p_5\]</span></p>
 </div><div class="column">
-<ol start="3" type="1">
+<ol start="4" type="1">
 <li>Calculate the test statistic and p-value for Cochran-Armitage test in R</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb24-2"><a></a><span class="fu">CochranArmitageTest</span>(bscancer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb26-2"><a></a><span class="fu">CochranArmitageTest</span>(bscancer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Cochran-Armitage test for trend
@@ -2792,7 +2811,7 @@ Z = 11.358, dim = 5, p-value &lt; 2.2e-16
 alternative hypothesis: two.sided</code></pre>
 </div>
 </div>
-<ol start="4" type="1">
+<ol start="5" type="1">
 <li>Conclusion to the hypothesis test</li>
 </ol>
 <p>We reject the null hypothesis that proportions of breast cancer are the same for all age levels of first birth (<span class="math inline">\(p&lt;2.2\cdot10^{-16}\)</span>). There is sufficient evidence that the proportion of of breast cancer increase as the the age at first birth increases.</p>
@@ -2820,8 +2839,12 @@ alternative hypothesis: two.sided</code></pre>
 <section id="mantel-haenszel-test" class="slide level2">
 <h2>Mantel-Haenszel test</h2>
 <ul>
-<li><p>When both variables are ordinal, we can conduct Mantel-Haenszel test of trend for linear association</p></li>
+<li><p>When both variables are ordinal, we can conduct Mantel-Haenszel test of trend for linear association</p>
+<ul>
+<li>Test for independence when both variables are ordinal</li>
+</ul></li>
 <li><p>Mantel-Haenszel test for linear trend is suitable for any R x C contingency tables with two ordinal variables</p></li>
+<li><p>More info on the test statistic and its Chi-squared distribution on the <a href="https://online.stat.psu.edu/stat504/Lesson04#mantel-haenszel-test-for-linear-trend">Penn State site</a></p></li>
 <li><p>Hypothesis test:</p></li>
 </ul>
 <div class="columns">
@@ -2849,6 +2872,7 @@ alternative hypothesis: two.sided</code></pre>
 <section id="mantel-haenszel-test-process" class="slide level2">
 <h2>Mantel-Haenszel test: Process</h2>
 <ol type="1">
+<li><p><span style="color:#70AD47"><strong>Check assumptions</strong></span>: expected cell counts is greater than 5.</p></li>
 <li><p>Set the <span style="color:#70AD47"><strong>level of significance</strong></span> <span class="math inline">\(\alpha\)</span></p></li>
 <li><p>Specify the <span style="color:#70AD47"><strong>null</strong></span> ( <span class="math inline">\(H_0\)</span> ) and <span style="color:#70AD47"><strong>alternative</strong></span> ( <span class="math inline">\(H_A\)</span> ) <span style="color:#70AD47"><strong>hypotheses</strong></span></p>
 <ul>
@@ -2882,10 +2906,10 @@ alternative hypothesis: two.sided</code></pre>
 <li>Before we go into the hypothesis test procedure, we need to construct the contingency table in R</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>water <span class="ot">=</span> <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">27</span>, <span class="dv">14</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">17</span>, <span class="dv">26</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">50</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
-<span id="cb26-2"><a></a><span class="fu">rownames</span>(water) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"plain"</span>,<span class="st">"standard"</span>,<span class="st">"super"</span>)</span>
-<span id="cb26-3"><a></a><span class="fu">colnames</span>(water) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"medium"</span>,<span class="st">"high"</span>)</span>
-<span id="cb26-4"><a></a>water</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>water <span class="ot">=</span> <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">27</span>, <span class="dv">14</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">17</span>, <span class="dv">26</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">50</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
+<span id="cb28-2"><a></a><span class="fu">rownames</span>(water) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"plain"</span>,<span class="st">"standard"</span>,<span class="st">"super"</span>)</span>
+<span id="cb28-3"><a></a><span class="fu">colnames</span>(water) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"medium"</span>,<span class="st">"high"</span>)</span>
+<span id="cb28-4"><a></a>water</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         low medium high
 plain     27     14    5
@@ -2902,6 +2926,19 @@ super      5     12   50</code></pre>
 <div class="columns">
 <div class="column">
 <ol type="1">
+<li>Check expected cell counts</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">expected</span>(water) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          low medium high
+plain    11.6   11.9 22.4
+standard 13.4   13.7 25.9
+super    17.0   17.4 32.7</code></pre>
+</div>
+</div>
+<p>All expected cells are greater than 5.</p>
+<ol start="2" type="1">
 <li><p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
 <li><p>Hypothesis test:</p>
 <ul>
@@ -2911,12 +2948,12 @@ super      5     12   50</code></pre>
 </ol>
 <p><span class="math display">\[ \rho \neq 0\]</span></p>
 </div><div class="column">
-<ol start="3" type="1">
+<ol start="4" type="1">
 <li>Calculate the test statistic and p-value for Mantel-Haenszel test in R</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb28-2"><a></a><span class="fu">MHChisqTest</span>(water)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb32-2"><a></a><span class="fu">MHChisqTest</span>(water)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Mantel-Haenszel Chi-Square
@@ -2925,7 +2962,7 @@ data:  water
 X-squared = 50.602, df = 1, p-value = 1.132e-12</code></pre>
 </div>
 </div>
-<ol start="4" type="1">
+<ol start="5" type="1">
 <li>Conclusion to the hypothesis test</li>
 </ol>
 <p>We reject the null hypothesis that there is no correlation between washability and water treatment (<span class="math inline">\(p = 1.13 \cdot 10^{-12} &lt; 0.05\)</span>). There is sufficient evidence that level of water treatment is associated with washability.</p>
@@ -3222,190 +3259,173 @@ X-squared = 50.602, df = 1, p-value = 1.132e-12</code></pre>
     </script>
 
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>

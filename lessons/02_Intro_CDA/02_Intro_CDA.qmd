@@ -3,7 +3,7 @@ title: "Lesson 2: Introduction to Categorical Data Analysis"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "03/31/2025"
+date: "`r library(here); source(here('class_dates.R')); w1d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -22,6 +22,9 @@ execute:
 
 ```{r}
 #| echo: false
+
+library(here)
+source(here("class_dates.R"))
 
 library(tidyverse)
 library(gt)
@@ -350,7 +353,6 @@ $$\begin{align} \widehat{p}_1 - \widehat{p}_2 &\pm z^*_{(1-\alpha/2)} \cdot SE_{
 
 -   Using $SE_{\hat{p}_1 - \hat{p}_2} = \sqrt{\frac{\hat{p}_1\cdot(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2\cdot(1-\hat{p}_2)}{n_2}}$ because we don't know exactly what $p_1$ and $p_2$ are
 
-## Poll Everywhere Question 3
 
 ## Example: Strong Heart Study (1/2)
 
@@ -479,9 +481,11 @@ Additional interpretation of CI: We are 95% confident that the difference in (po
 :::
 :::
 
+## Poll Everywhere Question 3
+
 ## McNemar's Test
 
--   McNemar’s test should be used if data is from a matched pairs study
+-   McNemar’s test should be used if data (in a 2x2 table) are from a matched pairs study
 
  
 
@@ -975,13 +979,15 @@ Alternative Hypothesis ($H_1$)
 :::
 
 ::: proof-cont
-The proportions of successes tend to increase as ordinal value of the explanatory variable increases
+Need to pick ONE of the following:
+
+1. The proportions of successes tend to increase as ordinal value of the explanatory variable increases
 
 $$p_1 \leq p_2 \leq ... \leq p_C$$
 
 OR
 
-The proportions of successes tend to decrease as ordinal value of the explanatory variable increases
+2. The proportions of successes tend to decrease as ordinal value of the explanatory variable increases
 
 $$p_1 \geq p_2 \geq ... \geq p_C$$
 :::
@@ -991,20 +997,22 @@ $$p_1 \geq p_2 \geq ... \geq p_C$$
 
 ## Cochran-Armitage test: Process
 
-1.  Set the [**level of significance**]{style="color:#70AD47"} $\alpha$
+1. [**Check assumptions**]{style="color:#70AD47"}: expected cell counts is greater than 5. 
 
-2.  Specify the [**null**]{style="color:#70AD47"} ( $H_0$ ) and [**alternative**]{style="color:#70AD47"} ( $H_A$ ) [**hypotheses**]{style="color:#70AD47"}
+2.  Set the [**level of significance**]{style="color:#70AD47"} $\alpha$
+
+3.  Specify the [**null**]{style="color:#70AD47"} ( $H_0$ ) and [**alternative**]{style="color:#70AD47"} ( $H_A$ ) [**hypotheses**]{style="color:#70AD47"}
 
     -   In symbols
     -   In words
     -   Alternative: one- or two-sided?
 
-3.  Calculate the [**test statistic**]{style="color:#70AD47"} and [**p-value**]{style="color:#70AD47"} for Cochran-Armitage test in R
+4.  Calculate the [**test statistic**]{style="color:#70AD47"} and [**p-value**]{style="color:#70AD47"} for Cochran-Armitage test in R
 
     -   We will not discuss the test statistic's equation
     -   Just know it follows a Normal distribution
 
-4.  Write a [**conclusion**]{style="color:#70AD47"} to the hypothesis test
+5.  Write a [**conclusion**]{style="color:#70AD47"} to the hypothesis test
 
     -   Do we reject or fail to reject $H_0$?
     -   Write a conclusion in the context of the problem
@@ -1042,9 +1050,17 @@ bscancer
 
 ::: columns
 ::: column
-1.  $\alpha = 0.05$
+1. Check expected cell counts
 
-2.  Hypothesis test:
+```{r}
+expected(bscancer) %>% round(1)
+```
+
+All expected cells are greater than 5.
+
+2.  $\alpha = 0.05$
+
+3.  Hypothesis test:
 
     -   $H_0$: The proportions of breast cancer are the same for all age levels of first birth. $$p_1 = p_2 = ... = p_5$$
     -   $H_1$: The proportions of breast cancer tends to increase as level of age of first birth increases
@@ -1053,14 +1069,14 @@ $$p_1 \leq p_2 \leq ... \leq p_5$$
 :::
 
 ::: column
-3.  Calculate the test statistic and p-value for Cochran-Armitage test in R
+4.  Calculate the test statistic and p-value for Cochran-Armitage test in R
 
 ```{r}
 library(DescTools)
 CochranArmitageTest(bscancer)
 ```
 
-4.  Conclusion to the hypothesis test
+5.  Conclusion to the hypothesis test
 
 We reject the null hypothesis that proportions of breast cancer are the same for all age levels of first birth ($p<2.2\cdot10^{-16}$). There is sufficient evidence that the proportion of of breast cancer increase as the the age at first birth increases.
 :::
@@ -1091,8 +1107,11 @@ We reject the null hypothesis that proportions of breast cancer are the same for
 ## Mantel-Haenszel test
 
 -   When both variables are ordinal, we can conduct Mantel-Haenszel test of trend for linear association
+    - Test for independence when both variables are ordinal
 
 -   Mantel-Haenszel test for linear trend is suitable for any R x C contingency tables with two ordinal variables
+
+- More info on the test statistic and its Chi-squared distribution on the [Penn State site](https://online.stat.psu.edu/stat504/Lesson04#mantel-haenszel-test-for-linear-trend)
 
 -   Hypothesis test:
 
@@ -1126,19 +1145,21 @@ $$ \rho \neq 0$$
 
 ## Mantel-Haenszel test: Process
 
-1.  Set the [**level of significance**]{style="color:#70AD47"} $\alpha$
+1. [**Check assumptions**]{style="color:#70AD47"}: expected cell counts is greater than 5. 
 
-2.  Specify the [**null**]{style="color:#70AD47"} ( $H_0$ ) and [**alternative**]{style="color:#70AD47"} ( $H_A$ ) [**hypotheses**]{style="color:#70AD47"}
+2.  Set the [**level of significance**]{style="color:#70AD47"} $\alpha$
+
+3.  Specify the [**null**]{style="color:#70AD47"} ( $H_0$ ) and [**alternative**]{style="color:#70AD47"} ( $H_A$ ) [**hypotheses**]{style="color:#70AD47"}
 
     -   In symbols
     -   In words
     -   Alternative: one- or two-sided?
 
-3.  Calculate the [**test statistic**]{style="color:#70AD47"} and [**p-value**]{style="color:#70AD47"} for Mantel-Haenszel test in R
+4.  Calculate the [**test statistic**]{style="color:#70AD47"} and [**p-value**]{style="color:#70AD47"} for Mantel-Haenszel test in R
 
     -   We will not discuss the test statistic's equation
 
-4.  Write a [**conclusion**]{style="color:#70AD47"} to the hypothesis test
+5.  Write a [**conclusion**]{style="color:#70AD47"} to the hypothesis test
 
     -   Do we reject or fail to reject $H_0$?
     -   Write a conclusion in the context of the problem
@@ -1174,9 +1195,18 @@ water
 
 ::: columns
 ::: column
-1.  $\alpha = 0.05$
 
-2.  Hypothesis test:
+1. Check expected cell counts
+
+```{r}
+expected(water) %>% round(1)
+```
+
+All expected cells are greater than 5.
+
+2.  $\alpha = 0.05$
+
+3.  Hypothesis test:
 
     -   $H_0$: Water treatment and washability are not correlated. $$ \rho = 0$$
     -   $H_1$: Water treatment and washability are correlated.
@@ -1185,14 +1215,14 @@ $$ \rho \neq 0$$
 :::
 
 ::: column
-3.  Calculate the test statistic and p-value for Mantel-Haenszel test in R
+4.  Calculate the test statistic and p-value for Mantel-Haenszel test in R
 
 ```{r}
 library(DescTools)
 MHChisqTest(water)
 ```
 
-4.  Conclusion to the hypothesis test
+5.  Conclusion to the hypothesis test
 
 We reject the null hypothesis that there is no correlation between washability and water treatment ($p = 1.13 \cdot 10^{-12} < 0.05$). There is sufficient evidence that level of water treatment is associated with washability.
 :::
