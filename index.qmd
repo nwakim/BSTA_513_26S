@@ -56,18 +56,18 @@ Welcome to BSTA 513/613! In this course, we will continue to learn about regress
 ### Office Hours
 ::: columns
 ::: {.column width="30%"}
-[Sheetal](https://ohsu.webex.com/meet/akula)
+Sheetal
 
-[Kelsey](https://pdx.zoom.us/j/87663146835)
+Kelsey
 
 Sophia
 :::
 ::: {.column width="70%"}
-[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} W 11:30-12:30
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} TBD
 
-[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} T 10-11
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} TBD
 
-[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} M 3-4
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} TBD
 :::
 :::
 :::
