@@ -430,7 +430,7 @@ What is the difference in proportions for American Indians that have diabetes co
 **Needed steps:**
 
 1.  Estimate the difference in proportions
-2.  Check that each cell has at least 10 individuals
+2.  Check that each cell has at least 5 individuals
 3.  Construct 95% confidence interval
 4.  Write interpretation of estimate
 

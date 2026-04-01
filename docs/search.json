@@ -3133,7 +3133,7 @@
     "href": "lessons/03_Meas_Assoc_CT/03_Meas_Assoc_CT_key_info.html#key-dates",
     "title": "Key Info and Announcements",
     "section": "Key Dates",
-    "text": "Key Dates\n\nLab 1 due 4/11"
+    "text": "Key Dates\n\nLab 1 due 4/12\n\nWill update tomorrow"
   },
   {
     "objectID": "lessons/03_Meas_Assoc_CT/03_Meas_Assoc_CT_key_info.html#last-class",
@@ -3784,7 +3784,7 @@
     "href": "lessons/02_Intro_CDA/02_Intro_CDA.html#section-2",
     "title": "Lesson 2: Introduction to Categorical Data Analysis",
     "section": "",
-    "text": "Strong Heart Study\n\n\nWhat is the difference in proportions for American Indians that have diabetes comparing individuals with normal vs. impaired glucose?\n\n\nNeeded steps:\n\nEstimate the difference in proportions\nCheck that each cell has at least 10 individuals\nConstruct 95% confidence interval\nWrite interpretation of estimate"
+    "text": "Strong Heart Study\n\n\nWhat is the difference in proportions for American Indians that have diabetes comparing individuals with normal vs. impaired glucose?\n\n\nNeeded steps:\n\nEstimate the difference in proportions\nCheck that each cell has at least 5 individuals\nConstruct 95% confidence interval\nWrite interpretation of estimate"
   },
   {
     "objectID": "lessons/02_Intro_CDA/02_Intro_CDA.html#section-3",
@@ -3819,7 +3819,7 @@
     "href": "lessons/02_Intro_CDA/02_Intro_CDA.html#contingency-table-example",
     "title": "Lesson 2: Introduction to Categorical Data Analysis",
     "section": "Contingency Table: Example",
-    "text": "Contingency Table: Example\nLet’s say we are interested in learning the association between the development of breast cancer and age at first birth. Our first step is typically to present the observed data:\n\n\nThis is a 2 x 5 contingency table"
+    "text": "Contingency Table: Example\nLet’s say we are interested in learning the association between the development of breast cancer and age at first birth. Our first step is typically to present the observed data:\n\n\n\n\n\n\nThis is a 2 x 5 contingency table"
   },
   {
     "objectID": "lessons/02_Intro_CDA/02_Intro_CDA.html#test-associationtrend-of-r-x-c-contingency-table",
@@ -3889,7 +3889,7 @@
     "href": "lessons/02_Intro_CDA/02_Intro_CDA.html#fishers-exact-test",
     "title": "Lesson 2: Introduction to Categorical Data Analysis",
     "section": "Fisher’s Exact Test",
-    "text": "Fisher’s Exact Test\n\nOnly necessary when expected counts in one or more cells is less than 5\nGiven row and column totals fixed, computes exact probability that we observe our data or more extreme data\nConsider a general 2 x 2 table:\n\n\n\nThe exact probability of observing a table with cells (a, b, c, d) can be computed based on the hypergeometric distribution\n\n\\[P(a, b, c, d) = \\dfrac{(a+b)!\\cdot(c+d)!\\cdot(a+c)!\\cdot(b+d)!}{n!\\cdot a!\\cdot b!\\cdot c!\\cdot d!}\\]\n\nNumerator is fixed and denominator changes"
+    "text": "Fisher’s Exact Test\n\nOnly necessary when expected counts in one or more cells is less than 5\nGiven row and column totals fixed, computes exact probability that we observe our data or more extreme data\nConsider a general 2 x 2 table:\n\n\n\n\n\n\n\nThe exact probability of observing a table with cells (a, b, c, d) can be computed based on the hypergeometric distribution\n\n\\[P(a, b, c, d) = \\dfrac{(a+b)!\\cdot(c+d)!\\cdot(a+c)!\\cdot(b+d)!}{n!\\cdot a!\\cdot b!\\cdot c!\\cdot d!}\\]\n\nNumerator is fixed and denominator changes"
   },
   {
     "objectID": "lessons/02_Intro_CDA/02_Intro_CDA.html#fishers-exact-test-process",
@@ -4960,14 +4960,14 @@
     "href": "lessons/03_Meas_Assoc_CT/03_Meas_Assoc_CT_key_info.html",
     "title": "Key Info and Announcements",
     "section": "",
-    "text": "Public Health Week starting next week on 4/8\n\nSchedule: https://ohsu-psu-sph.org/this-is-public-health/\n\nAnnual Public Health Week Conference on 4/11\n\nPlease submit your BSTA 512 poster!!\nIf you email the Student Leadership Council, I’m sure they would love to include your poster!\n\n\n\n\nFor National Public Health Week, join us for an exclusive tour of the School of Public Health’s only clinical laboratory, the Center for Infectious Disease (CIDS) on Tuesday, April 8 from 3:00 - 3:45pm.\nGetting a peek into the work of CIDS, you’ll witness first hand how applied public health research shapes real-world solutions and directly supports community well-being. Their expert-led research delves into the depths of pharmacoepidemiology and rheumatologic diseases, enhancing drug safety and efficacy for the broader population. Join us for a tour to expand your academic horizons, ask questions of the research team on what their day-to-day work and career path looks like, and to see what options you have as a pivotal researcher who is advancing health equity and enhancing community health outcomes."
+    "text": "Just want to clarify that attendance is still in-person or online\nJamie Jones will come to Monday’s class to discuss PE projects\n\nLast 10 minutes of class\nIf you are an MS or PhD student, you can leave Monday’s class early\n\nFree professional headshots for students!"
   },
   {
     "objectID": "lessons/03_Meas_Assoc_CT/03_Meas_Assoc_CT_key_info.html#announcements",
     "href": "lessons/03_Meas_Assoc_CT/03_Meas_Assoc_CT_key_info.html#announcements",
     "title": "Key Info and Announcements",
     "section": "",
-    "text": "Public Health Week starting next week on 4/8\n\nSchedule: https://ohsu-psu-sph.org/this-is-public-health/\n\nAnnual Public Health Week Conference on 4/11\n\nPlease submit your BSTA 512 poster!!\nIf you email the Student Leadership Council, I’m sure they would love to include your poster!\n\n\n\n\nFor National Public Health Week, join us for an exclusive tour of the School of Public Health’s only clinical laboratory, the Center for Infectious Disease (CIDS) on Tuesday, April 8 from 3:00 - 3:45pm.\nGetting a peek into the work of CIDS, you’ll witness first hand how applied public health research shapes real-world solutions and directly supports community well-being. Their expert-led research delves into the depths of pharmacoepidemiology and rheumatologic diseases, enhancing drug safety and efficacy for the broader population. Join us for a tour to expand your academic horizons, ask questions of the research team on what their day-to-day work and career path looks like, and to see what options you have as a pivotal researcher who is advancing health equity and enhancing community health outcomes."
+    "text": "Just want to clarify that attendance is still in-person or online\nJamie Jones will come to Monday’s class to discuss PE projects\n\nLast 10 minutes of class\nIf you are an MS or PhD student, you can leave Monday’s class early\n\nFree professional headshots for students!"
   },
   {
     "objectID": "lessons/03_Meas_Assoc_CT/03_Meas_Assoc_CT_muddy_points.html",
@@ -12780,5 +12780,12 @@
     "title": "Lesson 3: Measurement of Association for Contingency Tables",
     "section": "SHS Example: Risk Difference (6/6)",
     "text": "SHS Example: Risk Difference (6/6)\n\n\n\n\nRisk difference\n\n\nCompute the point estimate and 95% confidence interval for the diabetes risk difference between impaired and normal glucose tolerance.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGlucose tolerance\n\nDiabetes\n\nTotal\n\n\nNo\nYes\n\n\n\n\nImpaired\n334\n198\n532\n\n\nNormal\n1004\n128\n1132\n\n\nTotal\n1338\n326\n1664\n\n\n\n\n\n\n\n\n\nInterpret the estimate\n\nThe diabetes diagnosis risk difference between impaired and normal glucose tolerance is 0.2591 (95% CI: 0.2141, 0.3041). Since the 95% confidence interval does not contain 0, we have sufficient evidence that the risk of diabetes diagnosis for people with impaired versus normal glucose tolerance is different."
+  },
+  {
+    "objectID": "lessons/02_Intro_CDA/02_Intro_CDA.html",
+    "href": "lessons/02_Intro_CDA/02_Intro_CDA.html",
+    "title": "Lesson 2: Introduction to Categorical Data Analysis",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ forcats   1.0.1     ✔ readr     2.1.5\n✔ ggplot2   4.0.0     ✔ stringr   1.5.2\n✔ lubridate 1.9.4     ✔ tibble    3.3.0\n✔ purrr     1.1.0     ✔ tidyr     1.3.1\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'janitor'\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\n\n\nAttaching package: 'rstatix'\n\n\nThe following object is masked from 'package:janitor':\n\n    make_clean_names\n\n\nThe following object is masked from 'package:stats':\n\n    filter"
   }
 ]
