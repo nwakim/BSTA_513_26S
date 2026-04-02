@@ -3,7 +3,6 @@ title: "Lab 1 Instructions"
 author: "Nicky Wakim"
 subtitle: "BSTA 513/613"
 date-modified: "today"
-categories: [""]
 format: 
   html:
     link-external-newwindow: true
@@ -21,12 +20,12 @@ execute:
   freeze: auto  # re-render only when source changes
 ---
 
-::: callout-caution
+::: note-caution
 This project includes analysis on food insecurity. Please let Nicky know if this is a triggering topic for you. I can find a different dataset for you to work on!
 :::
 
 ::: callout-caution
-This lab is NOT ready to be worked on!! (3/30/2026)
+Ready to be worked on! (4/2/26)
 :::
 
 ```{r}
@@ -65,7 +64,7 @@ Here are some articles:
     
 -   [Identification of factors related to food insecurity and the implications for social determinants of health screenings](https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-021-11465-6#Tab2)
 
--   [NIMHD's page on Food Accessibility, Insecurity and Health Outcomes](https://www.nimhd.nih.gov/resources/understanding-health-disparities/food-accessibility-insecurity-and-health-outcomes.html)
+-   [NIH's page: Food Insecurity, Neighborhood Food Environment, and Nutrition Health Disparities: State of the Science](https://www.nhlbi.nih.gov/events/2021/food-insecurity-neighborhood-food-environment-and-nutrition-health-disparities)
 
 -   [Food Insecurity among American Indians and Alaska Natives: A National Profile using the Current Population Survey–Food Security Supplement](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5422031/)
 
@@ -99,11 +98,13 @@ Before downloading the data, set up your folders for the class and project, incl
 #### Task
 
 Display your working directory using the `here` package and `here()` function.
+
+Insert an image of your folder organization with the `.Rproj` file in the correct place.
 :::
 
 ### Access and download the data
 
-1.  Go to the [Health and Medical Care Archive page for the Well-Being and Basic Needs Survey](https://www.icpsr.umich.edu/web/HMCA/studies/38759/)
+1.  Go to the [Health and Medical Care Archive page for the 2023 Well-Being and Basic Needs Survey](https://www.icpsr.umich.edu/web/ICPSR/studies/39462/datadocumentation)
 2.  Go to the Data & Documentation tab ![](./images/Lab_01/dnd.png)
 3.  Download the R version of the Public use data ![](./images/Lab_01/download.png)
 4.  Read and agree to the Terms of Use. After this, you will be redirected to a new page.
@@ -111,14 +112,43 @@ Display your working directory using the `here` package and `here()` function.
 6.  Login using standard OHSU login. Then the download should begin!
 7.  Make sure to move this into your project folder under the Data folder.
 8.  Take a look at the folders/files you just downloaded. Make sure to locate and understand the difference between the Codebook, Questionnaire, and User Guide. (Note that the website also contains the codebook if you go to the variable tab. I think the online one has an easier user interface than the pdf.)
+9. Read the User Guide! There is some important information about the data and how to use it.
 
 ::: callout-important
 #### Task
 
-No task to report back on. Just make sure you have the data!
+No task to report back on. Just make sure you have the data and read the User Guide!
+:::
+
+### Decide on your project type
+
+In Lab 4, you will need to build a model for your outcome. That's really far away from this lab, BUT we will have two options for model building in Lab 4 that affects the work you do in this lab. 
+
+For this project, you may either:
+
+1. Use LASSO regression to build a prediction model with no interactions
+2. Use Purposeful model selection to build an association model with at least one interaction
+
+We will discuss prediction modeling in Lesson 14 of this class. We discussed association modeling in BSTA 512/612, also Lesson 14.
+
+I highly suggest picking the model selection strategy based on **your desired learning objectives**:
+
+1. **LASSO regression** will help stretch your R coding and machine learning skills. You will not answer a research question about the relationship between a variable and food insecurity. You will ask: What variables are most important for predicting food insecurity?
+2. **Purposeful model selection** will allow you to cement many concepts that we learned within 512/612 and 513/613. You will answer a research question about the relationship between a variable and food insecurity.
+
+You can change your mind about which model selection strategy you want to use later on, but your dataset will change a little. 
+
+Just note that labs (including this one) will have different activities for each model building strategy. 
+
+::: callout-important
+#### Task
+
+Pick between LASSO regression and purposeful model selection. You can just write your choice. 
 :::
 
 ### Decide on list of variables to focus on {#sec-pred}
+
+#### For purposeful model selection and LASSO regression
 
 From the codebook, I want you to explore the variables and create a list of 10 predictors that you would like to focus on. Our outcome is `FOOD_INSEC` so we cannot use this as a predictor. Feel free to take a look at the [Urban Institute's list of publications](https://www.urban.org/policy-centers/health-policy-center/projects/well-being-and-basic-needs-survey) to get ideas of variables and relationships.
 
@@ -129,11 +159,11 @@ There are a few requirements for your predictors:
 -   1 variable must be multi-level categorical (categorical with more than 2 groups)
 -   You must choose at least 10 predictors (does not include the outcome)
 
-There is a [good online version of the codebook](https://www.icpsr.umich.edu/web/HMCA/studies/38759/datasets/0001/variables/ID?archive=HMCA) with information about the variables. I have linked you to the ID varaible, but you can take a look at all the other variables using the left hand side navigator:
+There is a [good online version of the codebook](https://www.icpsr.umich.edu/web/HMCA/studies/39462/datasets/0002/variables/ID?archive=HMCA) with information about the variables. I have linked you to the ID varaible, but you can take a look at all the other variables using the left hand side navigator:
 
 ![](./images/Lab_01/nav.png)
 
-You can look under survey questions to get a better sense of how questions were asked, but please stick to variables under Demographic Variables, Family Income, Insurance Status, and Material Hardship. Do not choose variables from the Administrative levels, Survey Questions, nor School Enrollment or Child Care variables. May leave in the `ID` variable for easier tracking on individuals, but it does not count towards the 10 predictors.
+You can look under survey questions to get a better sense of how questions were asked, **but please stick to variables under Demographic Variables, Family Income, Insurance Status, and Material Hardship**. Do not choose variables from the Administrative levels, nor Survey Questions. May leave in the `ID` variable for easier tracking on individuals, but it does not count towards the 10 predictors.
 
 ::: callout-important
 #### Task
@@ -141,7 +171,14 @@ You can look under survey questions to get a better sense of how questions were 
 List the 10 predictors that you plan to use in your analysis. Note the type of variable (numeric and continuous, counts, binary, or multi-level categorical)
 :::
 
+#### For LASSO regression only
+
+I wanted you to think critically about which variables you want to include in your model, but for LASSO regression, you can include as many predictors as you want! You can even include all of the variables in the dataset if you want. Even though you just selected 10 variables to focus on, I want to to keep all variables from the dataset. 
+
+
 ### Get a sense of how you would like to analyze the data
+
+#### For purposeful model selection only
 
 For our project, we will examine the association between the food insecurity and one other variable (our main explanatory variable). From the above readings, survey information, and your list of predictors in @sec-pred, which association are you most interested in analyzing?
 
@@ -155,6 +192,18 @@ Complete the following statement to identify your research question:
 We will investigate the association between food insecurity and \_\_\_\_.
 :::
 
+#### For LASSO regression only
+
+For our project, we will build a prediction model for food insecurity. We will not have a set research question on association. Instead, I want you to remember your main question: What variables are the most predictive of food insecurity? 
+
+From the above readings, survey information, and your list of predictors in @sec-pred, which predictors do you think will be the most important to predict food insecurity?
+
+::: callout-important
+#### Task
+
+Which predictors do you think will be the most important to predict food insecurity? You can list 5-10 predictors. 
+:::
+
 ### Save data for processing with `.Rda`
 
 Within this document, or in a separate document, use R to save a copy of the dataset so that you can process it without changing the raw data. Recall the file organization that we discussed to set up proper folders. Include a screenshot showing the new `.Rda` file within your Data folder.
@@ -162,12 +211,10 @@ Within this document, or in a separate document, use R to save a copy of the dat
 ::: callout-important
 #### Task
 
-Include a screenshot showing the new `.Rda` file within your Data folder.
+Include a screenshot showing the new `.Rda` file within your data folder.
 :::
 
 ### Getting data in working format
-
-You can start by selecting only the variables you will use in your analysis. Again, you can keep `ID` in addition to your outcome and predictors for easy tracking.
 
 Use the following code (with your dataset's name) to remove the parentheses with values that are in front of the category names. Make sure to change `old_df` and `new_df`.
 
@@ -178,22 +225,40 @@ new_df = data.frame(lapply(old_df, function(x) {gsub(".*) ", "", x)}))
 
 ```
 
+**For purposeful model selection only:** You can start by selecting only the variables you will use in your analysis. Again, you can keep `ID` in addition to your outcome and predictors for easy tracking.
+
+We will once again do a complete case analysis (aka drop observations with any missing data). You can use the `drop_na()` function from the `tidyr` package to do this.
+
+
 ::: callout-important
 #### Task
 
--   Select the variables that will be used in your analysis and make a new dataset. Include the code that you used.
 -   Remove the parentheses with values that are in front of the category names.
+-   **Purposeful model selection only:** Select the variables that will be used in your analysis and make a new dataset. Include the code that you used.
+-   Drop observations with any missing data.
 :::
 
 ### Explore the outcome and predictors
 
-The codebook online gives some nice plots of each variable. Please take a look at the codebook online to see the spread of each variable. Make note of any categorical variables that have less than 100 observations in a group. This may cause issues in our analysis later.
+The codebook online gives some plots of each variable. Please take a look at the codebook online to see the spread of each variable. You can also make your own plots - the online codebook is not perfect. Make note of any categorical variables that have less than 100 observations in a group. This may cause issues in our analysis later.
 
 ::: callout-important
 #### Task
 
 -   To check that you have looked that the variables, please report the percent of respondents that were food insecure in the past 12 months.
 -   List any categorical variables that have less than 100 observations in a group
+:::
+
+### For purposeful model selection only: Make a Table 1
+
+Make a Table 1 that describes the distribution of your outcome and predictors. You can use the `tbl_summary()` function from the `gtsummary` package to do this. Make sure to include the code you used to make the table.
+
+[Check out the Table 1 I made](https://nwakim.github.io/BSTA_512_26W/lessons/16_Poster_help/16_Poster_help.html#/table-1-table-summary-in-lesson-2) for the gapminder data in BSTA 512/612. 
+
+::: callout-important
+#### Task
+
+**For purposeful model selection only:** Make a Table 1
 :::
 
 ### Compile above work into an introduction
