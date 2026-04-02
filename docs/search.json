@@ -3819,7 +3819,7 @@
     "href": "lessons/02_Intro_CDA/02_Intro_CDA.html#contingency-table-example",
     "title": "Lesson 2: Introduction to Categorical Data Analysis",
     "section": "Contingency Table: Example",
-    "text": "Contingency Table: Example\nLet’s say we are interested in learning the association between the development of breast cancer and age at first birth. Our first step is typically to present the observed data:\n\n\n\n\n\n\nThis is a 2 x 5 contingency table"
+    "text": "Contingency Table: Example\nLet’s say we are interested in learning the association between the development of breast cancer and age at first birth. Our first step is typically to present the observed data:\n\n\nThis is a 2 x 5 contingency table"
   },
   {
     "objectID": "lessons/02_Intro_CDA/02_Intro_CDA.html#test-associationtrend-of-r-x-c-contingency-table",
@@ -3889,7 +3889,7 @@
     "href": "lessons/02_Intro_CDA/02_Intro_CDA.html#fishers-exact-test",
     "title": "Lesson 2: Introduction to Categorical Data Analysis",
     "section": "Fisher’s Exact Test",
-    "text": "Fisher’s Exact Test\n\nOnly necessary when expected counts in one or more cells is less than 5\nGiven row and column totals fixed, computes exact probability that we observe our data or more extreme data\nConsider a general 2 x 2 table:\n\n\n\n\n\n\n\nThe exact probability of observing a table with cells (a, b, c, d) can be computed based on the hypergeometric distribution\n\n\\[P(a, b, c, d) = \\dfrac{(a+b)!\\cdot(c+d)!\\cdot(a+c)!\\cdot(b+d)!}{n!\\cdot a!\\cdot b!\\cdot c!\\cdot d!}\\]\n\nNumerator is fixed and denominator changes"
+    "text": "Fisher’s Exact Test\n\nOnly necessary when expected counts in one or more cells is less than 5\nGiven row and column totals fixed, computes exact probability that we observe our data or more extreme data\nConsider a general 2 x 2 table:\n\n\n\nThe exact probability of observing a table with cells (a, b, c, d) can be computed based on the hypergeometric distribution\n\n\\[P(a, b, c, d) = \\dfrac{(a+b)!\\cdot(c+d)!\\cdot(a+c)!\\cdot(b+d)!}{n!\\cdot a!\\cdot b!\\cdot c!\\cdot d!}\\]\n\nNumerator is fixed and denominator changes"
   },
   {
     "objectID": "lessons/02_Intro_CDA/02_Intro_CDA.html#fishers-exact-test-process",
@@ -3952,7 +3952,7 @@
     "href": "lessons/02_Intro_CDA/02_Intro_CDA.html#cochran-armitage-test-example-33",
     "title": "Lesson 2: Introduction to Categorical Data Analysis",
     "section": "Cochran-Armitage test: Example (3/3)",
-    "text": "Cochran-Armitage test: Example (3/3)\n\n\n\nCheck expected cell counts\n\n\nexpected(bscancer) %&gt;% round(1)\n\n             &lt;20  20-24  25-29  30-34  &gt;=35\nCancer     416.6 1348.3  933.6  371.9 149.7\nNo Cancer 1325.4 4289.7 2970.4 1183.1 476.3\n\n\nAll expected cells are greater than 5.\n\n\\(\\alpha = 0.05\\)\nHypothesis test:\n\n\\(H_0\\): The proportions of breast cancer are the same for all age levels of first birth. \\[p_1 = p_2 = ... = p_5\\]\n\\(H_1\\): The proportions of breast cancer tends to increase as level of age of first birth increases\n\n\n\\[p_1 \\leq p_2 \\leq ... \\leq p_5\\]\n\n\nCalculate the test statistic and p-value for Cochran-Armitage test in R\n\n\nlibrary(DescTools)\nCochranArmitageTest(bscancer)\n\n\n    Cochran-Armitage test for trend\n\ndata:  bscancer\nZ = 11.358, dim = 5, p-value &lt; 2.2e-16\nalternative hypothesis: two.sided\n\n\n\nConclusion to the hypothesis test\n\nWe reject the null hypothesis that proportions of breast cancer are the same for all age levels of first birth (\\(p&lt;2.2\\cdot10^{-16}\\)). There is sufficient evidence that the proportion of of breast cancer increase as the the age at first birth increases."
+    "text": "Cochran-Armitage test: Example (3/3)\n\n\n\nCheck expected cell counts\n\n\nexpected(bscancer) %&gt;% round(1)\n\n             &lt;20  20-24  25-29  30-34  &gt;=35\nCancer     416.6 1348.3  933.6  371.9 149.7\nNo Cancer 1325.4 4289.7 2970.4 1183.1 476.3\n\n\nAll expected cells are greater than 5.\n\n\\(\\alpha = 0.05\\)\nHypothesis test:\n\n\\(H_0\\): The proportions of breast cancer are the same for all age levels of first birth. \\[p_1 = p_2 = ... = p_5\\]\n\\(H_1\\): The proportions of breast cancer tends to increase as level of age of first birth increases\n\n\n\\[p_1 \\leq p_2 \\leq ... \\leq p_5\\]\n\n\nCalculate the test statistic and p-value for Cochran-Armitage test in R\n\n\nlibrary(DescTools)\nCochranArmitageTest(bscancer, alternative = \"one.sided\")\n\n\n    Cochran-Armitage test for trend\n\ndata:  bscancer\nZ = 11.358, dim = 5, p-value &lt; 2.2e-16\nalternative hypothesis: one.sided\n\n\n\nConclusion to the hypothesis test\n\nWe reject the null hypothesis that proportions of breast cancer are the same for all age levels of first birth (\\(p&lt;2.2\\cdot10^{-16}\\)). There is sufficient evidence that the proportion of of breast cancer increase as the the age at first birth increases."
   },
   {
     "objectID": "lessons/02_Intro_CDA/02_Intro_CDA.html#mantel-haenszel-test",
@@ -12611,7 +12611,7 @@
     "href": "syllabus.html#key-course-info",
     "title": "BSTA 513/613 Syllabus",
     "section": "Key Course Info",
-    "text": "Key Course Info\n\nIf an assignment on Sakai is closed or you are submitting late work, please email me AND the TAs your work (see instructor page for all email addresses)\nIf you are emailing for an extension, please email me AND the TAs. (see instructor page for all email addresses)\nLatework policy\n\nFor homework: can be turned in any time before course ends, but you will not receive feedback on late work\nFor labs: one “no questions asked”, 3-day extension\n\nAfter that, 1 point deducted per day late\n\n\nAttendance policy: attend in person and fill out exit tickets for 12 out of the 19 classes\n\nThere are FIVE required in-person attendance days (4 lab discussions and 1 project poster day)\n\nThe class will end on June 08, 2026. All coursework MUST be completed by June 12, 2026\nFeel free to fill out the Ongoing Course Feedback with any concerns or questions."
+    "text": "Key Course Info\n\nIf an assignment on Sakai is closed or you are submitting late work, please email me AND the TAs your work (see instructor page for all email addresses)\nIf you are emailing for an extension, please email me AND the TAs. (see instructor page for all email addresses)\nLatework policy\n\nFor homework: can be turned in any time before course ends, but you will not receive feedback on late work\nFor labs: one “no questions asked”, 3-day extension\n\nAfter that, 1 point deducted per day late\n\n\nAttendance policy: attend in-person or online and fill out exit tickets for 12 out of the 19 classes\n\nThere are FIVE required in-person attendance days (4 lab discussions and 1 project poster day)\n\nThe class will end on June 08, 2026. All coursework MUST be completed by June 12, 2026\nFeel free to fill out the Ongoing Course Feedback with any concerns or questions."
   },
   {
     "objectID": "instructors.html#my-scope-of-practice",

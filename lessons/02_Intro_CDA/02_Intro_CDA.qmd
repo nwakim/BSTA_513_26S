@@ -1073,7 +1073,7 @@ $$p_1 \leq p_2 \leq ... \leq p_5$$
 
 ```{r}
 library(DescTools)
-CochranArmitageTest(bscancer)
+CochranArmitageTest(bscancer, alternative = "one.sided")
 ```
 
 5.  Conclusion to the hypothesis test
