@@ -42,6 +42,10 @@ library(epiDisplay)
 
 ```
 
+## STUFF ON THE USE GUIDE!!
+
+
+
 ## Notes from me and the TAs
 
 - Using `ANY_HARDSHIP` or `MULT_HARDSHIPS`

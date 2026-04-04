@@ -5016,7 +5016,7 @@
     "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#last-class",
     "title": "Lesson 4: Measurements of Association and Agreement",
     "section": "Last class",
-    "text": "Last class\n\nUsed contingency tables to test and measure association between two variables\n\nCategorical outcome variable (Y)\nOne categorical explanatory variable (X) with groups 1 and 2\n\nWe looked at risk difference, risk ratio, and odds ratio to measure association\n\n\n\n\n\n\n\n\nMeasure\nFormula for Estimate\n\n\n\n\nRisk difference\n\\(\\widehat{RD} = \\widehat{p}_1 - \\widehat{p}_1 = \\dfrac{n_{11}}{n_1} - \\dfrac{n_{21}}{n_2}\\)\n\n\nRelative risk / risk ratio\n\\(\\widehat{RR}=\\dfrac{\\widehat{p}_1}{\\widehat{p}_2} = \\dfrac{n_{11}/n_1}{n_{21}/n_2}\\)\n\n\nOdds ratio\n\\(\\widehat{OR}=\\frac{\\widehat{\\text{odds}}_1}{\\widehat{\\text{odds}}_2}=\\frac{{\\widehat{p}}_1/(1-{\\widehat{p}}_1)}{{\\widehat{p}}_2/(1-{\\widehat{p}}_2)}\\)\n\n\n\n\nDiscussed how OR will be an important measurement in logistic regression"
+    "text": "Last class\n\nUsed contingency tables to test and measure association between two variables\n\nCategorical and binary outcome variable (Y)\nOne categorical explanatory variable (X) with groups 1 and 2\n\nWe looked at risk difference, risk ratio, and odds ratio to measure association\n\n\n\n\n\n\n\n\n\n\nMeasure\nFormula for Estimate\n\n\n\n\nRisk difference\n\\(\\widehat{RD} = \\widehat{p}_1 - \\widehat{p}_2 = \\dfrac{n_{11}}{n_1} - \\dfrac{n_{21}}{n_2}\\)\n\n\nRelative risk / risk ratio\n\\(\\widehat{RR}=\\dfrac{\\widehat{p}_1}{\\widehat{p}_2} = \\dfrac{n_{11}/n_1}{n_{21}/n_2}\\)\n\n\nOdds ratio\n\\(\\widehat{OR}=\\frac{\\widehat{\\text{odds}}_1}{\\widehat{\\text{odds}}_2}=\\frac{{\\widehat{p}}_1/(1-{\\widehat{p}}_1)}{{\\widehat{p}}_2/(1-{\\widehat{p}}_2)}\\)\n\n\n\n\n\n\n\n\n\n\n\nDiscussed how OR will be an important measurement in logistic regression\n\nand RR is the most common in log-binomial regression"
   },
   {
     "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#a-taste-of-regression-for-a-binary-outcome-we-will-come-back-to-this",
@@ -5058,7 +5058,7 @@
     "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#rr-in-retrospective-case-control-study-23",
     "title": "Lesson 4: Measurements of Association and Agreement",
     "section": "RR in retrospective case-control study (2/3)",
-    "text": "RR in retrospective case-control study (2/3)\n\nAssume a 1:2 case-control study summarized in below table:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssume we compute the RR as if it is from a cohort study:\n\n\\[\\widehat{RR}=\\frac{\\widehat{p_1}}{\\widehat{p_2}}=\\frac{n_{11}/n_{1+}}{n_{21}/n_{2+}}=\\frac{40/80}{60/220}=1.8333\\]"
+    "text": "RR in retrospective case-control study (2/3)\n\nAssume a 1:2 case-control study sample summarized in below table:\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nAssume we compute the RR as if it is from a cohort study:\n\n\\[\\widehat{RR}=\\frac{\\widehat{p_1}}{\\widehat{p_2}}=\\frac{n_{11}/n_{1}}{n_{21}/n_{2}}=\\frac{40/80}{60/220}=1.8333\\]"
   },
   {
     "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#rr-in-retrospective-case-control-study-33",
@@ -5072,7 +5072,7 @@
     "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#notes-for-odds-ratios",
     "title": "Lesson 4: Measurements of Association and Agreement",
     "section": "Notes for Odds Ratios",
-    "text": "Notes for Odds Ratios\n\nThe OR is valid for\n\nCase-control studies (where the RR is not appropriate)\nProspective cohort studies\nCross-sectional studies\n\n\n \n\nIt can be interpreted either as…\n\nOdds of event for exposed vs. unexposed individuals, or\nOdds of exposure for individuals with vs. without the event of interest\n\n\n \n\nPay attention to the numerator and denominator for the OR"
+    "text": "Notes for Odds Ratios\n\n\n\nIt can be interpreted either as…\n\nOdds of event for group 1 vs. group 2 individuals\n\nWe’ve called these \\(\\widehat{\\text{odds}}_1\\) and \\(\\widehat{\\text{odds}}_2\\)\n\nOdds of group 1 for individuals with (success) vs. without (failure) the event of interest\n\nWe can call this \\(\\widehat{\\text{odds}}_{S}\\) and \\(\\widehat{\\text{odds}}_{F}\\)\n\n\n\n\n\n\n\n\n\n\n\\[\\widehat{OR}_{1v2}=\\dfrac{\\widehat{\\text{odds}}_1}{\\widehat{\\text{odds}}_2}=\\dfrac{{\\widehat{p}}_1/(1-{\\widehat{p}}_1)}{{\\widehat{p}}_2/(1-{\\widehat{p}}_2)} = \\dfrac{\\dfrac{n_{11}}{n_1} / \\dfrac{n_{10}}{n_1}}{\\dfrac{n_{21}}{n_2} / \\dfrac{n_{20}}{n_2}} = \\dfrac{\\dfrac{n_{11}}{n_{10}}}{\\dfrac{n_{21}}{n_{20}}} = \\dfrac{\\dfrac{n_{11}}{n_{21}}}{\\dfrac{n_{10}}{n_{20}}} = \\dfrac{\\dfrac{n_{11}}{n_S} / \\dfrac{n_{21}}{n_S}}{\\dfrac{n_{10}}{n_F} / \\dfrac{n_{20}}{n_F}}=\\dfrac{{\\widehat{p}}_S/(1-{\\widehat{p}}_S)}{{\\widehat{p}}_F/(1-{\\widehat{p}}_F)} = \\dfrac{\\widehat{\\text{odds}}_S}{\\widehat{\\text{odds}}_F}\\]"
   },
   {
     "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#or-in-retrospective-case-control-study",
@@ -5205,7 +5205,7 @@
     "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#rr-in-prospective-cohort-study",
     "title": "Lesson 4: Measurements of Association and Agreement",
     "section": "RR in prospective cohort study",
-    "text": "RR in prospective cohort study\n\nIn real world, the proportion of controls (not diseased) is typically much higher. Assume the table below shows the proportion in the population in a cohort study\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe estimated RR for the patient population is:\n\n\\[\\widehat{RR}=\\frac{\\widehat{p_1}}{\\widehat{p_2}}=\\frac{400/4400}{600/16600}=2.5152\\]"
+    "text": "RR in prospective cohort study\n\nIn real world, the proportion of controls (not diseased) is typically much higher. Assume the table below shows the proportion in the population in a cohort study:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe estimated RR for the patient population is:\n\n\\[\\widehat{RR}=\\frac{\\widehat{p_1}}{\\widehat{p_2}}=\\frac{n_{11}/n_{1}}{n_{21}/n_{2}}=\\frac{400/4400}{600/16600}=2.5152\\]"
   },
   {
     "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree_key_info.html",
@@ -7130,7 +7130,7 @@
     "href": "lessons/L01_Discussion/L01_Discussion.html#get-into-groups-of-2-4",
     "title": "Lab 1: Feedback and Discussion",
     "section": "Get into groups of 2-4",
-    "text": "Get into groups of 2-4\n\nNo more than 4!\nIntroduce yourself if you do not know each other\nShare you html documents with each other (email, airdrop, etc.)\n\n\n\n\n−+\n06:00"
+    "text": "Get into groups of 2-4\n\nNo more than 4!\nIntroduce yourself if you do not know each other\nShare you html documents with each other (email, airdrop, etc.)"
   },
   {
     "objectID": "lessons/L01_Discussion/L01_Discussion.html#introductions",
@@ -7144,21 +7144,21 @@
     "href": "lessons/L01_Discussion/L01_Discussion.html#introduce-research-question",
     "title": "Lab 1: Feedback and Discussion",
     "section": "Introduce Research Question",
-    "text": "Introduce Research Question\n\nShare your research question with each other!\n\nShould be using the same outcome + your main variable\n\nShare your other variables\nIs everyone using the appropriate variables?\nDid anyone see any potential issues with how many individuals are in each category of a variable?\n\n \n\nIf time, did anyone want to use ANY_HARDSHIP or MULT_HARDSHIPS? How would you construct these variables?\n\n\n\n\n−+\n15:00"
+    "text": "Introduce Research Question\n\nShare your research question with each other!\n\nShould be using the same outcome + your main variable\n\nShare your other variables\nIs everyone using the appropriate variables?\nDid anyone see any potential issues with how many individuals are in each category of a variable?\n\n \n\nIf time, did anyone want to use ANY_HARDSHIP or MULT_HARDSHIPS? How would you construct these variables?"
   },
   {
     "objectID": "lessons/L01_Discussion/L01_Discussion.html#double-check-code-and-saved-data",
     "href": "lessons/L01_Discussion/L01_Discussion.html#double-check-code-and-saved-data",
     "title": "Lab 1: Feedback and Discussion",
     "section": "Double check code and saved data",
-    "text": "Double check code and saved data\n\nDid everyone in the group successfully save the dataset?\nCan you open it right now?\n\n\n\n\n−+\n05:00"
+    "text": "Double check code and saved data\n\nDid everyone in the group successfully save the dataset?\nCan you open it right now?"
   },
   {
     "objectID": "lessons/L01_Discussion/L01_Discussion.html#compiled-introductions",
     "href": "lessons/L01_Discussion/L01_Discussion.html#compiled-introductions",
     "title": "Lab 1: Feedback and Discussion",
     "section": "Compiled introductions",
-    "text": "Compiled introductions\n\nWhat major points did you include in your introduction?\nWould you change anything after discussing with your group?\n\n\n\n\n−+\n10:00"
+    "text": "Compiled introductions\n\nWhat major points did you include in your introduction?\nWould you change anything after discussing with your group?"
   },
   {
     "objectID": "lessons/07_Pred_Viz/07_Pred_Viz_muddy_points.html",
@@ -12857,5 +12857,47 @@
     "title": "Missing Data",
     "section": "Now we can proceed with the other parts of Lab 3",
     "text": "Now we can proceed with the other parts of Lab 3\nBelow is some sample code for how I would make a tidy dataset or an odds ratio table from the pooled results! From reg and pooled_reg_MI you should be able to do everything else in Lab 3!\n\ntidy(pooled_reg_MI, exponentiate=T)\n\n                           term  estimate   std.error  statistic       p.value\n1                   (Intercept) 0.3896406 0.188805755 -4.9920650  7.828064e-07\n2                         PPAGE 1.0041543 0.002358714  1.7575922  7.890556e-02\n3                       LGBTYes 1.3009349 0.118690325  2.2165507  3.467327e-02\n4                    XACSNETYes 0.5885352 0.121806820 -4.3521259  1.432487e-05\n5                    PARTNERYes 2.0942749 0.092397422  8.0003030  1.522719e-15\n6                      FAMSIZE2 0.5176624 0.071316981 -9.2324726  3.341317e-20\n7                      FAMSIZE3 0.7280934 0.094083797 -3.3728012  7.476721e-04\n8                      FAMSIZE4 0.6842279 0.100206010 -3.7868410  1.536787e-04\n9                      FAMSIZE5 0.9114589 0.141451931 -0.6554084  5.122318e-01\n10                     FAMSIZE6 0.8703478 0.233689890 -0.5942167  5.523838e-01\n11                     FAMSIZE7 0.8431970 0.383695232 -0.4445056  6.566889e-01\n12             FAMSIZE8 or more 2.0328870 0.455267631  1.5583294  1.191944e-01\n13                   INSUREDYes 0.7701584 0.085274440 -3.0625712  2.205068e-03\n14               UNMETCARE_YYes 5.1386492 0.065095191 25.1445646 2.485979e-134\n15                   PPP20197No 1.1745039 0.125408636  1.2825738  1.996881e-01\n16            PPP20197Not asked 1.9088346 0.083714843  7.7225600  1.288411e-14\n17 PPETHM2+ Races, Non-Hispanic 1.8679442 0.151356442  4.1282582  3.697592e-05\n18    PPETHMBlack, Non-Hispanic 1.6223758 0.082456155  5.8684720  4.675501e-09\n19               PPETHMHispanic 1.7774817 0.076269171  7.5416787  5.176848e-14\n20    PPETHMOther, Non-Hispanic 0.5903345 0.128326728 -4.1072188  4.044180e-05\n              b         df dfcom          fmi       lambda m          riv\n1  2.319083e-03  603.43033  8122 0.0811074495 0.0780669252 5 0.0846774319\n2  1.185011e-07 3451.78023  8122 0.0261236569 0.0255595455 5 0.0262299717\n3  4.352480e-03   28.93469  8122 0.4101635714 0.3707553454 5 0.5892069844\n4  5.463504e-04 1620.73982  8122 0.0453657998 0.0441885034 5 0.0462313998\n5  1.190397e-04 5121.89692  8122 0.0171159404 0.0167322185 5 0.0170169498\n6  1.498452e-05 7891.76335  8122 0.0037878328 0.0035353960 5 0.0035479394\n7  2.836613e-05 7853.91363  8122 0.0040990639 0.0038454899 5 0.0038603348\n8  8.746087e-06 8093.58283  8122 0.0012919791 0.0010452195 5 0.0010463131\n9  2.441956e-04 5598.94489  8122 0.0149971927 0.0146454025 5 0.0148630783\n10 3.853984e-05 8101.33984  8122 0.0010934317 0.0008468594 5 0.0008475771\n11 1.543810e-05 8118.71802  8122 0.0003720576 0.0001258352 5 0.0001258511\n12 2.595761e-04 8070.85004  8122 0.0017501796 0.0015028386 5 0.0015051005\n13 9.155094e-05 5491.35047  8122 0.0154664875 0.0151079767 5 0.0153397289\n14 9.652945e-06 7977.12218  8122 0.0029835897 0.0027336521 5 0.0027411454\n15 1.494596e-04 6365.97786  8122 0.0117142560 0.0114038149 5 0.0115353621\n16 3.659954e-05 7476.75724  8122 0.0065326012 0.0062668885 5 0.0063064101\n17 1.636658e-04 7013.01138  8122 0.0088557088 0.0085730905 5 0.0086472239\n18 9.517827e-05 5107.12167  8122 0.0171833973 0.0167985918 5 0.0170856059\n19 2.693464e-05 7601.13866  8122 0.0058179650 0.0055564118 5 0.0055874580\n20 2.591630e-05 8046.51956  8122 0.0021365059 0.0018885131 5 0.0018920863\n           ubar\n1  3.286471e-02\n2  5.421329e-06\n3  8.864417e-03\n4  1.418128e-02\n5  8.394436e-03\n6  5.068130e-03\n7  8.817722e-03\n8  1.003075e-02\n9  1.971561e-02\n10 5.456472e-02\n11 1.472035e-01\n12 2.069571e-01\n13 7.161869e-03\n14 4.225800e-03\n15 1.554797e-02\n16 6.964255e-03\n17 2.271237e-02\n18 6.684804e-03\n19 5.784665e-03\n20 1.643665e-02\n\ntbl_regression(reg, exponentiate = T) # Note I am not using the pooled results\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nOR\n95% CI\np-value\n\n\n\n\nPPAGE\n1.00\n1.00, 1.01\n0.079\n\n\nLGBT\n\n\n\n\n\n\n\n\n    No\n—\n—\n\n\n\n\n    Yes\n1.30\n1.02, 1.66\n0.035\n\n\nXACSNET\n\n\n\n\n\n\n\n\n    No\n—\n—\n\n\n\n\n    Yes\n0.59\n0.46, 0.75\n&lt;0.001\n\n\nPARTNER\n\n\n\n\n\n\n\n\n    No\n—\n—\n\n\n\n\n    Yes\n2.09\n1.75, 2.51\n&lt;0.001\n\n\nFAMSIZE\n\n\n\n\n\n\n\n\n    1\n—\n—\n\n\n\n\n    2\n0.52\n0.45, 0.60\n&lt;0.001\n\n\n    3\n0.73\n0.61, 0.88\n&lt;0.001\n\n\n    4\n0.68\n0.56, 0.83\n&lt;0.001\n\n\n    5\n0.91\n0.69, 1.20\n0.5\n\n\n    6\n0.87\n0.55, 1.38\n0.6\n\n\n    7\n0.84\n0.40, 1.79\n0.7\n\n\n    8 or more\n2.03\n0.83, 4.96\n0.12\n\n\nINSURED\n\n\n\n\n\n\n\n\n    No\n—\n—\n\n\n\n\n    Yes\n0.77\n0.65, 0.91\n0.002\n\n\nUNMETCARE_Y\n\n\n\n\n\n\n\n\n    No\n—\n—\n\n\n\n\n    Yes\n5.14\n4.52, 5.84\n&lt;0.001\n\n\nPPP20197\n\n\n\n\n\n\n\n\n    Yes\n—\n—\n\n\n\n\n    No\n1.17\n0.92, 1.50\n0.2\n\n\n    Not asked\n1.91\n1.62, 2.25\n&lt;0.001\n\n\nPPETHM\n\n\n\n\n\n\n\n\n    White, Non-Hispanic\n—\n—\n\n\n\n\n    2+ Races, Non-Hispanic\n1.87\n1.39, 2.51\n&lt;0.001\n\n\n    Black, Non-Hispanic\n1.62\n1.38, 1.91\n&lt;0.001\n\n\n    Hispanic\n1.78\n1.53, 2.06\n&lt;0.001\n\n\n    Other, Non-Hispanic\n0.59\n0.46, 0.76\n&lt;0.001\n\n\n\nAbbreviations: CI = Confidence Interval, OR = Odds Ratio\n\n\n\n\n\n\n\n    # tble_regression will automatically pool them!"
+  },
+  {
+    "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#rr-in-cohort-study-prospective-or-retrospective",
+    "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#rr-in-cohort-study-prospective-or-retrospective",
+    "title": "Lesson 4: Measurements of Association and Agreement",
+    "section": "RR in cohort study (prospective or retrospective)",
+    "text": "RR in cohort study (prospective or retrospective)\n\nIn real world, the proportion of controls (not diseased) is typically much higher. Assume the table below shows the proportion in the population in a cohort study:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe estimated RR for the patient population is:\n\n\\[\\widehat{RR}=\\frac{\\widehat{p_1}}{\\widehat{p_2}}=\\frac{n_{11}/n_{1}}{n_{21}/n_{2}}=\\frac{400/4400}{600/16600}=2.5152\\]"
+  },
+  {
+    "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#approximate-or-and-rr-12",
+    "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#approximate-or-and-rr-12",
+    "title": "Lesson 4: Measurements of Association and Agreement",
+    "section": "Approximate OR and RR (1/2)",
+    "text": "Approximate OR and RR (1/2)\n\nNotice that odds ratio is not equivalent to relative risk (or risk ratio)\n\n \n\nHowever, when the probability of “success” is small (e.g., rare disease), \\(\\widehat{OR}\\) is a nice approximation of \\(\\widehat{RR}\\) \\[\\widehat{OR}=\\frac{{\\widehat{p}}_1/(1-{\\widehat{p}}_1)}{{\\widehat{p}}_2/(1-{\\widehat{p}}_2)}=\\widehat{RR}\\cdot \\frac{1-\\widehat{p_2}}{1-\\widehat{p_1}}\\]\n\nThe fraction \\(\\frac{1-\\widehat{p_2}}{1-\\widehat{p_1}} \\approx 1\\) IF BOTH \\(\\widehat{p}_1 &lt; 0.1\\) and \\(\\widehat{p}_2 &lt; 0.1\\)\n\n\n \n\nThe \\(\\widehat{OR}\\) and \\(\\widehat{RR}\\) are not very close to each other in SHS: diabetes not a rare disease\n\n\\(\\widehat{OR} = 4.65\\)\n\\(\\widehat{RR} = 3.29\\)"
+  },
+  {
+    "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#approximate-or-and-rr-22",
+    "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#approximate-or-and-rr-22",
+    "title": "Lesson 4: Measurements of Association and Agreement",
+    "section": "Approximate OR and RR (2/2)",
+    "text": "Approximate OR and RR (2/2)\n\nAn example where a disease rare over the whole sample (~1%), but \\(\\widehat{p}_1 &gt; 0.1\\) and \\(\\widehat{p}_2 &lt; 0.1\\)\n\n\\(\\widehat{OR}\\) is not a good estimate of \\(\\widehat{RR}\\) in “rare” disease\n\n\n\n\n\\(\\widehat{p}_1\\) is 0.5: thus \\(\\widehat{OR}\\) and \\(\\widehat{RR}\\) are very different\n\n\\[\\widehat{RR}=\\frac{0.5}{0.00102}=490 \\text{ and } \\widehat{OR} = \\frac{0.5(1-0.5)}{0.00102(1-0.00102)}=981\\]"
+  },
+  {
+    "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#approximate-or-and-rr",
+    "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#approximate-or-and-rr",
+    "title": "Lesson 4: Measurements of Association and Agreement",
+    "section": "Approximate OR and RR",
+    "text": "Approximate OR and RR\n\nNotice that odds ratio is not equivalent to relative risk (or risk ratio)\n\n \n\nHowever, when the probability of “success” is small (e.g., rare disease), \\(\\widehat{OR}\\) is a nice approximation of \\(\\widehat{RR}\\) \\[\\widehat{OR}=\\frac{{\\widehat{p}}_1/(1-{\\widehat{p}}_1)}{{\\widehat{p}}_2/(1-{\\widehat{p}}_2)}=\\widehat{RR}\\cdot \\frac{1-\\widehat{p_2}}{1-\\widehat{p_1}}\\]\n\nThe fraction \\(\\frac{1-\\widehat{p_2}}{1-\\widehat{p_1}} \\approx 1\\) IF BOTH \\(\\widehat{p}_1 &lt; 0.1\\) and \\(\\widehat{p}_2 &lt; 0.1\\)\n\n\n \n\nThe \\(\\widehat{OR}\\) and \\(\\widehat{RR}\\) are not very close to each other in SHS: diabetes not a rare disease\n\n\\(\\widehat{OR} = 4.65\\)\n\\(\\widehat{RR} = 3.29\\)"
+  },
+  {
+    "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#example-where-or-does-approximate-rr",
+    "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#example-where-or-does-approximate-rr",
+    "title": "Lesson 4: Measurements of Association and Agreement",
+    "section": "Example where OR does approximate RR",
+    "text": "Example where OR does approximate RR\n\nAn example where a disease rare over the whole sample (~1%), AND \\(\\widehat{p}_1 &lt; 0.1\\) and \\(\\widehat{p}_2 &lt; 0.1\\)\n\n\n\\[\\widehat{RR}=\\frac{0.0826}{0.00102}=81.083\\] \\[\\widehat{OR} = \\frac{0.0826(1-0.0826)}{0.00102(1-0.00102)}=88.29\\] \\[\\widehat{RR} \\approx \\widehat{OR}\\]"
+  },
+  {
+    "objectID": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#example-where-or-does-not-approximate-rr",
+    "href": "lessons/04_Meas_Assoc_Agree/04_Meas_Assoc_Agree.html#example-where-or-does-not-approximate-rr",
+    "title": "Lesson 4: Measurements of Association and Agreement",
+    "section": "Example where OR does not approximate RR",
+    "text": "Example where OR does not approximate RR\n\nAn example where a disease rare over the whole sample (~1%), but \\(\\widehat{p}_1 &gt; 0.1\\) and \\(\\widehat{p}_2 &lt; 0.1\\)\n\n\\(\\widehat{OR}\\) is not a good estimate of \\(\\widehat{RR}\\) in “rare” disease\n\n\n\n\n\\(\\widehat{p}_1\\) is 0.5: thus \\(\\widehat{OR}\\) and \\(\\widehat{RR}\\) are very different\n\n\\[\\widehat{RR}=\\frac{0.5}{0.00102}=490 \\text{ and } \\widehat{OR} = \\frac{0.5(1-0.5)}{0.00102(1-0.00102)}=981\\]"
   }
 ]

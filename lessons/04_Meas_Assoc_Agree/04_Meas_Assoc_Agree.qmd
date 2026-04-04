@@ -3,7 +3,7 @@ title: "Lesson 4: Measurements of Association and Agreement"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/07/2025"
+date: "`r library(here); source(here('class_dates.R')); w2d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -20,12 +20,12 @@ execute:
   freeze: auto  # re-render only when source changes
 ---
 
-## Poll Everywhere Question 1
-
 # Learning Objectives
 
 1.  Identify cases when it is appropriate to use risk difference, relative risk, or odds ratios
 2.  Expand work on contingency tables to evaluate the agreement or reproducibility using Cohen’s Kappa
+
+## Poll Everywhere Question 1
 
 ```{css, echo=FALSE}
 .reveal code {
@@ -36,6 +36,9 @@ execute:
 ```{r}
 #| echo: false
 
+library(here)
+source(here("class_dates.R"))
+
 library(tidyverse)
 library(gt)
 library(janitor)
@@ -44,7 +47,6 @@ library(knitr)
 library(gtsummary)
 library(moderndive)
 library(broom) 
-library(here) 
 
 SHS = read.csv(here("Data", "SHS_data.csv")) %>% 
   mutate(glucimp = case_match(glucimp, 
@@ -66,18 +68,31 @@ SHS_ct_disp = SHS %>% tabyl(glucimp, case) %>%
 
 -   Used contingency tables to test and measure association between two variables
 
-    -   Categorical outcome variable (Y)
+    -   Categorical and **binary** outcome variable (Y)
     -   One categorical explanatory variable (X) with groups 1 and 2
 
 -   We looked at risk difference, risk ratio, and odds ratio to measure association
 
-| Measure | Formula for Estimate |
-|-------------------|-----------------------------------|
-| Risk difference | $\widehat{RD} = \widehat{p}_1 - \widehat{p}_1 = \dfrac{n_{11}}{n_1} - \dfrac{n_{21}}{n_2}$ |
-| Relative risk / risk ratio | $\widehat{RR}=\dfrac{\widehat{p}_1}{\widehat{p}_2} = \dfrac{n_{11}/n_1}{n_{21}/n_2}$ |
-| Odds ratio | $\widehat{OR}=\frac{\widehat{\text{odds}}_1}{\widehat{\text{odds}}_2}=\frac{{\widehat{p}}_1/(1-{\widehat{p}}_1)}{{\widehat{p}}_2/(1-{\widehat{p}}_2)}$ |
+::::: columns
+::: {.column width="55%"}
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Measure                    | Formula for Estimate                                                                                                                                   |
++============================+========================================================================================================================================================+
+| Risk difference            | $\widehat{RD} = \widehat{p}_1 - \widehat{p}_2 = \dfrac{n_{11}}{n_1} - \dfrac{n_{21}}{n_2}$                                                             |
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Relative risk / risk ratio | $\widehat{RR}=\dfrac{\widehat{p}_1}{\widehat{p}_2} = \dfrac{n_{11}/n_1}{n_{21}/n_2}$                                                                   |
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Odds ratio                 | $\widehat{OR}=\frac{\widehat{\text{odds}}_1}{\widehat{\text{odds}}_2}=\frac{{\widehat{p}}_1/(1-{\widehat{p}}_1)}{{\widehat{p}}_2/(1-{\widehat{p}}_2)}$ |
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+:::
+
+::: {.column width="45%"}
+![](./images/ct.png){fig-align="center"}
+:::
+:::::
 
 -   Discussed how OR will be an important measurement in logistic regression
+    -   and RR is the most common in log-binomial regression
 
 ## Our example with Strong Heart Study
 
@@ -104,11 +119,15 @@ SHS_ct_disp = SHS %>% tabyl(glucimp, case) %>%
 SHS_ct_disp
 ```
 
-| Measure | Formula | Interpretation |
-|------------|--------------------|------------------------------------------|
-| Risk difference | $\widehat{RD} = \widehat{p}_1 - \widehat{p}_1$ | The diabetes diagnosis risk difference between impaired and normal glucose tolerance is 0.2591 (95% CI: 0.2141, 0.3041). |
-| Relative risk / risk ratio | $\widehat{RR}=\dfrac{\widehat{p}_1}{\widehat{p}_2} = \dfrac{n_{11}/n_1}{n_{21}/n_2}$ | The estimated risk of diabetes for American Indians with impaired glucose is 3.29 times the  with normal glucose tolerance (95% CI: 2.70, 4.01). |
-| Odds ratio | $\widehat{OR}=\frac{\widehat{\text{odds}}_1}{\widehat{\text{odds}}_2}=\frac{{\widehat{p}}_1/(1-{\widehat{p}}_1)}{{\widehat{p}}_2/(1-{\widehat{p}}_2)}$ | The estimated odds of diabetes for American Indians with impaired glucose tolerance is 4.65 times the odds for American Indians with normal glucose tolerance. |
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Measure                    | Formula                                                                                                                                                | Interpretation                                                                                                                                                 |
++============================+========================================================================================================================================================+================================================================================================================================================================+
+| Risk difference            | $\widehat{RD} = \widehat{p}_1 - \widehat{p}_1$                                                                                                         | The diabetes diagnosis risk difference between impaired and normal glucose tolerance is 0.2591 (95% CI: 0.2141, 0.3041).                                       |
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Relative risk / risk ratio | $\widehat{RR}=\dfrac{\widehat{p}_1}{\widehat{p}_2} = \dfrac{n_{11}/n_1}{n_{21}/n_2}$                                                                   | The estimated risk of diabetes for American Indians with impaired glucose is 3.29 times the with normal glucose tolerance (95% CI: 2.70, 4.01).                |
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Odds ratio                 | $\widehat{OR}=\frac{\widehat{\text{odds}}_1}{\widehat{\text{odds}}_2}=\frac{{\widehat{p}}_1/(1-{\widehat{p}}_1)}{{\widehat{p}}_2/(1-{\widehat{p}}_2)}$ | The estimated odds of diabetes for American Indians with impaired glucose tolerance is 4.65 times the odds for American Indians with normal glucose tolerance. |
++----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 # Learning Objectives
 
@@ -118,7 +137,7 @@ SHS_ct_disp
 
 2.  Expand work on contingency tables to evaluate the agreement or reproducibility using Cohen’s Kappa
 
-## Relationship Between RR and OR (1/2)
+## Approximate OR and RR
 
 -   Notice that odds ratio is **not equivalent** to relative risk (or risk ratio)
 
@@ -126,7 +145,7 @@ SHS_ct_disp
 
 -   However, when the **probability of "success" is small** (e.g., rare disease), $\widehat{OR}$ is a nice approximation of $\widehat{RR}$ $$\widehat{OR}=\frac{{\widehat{p}}_1/(1-{\widehat{p}}_1)}{{\widehat{p}}_2/(1-{\widehat{p}}_2)}=\widehat{RR}\cdot \frac{1-\widehat{p_2}}{1-\widehat{p_1}}$$
 
-    -   The fraction in the last term of the above expression approximately equals to 1.0 if $\widehat{p}_1$ and $\widehat{p}_2$ BOTH quite small (\< 0.1)
+    -   The fraction $\frac{1-\widehat{p_2}}{1-\widehat{p_1}} \approx 1$ **IF BOTH** $\widehat{p}_1 < 0.1$ and $\widehat{p}_2 < 0.1$
 
  
 
@@ -135,9 +154,19 @@ SHS_ct_disp
     -   $\widehat{OR} = 4.65$
     -   $\widehat{RR} = 3.29$
 
-## Relationship Between RR and OR (2/2)
+## Example where OR does approximate RR
 
--   An example where a disease rare over the whole sample (\~1%), but ...
+-   An example where a disease rare over the whole sample (\~1%), AND $\widehat{p}_1 < 0.1$ and $\widehat{p}_2 < 0.1$
+
+![](./images/rare_dis2.png){fig-align="center"}
+
+$$\widehat{RR}=\frac{0.0826}{0.00102}=81.083$$ 
+$$\widehat{OR} = \frac{0.0826(1-0.0826)}{0.00102(1-0.00102)}=88.29$$
+$$\widehat{RR} \approx \widehat{OR}$$
+
+## Example where OR does not approximate RR
+
+-   An example where a disease rare over the whole sample (\~1%), but $\widehat{p}_1 > 0.1$ and $\widehat{p}_2 < 0.1$
 
     -   $\widehat{OR}$ is not a good estimate of $\widehat{RR}$ in “rare” disease
 
@@ -159,14 +188,16 @@ $$\widehat{RR}=\frac{0.5}{0.00102}=490 \text{ and } \widehat{OR} = \frac{0.5(1-0
 
  
 
--   However, the [proportion of cases in the sample]{style="color:#70AD47; font-weight: bold;"} **does not** represent the [proportion of cases in the population]{style="color:#4472C4; font-weight: bold;"}
+-   However, the [proportion of cases in the sample]{style="color:#5B9BD5; font-weight: bold;"} **does not** represent the [proportion of cases in the population]{style="color:#70AD47; font-weight: bold;"}
 
     -   RR compares probability of the outcome (case) for exposed and unexposed groups
     -   Number of outcomes has been artificially inflated for case-control study
 
 ## RR in retrospective case-control study (2/3)
 
--   Assume a 1:2 case-control study summarized in below table:
+-   Assume a [1:2 case-control study sample]{style="color:#5B9BD5; font-weight: bold;"} summarized in below table:
+
+ 
 
 :::::: columns
 ::: {.column width="15%"}
@@ -182,11 +213,11 @@ $$\widehat{RR}=\frac{0.5}{0.00102}=490 \text{ and } \widehat{OR} = \frac{0.5(1-0
 
 -   Assume we compute the RR as if it is from a cohort study:
 
-$$\widehat{RR}=\frac{\widehat{p_1}}{\widehat{p_2}}=\frac{n_{11}/n_{1+}}{n_{21}/n_{2+}}=\frac{40/80}{60/220}=1.8333$$
+$$\widehat{RR}=\frac{\widehat{p_1}}{\widehat{p_2}}=\frac{n_{11}/n_{1}}{n_{21}/n_{2}}=\frac{40/80}{60/220}=1.8333$$
 
-## RR in prospective cohort study
+## RR in cohort study (prospective or retrospective)
 
--   In real world, the proportion of controls (not diseased) is typically much higher. Assume the table below shows the **proportion in the population in a cohort study**
+-   In real world, the proportion of controls (not diseased) is typically much higher. Assume the table below shows the [**proportion in the population in a cohort study**]{style="color:#70AD47; font-weight: bold;"}:
 
 :::::: columns
 ::: {.column width="15%"}
@@ -202,26 +233,25 @@ $$\widehat{RR}=\frac{\widehat{p_1}}{\widehat{p_2}}=\frac{n_{11}/n_{1+}}{n_{21}/n
 
 -   The estimated RR for the patient population is:
 
-$$\widehat{RR}=\frac{\widehat{p_1}}{\widehat{p_2}}=\frac{400/4400}{600/16600}=2.5152$$
+$$\widehat{RR}=\frac{\widehat{p_1}}{\widehat{p_2}}=\frac{n_{11}/n_{1}}{n_{21}/n_{2}}=\frac{400/4400}{600/16600}=2.5152$$
 
 ## Notes for Odds Ratios
 
--   The OR is valid for
-
-    -   Case-control studies (where the RR is not appropriate)
-    -   Prospective cohort studies
-    -   Cross-sectional studies
-
- 
-
+::: columns
+::: column
 -   It can be interpreted either as...
 
-    -   Odds of **event** for exposed vs. unexposed individuals, or
-    -   Odds of **exposure** for individuals with vs. without the event of interest
+    -   Odds of **event** for group 1 vs. group 2 individuals
+        - We've called these $\widehat{\text{odds}}_1$ and $\widehat{\text{odds}}_2$
+    -   Odds of **group 1** for individuals with (success) vs. without (failure) the event of interest
+        - We can call this $\widehat{\text{odds}}_{S}$ and $\widehat{\text{odds}}_{F}$
+:::
+::: column
+![](./images/ct.png){fig-align="center"}
+:::
+:::
 
- 
-
--   Pay attention to the numerator and denominator for the OR
+$$\widehat{OR}_{1v2}=\dfrac{\widehat{\text{odds}}_1}{\widehat{\text{odds}}_2}=\dfrac{{\widehat{p}}_1/(1-{\widehat{p}}_1)}{{\widehat{p}}_2/(1-{\widehat{p}}_2)} = \dfrac{\dfrac{n_{11}}{n_1} / \dfrac{n_{10}}{n_1}}{\dfrac{n_{21}}{n_2} / \dfrac{n_{20}}{n_2}} = \dfrac{\dfrac{n_{11}}{n_{10}}}{\dfrac{n_{21}}{n_{20}}} = \dfrac{\dfrac{n_{11}}{n_{21}}}{\dfrac{n_{10}}{n_{20}}} = \dfrac{\dfrac{n_{11}}{n_S} / \dfrac{n_{21}}{n_S}}{\dfrac{n_{10}}{n_F} / \dfrac{n_{20}}{n_F}}=\dfrac{{\widehat{p}}_S/(1-{\widehat{p}}_S)}{{\widehat{p}}_F/(1-{\widehat{p}}_F)} = \dfrac{\widehat{\text{odds}}_S}{\widehat{\text{odds}}_F}$$
 
 ## OR in retrospective case-control study
 
