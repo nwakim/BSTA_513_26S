@@ -41,7 +41,10 @@ whenever needed.
 
 ### Office Hours
 
-TBD
+Nicky's office hours will follow Wednesday class time.
+
+-   Wednesdays 3-4pm at RLSB 3A001
+-   No virtual option
 
 ## Teaching Assistants
 
@@ -51,9 +54,9 @@ help answer questions over email.
 
 | TA | Email | Day | Time | Location |
 |---------------|---------------|---------------|---------------|---------------|
-| Sheetal Akula | [akula\@ohsu.edu](mailto:akula@ohsu.edu){.email} | TBD | TBD | TBD |
-| Kelsey Mackenzie | [mackenzie\@ohsu.edu](mailto:mackenzie@ohsu.edu){.email} | TBD | TBD | TBD |
-| Sophia Mann | [mannso\@ohsu.edu](mailto:mannso@ohsu.edu){.email} | TBD | TBD | TBD |
+| Sheetal Akula | [akula\@ohsu.edu](mailto:akula@ohsu.edu){.email} | Friday | 12-1pm | TBD |
+| Kelsey Mackenzie | [mackenzie\@ohsu.edu](mailto:mackenzie@ohsu.edu){.email} | Thursday | 3:30-4:30pm | TBD |
+| Sophia Mann | [mannso\@ohsu.edu](mailto:mannso@ohsu.edu){.email} | Tuesday | 10:30-11:30am | TBD |
 
 ## Academic Success Center Tutors
 
