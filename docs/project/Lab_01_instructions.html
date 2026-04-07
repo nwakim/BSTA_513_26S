@@ -3970,7 +3970,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 3, 2026</p>
+      <p class="date-modified">April 6, 2026</p>
     </div>
   </div>
     
@@ -3995,6 +3995,7 @@ Caution
 </div>
 <div class="callout-body-container callout-body">
 <p>Ready to be worked on! (4/2/26)</p>
+<p>I made some changes to activity 2.9 and 2.10 if you are doing LASSO (4/6/26)</p>
 </div>
 </div>
 <section id="directions" class="level2" data-number="1">
@@ -4235,7 +4236,14 @@ Note
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">lapply</span>(old_df, <span class="cf">function</span>(x) {<span class="fu">gsub</span>(<span class="st">&quot;.*) &quot;</span>, <span class="st">&quot;&quot;</span>, x)}))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>For purposeful model selection only:</strong> You can start by selecting only the variables you will use in your analysis. Again, you can keep <code>ID</code> in addition to your outcome and predictors for easy tracking.</p>
-<p>We will once again do a complete case analysis (aka drop observations with any missing data). You can use the <code>drop_na()</code> function from the <code>tidyr</code> package to do this.</p>
+<p><strong>For both:</strong> We will once again do a complete case analysis (aka drop observations with any missing data). You can use the <code>drop_na()</code> function from the <code>tidyr</code> package to do this.</p>
+<ul>
+<li><strong>For LASSO:</strong> because we’re leaving in a lot of variables, we need to remove the ones that have a majority missing values. I dropped NA’s with the following:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wbns2 <span class="ot">=</span> wbns <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">&quot;Q&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>PPREG4, <span class="sc">-</span>NUM_SIBLING, <span class="sc">-</span>NUM_PARGUARD) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4269,7 +4277,7 @@ Note
 <div class="callout-body-container callout-body">
 <ul>
 <li>To check that you have looked that the variables, please report the percent of respondents that were food insecure in the past 12 months.</li>
-<li>List any categorical variables that have less than 100 observations in a group</li>
+<li><strong>Purposeful model selection only:</strong> List any categorical variables that have less than 100 observations in a group</li>
 </ul>
 </div>
 </div>

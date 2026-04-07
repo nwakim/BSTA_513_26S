@@ -26,6 +26,8 @@ This project includes analysis on food insecurity. Please let Nicky know if this
 
 ::: callout-caution
 Ready to be worked on! (4/2/26)
+
+I made some changes to activity 2.9 and 2.10 if you are doing LASSO (4/6/26)
 :::
 
 ```{r}
@@ -227,7 +229,15 @@ new_df = data.frame(lapply(old_df, function(x) {gsub(".*) ", "", x)}))
 
 **For purposeful model selection only:** You can start by selecting only the variables you will use in your analysis. Again, you can keep `ID` in addition to your outcome and predictors for easy tracking.
 
-We will once again do a complete case analysis (aka drop observations with any missing data). You can use the `drop_na()` function from the `tidyr` package to do this.
+**For both:** We will once again do a complete case analysis (aka drop observations with any missing data). You can use the `drop_na()` function from the `tidyr` package to do this.
+
+- **For LASSO:** because we're leaving in a lot of variables, we need to remove the ones that have a majority missing values. I dropped NA's with the following:
+```{r}
+#| eval: false
+
+wbns2 = wbns %>% select(-starts_with("Q")) %>% 
+  select(-PPREG4, -NUM_SIBLING, -NUM_PARGUARD) 
+```
 
 
 ::: callout-important
@@ -246,7 +256,7 @@ The codebook online gives some plots of each variable. Please take a look at the
 #### Task
 
 -   To check that you have looked that the variables, please report the percent of respondents that were food insecure in the past 12 months.
--   List any categorical variables that have less than 100 observations in a group
+-   **Purposeful model selection only:** List any categorical variables that have less than 100 observations in a group
 :::
 
 ### For purposeful model selection only: Make a Table 1
