@@ -18,7 +18,7 @@ format:
 }
 
 .blue-rows table tbody tr:nth-child(n+6):nth-child(-n+11) td {
-  background-color: #f5e9e9 !important;
+  background-color: #f0f6fc !important;
 }
 ```
 
