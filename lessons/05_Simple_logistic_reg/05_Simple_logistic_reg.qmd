@@ -3,7 +3,7 @@ title: "Lesson 5: Simple Logistic Regression"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/9/2025"
+date: "`r library(here); source(here('class_dates.R')); w2d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -559,24 +559,21 @@ $$ \text{logit} (\pi) =  \beta_0 + \beta_1X$$
 
 ## GLM: Link Function {background-image="./images/title_green.png" background-size="2500px 150px" background-position="top"}
 
--   If $\mu = E(Y)$, then the link function specifies a function $g(.)$ that relates $\mu$ to the linear predictor as: $$g\left(\mu\right)=\beta_0+\beta_1X_1+\ldots+\beta_kX_k$$
+-   If $\mu = E(Y)$, then the link function specifies a function $g(.)$ that relates $\mu$ to the linear predictors
 
-    -   $g\left(\mu\right)$ is the transformation we make to $E(Y)$ (aka $\mu$) so that the linear predictors (right side of equation) can be linked to the outcome
-    
--   The link function connects the random component with the systematic component
--   Can also think of this as: $$\mu=g^{-1}\left(\beta_0+\beta_1X_1+\ldots+\beta_kX_k\right)$$
+    -   $g\left(\mu\right)$ is the **transformation we make to $E(Y)$ (aka $\mu$) so that the linear predictors (right side of equation) can be linked to the outcome**
+    -   AKA: link function connects the random component with the systematic component
+
+- So the general form of a regression equation looks like: $$g\left(\mu\right)=\beta_0+\beta_1X_1+\ldots+\beta_kX_k$$ and $g\left(\mu\right)$ is the **placeholder for the transformation** we make to mean $\mu$
+
+- For logistic regression, $g\left(\mu\right) = \text{logit} (\mu)$, so the regression equation is $\text{logit} (\mu)=\beta_0+\beta_1X_1+\ldots+\beta_kX_k$
+- For linear regression, $g\left(\mu\right) = \mu$ and so the regression equation is $\mu = \beta_0+\beta_1X_1+\ldots+\beta_kX_k$
+
+-   Can also think of this of equation with inverse of $g$: $$\mu=g^{-1}\left(\beta_0+\beta_1X_1+\ldots+\beta_kX_k\right)$$
 
 ## GLM: Link Function {background-image="./images/title_green.png" background-size="2500px 150px" background-position="top"}
 
 ![](./images/links.png){fig-align="center"}
-
-## GLM: Link Function {background-image="./images/title_green.png" background-size="2500px 150px" background-position="top"}
-
-- Note that $$g\left(\mu\right)=\beta_0+\beta_1X_1+\ldots+\beta_kX_k$$ is the general form, but $g\left(\mu\right)$ just represents the transformation we make to mean $\mu$
-
- 
-
-- It's basically like saying $g\left(\mu\right) = \text{logit} (\mu)$ and thus $$ \text{logit} (\mu)=\beta_0+\beta_1X_1+\ldots+\beta_kX_k$$
 
 # Learning Objectives
 
@@ -629,9 +626,10 @@ $$ \text{logit} (\pi) =  \beta_0 + \beta_1X$$
 
  
 
--   [Maximum likelihood]{style="color:#5B9BD5; font-weight: bold;"}: yields values for the unknown parameters that *maximize the probability of obtaining observed set of data*
+-   [Maximum likelihood]{style="color:#5B9BD5; font-weight: bold;"}: yields estimates for the unknown parameters that *maximize the probability of obtaining observed set of data*
 
     -   In linear regression, this leads to [least squares estimation (OLS)](https://nwakim.github.io/BSTA_512_W25/lessons/03_SLR/03_SLR.html#/learning-objectives-4)
+        - But we can't use OLS in all types of regression
     -   [Maximum likelihood estimators (MLE)]{style="color:#70AD47; font-weight: bold;"}: values of parameters that maximize likelihood
 
  
@@ -706,6 +704,8 @@ Recall
 -   Since there are $n$ subjects in the data, and **each subject is considered independent of each other**, the likelihood function for the whole data can be expressed as: 
 
 $$l(\beta_0, \beta_1) = \prod_{i=1}^{n}{\pi(X_i)^{Y_i} (1-\pi(X_i)) ^ {1-Y_i}}$$
+
+- The likelihood for the whole sample is the likelihood for each individual multiplied together (result of independence assumption)
 :::
 
 ::: {.column width="33%"}
@@ -731,7 +731,7 @@ Recall
 
 -   Mathematically, it is easier to work with the **log likelihood** function for maximization
 
--   The log-likelihood function is: $$\begin{aligned}L\left(\beta_0,\beta_1\right) &=\ln{\left(l\left(\beta_0,\beta_1\right)\right)} \\ & = 
+-   The log-likelihood function is: $$\begin{aligned}L\left(\beta_0,\beta_1\right) &=\log{\left(l\left(\beta_0,\beta_1\right)\right)} \\ & = 
 \sum_{i=1}^{n}\bigg[Y_i\cdot\text{ln}[\pi(X_i)] + (1-Y_i)\cdot\text{ln}[1-\pi(X_i)] \bigg] 
 \end{aligned}$$
 

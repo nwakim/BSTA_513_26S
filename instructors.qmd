@@ -55,7 +55,7 @@ help answer questions over email.
 | TA | Email | Day | Time | Location |
 |---------------|---------------|---------------|---------------|---------------|
 | Sheetal Akula | [akula\@ohsu.edu](mailto:akula@ohsu.edu){.email} | Friday | 12-1pm | TBD |
-| Kelsey Mackenzie | [mackenzie\@ohsu.edu](mailto:mackenzie@ohsu.edu){.email} | Thursday | 3:30-4:30pm | TBD |
+| Kelsey Mackenzie | [mackenzie\@ohsu.edu](mailto:mackenzie@ohsu.edu){.email} | Thursday | 3:30-4:30pm | [Zoom](https://pdx.zoom.us/j/88514661813) |
 | Sophia Mann | [mannso\@ohsu.edu](mailto:mannso@ohsu.edu){.email} | Tuesday | 10:30-11:30am | TBD |
 
 ## Academic Success Center Tutors
