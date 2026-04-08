@@ -13,6 +13,8 @@ editor_options:
 - Office hours on instructor page!
   - Mine will be after class on Wednesday's!
 - My new schedule shading... annoying or helpful or nothing?
+- Reminder: I am teaching a data science course next year (spring)
+  - It'll be a pilot course and be under BSTA 504
 
 ### Events in SPH
 ![](../images_key_info/key_info1.png)
