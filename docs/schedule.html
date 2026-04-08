@@ -172,13 +172,50 @@ ul.task-list li input[type="checkbox"] {
   padding: 0px;
 }
 
-.blue-rows table tbody tr:nth-child(n+6):nth-child(-n+11) td {
+.monday-wednesdays table tbody tr:nth-child(n+1):nth-child(-n+4) td, 
+.monday-wednesdays table tbody tr:nth-child(n+13):nth-child(-n+15) td,
+.monday-wednesdays table tbody tr:nth-child(n+24):nth-child(-n+26) td,
+.monday-wednesdays table tbody tr:nth-child(n+33):nth-child(-n+35) td,
+.monday-wednesdays table tbody tr:nth-child(n+44):nth-child(-n+46) td,
+.monday-wednesdays table tbody tr:nth-child(55) td{
+  background-color: #F2F2F2 !important;
+  color: black; 
+}
+
+
+
+.assignments table tbody tr:nth-child(11) td, 
+.assignments table tbody tr:nth-child(16) td,
+.assignments table tbody tr:nth-child(n+20):nth-child(-n+22) td,
+.assignments table tbody tr:nth-child(27) td,
+.assignments table tbody tr:nth-child(31) td,
+.assignments table tbody tr:nth-child(n+36):nth-child(-n+38) td, 
+.assignments table tbody tr:nth-child(42) td, 
+.assignments table tbody tr:nth-child(n+47):nth-child(-n+49) td, 
+.assignments table tbody tr:nth-child(n+56):nth-child(-n+57) td{
   background-color: #f0f6fc !important;
+  color: #5B9BD5; 
+}
+
+.red table tbody tr:nth-child(5) td,
+.red table tbody tr:nth-child(12) td,
+.red table tbody tr:nth-child(17) td,
+.red table tbody tr:nth-child(23) td,
+.red table tbody tr:nth-child(28) td,
+.red table tbody tr:nth-child(32) td,
+.red table tbody tr:nth-child(39) td,
+.red table tbody tr:nth-child(43) td,
+.red table tbody tr:nth-child(50) td,
+.red table tbody tr:nth-child(54) td {
+  background-color: #C2352F !important; /* A light red; use 'red' for bright red */
+  height: 5px; 
 }
 </style>
 </div>
-<div class="blue-rows">
-<table class="table-striped table-hover caption-top table">
+<div class="assignments">
+<div class="monday-wednesdays">
+<div class="red">
+<table class="table-hover caption-top table">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 6%">
@@ -335,17 +372,17 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">Simple Logistic Regression</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="./lessons/05_Simple_logistic_reg/05_Simple_logistic_reg.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="./lessons/05_Simple_logistic_reg/05_Simple_logistic_reg.pdf"><iconify-icon inline="" icon="bi:file-earmark-pdf-fill" style="font-size: 28px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="./lessons/05_Simple_logistic_reg/05_Simple_logistic_reg_notes.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="./lessons/05_Simple_logistic_reg/05_Simple_logistic_reg_muddy_points.html"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><span style="color:#5B9BD5;"><strong>04/12</strong></span></td>
+<td style="text-align: center;"><strong>04/12</strong></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;"><span style="color:#5B9BD5;"><strong>Lab 1 due @ 11 pm</strong></span></td>
+<td style="text-align: left;"><strong>Lab 1 due @ 11 pm</strong></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -430,19 +467,6 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">4</td>
 <td style="text-align: center;">04/20</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="akar-icons:info-fill" style="font-size: 30px;"></iconify-icon></span></td>
@@ -455,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;">04/22</td>
 <td style="text-align: center;"></td>
@@ -468,7 +492,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>04/22</strong></span></td>
 <td style="text-align: center;"></td>
@@ -481,7 +505,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>04/26</strong></span></td>
 <td style="text-align: center;"></td>
@@ -494,7 +518,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>04/26</strong></span></td>
 <td style="text-align: center;"></td>
@@ -507,7 +531,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -520,7 +544,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">04/27</td>
 <td style="text-align: center;"></td>
@@ -533,7 +557,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;">04/29</td>
 <td style="text-align: center;"></td>
@@ -546,7 +570,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -559,7 +583,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>05/03</strong></span></td>
 <td style="text-align: center;"></td>
@@ -572,7 +596,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -585,7 +609,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">05/04</td>
 <td style="text-align: center;"></td>
@@ -598,7 +622,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;">05/06</td>
 <td style="text-align: center;"></td>
@@ -611,7 +635,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>05/10</strong></span></td>
 <td style="text-align: center;"></td>
@@ -624,7 +648,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -637,7 +661,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">05/11</td>
 <td style="text-align: center;"></td>
@@ -650,7 +674,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -663,7 +687,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;">05/13</td>
 <td style="text-align: center;"></td>
@@ -676,7 +700,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pajamas:question" style="font-size: 30px;"></iconify-icon></span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>05/13</strong></span></td>
 <td style="text-align: center;"></td>
@@ -689,7 +713,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>05/17</strong></span></td>
 <td style="text-align: center;"></td>
@@ -702,7 +726,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span style="color:#5B9BD5;"><strong>05/17</strong></span></td>
 <td style="text-align: center;"></td>
@@ -710,19 +734,6 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"><span style="color:#5B9BD5;"><strong>Quiz 2 closes at 11pm</strong></span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -977,6 +988,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 </div>
 
 
