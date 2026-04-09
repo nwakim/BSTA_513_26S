@@ -48,7 +48,7 @@ This homework is designed to help you practice the following important skills an
 
 ## Directions
 
--   [Download the `.qmd` file here.](https://github.com/nwakim/BSTA_513_S25/blob/main/homework/HW_02.qmd)
+-   [Download the `.qmd` file here.](https://github.com/nwakim/BSTA_513_26S/blob/main/homework/HW_02.qmd)
 
 -   You will need to download the datasets from our shared folder.
 
