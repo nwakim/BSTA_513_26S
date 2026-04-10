@@ -231,12 +231,12 @@ new_df = data.frame(lapply(old_df, function(x) {gsub(".*) ", "", x)}))
 
 **For both:** We will once again do a complete case analysis (aka drop observations with any missing data). You can use the `drop_na()` function from the `tidyr` package to do this.
 
-- **For LASSO:** because we're leaving in a lot of variables, we need to remove the ones that have a majority missing values. I dropped NA's with the following:
+- **For LASSO:** because we're leaving in a lot of variables, we need to remove the ones that have a majority missing values. I took out certain variables before dropping NA's with the following:
 ```{r}
 #| eval: false
 
 wbns2 = wbns %>% select(-starts_with("Q")) %>% 
-  select(-PPREG4, -NUM_SIBLING, -NUM_PARGUARD) 
+  select(-PPREG4, -NUM_SIBLING, -NUM_PARGUARD)
 ```
 
 
