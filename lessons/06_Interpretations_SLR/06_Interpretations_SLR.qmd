@@ -3,7 +3,7 @@ title: "Lesson 6: Interpretations and Visualizations of Odds Ratios"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/14/2025"
+date: "`r library(here); source(here('class_dates.R')); w3d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -45,6 +45,22 @@ load(here("data", "bc_diagnosis.Rda"))
 mean_age = mean(bc$Age)
 bc = bc %>% mutate(Late_stage_num = as.numeric(Late_stage_diag)-1, 
                    Age_c = Age - mean(Age))
+
+bc_reg = glm(Late_stage_diag ~ Age_c, data = bc, family = binomial)
+bc_aug = augment(bc_reg)
+
+log_odds_stage = ggplot(data = bc_aug, aes(x=Age_c, y = .fitted)) + 
+  geom_point(size = 4, color = "#D6295E", shape = 1) +
+  labs(x = "Age centered (yrs)", 
+       y = "Log-odds of \n Late stage BC diagnosis")  + theme_classic() +
+      theme(axis.title = element_text(
+        size = 24), 
+        axis.text = element_text(
+        size = 25), 
+        title = element_text(
+        size = 30))
+
+theme_set(theme_bw(base_size = 22))
 ```
 
 
@@ -60,7 +76,7 @@ bc = bc %>% mutate(Late_stage_num = as.numeric(Late_stage_diag)-1,
 
 ## Recall our example: Late stage breast cancer diagnosis 
 
--   Recall that we fitted a simple logistic regression for late stage breast cancer diagnosis using the predictor, age:
+-   Recall that we fit a simple logistic regression for late stage breast cancer diagnosis using the predictor, age:
 
 ```{r}
 bc_reg = bc %>% glm(formula = Late_stage_diag ~ Age_c, family = binomial)
@@ -132,23 +148,35 @@ $$\text{logit}(\widehat{\pi}(X)) = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot X
 
 ## Recall our example: Late stage breast cancer diagnosis 
 
+::: columns
+::: {.column width="55%"}
 -   Fitted logistic regression model: $$\text{logit}(\widehat{\pi}(Age)) = `r round(summary(bc_reg)$coefficients[1,1], 3)` + `r round(summary(bc_reg)$coefficients[2,1], 3)` \cdot Age$$
-
- 
 
 -   $\widehat{\beta}_0$: The estimated log-odds is -0.989 for someone who is `r round(mean_age, 2)` years (95% CI: -1.035, -0.944)
 
 -   $\widehat{\beta}_1$: The estimated increase in log-odds is 0.057 for every 1 year increase in age (95% CI: 0.051, 0.063).
-
- 
- 
 
 -   What does a log-odds even mean?? Or an increase in log-odds??
 
 -   We will need to calculate the **odds ratio** and its confidence interval
 
     -   Then we will visualize the odds ratio
+:::
 
+::: {.column width="45%"}
+
+ 
+
+```{r}
+#| echo: false
+#| fig-height: 6
+#| fig-width: 7
+#| fig-align: "center"
+
+log_odds_stage
+```
+:::
+:::
 
 ```{css, echo=FALSE}
 .reveal code {
@@ -255,19 +283,42 @@ For $\text{exp}(\widehat{\beta}_1)$
 
 ## Example: Interpretation of Age Coefficient/OR
 
--   $\widehat{\beta}_1$ is 0.057, suggesting that one year increase in age is associated with 0.057 increase in log odds of receiving a late stage breast cancer diagnosis
+::: columns
+::: {.column width="40%"}
+::: axiom 
+::: axiom-title
+**In log-odds scale: **
+:::
+::: axiom-cont
+$$\widehat{\beta}_1 = 0.057$$
 
- 
+One year increase in age is associated with expected 0.057 increase in [**log-odds**]{style="color: #D6295E;"} of receiving a late stage breast cancer diagnosis
+:::
+:::
 
--   $\exp\left({\widehat{\beta}}_1\right)$ is 1.06, suggesting that one year increase in age is associated with 1.06 times the odds of receiving a late stage breast cancer diagnosis
+:::
 
-    - Can also say: For every one year increase in age, the odds of late stage breast cancer diagnosis is 1.06 times. 
+::: {.column width="60%"}
 
- 
+::: proof1
+::: proof-title
+**In odds scale:** 
+:::
+::: proof-cont
+$$\exp\left({\widehat{\beta}}_1\right) = 1.06$$
 
--   For continuous covariates in logistic regression model, it is helpful to subtract 1 from the odds ratio and multiply by 100 to obtain the percentage change in odds for 1-unit increase.
+- One year increase in age is associated with expected 1.06 [**times the odds**]{style="color: #ED7D31;"} of receiving a late stage breast cancer diagnosis
 
-    -   The estimated OR for age is 1.06, suggesting that a 1-year increase in age is associated with a 6% increase in the predicted odds of late stage diagnosis
+    - Can also say: For every one year increase in age, the expected odds of late stage breast cancer diagnosis increases 1.06 times. 
+
+-   Can also subtract 1 from the odds ratio and multiply by 100 to obtain the percentage change in odds for 1-unit increase.
+
+    -   1-year increase in age is associated with an [6% increase in the predicted odds]{style="color: #ED7D31;"} of late stage diagnosis
+:::
+:::
+
+:::
+:::
 
 ## Example: Age and Late Stage Diagnosis (1/5)
 
@@ -417,6 +468,10 @@ $$ \widehat{OR}\left(10\right)=\exp{\left(10\cdot{\hat{\beta}}_1\right)}=\exp{\l
 
 -   The 95% CI for $\widehat{OR}\left(10\right)$ is: $$\begin{aligned} \widehat{OR}\left(10\right) &=\exp{\left(10\cdot{\hat{\beta}}_1\pm1.96\cdot10\cdot SE_{\hat{\beta}_1} \right)} \\ &=\exp{\left(10\cdot0.056965\pm1.96\cdot10\cdot0.003204\right)}\\
     &=(1.66,\ 1.88) \end{aligned}$$
+    
+ 
+
+**Conclusion:** For every 10-year increase in age, the expected odds of late stage breast cancer diagnosis increases 1.77 times (95% CI: 1.66, 1.88).
 
 ## Example: 10 year increase in age and Late Stage Diagnosis
 
@@ -429,11 +484,12 @@ tidy(bc_reg_10, conf.int=T, exponentiate = T) %>% gt() %>% tab_options(table.fon
   fmt_number(decimals = 3)
 ```
 
+
 ## Last Note About Continuous Independent Variable
 
 -   Notice that the logistic regression model suggests that logit is linear in the covariate
 
--   The model implies the additional risk of late stage breast cancer diagnosis for a 40 year-old compared to a 30 year-old is the same as the additional risk of late stage breast cancer diagnosis for a 60 year-old compared to a 50-year-old
+-   The model implies the additional odds of late stage breast cancer diagnosis for a 40 year-old compared to a 30 year-old is the same as the additional odds of late stage breast cancer diagnosis for a 60 year-old compared to a 50-year-old
 
 -   This assumption may not be realistic
 
@@ -441,16 +497,18 @@ tidy(bc_reg_10, conf.int=T, exponentiate = T) %>% gt() %>% tab_options(table.fon
 
 -   Categorize the continuous variable may be another option
 
+- See Lesson 8 and Lesson 14 in our [BSTA 512/612 class](https://nwakim.github.io/BSTA_512_26W/schedule.html)
+
 ## How do we get the odds for the intercept?
 
 For $\text{exp}(\widehat{\beta}_0)$
 
 -   When $X=0$, we have $$\text{logit}(\widehat{\pi}(X=0)) = \widehat{\beta}_0$$
 
--   Thus, $$\begin{aligned} \widehat{\beta}_0 & = \text{logit}(\widehat{\pi}(X)) \\
-    \text{exp}\big[\widehat{\beta}_0\big] & = \text{exp}\big[\text{logit}(\widehat{\pi}(X))\big] \\ 
-    \text{exp}\big[\widehat{\beta}_0\big] & = \text{exp}\Bigg[\text{log}\Bigg(\dfrac{\widehat{\pi}(X)}{1-\widehat{\pi}(X)}\Bigg)\Bigg] \\ 
-    \text{exp}\big[\widehat{\beta}_0\big] & = \dfrac{\widehat{\pi}(X)}{1-\widehat{\pi}(X)} \\ 
+-   Thus, $$\begin{aligned} \widehat{\beta}_0 & = \text{logit}(\widehat{\pi}(X=0)) \\
+    \text{exp}\big[\widehat{\beta}_0\big] & = \text{exp}\big[\text{logit}(\widehat{\pi}(X=0))\big] \\ 
+    \text{exp}\big[\widehat{\beta}_0\big] & = \text{exp}\Bigg[\text{log}\Bigg(\dfrac{\widehat{\pi}(X=0)}{1-\widehat{\pi}(X=0)}\Bigg)\Bigg] \\ 
+    \text{exp}\big[\widehat{\beta}_0\big] & = \dfrac{\widehat{\pi}(X=0)}{1-\widehat{\pi}(X=0)} \\ 
     \end{aligned}$$
 
 # Learning Objectives
@@ -471,19 +529,20 @@ For $\text{exp}(\widehat{\beta}_0)$
 
  
 
--   We are fitting the simple logistic regression model: $$\text{logit}\left(\pi(X) \right) = \beta_0 + \beta_1 \cdot I(X=1)$$
+-   We are fitting the population simple logistic regression model: $$\text{logit}\left(\pi(X) \right) = \beta_0 + \beta_1 \cdot I(X=1)$$
 
  
 
 -   The logit difference is $\beta_1$ for binary independent variable
 
     -   $\beta_1$ represents the change/difference in the logit for $X=1$ vs. $X=0$
+        - AKA log odds ratio comparing $X=1$ to $X=0$
 
  
 
 -   It will be much easier to understand if we can interpret the coefficient using odds ratio (OR)
 
-## Binary: How do we interpret the coefficient? (I)
+## Binary predictor: How do we interpret the coefficient? (1/2)
 
 -   For individuals with $X=0$: $$\text{logit}\left(\pi(X=0)\right)=\beta_0+\beta_1\times\left(0\right)=\beta_0$$
 
@@ -495,7 +554,7 @@ For $\text{exp}(\widehat{\beta}_0)$
 
 -   To solve for $\beta_1$, we take the difference of the logits: $$ \text{logit}\left(\pi(X=1)\right) - \text{logit}\left(\pi(X=0)\right) = \left( \beta_0 + \beta_1 \right) - \left( \beta_0 \right) = \beta_1$$
 
-## Binary: How do we interpret the coefficient? (II)
+## Binary predictor: How do we interpret the coefficient? (2/2)
 
 $$ \text{logit}\left(\pi(X=1)\right) - \text{logit}\left(\pi(X=0)\right) = \left( \beta_0 + \beta_1 \right) - \left( \beta_0 \right) = \beta_1$$
 
@@ -512,7 +571,7 @@ $$\begin{aligned}
 
 -   Odds Ratio for $X=1$ vs. $X=0$: $$OR = \dfrac{\dfrac{\pi(X=1)}{1-\pi(X=1)}}{\dfrac{\pi(X=0)}{1-\pi(X=0)}}$$
 
-## How does this relate to a 2x2 table?
+## How does this relate to a 2x2 table? {visibility="hidden"}
 
 ::: columns
 ::: {.column width="75%"}
@@ -651,6 +710,7 @@ The estimated odds of late stage breast cancer among individuals over 65 years o
  
 
 -   $\beta_1$ represents the change/difference in the log-odds for $X=b$ vs. $X=a$
+      - AKA log odds ratio comparing $X=b$ to $X=a$
 
 
 ## Coefficient Interpretation: Multi-group Categorical Variable
@@ -706,6 +766,11 @@ We are fitting the simple logistic regression model with reference group $a$: $$
     -   The investigator is interested in comparing each of the three active treatment with the placebo treatment
 
     -   Then the placebo treatment should be picked as the reference group
+
+ 
+
+- In this class, we will try our best to pick a reference from our own knowledge...
+    - **but** in general this is a decision I make with someone who has expertise in the field of study
 
 ## Example: Late stage diagnosis and race and ethnicity
 
@@ -765,6 +830,12 @@ What is the odds ratio of late stage breast cancer diagnosis for Non-Hispanic As
 RE_glm = bc %>% 
   glm(formula = Late_stage_diag ~ Race_Ethnicity, family = binomial)
 ```
+
+$$
+\begin{aligned}
+\text{logit}\left(\pi(X) \right) = & \beta_0 + \beta_1 \cdot I(X=\text{Hispanic-Latino}) + \\ & \beta_2 \cdot I(X=\text{NH American Indian/Alaskan Native}) + \\ & \beta_3 \cdot I(X=\text{NH Asian/Pacific Islander}) + \\ & \beta_4 \cdot I(X=\text{NH Black})
+\end{aligned}
+$$
 
 
 ## Example: Late stage diagnosis and race and ethnicity
@@ -840,7 +911,7 @@ RE_glm %>% estimable(
 
 ```{r}
 bc3 = bc %>% 
-  mutate(Race_Ethnicity = relevel(Race_Ethnicity, ref = "NH Black"))
+  mutate(Race_Ethnicity = fct_relevel(Race_Ethnicity, "NH Black"))
 RE_glm2 = glm(Late_stage_diag ~ Race_Ethnicity, data = bc3, 
                family = binomial)
 tidy(RE_glm2, conf.int=T, exponentiate = T) %>% gt() %>%

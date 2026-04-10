@@ -39,6 +39,7 @@ library(ggpubr)
 library(boot) # for inv.logit()
 
 load(here("data", "bc_diagnosis.Rda"))
+theme_set(theme_bw(base_size = 22))
 ```
 
 # Learning Objectives
