@@ -41,6 +41,8 @@ Answer the following questions using information on WBNS:
 #### Task
 
 Display your working directory using the `here` package and `here()` function.
+
+Insert an image of your folder organization with the `.Rproj` file in the correct place.
 :::
 
 ### Access and download the data
@@ -51,15 +53,26 @@ Display your working directory using the `here` package and `here()` function.
 No task to report back on. Just make sure you have the data!
 :::
 
+### Decide on your project type
+
+::: callout-important
+#### Task
+
+Pick between LASSO regression and purposeful model selection. You can just write your choice. 
+:::
+
+
 ### Decide on list of variables to focus on {#sec-pred}
 
 ::: callout-important
 #### Task
 
-List the 10 predictors that you plan to use in your analysis. Note which variables are numeric, binary, or multi-level categorical. 
+List the 10 predictors that you plan to use in your analysis. Note the type of variable (numeric and continuous, counts, binary, or multi-level categorical)
 :::
 
 ### Get a sense of how you would like to analyze the data
+
+#### For purposeful model selection only
 
 ::: callout-important
 #### Task
@@ -67,6 +80,15 @@ List the 10 predictors that you plan to use in your analysis. Note which variabl
 Complete the following statement to identify your research question: 
 
 We will investigate the association between food insecurity and \_\_\_\_.
+:::
+
+#### For LASSO regression only
+
+
+::: callout-important
+#### Task
+
+Which predictors do you think will be the most important to predict food insecurity? You can list 5-10 predictors. 
 :::
 
 ### Save data for processing with `.Rda`
@@ -82,8 +104,9 @@ Include a screenshot showing the new `.Rda` file within your Data folder.
 ::: callout-important
 #### Task
 
--   Select the variables that will be used in your analysis and make a new dataset. Include the code that you used.
 -   Remove the parentheses with values that are in front of the category names.
+-   **Purposeful model selection only:** Select the variables that will be used in your analysis and make a new dataset. Include the code that you used.
+-   Drop observations with any missing data.
 :::
 
 ### Explore the outcome and predictors
@@ -92,7 +115,15 @@ Include a screenshot showing the new `.Rda` file within your Data folder.
 #### Task
 
 -   To check that you have looked that the variables, please report the percent of respondents that were food insecure in the past 12 months.
--   List any categorical variables that have less than 100 observations in a group
+-   **Purposeful model selection only:** List any categorical variables that have less than 100 observations in a group
+:::
+
+### For purposeful model selection only: Make a Table 1
+
+::: callout-important
+#### Task
+
+**For purposeful model selection only:** Make a Table 1
 :::
 
 ### Compile above work into an introduction
@@ -100,5 +131,5 @@ Include a screenshot showing the new `.Rda` file within your Data folder.
 ::: callout-important
 #### Task
 
-Write an introduction to the analysis. 
+Write an introduction to the analysis using 3-5 bullets. 
 :::

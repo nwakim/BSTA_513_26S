@@ -563,7 +563,7 @@ $$\begin{aligned}
 \beta_1&=\log{\left(\dfrac{\dfrac{\pi(X=1)}{1-\pi(X=1)}}{\dfrac{\pi(X=0)}{1-\pi(X=0)}}\right)} \\ \exp{\left(\beta_1\right)}&=\dfrac{\dfrac{\pi(X=1)}{1-\pi(X=1)}}{\dfrac{\pi(X=0)}{1-\pi(X=0)}}
 \end{aligned}$$
 
-## Review of Odds Ratio
+## Review of Odds Ratio {visibility="hidden"}
 
 -   Odds for a subject with $X=1$: $$\text{odds}_1 = \dfrac{\pi(X=1)}{1-\pi(X=1)}$$
 
@@ -585,8 +585,6 @@ $$\begin{aligned}
 :::
 :::
 
-## Poll Everywhere Question 3
-
 ## How does this relate to a 2x2 table? {visibility="hidden"}
 
 $$ 
@@ -596,6 +594,8 @@ $$
 -   Simple relationship between coefficient and odds ratio is a primary reason why we report OR for categorical data analysis.
 
 -   For binary independent variable x, [OR computed in logistic regression]{style="color:#70AD47; font-weight: bold;"} model is the **same as** [OR computed using contingency table]{style="color:#4472C4; font-weight: bold;"}
+
+## Poll Everywhere Question 3
 
 ## Example: Binary age and Late Stage Diagnosis (1/4)
 
