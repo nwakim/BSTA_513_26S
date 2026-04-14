@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-665ef5c5d77cfb05cd7a07c04fb2ab30.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Nicky Wakim">
-  <meta name="dcterms.date" content="2025-04-16">
+  <meta name="dcterms.date" content="2026-04-15">
   <title>Categorical Data Analysis – Lesson 7: Prediction and Visualization in Simple Logistic Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,8 +33,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -42,7 +46,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -95,7 +99,7 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-567bfed0940e764d906d89ca2433218f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b1e859115d028fe606a708693efd5e1f.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -205,7 +209,7 @@ Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2025-04-16</p>
+  <p class="date">2026-04-15</p>
 </section>
 <section>
 <section id="learning-objectives" class="title-slide slide level1 center">
@@ -229,27 +233,27 @@ Nicky Wakim
 <li>Recall that we fitted a simple logistic regression for late stage breast cancer diagnosis using the predictor, age:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>bc_reg <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">data =</span> bc, <span class="at">family =</span> binomial)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>bc_reg <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">data =</span> bc, <span class="at">family =</span> binomial)</span>
 <span id="cb1-2"><a></a><span class="fu">tidy</span>(bc_reg, <span class="at">conf.int=</span>T) <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">38</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="vfmzfxemuc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vfmzfxemuc table {
+<div id="urcspgyjld" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#urcspgyjld table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vfmzfxemuc thead, #vfmzfxemuc tbody, #vfmzfxemuc tfoot, #vfmzfxemuc tr, #vfmzfxemuc td, #vfmzfxemuc th {
+#urcspgyjld thead, #urcspgyjld tbody, #urcspgyjld tfoot, #urcspgyjld tr, #urcspgyjld td, #urcspgyjld th {
   border-style: none;
 }
 
-#vfmzfxemuc p {
+#urcspgyjld p {
   margin: 0;
   padding: 0;
 }
 
-#vfmzfxemuc .gt_table {
+#urcspgyjld .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -275,12 +279,12 @@ Nicky Wakim
   border-left-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_caption {
+#urcspgyjld .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vfmzfxemuc .gt_title {
+#urcspgyjld .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -292,7 +296,7 @@ Nicky Wakim
   border-bottom-width: 0;
 }
 
-#vfmzfxemuc .gt_subtitle {
+#urcspgyjld .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -304,7 +308,7 @@ Nicky Wakim
   border-top-width: 0;
 }
 
-#vfmzfxemuc .gt_heading {
+#urcspgyjld .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -316,13 +320,13 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_bottom_border {
+#urcspgyjld .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_col_headings {
+#urcspgyjld .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -337,7 +341,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_col_heading {
+#urcspgyjld .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -357,7 +361,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#vfmzfxemuc .gt_column_spanner_outer {
+#urcspgyjld .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -369,15 +373,15 @@ Nicky Wakim
   padding-right: 4px;
 }
 
-#vfmzfxemuc .gt_column_spanner_outer:first-child {
+#urcspgyjld .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vfmzfxemuc .gt_column_spanner_outer:last-child {
+#urcspgyjld .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vfmzfxemuc .gt_column_spanner {
+#urcspgyjld .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -389,11 +393,11 @@ Nicky Wakim
   width: 100%;
 }
 
-#vfmzfxemuc .gt_spanner_row {
+#urcspgyjld .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vfmzfxemuc .gt_group_heading {
+#urcspgyjld .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -419,7 +423,7 @@ Nicky Wakim
   text-align: left;
 }
 
-#vfmzfxemuc .gt_empty_group_heading {
+#urcspgyjld .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -434,15 +438,15 @@ Nicky Wakim
   vertical-align: middle;
 }
 
-#vfmzfxemuc .gt_from_md > :first-child {
+#urcspgyjld .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vfmzfxemuc .gt_from_md > :last-child {
+#urcspgyjld .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vfmzfxemuc .gt_row {
+#urcspgyjld .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -461,7 +465,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#vfmzfxemuc .gt_stub {
+#urcspgyjld .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -474,7 +478,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#vfmzfxemuc .gt_stub_row_group {
+#urcspgyjld .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -488,15 +492,15 @@ Nicky Wakim
   vertical-align: top;
 }
 
-#vfmzfxemuc .gt_row_group_first td {
+#urcspgyjld .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vfmzfxemuc .gt_row_group_first th {
+#urcspgyjld .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vfmzfxemuc .gt_summary_row {
+#urcspgyjld .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -506,16 +510,16 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#vfmzfxemuc .gt_first_summary_row {
+#urcspgyjld .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_first_summary_row.thick {
+#urcspgyjld .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vfmzfxemuc .gt_last_summary_row {
+#urcspgyjld .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -525,7 +529,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_grand_summary_row {
+#urcspgyjld .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -535,7 +539,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#vfmzfxemuc .gt_first_grand_summary_row {
+#urcspgyjld .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -545,7 +549,7 @@ Nicky Wakim
   border-top-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_last_grand_summary_row_top {
+#urcspgyjld .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -555,11 +559,11 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_striped {
+#urcspgyjld .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vfmzfxemuc .gt_table_body {
+#urcspgyjld .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -568,7 +572,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_footnotes {
+#urcspgyjld .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -582,7 +586,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_footnote {
+#urcspgyjld .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -591,7 +595,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#vfmzfxemuc .gt_sourcenotes {
+#urcspgyjld .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -605,7 +609,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#vfmzfxemuc .gt_sourcenote {
+#urcspgyjld .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -613,77 +617,77 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#vfmzfxemuc .gt_left {
+#urcspgyjld .gt_left {
   text-align: left;
 }
 
-#vfmzfxemuc .gt_center {
+#urcspgyjld .gt_center {
   text-align: center;
 }
 
-#vfmzfxemuc .gt_right {
+#urcspgyjld .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vfmzfxemuc .gt_font_normal {
+#urcspgyjld .gt_font_normal {
   font-weight: normal;
 }
 
-#vfmzfxemuc .gt_font_bold {
+#urcspgyjld .gt_font_bold {
   font-weight: bold;
 }
 
-#vfmzfxemuc .gt_font_italic {
+#urcspgyjld .gt_font_italic {
   font-style: italic;
 }
 
-#vfmzfxemuc .gt_super {
+#urcspgyjld .gt_super {
   font-size: 65%;
 }
 
-#vfmzfxemuc .gt_footnote_marks {
+#urcspgyjld .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vfmzfxemuc .gt_asterisk {
+#urcspgyjld .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vfmzfxemuc .gt_indent_1 {
+#urcspgyjld .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vfmzfxemuc .gt_indent_2 {
+#urcspgyjld .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vfmzfxemuc .gt_indent_3 {
+#urcspgyjld .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vfmzfxemuc .gt_indent_4 {
+#urcspgyjld .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vfmzfxemuc .gt_indent_5 {
+#urcspgyjld .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vfmzfxemuc .katex-display {
+#urcspgyjld .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vfmzfxemuc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#urcspgyjld div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
@@ -859,8 +863,8 @@ a&amp; = \dfrac{\exp[b]}{1 + \exp[b]} \\
 <li><p>Check if we can use Normal approximation</p></li>
 <li><p>Calculate confidence interval</p>
 <ol type="a">
-<li>Using logit scale then convert to probability scale</li>
-<li>Using Normal approximation directly on probability scale</li>
+<li><strong>Option 1:</strong> Using logit scale then convert to probability scale (can use even if Normal approximation criteria not met)</li>
+<li><strong>Option 2:</strong> Using Normal approximation directly on probability scale</li>
 </ol></li>
 <li><p>Interpret results</p></li>
 </ol>
@@ -879,10 +883,10 @@ a&amp; = \dfrac{\exp[b]}{1 + \exp[b]} \\
 <li>Calculate probability prediction</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>bc_reg <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">data =</span> bc, <span class="at">family =</span> binomial)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>bc_reg <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">data =</span> bc, <span class="at">family =</span> binomial)</span>
 <span id="cb2-2"><a></a>newdata <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">Age_c =</span> <span class="dv">60</span> <span class="sc">-</span> mean_age)</span>
 <span id="cb2-3"><a></a>pred1 <span class="ot">=</span> <span class="fu">predict</span>(bc_reg, <span class="at">newdata =</span> newdata, <span class="at">se.fit =</span> T, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb2-4"><a></a>pred1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a></a>pred1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$fit
         1 
@@ -912,14 +916,14 @@ $residual.scale
 </ol>
 <p>We can use the Normal approximation if: <span class="math inline">\(\widehat{p}n = \widehat{\pi}(X)\cdot n &gt; 10\)</span> and <span class="math inline">\((1-\widehat{p})n = (1-\widehat{\pi}(X))\cdot n &gt; 10\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>n <span class="ot">=</span> <span class="fu">nobs</span>(bc_reg)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>n <span class="ot">=</span> <span class="fu">nobs</span>(bc_reg)</span>
 <span id="cb4-2"><a></a>p <span class="ot">=</span> pred1<span class="sc">$</span>fit</span>
-<span id="cb4-3"><a></a>n<span class="sc">*</span>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a></a>n<span class="sc">*</span>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1 
 2522.616 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>n<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>n<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1 
 7477.384 </code></pre>
@@ -939,10 +943,10 @@ $residual.scale
 </div>
 <p>3a. Calculate confidence interval (Option 1: logit scale, we could skip previous step)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>pred1 <span class="ot">=</span> <span class="fu">predict</span>(bc_reg, <span class="at">newdata =</span> newdata, <span class="at">se.fit =</span> T, <span class="at">type =</span> <span class="st">"link"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>pred1 <span class="ot">=</span> <span class="fu">predict</span>(bc_reg, <span class="at">newdata =</span> newdata, <span class="at">se.fit =</span> T, <span class="at">type =</span> <span class="st">"link"</span>)</span>
 <span id="cb8-2"><a></a>LL_CI1 <span class="ot">=</span> pred1<span class="sc">$</span>fit <span class="sc">-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred1<span class="sc">$</span>se.fit</span>
 <span id="cb8-3"><a></a>UL_CI1 <span class="ot">=</span> pred1<span class="sc">$</span>fit <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred1<span class="sc">$</span>se.fit</span>
-<span id="cb8-4"><a></a>pred_link <span class="ot">=</span> <span class="fu">c</span>(<span class="at">Pred =</span> pred1<span class="sc">$</span>fit, LL_CI1, UL_CI1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a></a>pred_link <span class="ot">=</span> <span class="fu">c</span>(<span class="at">Pred =</span> pred1<span class="sc">$</span>fit, LL_CI1, UL_CI1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="columns">
 <div class="column">
@@ -950,8 +954,8 @@ $residual.scale
 <li>Using definition of inverse logit</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>(<span class="fu">exp</span>(pred_link)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(pred_link))) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">round</span>(., <span class="at">digits=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>(<span class="fu">exp</span>(pred_link)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(pred_link))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">round</span>(., <span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Pred.1      1      1 
  0.252  0.243  0.262 </code></pre>
@@ -962,8 +966,8 @@ $residual.scale
 <li>Using inverse logit in <code>boot</code> library</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">inv.logit</span>(pred_link) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">round</span>(., <span class="at">digits=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">inv.logit</span>(pred_link) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">round</span>(., <span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Pred.1      1      1 
  0.252  0.243  0.262 </code></pre>
@@ -983,12 +987,12 @@ $residual.scale
 </div>
 <p>3b. Calculate confidence interval (Option 2: with Normal approximation)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>pred <span class="ot">=</span> <span class="fu">predict</span>(bc_reg, <span class="at">newdata =</span> newdata, <span class="at">se.fit =</span> T, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>pred <span class="ot">=</span> <span class="fu">predict</span>(bc_reg, <span class="at">newdata =</span> newdata, <span class="at">se.fit =</span> T, <span class="at">type =</span> <span class="st">"response"</span>)</span>
 <span id="cb13-2"><a></a></span>
 <span id="cb13-3"><a></a>LL_CI <span class="ot">=</span> pred<span class="sc">$</span>fit <span class="sc">-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred<span class="sc">$</span>se.fit</span>
 <span id="cb13-4"><a></a>UL_CI <span class="ot">=</span> pred<span class="sc">$</span>fit <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred<span class="sc">$</span>se.fit</span>
 <span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a><span class="fu">c</span>(<span class="at">Pred =</span> pred<span class="sc">$</span>fit, LL_CI, UL_CI) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-6"><a></a><span class="fu">c</span>(<span class="at">Pred =</span> pred<span class="sc">$</span>fit, LL_CI, UL_CI) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Pred.1      1      1 
  0.252  0.243  0.261 </code></pre>
@@ -1043,12 +1047,12 @@ $residual.scale
 <li>By putting it back through a Bernoulli/binomial distribution, we are <strong>re-introducing the random component of our observed outcome</strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">set.seed</span>(<span class="dv">8392</span>)</span>
-<span id="cb15-2"><a></a><span class="fu">rbinom</span>(<span class="at">n=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob =</span> pred<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">set.seed</span>(<span class="dv">8392</span>)</span>
+<span id="cb15-2"><a></a><span class="fu">rbinom</span>(<span class="at">n=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob =</span> pred<span class="sc">$</span>fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">rbinom</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob =</span> pred<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">rbinom</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob =</span> pred<span class="sc">$</span>fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0 0 0 0 1 0 0 0 1 0</code></pre>
 </div>
@@ -1070,14 +1074,14 @@ $residual.scale
 <section id="we-can-also-make-a-plot-of-all-the-predicted-probabilities-12" class="slide level2">
 <h2>We can also make a plot of all the predicted probabilities (1/2)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>bc_reg <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">data =</span> bc, <span class="at">family =</span> binomial)</span>
-<span id="cb19-2"><a></a>bc_aug <span class="ot">=</span> <span class="fu">augment</span>(bc_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>bc_reg <span class="ot">=</span> <span class="fu">glm</span>(Late_stage_diag <span class="sc">~</span> Age_c, <span class="at">data =</span> bc, <span class="at">family =</span> binomial)</span>
+<span id="cb19-2"><a></a>bc_aug <span class="ot">=</span> <span class="fu">augment</span>(bc_reg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Then we plot the fitted values from the fitted model</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">library</span>(boot) <span class="co"># for inv.logit()</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">library</span>(boot) <span class="co"># for inv.logit()</span></span>
 <span id="cb20-2"><a></a>prob_stage <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="at">data =</span> bc_aug, <span class="fu">aes</span>(<span class="at">x=</span>Age_c <span class="sc">+</span> <span class="fu">mean</span>(bc<span class="sc">$</span>Age), <span class="at">y =</span> <span class="fu">inv.logit</span>(.fitted))) <span class="sc">+</span> </span>
 <span id="cb20-3"><a></a>  <span class="co"># geom_point(size = 4, color = "#70AD47", shape = 1) +</span></span>
 <span id="cb20-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#70AD47"</span>) <span class="sc">+</span></span>
@@ -1087,7 +1091,7 @@ $residual.scale
 <span id="cb20-8"><a></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">30</span>), </span>
 <span id="cb20-9"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>), </span>
 <span id="cb20-10"><a></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">30</span>)) <span class="sc">+</span></span>
-<span id="cb20-11"><a></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-11"><a></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="we-can-also-make-a-plot-of-all-the-predicted-probabilities-22" class="slide level2">
@@ -1101,7 +1105,7 @@ $residual.scale
 <section id="we-can-add-the-confidence-intervals-13" class="slide level2">
 <h2>We can add the confidence intervals (1/3)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>newdata2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">Age_c =</span> <span class="fu">seq</span>(<span class="fu">min</span>(bc<span class="sc">$</span>Age_c), <span class="fu">max</span>(bc<span class="sc">$</span>Age_c), <span class="at">by =</span> <span class="fl">0.1</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>newdata2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">Age_c =</span> <span class="fu">seq</span>(<span class="fu">min</span>(bc<span class="sc">$</span>Age_c), <span class="fu">max</span>(bc<span class="sc">$</span>Age_c), <span class="at">by =</span> <span class="fl">0.1</span>))</span>
 <span id="cb21-2"><a></a>pred2 <span class="ot">=</span> <span class="fu">predict</span>(bc_reg, <span class="at">newdata =</span> newdata2, <span class="at">se.fit =</span> T, <span class="at">type =</span> <span class="st">"link"</span>)</span>
 <span id="cb21-3"><a></a>LL_CI1 <span class="ot">=</span> pred2<span class="sc">$</span>fit <span class="sc">-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred2<span class="sc">$</span>se.fit</span>
 <span id="cb21-4"><a></a>UL_CI1 <span class="ot">=</span> pred2<span class="sc">$</span>fit <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred2<span class="sc">$</span>se.fit</span>
@@ -1109,13 +1113,13 @@ $residual.scale
 <span id="cb21-6"><a></a>with_CI <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">Age =</span> newdata2<span class="sc">$</span>Age_c <span class="sc">+</span> <span class="fu">mean</span>(bc<span class="sc">$</span>Age), <span class="co"># back to age </span></span>
 <span id="cb21-7"><a></a>                     <span class="at">pred =</span> <span class="fu">inv.logit</span>(pred2<span class="sc">$</span>fit), </span>
 <span id="cb21-8"><a></a>                     <span class="at">LL =</span> <span class="fu">inv.logit</span>(LL_CI1), </span>
-<span id="cb21-9"><a></a>                     <span class="at">UL =</span> <span class="fu">inv.logit</span>(UL_CI1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-9"><a></a>                     <span class="at">UL =</span> <span class="fu">inv.logit</span>(UL_CI1))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="we-can-add-the-confidence-intervals-23" class="slide level2">
 <h2>We can add the confidence intervals (2/3)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>prob_stage_CI <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="at">data =</span> with_CI, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>prob_stage_CI <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="at">data =</span> with_CI, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
 <span id="cb22-2"><a></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> LL, <span class="at">ymax =</span> UL), <span class="at">fill =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
 <span id="cb22-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x=</span>Age, <span class="at">y =</span> pred), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"#70AD47"</span>) <span class="sc">+</span></span>
 <span id="cb22-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age (yrs)"</span>, </span>
@@ -1124,7 +1128,7 @@ $residual.scale
 <span id="cb22-7"><a></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">30</span>), </span>
 <span id="cb22-8"><a></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>), </span>
 <span id="cb22-9"><a></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">30</span>)) <span class="sc">+</span></span>
-<span id="cb22-10"><a></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-10"><a></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="we-can-add-the-confidence-intervals-33" class="slide level2">
@@ -1417,190 +1421,173 @@ $residual.scale
     </script>
 
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>

@@ -18,7 +18,7 @@ format:
 }
 
 .monday-wednesdays table tbody tr:nth-child(n+1):nth-child(-n+4) td, 
-.monday-wednesdays table tbody tr:nth-child(n+13):nth-child(-n+15) td,
+.monday-wednesdays table tbody tr:nth-child(n+13):nth-child(-n+16) td,
 .monday-wednesdays table tbody tr:nth-child(n+25):nth-child(-n+27) td,
 .monday-wednesdays table tbody tr:nth-child(n+34):nth-child(-n+36) td,
 .monday-wednesdays table tbody tr:nth-child(n+45):nth-child(-n+47) td,
@@ -30,7 +30,7 @@ format:
 
 
 .assignments table tbody tr:nth-child(11) td, 
-.assignments table tbody tr:nth-child(16) td,
+.assignments table tbody tr:nth-child(17) td,
 .assignments table tbody tr:nth-child(n+21):nth-child(-n+23) td,
 .assignments table tbody tr:nth-child(28) td,
 .assignments table tbody tr:nth-child(32) td,

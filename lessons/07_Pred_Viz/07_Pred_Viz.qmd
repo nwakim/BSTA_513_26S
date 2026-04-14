@@ -3,7 +3,7 @@ title: "Lesson 7: Prediction and Visualization in Simple Logistic Regression"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/16/2025"
+date: "`r library(here); source(here('class_dates.R')); w3d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -195,8 +195,8 @@ For someone 60 years old, what is the predicted probability for late stage breas
 2. Check if we can use Normal approximation
 3. Calculate confidence interval
 
-    a.   Using logit scale then convert to probability scale
-    b.   Using Normal approximation directly on probability scale
+    a.   **Option 1:** Using logit scale then convert to probability scale (can use even if Normal approximation criteria not met)
+    b.   **Option 2:** Using Normal approximation directly on probability scale
     
 4. Interpret results
 

@@ -6927,7 +6927,7 @@
     "href": "lessons/07_Pred_Viz/07_Pred_Viz.html#example-late-stage-breast-cancer-diagnosis",
     "title": "Lesson 7: Prediction and Visualization in Simple Logistic Regression",
     "section": "Example: Late stage breast cancer diagnosis",
-    "text": "Example: Late stage breast cancer diagnosis\n\n\nPredicting probability of late stage breast cancer diagnosis\n\n\nFor someone 60 years old, what is the predicted probability for late stage breast cancer diagnosis (with confidence intervals)?\n\n\nNeeded steps:\n\nCalculate probability prediction\nCheck if we can use Normal approximation\nCalculate confidence interval\n\nUsing logit scale then convert to probability scale\nUsing Normal approximation directly on probability scale\n\nInterpret results"
+    "text": "Example: Late stage breast cancer diagnosis\n\n\nPredicting probability of late stage breast cancer diagnosis\n\n\nFor someone 60 years old, what is the predicted probability for late stage breast cancer diagnosis (with confidence intervals)?\n\n\nNeeded steps:\n\nCalculate probability prediction\nCheck if we can use Normal approximation\nCalculate confidence interval\n\nOption 1: Using logit scale then convert to probability scale (can use even if Normal approximation criteria not met)\nOption 2: Using Normal approximation directly on probability scale\n\nInterpret results"
   },
   {
     "objectID": "lessons/07_Pred_Viz/07_Pred_Viz.html#example-late-stage-breast-cancer-diagnosis-1",
