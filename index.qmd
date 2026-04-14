@@ -50,24 +50,26 @@ Welcome to BSTA 513/613! In this course, we will continue to learn about regress
 [{{< iconify bi building-fill size=24px >}}]{style="color:#C2352F;"} Vanport 622A
 
 [{{< iconify tabler mail-filled size=24px >}}]{style="color:#C2352F;"} [wakim\@ohsu.edu](mailto:wakim@ohsu.edu)
+
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} W 3-4pm
 :::
 
 ::: {.column width="22%"}
 ### Office Hours
 ::: columns
 ::: {.column width="30%"}
-Sheetal
+[Sheetal](https://ohsu.webex.com/meet/akula)
 
-Kelsey
+[Kelsey](https://pdx.zoom.us/j/88514661813)
 
-Sophia
+[Sophia](https://ohsu.webex.com/ohsu/j.php?MTID=mdbce9989431762f801161e75dd8f444f)
 :::
 ::: {.column width="70%"}
-[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} TBD
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} F 12-1pm
 
-[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} TBD
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} Th 3:30-4:30pm
 
-[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} TBD
+[{{< iconify icon-park-solid time size=24px >}}]{style="color:#C2352F;"} T 10:30-11:30am
 :::
 :::
 :::
