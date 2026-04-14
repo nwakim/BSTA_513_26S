@@ -19,10 +19,10 @@ format:
 
 .monday-wednesdays table tbody tr:nth-child(n+1):nth-child(-n+4) td, 
 .monday-wednesdays table tbody tr:nth-child(n+13):nth-child(-n+15) td,
-.monday-wednesdays table tbody tr:nth-child(n+24):nth-child(-n+26) td,
-.monday-wednesdays table tbody tr:nth-child(n+33):nth-child(-n+35) td,
-.monday-wednesdays table tbody tr:nth-child(n+44):nth-child(-n+46) td,
-.monday-wednesdays table tbody tr:nth-child(55) td{
+.monday-wednesdays table tbody tr:nth-child(n+25):nth-child(-n+27) td,
+.monday-wednesdays table tbody tr:nth-child(n+34):nth-child(-n+36) td,
+.monday-wednesdays table tbody tr:nth-child(n+45):nth-child(-n+47) td,
+.monday-wednesdays table tbody tr:nth-child(56) td{
   background-color: #F2F2F2 !important;
   color: black; 
 }
@@ -31,27 +31,27 @@ format:
 
 .assignments table tbody tr:nth-child(11) td, 
 .assignments table tbody tr:nth-child(16) td,
-.assignments table tbody tr:nth-child(n+20):nth-child(-n+22) td,
-.assignments table tbody tr:nth-child(27) td,
-.assignments table tbody tr:nth-child(31) td,
-.assignments table tbody tr:nth-child(n+36):nth-child(-n+38) td, 
-.assignments table tbody tr:nth-child(42) td, 
-.assignments table tbody tr:nth-child(n+47):nth-child(-n+49) td, 
-.assignments table tbody tr:nth-child(n+56):nth-child(-n+57) td{
+.assignments table tbody tr:nth-child(n+21):nth-child(-n+23) td,
+.assignments table tbody tr:nth-child(28) td,
+.assignments table tbody tr:nth-child(32) td,
+.assignments table tbody tr:nth-child(n+37):nth-child(-n+39) td, 
+.assignments table tbody tr:nth-child(43) td, 
+.assignments table tbody tr:nth-child(n+48):nth-child(-n+50) td, 
+.assignments table tbody tr:nth-child(n+57):nth-child(-n+58) td{
   background-color: #f0f6fc !important;
   color: #5B9BD5; 
 }
 
 .red table tbody tr:nth-child(5) td,
 .red table tbody tr:nth-child(12) td,
-.red table tbody tr:nth-child(17) td,
-.red table tbody tr:nth-child(23) td,
-.red table tbody tr:nth-child(28) td,
-.red table tbody tr:nth-child(32) td,
-.red table tbody tr:nth-child(39) td,
-.red table tbody tr:nth-child(43) td,
-.red table tbody tr:nth-child(50) td,
-.red table tbody tr:nth-child(54) td {
+.red table tbody tr:nth-child(18) td,
+.red table tbody tr:nth-child(24) td,
+.red table tbody tr:nth-child(29) td,
+.red table tbody tr:nth-child(33) td,
+.red table tbody tr:nth-child(40) td,
+.red table tbody tr:nth-child(44) td,
+.red table tbody tr:nth-child(51) td,
+.red table tbody tr:nth-child(55) td {
   background-color: #C2352F !important; /* A light red; use 'red' for bright red */
   height: 5px; 
 }
@@ -80,7 +80,7 @@ source(here("class_dates.R"))
 |  | **`r lab1 %>% format("%m/%d")`** |  |  |  |  | **Lab 1 due \@ 11 pm** |  |  |  |  |
 |  |  |  |  |  |  |  |  |  |  |  |
 | 3 | `{r} w3d1 %>% format("%m/%d")` | [[{{< iconify akar-icons info-fill size=30px >}}](/lessons/06_Interpretations_SLR/06_Interpretations_SLR_key_info.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify healthicons health-worker-form size=32px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMU04WFBBRUNHTUxWWkk2OElFTEZZQVpBQiQlQCNjPTEu)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://echo360.org/lesson/G_889be0dd-4e06-4af6-a433-6d3fa3cd68b5_87bbad0a-58f2-4758-a290-b95378fbbab4_2026-04-13T13:00:00.000_2026-04-13T15:00:00.000/classroom)]{style="color:#f8f5f0;"} | 5 | Simple Logistic Regression, continued | [[{{< iconify ri slideshow-fill size=30px >}}](/lessons/05_Simple_logistic_reg/05_Simple_logistic_reg.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify bi file-earmark-pdf-fill size=28px >}}](/lessons/05_Simple_logistic_reg/05_Simple_logistic_reg.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/lessons/05_Simple_logistic_reg/05_Simple_logistic_reg_notes.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify pajamas question size=30px >}}](/lessons/05_Simple_logistic_reg/05_Simple_logistic_reg_muddy_points.qmd)]{style="color:#f8f5f0;"} |
-|  |  |  |  |  | 6 | Interpretations and Visualizations of Odds Ratios | [[{{< iconify ri slideshow-fill size=30px >}}](/lessons/06_Interpretations_SLR/06_Interpretations_SLR.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify bi file-earmark-pdf-fill size=28px >}}](/lessons/06_Interpretations_SLR/06_Interpretations_SLR.pdf)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify pajamas question size=30px >}}]{style="color:#f8f5f0;"} |
+|  |  |  |  |  | 6 | Interpretations and Visualizations of Odds Ratios | [[{{< iconify ri slideshow-fill size=30px >}}](/lessons/06_Interpretations_SLR/06_Interpretations_SLR.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify bi file-earmark-pdf-fill size=28px >}}](/lessons/06_Interpretations_SLR/06_Interpretations_SLR.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/lessons/06_Interpretations_SLR/06_Interpretations_SLR_notes.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify pajamas question size=30px >}}](/lessons/06_Interpretations_SLR/06_Interpretations_SLR_muddy_points.qmd)]{style="color:#f8f5f0;"} |
 |  | `{r} w3d2 %>% format("%m/%d")` | [{{< iconify akar-icons info-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify healthicons health-worker-form size=32px >}}]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://echo360.org/lesson/G_889be0dd-4e06-4af6-a433-6d3fa3cd68b5_87bbad0a-58f2-4758-a290-b95378fbbab4_2026-04-15T13:00:00.000_2026-04-15T15:00:00.000/classroom)]{style="color:#f8f5f0;"} | 7 | Predictions and Visualizations in Simple Logistic Regression | [[{{< iconify ri slideshow-fill size=30px >}}](/lessons/07_Pred_Viz/07_Pred_Viz.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify bi file-earmark-pdf-fill size=28px >}}](/lessons/07_Pred_Viz/07_Pred_Viz.pdf)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify pajamas question size=30px >}}]{style="color:#f8f5f0;"} |
 |  |  |  |  |  |  | **Required in-person attendance:** Lab 1 Discussion | [[{{< iconify ri slideshow-fill size=30px >}}](/lessons/L01_Discussion/L01_Discussion.qmd)]{style="color:#f8f5f0;"} |  |  | [{{< iconify pajamas question size=30px >}}]{style="color:#f8f5f0;"} |
 |  | [**`r hw1 %>% format("%m/%d")`**]{style="color:#5B9BD5;"} |  |  |  |  | [**HW 1 due \@ 11 pm**]{style="color:#5B9BD5;"} |  |  |  |  |
