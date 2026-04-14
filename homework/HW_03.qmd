@@ -32,6 +32,8 @@ library(here)
 
 ::: callout-caution
 Homework is ready to go!! (5/5/2025)
+
+Nicky: move any numeric issue questions to HW 4
 :::
 
 ## Purpose

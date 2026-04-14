@@ -3,7 +3,7 @@ title: "Lab 1: Feedback and Discussion"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/16/2025"
+date: "`r library(here); source(here('class_dates.R')); w3d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -42,24 +42,27 @@ library(epiDisplay)
 
 ```
 
-## STUFF ON THE USE GUIDE!!
+## Mistake on my end
 
-
+- I forgot to update the lab qmd for your work! So sorry!
+- The TAs were lenient on the grading for this, but in the future make sure to complete the tasks from the instruction page!
 
 ## Notes from me and the TAs
 
 - Using `ANY_HARDSHIP` or `MULT_HARDSHIPS`
   - If you look at the User Guide, this involves information from food security
   - We need to adapt the variable to exclude food security: use `case_when()` to construct it
-- Using "Survey Questions"
+  - Other option: use a different variable!!
+- Using "Survey Questions": **please avoid using these**
   - Be very careful of this! 
 - Activity 2.9: List any categorical variables that have less than 100 observations in a group
   - Not the number of observations for an entire variable, but check each level/group of the variable!
-- Do not use multiple variables that capture the same information
+- Do not use multiple variables that capture the same information: **multicollinearity issues**
   - Example: `PPINCIMP` and `FPL50_100`
 - Do NOT use variables that are measuring missing data unless you are interested in how missingness is related to the outcome
   - Example: `FAMSIZE_MISS`, `NUM_CHILD_HH_MISS`
-- The TAs left comments in the rubric! Please look at them! 
+  
+## More notes
 
 ## A note on the "Survey Questions"
 
@@ -80,10 +83,10 @@ library(epiDisplay)
 countdown::countdown(6)
 ```
 
-## Introduce Research Question
+## Introduce your project type
 
+- Are you doing LASSO or purposeful model selection?
 - Share your research question with each other! 
-  - Should be using the same outcome + your main variable
 - Share your other variables
 - Is everyone using the appropriate variables?
 - Did anyone see any potential issues with how many individuals are in each category of a variable?
@@ -101,6 +104,7 @@ countdown::countdown(15)
 
 - Did everyone in the group successfully save the dataset?
 - Can you open it right now?
+- How many observations do you have after you dropped your NAs?
 
 ```{r}
 #| echo: false
