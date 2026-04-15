@@ -7116,7 +7116,7 @@
     "href": "lessons/L01_Discussion/L01_Discussion.html#notes-from-me-and-the-tas",
     "title": "Lab 1: Feedback and Discussion",
     "section": "Notes from me and the TAs",
-    "text": "Notes from me and the TAs\n\nUsing ANY_HARDSHIP or MULT_HARDSHIPS\n\nIf you look at the User Guide, this involves information from food security\nWe need to adapt the variable to exclude food security: use case_when() to construct it\nOther option: use a different variable!!\n\nUsing “Survey Questions”: please avoid using these\n\nBe very careful of this!\n\nActivity 2.9: List any categorical variables that have less than 100 observations in a group\n\nNot the number of observations for an entire variable, but check each level/group of the variable!\n\nDo not use multiple variables that capture the same information: multicollinearity issues\n\nExample: PPINCIMP and FPL50_100\n\nDo NOT use variables that are measuring missing data unless you are interested in how missingness is related to the outcome\n\nExample: FAMSIZE_MISS, NUM_CHILD_HH_MISS"
+    "text": "Notes from me and the TAs\n\nUsing ANY_HARDSHIP or MULT_HARDSHIPS\n\nIf you look at the User Guide, this involves information from food security\nWe need to adapt the variable to exclude food security: use case_when() to construct it\nOther option: use a different variable!!\n\nUsing “Survey Questions”: please avoid using these\n\nBe very careful of this!\n\nActivity 2.9: List any categorical variables that have less than 100 observations in a group\n\nNot the number of observations for an entire variable, but check each level/group of the variable!\n\nDo not use multiple variables that capture the same information: multicollinearity issues\n\nExample: PPINCIMP and FPL50_100\n\nDo NOT use variables that are measuring missing data unless you are interested in how missingness is related to the outcome\n\nExample: FAMSIZE_MISS, NUM_CHILD_HH_MISS\n\nMake sure your image shows in your html\n\nYou need to have right file path!\nHow’s the Rproj going?"
   },
   {
     "objectID": "lessons/L01_Discussion/L01_Discussion.html#a-note-on-the-survey-questions",
@@ -12941,5 +12941,68 @@
     "title": "Lab 1: Feedback and Discussion",
     "section": "More notes",
     "text": "More notes"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion.html#more-notes-things-that-will-lose-points-in-lab-2",
+    "href": "lessons/L01_Discussion/L01_Discussion.html#more-notes-things-that-will-lose-points-in-lab-2",
+    "title": "Lab 1: Feedback and Discussion",
+    "section": "More notes: things that will lose points in Lab 2",
+    "text": "More notes: things that will lose points in Lab 2\n\nPurposefuly model selection\n\nDataset should have your outcome and 10 other variables\nYou should have a clear research question\n\nLASSO\n\nYou should have a dataset with a lot of variables (~51)\nStart taking a look at the variables and think critically about potential multicollinearity issues\n\nAND\n\n\nMake sure your categorical variables are factors\n\nRemake Table 1 in Lab 2 with the appropriate variable types"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion.html#updated-variable-selection-for-lasso",
+    "href": "lessons/L01_Discussion/L01_Discussion.html#updated-variable-selection-for-lasso",
+    "title": "Lab 1: Feedback and Discussion",
+    "section": "Updated variable selection for LASSO",
+    "text": "Updated variable selection for LASSO\n\nThere are a few more variables to remove\n\n\nwbns2 = wbns %&gt;% select(-starts_with(\"Q\")) %&gt;%  # remove survey questions\n  select(-starts_with(\"V_\")) %&gt;%                # remove different versions of variables\n  select(-ends_with(\"IMP\")) %&gt;%                 # remove imputed variables \n  select(-PPREG4, -NUM_SIBLING, -NUM_PARGUARD) %&gt;%\n  drop_na()\n\n\nThis left me with a dataset with 51 variables and 6,658 observations"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion.html#a-note-on-the-survey-questions-for-purposeful-model-selection",
+    "href": "lessons/L01_Discussion/L01_Discussion.html#a-note-on-the-survey-questions-for-purposeful-model-selection",
+    "title": "Lab 1: Feedback and Discussion",
+    "section": "A note on the “Survey Questions” for Purposeful Model Selection",
+    "text": "A note on the “Survey Questions” for Purposeful Model Selection\n\nI said not to use the variables under this, but you can if you found one to be very interesting\nYou just need to be extra cautious using these because they are not as nicely packaged/processed\nAnd some of them go into other variables!!\n\nLike UNMETCARE_Y already includes the survey questions about health care\n\nSome of the variable have A LOT of missing data"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion.html#lasso-updated-variable-selection",
+    "href": "lessons/L01_Discussion/L01_Discussion.html#lasso-updated-variable-selection",
+    "title": "Lab 1: Feedback and Discussion",
+    "section": "LASSO: Updated variable selection",
+    "text": "LASSO: Updated variable selection\n\nThere are a few more variables to remove\n\n\nwbns2 = wbns %&gt;% select(-starts_with(\"Q\")) %&gt;%  # remove survey questions\n  select(-starts_with(\"V_\")) %&gt;%                # remove different versions of variables\n  select(-ends_with(\"IMP\")) %&gt;%                 # remove imputed variables \n  select(-PPREG4, -NUM_SIBLING, -NUM_PARGUARD) %&gt;%\n  drop_na()\n\n\nThis left me with a dataset with 51 variables and 6,658 observations"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion.html#purposeful-model-selection-a-note-on-the-survey-questions",
+    "href": "lessons/L01_Discussion/L01_Discussion.html#purposeful-model-selection-a-note-on-the-survey-questions",
+    "title": "Lab 1: Feedback and Discussion",
+    "section": "Purposeful Model Selection: A note on the “Survey Questions”",
+    "text": "Purposeful Model Selection: A note on the “Survey Questions”\n\nI said not to use the variables under this, but you can if you found one to be very interesting\nYou just need to be extra cautious using these because they are not as nicely packaged/processed\nAnd some of them go into other variables!!\n\nLike UNMETCARE_Y already includes the survey questions about health care\n\nSome of the variable have A LOT of missing data"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion.html#for-everyone",
+    "href": "lessons/L01_Discussion/L01_Discussion.html#for-everyone",
+    "title": "Lab 1: Feedback and Discussion",
+    "section": "For everyone",
+    "text": "For everyone\n\nIf you had issues with removing the “(0)” and “(1)” from variable names WHILE preserving the factor class of the variables, here’s some code that might help\n\n\nwbns3 &lt;- wbns2 %&gt;%\n  mutate(across(where(is.factor), ~ {\n    levels(.) &lt;- gsub(\"^\\\\(\\\\d+\\\\)\\\\s*\", \"\", levels(.)) \n    .\n  }))"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion_key_info.html",
+    "href": "lessons/L01_Discussion/L01_Discussion_key_info.html",
+    "title": "Key Info and Announcements",
+    "section": "",
+    "text": "Office hours on instructor page!\n\nMine will be after class on Wednesday’s!\n\nReminder: I am teaching a data science course next year (spring)\n\nIt’ll be a pilot course and be under BSTA 504"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion_key_info.html#announcements",
+    "href": "lessons/L01_Discussion/L01_Discussion_key_info.html#announcements",
+    "title": "Key Info and Announcements",
+    "section": "",
+    "text": "Office hours on instructor page!\n\nMine will be after class on Wednesday’s!\n\nReminder: I am teaching a data science course next year (spring)\n\nIt’ll be a pilot course and be under BSTA 504"
+  },
+  {
+    "objectID": "lessons/L01_Discussion/L01_Discussion_key_info.html#key-dates",
+    "href": "lessons/L01_Discussion/L01_Discussion_key_info.html#key-dates",
+    "title": "Key Info and Announcements",
+    "section": "Key Dates",
+    "text": "Key Dates\n\nHW 1 due 4/19\nQuiz 1 opens 4/22"
   }
 ]

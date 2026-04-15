@@ -32,6 +32,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #575f66;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #575f66; } /* Normal */
+    code span.al { color: #f51818; background-color: #faefef; font-weight: bold; } /* Alert */
+    code span.an { color: #e6ba7e; } /* Annotation */
+    code span.at { color: #399ee6; } /* Attribute */
+    code span.bn { color: #ff9940; } /* BaseN */
+    code span.bu { color: #4cbf99; } /* BuiltIn */
+    code span.cf { color: #fa8d3e; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4cbf99; } /* Char */
+    code span.cn { color: #a37acc; } /* Constant */
+    code span.co { color: #607880; font-style: italic; } /* Comment */
+    code span.cv { color: #a37acc; } /* CommentVar */
+    code span.do { color: #607880; } /* Documentation */
+    code span.dt { color: #fa8d3e; } /* DataType */
+    code span.dv { color: #ff9940; } /* DecVal */
+    code span.er { color: #f51818; text-decoration: underline; } /* Error */
+    code span.ex { color: #399ee6; font-weight: bold; } /* Extension */
+    code span.fl { color: #ff9940; } /* Float */
+    code span.fu { color: #f2ae49; } /* Function */
+    code span.im { color: #86b300; } /* Import */
+    code span.in { color: #ff9940; } /* Information */
+    code span.kw { color: #fa8d3e; font-weight: bold; } /* Keyword */
+    code span.op { color: #ed9366; } /* Operator */
+    code span.ot { color: #55b4d4; } /* Other */
+    code span.pp { color: #f07171; } /* Preprocessor */
+    code span.re { color: #399ee6; background-color: #ddecf3; } /* RegionMarker */
+    code span.sc { color: #4cbf99; } /* SpecialChar */
+    code span.ss { color: #4cbf99; } /* SpecialString */
+    code span.st { color: #86b300; } /* String */
+    code span.va { color: #55b4d4; } /* Variable */
+    code span.vs { color: #86b300; } /* VerbatimString */
+    code span.wa { color: #f07171; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b1e859115d028fe606a708693efd5e1f.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -179,13 +245,53 @@ Nicky Wakim
 <ul>
 <li>Example: <code>FAMSIZE_MISS</code>, <code>NUM_CHILD_HH_MISS</code></li>
 </ul></li>
+<li>Make sure your image shows in your html
+<ul>
+<li>You need to have right file path!</li>
+<li>How’s the Rproj going?</li>
+</ul></li>
 </ul>
 </section>
-<section id="more-notes" class="slide level2">
-<h2>More notes</h2>
+<section id="more-notes-things-that-will-lose-points-in-lab-2" class="slide level2">
+<h2>More notes: things that will lose points in Lab 2</h2>
+<ul>
+<li>Purposefuly model selection
+<ul>
+<li>Dataset should have your outcome and 10 other variables</li>
+<li>You should have a clear research question</li>
+</ul></li>
+<li>LASSO
+<ul>
+<li>You should have a dataset with a lot of variables (~51)</li>
+<li>Start taking a look at the variables and think critically about potential multicollinearity issues
+<ul>
+<li>AND</li>
+</ul></li>
+</ul></li>
+<li>Make sure your categorical variables are factors
+<ul>
+<li>Remake Table 1 in Lab 2 with the appropriate variable types</li>
+</ul></li>
+</ul>
 </section>
-<section id="a-note-on-the-survey-questions" class="slide level2">
-<h2>A note on the “Survey Questions”</h2>
+<section id="lasso-updated-variable-selection" class="slide level2">
+<h2>LASSO: Updated variable selection</h2>
+<ul>
+<li>There are a few more variables to remove</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>wbns2 <span class="ot">=</span> wbns <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">"Q"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># remove survey questions</span></span>
+<span id="cb1-2"><a></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">"V_"</span>)) <span class="sc">%&gt;%</span>                <span class="co"># remove different versions of variables</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">"IMP"</span>)) <span class="sc">%&gt;%</span>                 <span class="co"># remove imputed variables </span></span>
+<span id="cb1-4"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>PPREG4, <span class="sc">-</span>NUM_SIBLING, <span class="sc">-</span>NUM_PARGUARD) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>This left me with a dataset with 51 variables and 6,658 observations</li>
+</ul>
+</section>
+<section id="purposeful-model-selection-a-note-on-the-survey-questions" class="slide level2">
+<h2>Purposeful Model Selection: A note on the “Survey Questions”</h2>
 <ul>
 <li>I said not to use the variables under this, but you can if you found one to be very interesting</li>
 <li>You just need to be extra cautious using these because they are not as nicely packaged/processed</li>
@@ -196,6 +302,19 @@ Nicky Wakim
 <li>Some of the variable have A LOT of missing data</li>
 </ul>
 </section>
+<section id="for-everyone" class="slide level2">
+<h2>For everyone</h2>
+<ul>
+<li>If you had issues with removing the “(0)” and “(1)” from variable names WHILE preserving the factor class of the variables, here’s some code that might help</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>wbns3 <span class="ot">&lt;-</span> wbns2 <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.factor), <span class="sc">~</span> {</span>
+<span id="cb2-3"><a></a>    <span class="fu">levels</span>(.) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">(</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">)</span><span class="sc">\\</span><span class="st">s*"</span>, <span class="st">""</span>, <span class="fu">levels</span>(.)) </span>
+<span id="cb2-4"><a></a>    .</span>
+<span id="cb2-5"><a></a>  }))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
 <section id="get-into-groups-of-2-4" class="slide level2">
 <h2>Get into groups of 2-4</h2>
 <ul>
@@ -205,7 +324,7 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_41b71006" minutes="6" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_eb3b6fbd" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -224,7 +343,7 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_e8b14b2a" minutes="15" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_8ad95f69" minutes="15" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -237,7 +356,7 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_a371c627" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_8f956890" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -249,7 +368,7 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_2978868c" minutes="10" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_692ffe6b" minutes="10" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 

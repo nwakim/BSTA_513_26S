@@ -61,16 +61,61 @@ library(epiDisplay)
   - Example: `PPINCIMP` and `FPL50_100`
 - Do NOT use variables that are measuring missing data unless you are interested in how missingness is related to the outcome
   - Example: `FAMSIZE_MISS`, `NUM_CHILD_HH_MISS`
+- Make sure your image shows in your html
+  - You need to have right file path!
+  - How's the Rproj going?
   
-## More notes
+## More notes: things that will lose points in Lab 2
 
-## A note on the "Survey Questions"
+- Purposefuly model selection
+  - Dataset should have your outcome and 10 other variables
+  - You should have a clear research question
+- LASSO
+  - You should have a dataset with a lot of variables (~51)
+  - Start taking a look at the variables and think critically about potential multicollinearity issues
+    - AND 
+- Make sure your categorical variables are factors
+  - Remake Table 1 in Lab 2 with the appropriate variable types
+
+
+## LASSO: Updated variable selection
+
+- There are a few more variables to remove
+
+```{r}
+#| eval: false
+
+wbns2 = wbns %>% select(-starts_with("Q")) %>%  # remove survey questions
+  select(-starts_with("V_")) %>%                # remove different versions of variables
+  select(-ends_with("IMP")) %>%                 # remove imputed variables 
+  select(-PPREG4, -NUM_SIBLING, -NUM_PARGUARD) %>%
+  drop_na()
+```
+
+- This left me with a dataset with 51 variables and 6,658 observations
+
+
+## Purposeful Model Selection: A note on the "Survey Questions"
 
 - I said not to use the variables under this, but you can if you found one to be very interesting
 - You just need to be extra cautious using these because they are not as nicely packaged/processed
 - And some of them go into other variables!! 
   - Like `UNMETCARE_Y` already includes the survey questions about health care
 - Some of the variable have A LOT of missing data
+
+## For everyone
+
+- If you had issues with removing the "(0)" and "(1)" from variable names WHILE preserving the factor class of the variables, here's some code that might help
+
+```{r}
+#| eval: false
+
+wbns3 <- wbns2 %>%
+  mutate(across(where(is.factor), ~ {
+    levels(.) <- gsub("^\\(\\d+\\)\\s*", "", levels(.)) 
+    .
+  }))
+```
 
 ## Get into groups of 2-4
 
@@ -80,7 +125,7 @@ library(epiDisplay)
 
 ```{r}
 #| echo: false
-countdown::countdown(6)
+countdown::countdown(5)
 ```
 
 ## Introduce your project type

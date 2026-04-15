@@ -1,0 +1,33 @@
+---
+title: "Key Info and Announcements"
+date-modified: "today"
+format: 
+  html:
+    link-external-newwindow: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Announcements
+
+- Office hours on instructor page!
+  - Mine will be after class on Wednesday's!
+- Reminder: I am teaching a data science course next year (spring)
+  - It'll be a pilot course and be under BSTA 504
+
+### Events in SPH
+
+![](../images_key_info/key_info2.png)
+
+## Key Dates
+
+- HW 1 due 4/19
+- Quiz 1 opens 4/22
+
+## Last class
+
+- We learned about generalized linear models: umbrella term for a lot of regressions that have different types of outcomes
+- We learned about maximum likelihood estimation
+  - Another way to estimate regression parameters that best fit the data
+- We fit a simple logistic regression model!
+- This time: how do we interpret the coefficients from our estimated model?
