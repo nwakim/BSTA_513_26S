@@ -66,7 +66,8 @@ Estimate the probability of having favorable results for subjects in the treatme
 **Answer:**
 
 ::: blue
-0.6 (95% CI: 0.452, 0.733)
+With continuity correction: 0.6 (95% CI: 0.452, 0.733)
+Without continuity correction: 0.6 (95% CI: 0.464, 0.736)
 :::
 
 #### Part b
