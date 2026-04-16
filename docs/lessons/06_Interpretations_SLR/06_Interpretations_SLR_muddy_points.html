@@ -164,7 +164,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#muddy-points-from-spring-2025" id="toc-muddy-points-from-spring-2025" class="nav-link active" data-scroll-target="#muddy-points-from-spring-2025">Muddy Points from Spring 2025</a>
+  <li><a href="#muddy-points-from-spring-2026" id="toc-muddy-points-from-spring-2026" class="nav-link active" data-scroll-target="#muddy-points-from-spring-2026">Muddy Points from Spring 2026</a>
+  <ul class="collapse">
+  <li><a href="#interpretations-for-multilevel-categorical-explanatory-variables---odds-ratio-or-difference" id="toc-interpretations-for-multilevel-categorical-explanatory-variables---odds-ratio-or-difference" class="nav-link" data-scroll-target="#interpretations-for-multilevel-categorical-explanatory-variables---odds-ratio-or-difference">1. Interpretations for multilevel categorical explanatory variables - odds ratio? or difference?</a></li>
+  <li><a href="#what-would-happen-if-you-did-not-include-exponentiate-t-in-your-r-code-when-running-logistic-regression" id="toc-what-would-happen-if-you-did-not-include-exponentiate-t-in-your-r-code-when-running-logistic-regression" class="nav-link" data-scroll-target="#what-would-happen-if-you-did-not-include-exponentiate-t-in-your-r-code-when-running-logistic-regression">2. What would happen if you did not include exponentiate = T in your R code when running logistic regression?</a></li>
+  <li><a href="#can-you-explain-the-math-for-the-coefficients-in-the-logistic-regression-model" id="toc-can-you-explain-the-math-for-the-coefficients-in-the-logistic-regression-model" class="nav-link" data-scroll-target="#can-you-explain-the-math-for-the-coefficients-in-the-logistic-regression-model">3. Can you explain the math for the coefficients in the logistic regression model?</a></li>
+  </ul></li>
+  <li><a href="#muddy-points-from-spring-2025" id="toc-muddy-points-from-spring-2025" class="nav-link" data-scroll-target="#muddy-points-from-spring-2025">Muddy Points from Spring 2025</a>
   <ul class="collapse">
   <li><a href="#for-transformations-of-continuous-variable-to-make-more-interpretable-what-does-the-c-actually-represent" id="toc-for-transformations-of-continuous-variable-to-make-more-interpretable-what-does-the-c-actually-represent" class="nav-link" data-scroll-target="#for-transformations-of-continuous-variable-to-make-more-interpretable-what-does-the-c-actually-represent">1. For “Transformations of continuous variable to make more interpretable,” what does the “c” actually represent?</a></li>
   <li><a href="#also-what-makes-the-scale-if-logitpix-linear-is-it-because-we-are-changing-the-values-of-x-itself-or-is-it-because-we-change-the-scale-of-our-y-axis" id="toc-also-what-makes-the-scale-if-logitpix-linear-is-it-because-we-are-changing-the-values-of-x-itself-or-is-it-because-we-change-the-scale-of-our-y-axis" class="nav-link" data-scroll-target="#also-what-makes-the-scale-if-logitpix-linear-is-it-because-we-are-changing-the-values-of-x-itself-or-is-it-because-we-change-the-scale-of-our-y-axis">2. Also, what makes the scale if Logit(pi(x)) linear? Is it because we are changing the values of x itself or is it because we change the scale of our y-axis?</a></li>
@@ -191,7 +197,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 14, 2026</p>
+      <p class="date-modified">April 15, 2026</p>
     </div>
   </div>
     
@@ -202,6 +208,43 @@ window.Quarto = {
 </header>
 
 
+<section id="muddy-points-from-spring-2026" class="level2">
+<h2 class="anchored" data-anchor-id="muddy-points-from-spring-2026">Muddy Points from Spring 2026</h2>
+<section id="interpretations-for-multilevel-categorical-explanatory-variables---odds-ratio-or-difference" class="level3">
+<h3 class="anchored" data-anchor-id="interpretations-for-multilevel-categorical-explanatory-variables---odds-ratio-or-difference">1. Interpretations for multilevel categorical explanatory variables - odds ratio? or difference?</h3>
+<p>The exponential of the coefficients gets us the odds ratio. The coefficients themselves are interpreted as the difference in the log-odds.</p>
+</section>
+<section id="what-would-happen-if-you-did-not-include-exponentiate-t-in-your-r-code-when-running-logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="what-would-happen-if-you-did-not-include-exponentiate-t-in-your-r-code-when-running-logistic-regression">2. What would happen if you did not include exponentiate = T in your R code when running logistic regression?</h3>
+<p>The output would be the coefficients themselves, which are the difference in log-odds. This is not as interpretable as the odds ratio, which is what we get when we exponentiate the coefficients.</p>
+</section>
+<section id="can-you-explain-the-math-for-the-coefficients-in-the-logistic-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="can-you-explain-the-math-for-the-coefficients-in-the-logistic-regression-model">3. Can you explain the math for the coefficients in the logistic regression model?</h3>
+<p>Here’s the setup for our problem. Here’s the logistic regression model for a multilevel categorical variable with 4 levels (a, b, c, d) where a is the reference category:</p>
+<p><span class="math display">\[\text{logit}\left(\pi(X) \right) = \beta_0 + \beta_1 \cdot I(X=b) + \beta_2 \cdot I(X=c) + \beta_3 \cdot I(X=d)\]</span></p>
+<p>If we want to interpret <span class="math inline">\(\beta_2\)</span>, we are looking at the difference in log-odds between <span class="math inline">\(X=c\)</span> and <span class="math inline">\(X=a\)</span> (the reference category).</p>
+<p>We can start with the logistic regression model when <span class="math inline">\(X=c\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+\text{logit}\left(\pi(X=c) \right) = &amp; \beta_0 + \beta_1 \cdot I(X=b) + \beta_2 \cdot I(X=c) + \beta_3 \cdot I(X=d) \\ = &amp; \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 1 + \beta_3 \cdot 0 \\ = &amp;\beta_0 + \beta_2
+\end{aligned}\]</span></p>
+<p>Then we can look at the logistic regression model when <span class="math inline">\(X=a\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+\text{logit}\left(\pi(X=a) \right) = &amp; \beta_0 + \beta_1 \cdot I(X=b) + \beta_2 \cdot I(X=c) + \beta_3 \cdot I(X=d) \\ = &amp; \beta_0 + \beta_1 \cdot 0 + \beta_2 \cdot 0 + \beta_3 \cdot 0 \\ = &amp; \beta_0
+\end{aligned}\]</span></p>
+<p>So when we take the difference between the logit of the probability for <span class="math inline">\(X=c\)</span> and <span class="math inline">\(X=a\)</span>, we get <span class="math inline">\(\beta_2\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+\text{logit}\left(\pi(X=c)\right) - &amp; \text{logit}\left(\pi(X=a)\right) \\ = &amp; \left( \beta_0 + \beta_1\cdot 0 + \beta_2\cdot 1 + \beta_3\cdot 0  \right) - \left( \beta_0 + \beta_1\cdot 0 + \beta_2\cdot 0 + \beta_3\cdot 0 \right) \\ = &amp; \beta_2
+\end{aligned}\]</span></p>
+<p>This means we can interpret <span class="math inline">\(\beta_2\)</span> as the difference in log-odds between <span class="math inline">\(X=c\)</span> and <span class="math inline">\(X=a\)</span>. Basically we did all the work up to this point just to assign some meaning to the coefficient <span class="math inline">\(\beta_2\)</span>.</p>
+<p>Now we can manipulate the expression to get the odds ratio, which is a more interpretable measure of association.</p>
+<p><span class="math display">\[\begin{aligned}
+\beta_2&amp;=l\mathrm{ogit}\left(\pi(X=c)\right)\ -l\mathrm{ogit}\left(\pi\left(X=a\right)\right) \\  \beta_2&amp;=l\mathrm{og}\left(\dfrac{\pi(X=c)}{1-\pi(X=c)}\right)-l\mathrm{og}\left(\dfrac{\pi\left(X=a\right)}{1-\pi\left(X=a\right)}\right) \\
+\beta_2&amp;=\log{\left(\dfrac{\dfrac{\pi(X=c)}{1-\pi(X=c)}}{\dfrac{\pi(X=a)}{1-\pi(X=a)}}\right)} \\ \exp{\left(\beta_2\right)}&amp;=\dfrac{\dfrac{\pi(X=c)}{1-\pi(X=c)}}{\dfrac{\pi(X=a)}{1-\pi(X=a)}} \\
+\exp{\left(\beta_2\right)}&amp;=\dfrac{\text{odds}_c}{\text{odds}_a} \\
+\exp{\left(\beta_2\right)}&amp;= \text{OR}_{c \text{ vs. } a} \\
+\end{aligned}\]</span></p>
+</section>
+</section>
 <section id="muddy-points-from-spring-2025" class="level2">
 <h2 class="anchored" data-anchor-id="muddy-points-from-spring-2025">Muddy Points from Spring 2025</h2>
 <section id="for-transformations-of-continuous-variable-to-make-more-interpretable-what-does-the-c-actually-represent" class="level3">

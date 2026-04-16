@@ -62,7 +62,7 @@ t1 %>% kable(table.attr = 'data-quarto-disable-processing="true"') %>%
 #### Part a
 
 Estimate the probability of having favorable results for subjects in the treatment group. Include an interpretation and report with the 95% confidence interval.
-
+git
 **Answer:**
 
 ::: blue

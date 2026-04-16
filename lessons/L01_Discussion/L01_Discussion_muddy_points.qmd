@@ -9,6 +9,12 @@ editor_options:
   chunk_output_type: console
 ---
 
+## Muddy Points from Spring 2026
+
+### 1. Why we need to change the variable if we used any of the hardship variables?
+
+The hardship variables use food insecurity to costruct the variables. So we can't use a variable that directly has information about our outcome to predict the outcome.
+
 ## Muddy Points from Spring 2025
 
 ### 1. Why should we be cautious of using survey question variables?
