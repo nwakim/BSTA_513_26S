@@ -3,10 +3,6 @@ title: "Lab Discussion Make-up Assignment"
 format: html
 ---
 
-::: callout-caution
-This is ready to go! (Nicky 4/10/25)
-:::
-
 ## Logistics
 
 The make-up assignment will be due one week after the in-class discussion day. 
