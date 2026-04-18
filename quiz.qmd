@@ -15,10 +15,10 @@ source(here("class_dates.R"))
 Below is the general timing and lessons for each quiz:
 
 | Quiz | Lessons | Open Date \@ 3pm | Close Date \@ 11pm |
-|----|----|----|----|
-| 1 | 1-4 | `r q1_open %>% format("%m/%d")` | `r q1_close %>% format("%m/%d")` |
-| 2 | 5-8 | `r q2_open %>% format("%m/%d")` | `r q2_close %>% format("%m/%d")` |
-| 3 | 9-12 | `r q3_open %>% format("%m/%d")` | `r q3_close %>% format("%m/%d")` |
+|------------------|------------------|------------------|------------------|
+| 1 | 2-5 | `r q1_open %>% format("%m/%d")` | `r q1_close %>% format("%m/%d")` |
+| 2 | 6-9 | `r q2_open %>% format("%m/%d")` | `r q2_close %>% format("%m/%d")` |
+| 3 | 10-12 | `r q3_open %>% format("%m/%d")` | `r q3_close %>% format("%m/%d")` |
 
 Quizzes will be mostly conceptual questions with 10-15 multiple choice questions. Some calculations will need to be done for certain questions, but the focus will be on understanding concepts.
 
@@ -42,6 +42,20 @@ More information specific to each quiz will be posted below.
 5.  Questions are multiple choice with options A-D.
 
 ### Quiz 1
+
+-   **Quiz 1** will open on Wednesday, 4/22, at 3pm
+-   The quiz will be administered over Sakai
+-   The quiz has a total of 14 questions, all multiple choice
+-   Concepts and interpretations from Lessons 2-5 will be tested
+    -   Testing association in contingency tables: know which test is appropriate based on types of data
+    -   Measuring association
+        -   interpreting odds ratios and risk ratios
+        -   inverse odds ratios
+        -   when are each appropriate?
+    -   Normal approximation of binomial: when is it appropriate?
+    -   Overarching concepts for GLMs
+        -   What are the three components?
+    -   Why do we use logistic regression over linear for binary outcomes?
 
 ### Quiz 2
 
