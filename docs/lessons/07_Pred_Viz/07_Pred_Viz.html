@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Nicky Wakim">
-  <meta name="dcterms.date" content="2026-04-15">
+  <meta name="dcterms.date" content="2026-04-20">
   <title>Categorical Data Analysis – Lesson 7: Prediction and Visualization in Simple Logistic Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -209,7 +209,7 @@ Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2026-04-15</p>
+  <p class="date">2026-04-20</p>
 </section>
 <section>
 <section id="learning-objectives" class="title-slide slide level1 center">
@@ -237,23 +237,23 @@ Nicky Wakim
 <span id="cb1-2"><a></a><span class="fu">tidy</span>(bc_reg, <span class="at">conf.int=</span>T) <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">38</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a></a>  <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="urcspgyjld" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#urcspgyjld table {
+<div id="aleewkfrbk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aleewkfrbk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#urcspgyjld thead, #urcspgyjld tbody, #urcspgyjld tfoot, #urcspgyjld tr, #urcspgyjld td, #urcspgyjld th {
+#aleewkfrbk thead, #aleewkfrbk tbody, #aleewkfrbk tfoot, #aleewkfrbk tr, #aleewkfrbk td, #aleewkfrbk th {
   border-style: none;
 }
 
-#urcspgyjld p {
+#aleewkfrbk p {
   margin: 0;
   padding: 0;
 }
 
-#urcspgyjld .gt_table {
+#aleewkfrbk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -279,12 +279,12 @@ Nicky Wakim
   border-left-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_caption {
+#aleewkfrbk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#urcspgyjld .gt_title {
+#aleewkfrbk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -296,7 +296,7 @@ Nicky Wakim
   border-bottom-width: 0;
 }
 
-#urcspgyjld .gt_subtitle {
+#aleewkfrbk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -308,7 +308,7 @@ Nicky Wakim
   border-top-width: 0;
 }
 
-#urcspgyjld .gt_heading {
+#aleewkfrbk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -320,13 +320,13 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_bottom_border {
+#aleewkfrbk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_col_headings {
+#aleewkfrbk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -341,7 +341,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_col_heading {
+#aleewkfrbk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -361,7 +361,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#urcspgyjld .gt_column_spanner_outer {
+#aleewkfrbk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -373,15 +373,15 @@ Nicky Wakim
   padding-right: 4px;
 }
 
-#urcspgyjld .gt_column_spanner_outer:first-child {
+#aleewkfrbk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#urcspgyjld .gt_column_spanner_outer:last-child {
+#aleewkfrbk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#urcspgyjld .gt_column_spanner {
+#aleewkfrbk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -393,11 +393,11 @@ Nicky Wakim
   width: 100%;
 }
 
-#urcspgyjld .gt_spanner_row {
+#aleewkfrbk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#urcspgyjld .gt_group_heading {
+#aleewkfrbk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -423,7 +423,7 @@ Nicky Wakim
   text-align: left;
 }
 
-#urcspgyjld .gt_empty_group_heading {
+#aleewkfrbk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -438,15 +438,15 @@ Nicky Wakim
   vertical-align: middle;
 }
 
-#urcspgyjld .gt_from_md > :first-child {
+#aleewkfrbk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#urcspgyjld .gt_from_md > :last-child {
+#aleewkfrbk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#urcspgyjld .gt_row {
+#aleewkfrbk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -465,7 +465,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#urcspgyjld .gt_stub {
+#aleewkfrbk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -478,7 +478,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#urcspgyjld .gt_stub_row_group {
+#aleewkfrbk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -492,15 +492,15 @@ Nicky Wakim
   vertical-align: top;
 }
 
-#urcspgyjld .gt_row_group_first td {
+#aleewkfrbk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#urcspgyjld .gt_row_group_first th {
+#aleewkfrbk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#urcspgyjld .gt_summary_row {
+#aleewkfrbk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -510,16 +510,16 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#urcspgyjld .gt_first_summary_row {
+#aleewkfrbk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_first_summary_row.thick {
+#aleewkfrbk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#urcspgyjld .gt_last_summary_row {
+#aleewkfrbk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -529,7 +529,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_grand_summary_row {
+#aleewkfrbk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -539,7 +539,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#urcspgyjld .gt_first_grand_summary_row {
+#aleewkfrbk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -549,7 +549,7 @@ Nicky Wakim
   border-top-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_last_grand_summary_row_top {
+#aleewkfrbk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -559,11 +559,11 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_striped {
+#aleewkfrbk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#urcspgyjld .gt_table_body {
+#aleewkfrbk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -572,7 +572,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_footnotes {
+#aleewkfrbk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -586,7 +586,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_footnote {
+#aleewkfrbk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -595,7 +595,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#urcspgyjld .gt_sourcenotes {
+#aleewkfrbk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -609,7 +609,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#urcspgyjld .gt_sourcenote {
+#aleewkfrbk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -617,72 +617,72 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#urcspgyjld .gt_left {
+#aleewkfrbk .gt_left {
   text-align: left;
 }
 
-#urcspgyjld .gt_center {
+#aleewkfrbk .gt_center {
   text-align: center;
 }
 
-#urcspgyjld .gt_right {
+#aleewkfrbk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#urcspgyjld .gt_font_normal {
+#aleewkfrbk .gt_font_normal {
   font-weight: normal;
 }
 
-#urcspgyjld .gt_font_bold {
+#aleewkfrbk .gt_font_bold {
   font-weight: bold;
 }
 
-#urcspgyjld .gt_font_italic {
+#aleewkfrbk .gt_font_italic {
   font-style: italic;
 }
 
-#urcspgyjld .gt_super {
+#aleewkfrbk .gt_super {
   font-size: 65%;
 }
 
-#urcspgyjld .gt_footnote_marks {
+#aleewkfrbk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#urcspgyjld .gt_asterisk {
+#aleewkfrbk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#urcspgyjld .gt_indent_1 {
+#aleewkfrbk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#urcspgyjld .gt_indent_2 {
+#aleewkfrbk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#urcspgyjld .gt_indent_3 {
+#aleewkfrbk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#urcspgyjld .gt_indent_4 {
+#aleewkfrbk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#urcspgyjld .gt_indent_5 {
+#aleewkfrbk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#urcspgyjld .katex-display {
+#aleewkfrbk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#urcspgyjld div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#aleewkfrbk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

@@ -3,7 +3,7 @@ title: "Lesson 7: Prediction and Visualization in Simple Logistic Regression"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "`r library(here); source(here('class_dates.R')); w3d2`"
+date: "`r library(here); source(here('class_dates.R')); w4d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"

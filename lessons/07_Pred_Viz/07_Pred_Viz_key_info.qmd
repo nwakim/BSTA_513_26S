@@ -10,20 +10,15 @@ editor_options:
 
 ## Announcements
 
-- Idk? We're having our lab discussion today
-- SPH pop up shop is open through May 15
-  - Link: <https://www.promoplace.com/ohsu-psu-soph-company>
-  - There's a flat rate on shipping... boo
-    - We could do a class order and share the shipping cost??
+- Quiz 1 opens on Wednesday
+- If you went to the Lab 1 discussion, make sure you do the exit ticket!
 
 ## Key Dates
 
-- Homework 1 due 4/18
-- Quiz 1 opens on 4/23
-- Lab 2 due 4/25
+- Quiz 1 opens on 4/22, closes 4/26
+- Lab 2 due 4/26
 
 ## Last class
 
 - Discussed how to interpret the estimated regression coefficients and the estimated odds ratios from our regression!
   - Did this for a continuous variable, binary variable, and multi-level cateogorical variable
-- Need to finish up that lecture!
