@@ -427,7 +427,7 @@ prob_stage_CI = ggplot(data = with_CI, aes(x = Age)) +
   theme(axis.title = element_text(size = 30), 
         axis.text = element_text(size = 25), 
         title = element_text(size = 30)) +
-  ylim(0, 0.6)
+  ylim(0, 1)
 ```
 
 ## We can add the confidence intervals (3/3)

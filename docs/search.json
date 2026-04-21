@@ -6038,7 +6038,7 @@
     "href": "lessons/08_Tests_GLMs/08_Tests_GLMs.html#wald-test-13",
     "title": "Lesson 8: Tests for GLMs using Likelihood function",
     "section": "Wald test (1/3)",
-    "text": "Wald test (1/3)\n\nVery similar to a t-test!\n\nBut slightly different because it based in our likelihood function\n\nAssumes test statistic \\(W\\) follows a standard normal distribution under the null hypothesis\nTest statistic: \\[W=\\frac{{\\widehat{\\beta}}_j}{se({\\widehat{\\beta}}_j)}\\sim N(0,1)\\]\n\nwhere \\(\\widehat{\\beta}_j\\) is a MLE of coefficient \\(j\\)\n\n95% Wald confidence interval: \\[{\\widehat{\\beta}}_1\\pm1.96 \\cdot SE_{{\\widehat{\\beta}}_j}\\]\nThe Wald test is a routine output in R (summary() of glm() output)\n\nIncludes \\(SE_{{\\widehat{\\beta}}_j}\\) and can easily find confidence interval with tidy()"
+    "text": "Wald test (1/3)\n\nVery similar to a t-test!\n\nBut slightly different because it based in our likelihood function\n\nAssumes test statistic \\(W\\) follows a standard normal distribution under the null hypothesis\nTest statistic: \\[W=\\frac{{\\widehat{\\beta}}_j}{SE_{\\widehat{\\beta}_j}}\\sim N(0,1)\\]\n\nwhere \\(\\widehat{\\beta}_j\\) is a MLE of coefficient \\(j\\)\n\n95% Wald confidence interval: \\[{\\widehat{\\beta}}_1\\pm1.96 \\cdot SE_{{\\widehat{\\beta}}_j}\\]\nThe Wald test is a routine output in R (summary() of glm() output)\n\nIncludes \\(SE_{{\\widehat{\\beta}}_j}\\) and can easily find confidence interval with tidy()"
   },
   {
     "objectID": "lessons/08_Tests_GLMs/08_Tests_GLMs.html#wald-test-23",
@@ -6087,7 +6087,7 @@
     "href": "lessons/08_Tests_GLMs/08_Tests_GLMs.html#example-bc-diagnosis-and-age-3",
     "title": "Lesson 8: Tests for GLMs using Likelihood function",
     "section": "Example: BC diagnosis and age",
-    "text": "Example: BC diagnosis and age\n\n\nWald test for age coefficient\n\n\nInterpret the coefficient for age in our model of late stage breast cancer diagnosis.\n\n\n\n\n\nWrite a conclusion to the hypothesis test\n\nFor every one year increase in age, the log-odds of late stage breast cancer diagnosis increases 0.057 (95% CI: 0.051, 0.063).\nThere is sufficient evidence that age an breast cancer diagnosis are associated.\n\n\n\nNote\n\n\nI don’t want us to get fixated on this interpretation. This is more to introduce the process, BUT it’s MUCH better to interpret the coefficient in terms of OR (next class)."
+    "text": "Example: BC diagnosis and age\n\n\nWald test for age coefficient\n\n\nInterpret the coefficient for age in our model of late stage breast cancer diagnosis.\n\n\n\n\n\nWrite a conclusion to the hypothesis test\n\nFor every one year increase in age, the log-odds of late stage breast cancer diagnosis increases 0.057 (95% CI: 0.051, 0.063).\nThere is sufficient evidence that age an breast cancer diagnosis are associated.\n\n\n\nNote\n\n\nI don’t want us to get fixated on this interpretation. This is more to introduce the process, BUT it’s MUCH better to interpret the coefficient in terms of OR."
   },
   {
     "objectID": "lessons/08_Tests_GLMs/08_Tests_GLMs.html#poll-everywhere-question-2",
@@ -6150,7 +6150,7 @@
     "href": "lessons/08_Tests_GLMs/08_Tests_GLMs.html#deviance-to-likelihood-ratio-test",
     "title": "Lesson 8: Tests for GLMs using Likelihood function",
     "section": "Deviance to Likelihood Ratio Test",
-    "text": "Deviance to Likelihood Ratio Test\n\nIn the LRT, we are NOT comparing the likelihood of saturated model to the fitted model\n\n \n\nWe ARE comparing the Deviance of the model with \\(X\\) and the model without \\(X\\)\n\nWe just use the saturated model to calculate Deviance\nBoth are considered fitted models with their own respective Deviance\n\n\n \n\nSo our LRT statistic is: \\[G=D\\left(\\text{model without } x\\right)-D\\left(\\text{model with } x\\right)\\]\nBut deviance is calculated as: \\[D=-2[L_{\\text{fitted}} - L_{\\text{saturated}}]\\]"
+    "text": "Deviance to Likelihood Ratio Test\n\nIn the LRT, we are NOT comparing the likelihood of saturated model to the fitted model\n\n \n\nWe ARE comparing the Deviance of the model with \\(X\\) and the model without \\(X\\)\n\nWe just use the saturated model to calculate Deviance\nBoth are considered fitted models with their own respective Deviance\n\n\n \nSo our LRT statistic is: \\[G=D\\left(\\text{model without } x\\right)-D\\left(\\text{model with } x\\right)\\]\n\n\n\nDeviance for model without \\(x\\): \\[D_{\\text{without x}}=-2[L_{\\text{model without x}} - L_{\\text{saturated}}]\\]\n\n\n\nDeviance for model with \\(x\\): \\[D_{\\text{with x}}=-2[L_{\\text{model with x}} - L_{\\text{saturated}}]\\]"
   },
   {
     "objectID": "lessons/08_Tests_GLMs/08_Tests_GLMs.html#for-reference",
@@ -6717,7 +6717,7 @@
     "href": "lessons/08_Tests_GLMs/08_Tests_GLMs_key_info.html#key-dates",
     "title": "Key Info and Announcements",
     "section": "Key Dates",
-    "text": "Key Dates\n\nQuiz 1 opens on 4/23\nLab 2 due 4/25\nHW 2 due 5/2"
+    "text": "Key Dates\n\nQuiz 1 opens 4/22\nLab 2 due 4/26"
   },
   {
     "objectID": "lessons/08_Tests_GLMs/08_Tests_GLMs_key_info.html#last-class",
@@ -7004,7 +7004,7 @@
     "href": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-23",
     "title": "Lesson 7: Prediction and Visualization in Simple Logistic Regression",
     "section": "We can add the confidence intervals (2/3)",
-    "text": "We can add the confidence intervals (2/3)\n\nprob_stage_CI = ggplot(data = with_CI, aes(x = Age)) +\n  geom_ribbon(aes(ymin = LL, ymax = UL), fill = \"grey\") +\n  geom_smooth(aes(x=Age, y = pred), size = 1, color = \"#70AD47\") +\n  labs(x = \"Age (yrs)\", \n       y = \"Estimated probability of \\n Late stage BC diagnosis\")  + \n  theme_classic() +\n  theme(axis.title = element_text(size = 30), \n        axis.text = element_text(size = 25), \n        title = element_text(size = 30)) +\n  ylim(0, 0.6)"
+    "text": "We can add the confidence intervals (2/3)\n\nprob_stage_CI = ggplot(data = with_CI, aes(x = Age)) +\n  geom_ribbon(aes(ymin = LL, ymax = UL), fill = \"grey\") +\n  geom_smooth(aes(x=Age, y = pred), size = 1, color = \"#70AD47\") +\n  labs(x = \"Age (yrs)\", \n       y = \"Estimated probability of \\n Late stage BC diagnosis\")  + \n  theme_classic() +\n  theme(axis.title = element_text(size = 30), \n        axis.text = element_text(size = 25), \n        title = element_text(size = 30)) +\n  ylim(0, 1)"
   },
   {
     "objectID": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-33",
@@ -7179,14 +7179,14 @@
     "href": "lessons/08_Tests_GLMs/08_Tests_GLMs_key_info.html",
     "title": "Key Info and Announcements",
     "section": "",
-    "text": "Adri Jones and Student Success Center will be hosting more Community & Chat events (IYKYK) in Vanport 620M for the following dates from 11:00 AM-12:30 PM:\n\nMay 7\nMay 21\nJune 4\nJune 18\nIYKYK = “if you known you know”\n\nRe: SPH pop up shop is open through May 15\n\nLink: https://www.promoplace.com/ohsu-psu-soph-company\nThere’s a flat rate on shipping… boo\n\nWe could do a class order and share the shipping cost??\n\nIf you want to be on a group order, email me with screenshot(s) of what you want with every option selected. By Monday May 5th class time.\n\n\n\n\n\nQuiz 1 will open on Wednesday at 3pm.\nThe quiz will be administered over Sakai.\nThe quiz has a total of 14 questions, with 12 multiple choice and 2 free response questions.\nConcepts and interpretations from Lessons 2-5 will be tested. You will be expected to interpret information from a contingency table and R output, but you will not be expected to interpret coefficients from logistic regression. Some additional information is in the following instructions.\nIf you go to the “Tests & Quizzes” there is a Test Run for you to get familiar with the Sakai formatting.\nQuiz 1 instructions:\n\nI have written a 30-minute quiz, but there is no time limit on the quiz. You will have from\nWednesday at 3pm to Sunday at 11pm to finish the quiz.\nThe quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).\nNo cheating will be tolerated. Cheating includes:\nUsing ChatGPT\nCopy and pasting the question from Sakai to any search engine.\nUsing question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.\n\nAsking other students, sharing quiz work or sharing quiz results.\nEach question is worth 3 points, including multiple choice and free response questions."
+    "text": "Quiz 1 opens today!"
   },
   {
     "objectID": "lessons/08_Tests_GLMs/08_Tests_GLMs_key_info.html#announcements",
     "href": "lessons/08_Tests_GLMs/08_Tests_GLMs_key_info.html#announcements",
     "title": "Key Info and Announcements",
     "section": "",
-    "text": "Adri Jones and Student Success Center will be hosting more Community & Chat events (IYKYK) in Vanport 620M for the following dates from 11:00 AM-12:30 PM:\n\nMay 7\nMay 21\nJune 4\nJune 18\nIYKYK = “if you known you know”\n\nRe: SPH pop up shop is open through May 15\n\nLink: https://www.promoplace.com/ohsu-psu-soph-company\nThere’s a flat rate on shipping… boo\n\nWe could do a class order and share the shipping cost??\n\nIf you want to be on a group order, email me with screenshot(s) of what you want with every option selected. By Monday May 5th class time.\n\n\n\n\n\nQuiz 1 will open on Wednesday at 3pm.\nThe quiz will be administered over Sakai.\nThe quiz has a total of 14 questions, with 12 multiple choice and 2 free response questions.\nConcepts and interpretations from Lessons 2-5 will be tested. You will be expected to interpret information from a contingency table and R output, but you will not be expected to interpret coefficients from logistic regression. Some additional information is in the following instructions.\nIf you go to the “Tests & Quizzes” there is a Test Run for you to get familiar with the Sakai formatting.\nQuiz 1 instructions:\n\nI have written a 30-minute quiz, but there is no time limit on the quiz. You will have from\nWednesday at 3pm to Sunday at 11pm to finish the quiz.\nThe quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).\nNo cheating will be tolerated. Cheating includes:\nUsing ChatGPT\nCopy and pasting the question from Sakai to any search engine.\nUsing question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.\n\nAsking other students, sharing quiz work or sharing quiz results.\nEach question is worth 3 points, including multiple choice and free response questions."
+    "text": "Quiz 1 opens today!"
   },
   {
     "objectID": "lessons/L01_Discussion/L01_Discussion_muddy_points.html",
@@ -13025,5 +13025,12 @@
     "title": "Muddy Points",
     "section": "",
     "text": "Yeah, so basically all we’ve done up through the predicted probability is find the average probability of the outcome for a specific covariate value. For example, in class, we found the predicted probability of late stage breast cancer for a 60 year old is 0.252. This means that, on average, we estimate 25.2% of 60 year olds diagnosed with breast cancer are late stage.\nHowever, if we wanted to talk about a single individual, they either have late stage breast cancer (outcome of 1) or early stage breast cancer (outcome of 0). So we can use the predicted probability to simulate a draw of 1 or 0.\nThis is less about reporting our results and more about understanding the relationship between the predicted probability and the outcome. The predicted probability is an estimate of the average probability of the outcome, but it does not tell us for certain what the outcome will be for a specific individual.\n\n\n\nBasically asking if we should use option 1 or 2.\nOption 1 is always correct. Option 2 is a good approximation is most scenarios. When in doubt, go with option 1.\n\n\n\nYeah, let’s take a look at the augment() function again. The augment() function takes a fitted model object and adds columns to the original data frame with the fitted values, residuals, and other diagnostic measures.\nWe can take a look at the output from our model with late stage breast cancer diagnosis and age:\n\nbc_reg = glm(Late_stage_diag ~ Age_c, data = bc, family = binomial)\nbc_aug = augment(bc_reg)\nglimpse(bc_aug)\n\nRows: 10,000\nColumns: 8\n$ Late_stage_diag &lt;fct&gt; 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ Age_c           &lt;dbl&gt; 8.1413596, -30.1757668, -2.7630262, 5.9173365, 9.71223…\n$ .fitted         &lt;dbl&gt; -0.5256540, -2.7083700, -1.1468169, -0.6523443, -0.436…\n$ .resid          &lt;dbl&gt; 1.4072119, -0.3592173, 1.6868099, 1.4639646, -0.998655…\n$ .hat            &lt;dbl&gt; 0.0002232196, 0.0006361455, 0.0001291814, 0.0001591697…\n$ .sigma          &lt;dbl&gt; 1.072901, 1.072987, 1.072860, 1.072893, 1.072947, 1.07…\n$ .cooksd         &lt;dbl&gt; 1.888795e-04, 2.122507e-05, 2.033941e-04, 1.528545e-04…\n$ .std.resid      &lt;dbl&gt; 1.4073690, -0.3593316, 1.6869189, 1.4640811, -0.998797…\n\n\nWe can see the variables from the model in the first two rows.\n\nThen we get a .fitted column, which gives us the predicted log-odds for each observation.\nThen we have a .se.fit column, which gives us the standard error of the predicted log-odds for each observation.\nThen we have a .resid column, which gives us the residuals for each observation. These are not like the residuals in linear regression.\nWe have a .hat column, which gives us the leverage for each observation."
+  },
+  {
+    "objectID": "lessons/08_Tests_GLMs/08_Tests_GLMs_key_info.html#last-time",
+    "href": "lessons/08_Tests_GLMs/08_Tests_GLMs_key_info.html#last-time",
+    "title": "Key Info and Announcements",
+    "section": "Last time",
+    "text": "Last time\n\nLooked at interpretations and predicted values for our simple fitted logistic regression model\nDiscussed how to interpret the estimated regression coefficients and the estimated odds ratios from our regression!\n\nDid this for a continuous variable, binary variable, and multi-level categorical variable\n\nCalculated predicted probability for an individual/observation with a specific covariate value\nCalculated predicted probabilities across all values for a covariate (visualization part)\nCalculated the confidence intervals for all of these to get a sense of the significance of these estimated coefficients, odds ratios, and probabilities"
   }
 ]

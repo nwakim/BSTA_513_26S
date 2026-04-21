@@ -3,7 +3,7 @@ title: "Lesson 8: Tests for GLMs using Likelihood function"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/21/2025"
+date: "`r library(here); source(here('class_dates.R')); w4d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -184,7 +184,7 @@ tidy(bc_reg, conf.int=T) %>% gt() %>% tab_options(table.font.size = 38) %>%
 
 -   Assumes test statistic $W$ follows a standard normal distribution under the null hypothesis
 
--   Test statistic: $$W=\frac{{\widehat{\beta}}_j}{se({\widehat{\beta}}_j)}\sim N(0,1)$$
+-   Test statistic: $$W=\frac{{\widehat{\beta}}_j}{SE_{\widehat{\beta}_j}}\sim N(0,1)$$
 
     -   where $\widehat{\beta}_j$ is a MLE of coefficient $j$
 
@@ -331,7 +331,7 @@ Note
 :::
 
 ::: proof-cont
-I don't want us to get fixated on this interpretation. This is more to introduce the process, BUT it's MUCH better to interpret the coefficient in terms of OR (next class).
+I don't want us to get fixated on this interpretation. This is more to introduce the process, BUT it's MUCH better to interpret the coefficient in terms of OR.
 :::
 :::::
 ::::::
@@ -461,10 +461,18 @@ I don't want us to get fixated on this interpretation. This is more to introduce
 
  
 
--   So our LRT statistic is: $$G=D\left(\text{model without } x\right)-D\left(\text{model with } x\right)$$ 
--   But deviance is calculated as: $$D=-2[L_{\text{fitted}} - L_{\text{saturated}}]$$
+So our LRT statistic is: $$G=D\left(\text{model without } x\right)-D\left(\text{model with } x\right)$$ 
+
+::: columns
+::: {.column width="50%"}
+-   Deviance for model without $x$: $$D_{\text{without x}}=-2[L_{\text{model without x}} - L_{\text{saturated}}]$$
+:::
+::: {.column width="50%"}
+-   Deviance for model with $x$: $$D_{\text{with x}}=-2[L_{\text{model with x}} - L_{\text{saturated}}]$$
 
 ![](./images/tiny_pause.png){.absolute top="83%" right="0%" width="120" height="120"}
+:::
+:::
 
 ## For reference {background-image="./images/title_green.png" background-size="2500px 150px" background-position="top"}
 
