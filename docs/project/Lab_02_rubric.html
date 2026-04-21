@@ -155,75 +155,74 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Needs to be updated by Nicky (4/17/26)</strong></p>
-<p><strong>Total: 21 points</strong><br>
+<p><strong>Total: 18 points</strong><br>
 <em>Each row is scored from 0–3 points based on the criteria.</em></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Lab Activity</strong></th>
-<th><strong>3 points</strong></th>
-<th><strong>2 points</strong></th>
-<th><strong>1 point</strong></th>
-<th><strong>0 points</strong></th>
+<th style="text-align: left;"><strong>Lab Activity</strong></th>
+<th style="text-align: left;"><strong>3 points</strong></th>
+<th style="text-align: left;"><strong>2 points</strong></th>
+<th style="text-align: left;"><strong>1 point</strong></th>
+<th style="text-align: left;"><strong>0 points</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Restate research question</strong></td>
-<td>Clearly and concisely restates the research question using the provided format</td>
-<td>Restates question with minor clarity or format issues</td>
-<td>Restates question but with vague or incorrect structure</td>
-<td>Research question is missing or unclear</td>
+<td style="text-align: left;"><strong>Restate project type</strong></td>
+<td style="text-align: left;">Identifies project type. <strong>If purposeful:</strong> research question follows the 1-sentence format and provides clear context.</td>
+<td style="text-align: left;">Identifies project type. <strong>If purposeful:</strong> question has minor phrasing or format issues.</td>
+<td style="text-align: left;">Project type identified. <strong>If purposeful:</strong> question is vague or improperly structured.</td>
+<td style="text-align: left;">Missing or unclear.</td>
 </tr>
 <tr class="even">
-<td><strong>Make sure variables are coded correctly</strong></td>
-<td>Uses <code>class()</code> or <code>map()</code> correctly for all 11 variables; accurately recodes variable types and sets reference levels</td>
-<td>Mostly correct use of functions; recoding has minor issues</td>
-<td>Incomplete or partially incorrect variable type checking or recoding</td>
-<td>Does not check or recode variable types</td>
+<td style="text-align: left;"><strong>Make sure variables are coded correctly</strong></td>
+<td style="text-align: left;">All variables checked via <code>map()</code> or <code>class()</code>. Outcome is a factor with <strong>“No”</strong> as reference level. All types (factor/numeric) are correct.</td>
+<td style="text-align: left;">Most variables checked/recoded correctly; minor error in one variable type or reference level choice.</td>
+<td style="text-align: left;">Variable types checked but not corrected, or reference level is incorrect for the outcome.</td>
+<td style="text-align: left;">Does not check or recode variable types.</td>
 </tr>
 <tr class="odd">
-<td><strong>Consider potential confounders and effect modifiers</strong></td>
-<td>Completes all entries with thoughtful classification and 1–2 sentence reasoning</td>
-<td>Completes most entries with reasonable reasoning</td>
-<td>Incomplete table or reasoning lacks clarity</td>
-<td>Table is missing or mostly incorrect</td>
+<td style="text-align: left;"><strong>Table 1: For purposeful model selection only</strong></td>
+<td style="text-align: left;">Table 1 is recreated with correct variable types; dichotomous variables correctly show <strong>both “Yes” and “No”</strong> levels.</td>
+<td style="text-align: left;">Table 1 recreated but missing “Yes/No” formatting or has minor alignment/display issues.</td>
+<td style="text-align: left;">Table 1 attempted but contains incorrect variable types or major formatting errors.</td>
+<td style="text-align: left;">Table 1 is missing or unchanged from Lab 1.</td>
 </tr>
 <tr class="even">
-<td><strong>Create contingency tables for categorical predictors</strong></td>
-<td>Correctly creates tables for all categorical predictors; identifies small cell counts</td>
-<td>Creates most tables; identifies some small cell counts</td>
-<td>Tables are incomplete or interpretation is unclear</td>
-<td>No contingency tables created</td>
+<td style="text-align: left;"><strong>Consider potential confounders and effect modifiers</strong></td>
+<td style="text-align: left;">Table/list is complete for all 10 variables (or LASSO ranking); reasoning is thoughtful and logically sound for the context.</td>
+<td style="text-align: left;">Completes most entries with reasonable reasoning; a few entries are thin or slightly illogical.</td>
+<td style="text-align: left;">Table is incomplete or reasoning lacks clarity/depth.</td>
+<td style="text-align: left;">Table is missing or mostly incorrect.</td>
 </tr>
 <tr class="odd">
-<td><strong>Bivariate exploratory data analysis</strong></td>
-<td>Uses <code>ggpairs()</code> and clearly identifies predictors with visual trends</td>
-<td>Uses <code>ggpairs()</code> but interpretation is limited or unclear</td>
-<td>Attempts <code>ggpairs()</code> but contains errors or lacks insights</td>
-<td>No exploratory analysis completed</td>
+<td style="text-align: left;"><strong>Bivariate exploratory data analysis</strong></td>
+<td style="text-align: left;">Uses <code>ggpairs()</code> and contingency tables; <strong>explicitly notes cells with &lt; 10 observations</strong>; identifies tests for numeric distributions.</td>
+<td style="text-align: left;">Performs EDA but fails to note small cell counts or lacks insight into numeric distribution testing.</td>
+<td style="text-align: left;">Attempts EDA but contains errors, missing tables, or output is unorganized/hard to read.</td>
+<td style="text-align: left;">No exploratory analysis completed.</td>
 </tr>
 <tr class="even">
-<td><strong>Fit simple logistic regression</strong></td>
-<td>Correctly fits model with <code>glm()</code>; displays and interprets unadjusted odds ratio</td>
-<td>Model is mostly correct; interpretation is basic or slightly unclear</td>
-<td>Model or output has major issues; interpretation is missing or incorrect</td>
-<td>Model not attempted or entirely incorrect</td>
+<td style="text-align: left;"><strong>Fit simple logistic regression</strong></td>
+<td style="text-align: left;">Correctly fits model with <code>glm()</code>; displays and interprets ORs and 95% CIs with contextual accuracy.</td>
+<td style="text-align: left;">Model fit correctly; interpretation is basic, lacks context, or has minor phrasing issues.</td>
+<td style="text-align: left;">Model/output has major issues; interpretation is missing or ignores confidence intervals.</td>
+<td style="text-align: left;">Model not attempted or entirely incorrect.</td>
 </tr>
 <tr class="odd">
-<td><strong>Plot the predicted probability</strong></td>
-<td>Accurately plots or tables predicted probabilities with clear labeling and formatting</td>
-<td>Produces plot/table with minor issues in clarity or accuracy</td>
-<td>Attempt made, but result is confusing or incorrect</td>
-<td>No plot or table presented</td>
+<td style="text-align: left;"><strong>Plot the predicted probability</strong></td>
+<td style="text-align: left;">Accurately plots or tables predicted probabilities; clear labeling and formatting that reflects the main independent variable.</td>
+<td style="text-align: left;">Produces plot/table with minor issues in clarity, labeling, or aesthetic accuracy.</td>
+<td style="text-align: left;">Attempt made, but result is confusing or represents log-odds instead of probability.</td>
+<td style="text-align: left;">No plot or table presented.</td>
 </tr>
 </tbody>
 </table>

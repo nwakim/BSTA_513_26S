@@ -5,17 +5,15 @@ format:
     page-layout: full
 ---
 
-**Needs to be updated by Nicky (4/17/26)**
-
-**Total: 21 points**  
+**Total: 18 points**\
 *Each row is scored from 0–3 points based on the criteria.*
 
 | **Lab Activity** | **3 points** | **2 points** | **1 point** | **0 points** |
-|------------------|--------------|--------------|--------------|--------------|
-| **Restate research question** | Clearly and concisely restates the research question using the provided format | Restates question with minor clarity or format issues | Restates question but with vague or incorrect structure | Research question is missing or unclear |
-| **Make sure variables are coded correctly** | Uses `class()` or `map()` correctly for all 11 variables; accurately recodes variable types and sets reference levels | Mostly correct use of functions; recoding has minor issues | Incomplete or partially incorrect variable type checking or recoding | Does not check or recode variable types |
-| **Consider potential confounders and effect modifiers** | Completes all entries with thoughtful classification and 1–2 sentence reasoning | Completes most entries with reasonable reasoning | Incomplete table or reasoning lacks clarity | Table is missing or mostly incorrect |
-| **Create contingency tables for categorical predictors** | Correctly creates tables for all categorical predictors; identifies small cell counts | Creates most tables; identifies some small cell counts | Tables are incomplete or interpretation is unclear | No contingency tables created |
-| **Bivariate exploratory data analysis** | Uses `ggpairs()` and clearly identifies predictors with visual trends | Uses `ggpairs()` but interpretation is limited or unclear | Attempts `ggpairs()` but contains errors or lacks insights | No exploratory analysis completed |
-| **Fit simple logistic regression** | Correctly fits model with `glm()`; displays and interprets unadjusted odds ratio | Model is mostly correct; interpretation is basic or slightly unclear | Model or output has major issues; interpretation is missing or incorrect | Model not attempted or entirely incorrect |
-| **Plot the predicted probability** | Accurately plots or tables predicted probabilities with clear labeling and formatting | Produces plot/table with minor issues in clarity or accuracy | Attempt made, but result is confusing or incorrect | No plot or table presented |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| **Restate project type** | Identifies project type. **If purposeful:** research question follows the 1-sentence format and provides clear context. | Identifies project type. **If purposeful:** question has minor phrasing or format issues. | Project type identified. **If purposeful:** question is vague or improperly structured. | Missing or unclear. |
+| **Make sure variables are coded correctly** | All variables checked via `map()` or `class()`. Outcome is a factor with **"No"** as reference level. All types (factor/numeric) are correct. | Most variables checked/recoded correctly; minor error in one variable type or reference level choice. | Variable types checked but not corrected, or reference level is incorrect for the outcome. | Does not check or recode variable types. |
+| **Table 1: For purposeful model selection only** | Table 1 is recreated with correct variable types; dichotomous variables correctly show **both "Yes" and "No"** levels. | Table 1 recreated but missing "Yes/No" formatting or has minor alignment/display issues. | Table 1 attempted but contains incorrect variable types or major formatting errors. | Table 1 is missing or unchanged from Lab 1. |
+| **Consider potential confounders and effect modifiers** | Table/list is complete for all 10 variables (or LASSO ranking); reasoning is thoughtful and logically sound for the context. | Completes most entries with reasonable reasoning; a few entries are thin or slightly illogical. | Table is incomplete or reasoning lacks clarity/depth. | Table is missing or mostly incorrect. |
+| **Bivariate exploratory data analysis** | Uses `ggpairs()` and contingency tables; **explicitly notes cells with \< 10 observations**; identifies tests for numeric distributions. | Performs EDA but fails to note small cell counts or lacks insight into numeric distribution testing. | Attempts EDA but contains errors, missing tables, or output is unorganized/hard to read. | No exploratory analysis completed. |
+| **Fit simple logistic regression** | Correctly fits model with `glm()`; displays and interprets ORs and 95% CIs with contextual accuracy. | Model fit correctly; interpretation is basic, lacks context, or has minor phrasing issues. | Model/output has major issues; interpretation is missing or ignores confidence intervals. | Model not attempted or entirely incorrect. |
+| **Plot the predicted probability** | Accurately plots or tables predicted probabilities; clear labeling and formatting that reflects the main independent variable. | Produces plot/table with minor issues in clarity, labeling, or aesthetic accuracy. | Attempt made, but result is confusing or represents log-odds instead of probability. | No plot or table presented. |
