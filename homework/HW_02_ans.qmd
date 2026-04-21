@@ -133,42 +133,35 @@ tidy_age %>% gt() %>% tab_options(table.font.size = 15) %>%
 ```
 :::
 
-### Question 2
+#### Part g {#sec-L06-OR-interp}
 
-We will continue to work with the ICU data in Question 1. Please refer back to the information above. In this question, we will use the ICU data to fit a multivariable logistic regression model. 
-
-**Loading dataset:**
-
-
-#### Part a
-
-From the above list (AGE, CAN, CPR, INF, and LOC) of independent variables, identify if each is a continuous, binary, or multi-level (\>2) categorical variable.
+Write a sentence interpreting the estimated odds ratio for a 10-year increase in age. Please include the 95% confidence interval. (Hint: We're scaling up the coefficient 10 times)
 
 **Answer:**
-<div class = "blue">
-Continuous: ??
 
-Binary: CAN, CPR, ???
+::: blue
 
-Multi-level (>2) categorical: ??
-</div>
+Estimated odds ratio: 
 
-#### Part b
+```{r}
+#| echo: false
 
-For the binary and multi-level categorical variables, please identify a reference group for each. Include justification for the reference group.
+icu_new = icu %>% mutate(AGE_10 = AGE/10)
+age10_glm = glm(STA ~ AGE_10, data = icu_new, family = binomial)
+tidy_age10 = tidy(age10_glm, conf.int=T, exponentiate = T) 
+tidy_age10$estimate[2]
+```
 
-**Answer:**
-<div class = "blue">
-Not given - just need some thought
-</div>
+:::
 
-#### Part c
+#### Part h {#sec-L07-pred-prob}
 
 Compute the predicted probability of hospital discharge for a subject who is 63 years old. Compute the 95% confidence interval for the predicted probability and interpret the predicted probability.
 
 **Answer:**
 <div class = "blue">
 
+With Normal approximation:
 ```{r}
 #| echo: false
 
@@ -194,7 +187,36 @@ pred %>% round(., digits=3)
 
 </div>
 
-#### Part d
+### Question 2
+
+We will continue to work with the ICU data in Question 1. Please refer back to the information above. In this question, we will use the ICU data to fit a multivariable logistic regression model. 
+
+
+#### Part a
+
+From the above list (AGE, CAN, CPR, INF, and LOC) of independent variables, identify if each is a continuous, binary, or multi-level (\>2) categorical variable.
+
+**Answer:**
+<div class = "blue">
+Continuous: ??
+
+Binary: CAN, CPR, ???
+
+Multi-level (>2) categorical: ??
+</div>
+
+#### Part b
+
+For the binary and multi-level categorical variables, please identify a reference group for each. Include justification for the reference group.
+
+**Answer:**
+<div class = "blue">
+Not given - just need some thought
+</div>
+
+
+
+#### Part c
 
 For the categorical variables (binary and multi-group), please mutate the variables within the ICU dataset to set your chosen reference groups.
 
@@ -212,7 +234,7 @@ icu = icu %>% mutate(CAN = as.factor(CAN) %>% relevel(ref = "No"),
 ```
 </div>
 
-#### Part e
+#### Part d
 
 Write down the equation for the logistic regression model of STA on CPR.
 
@@ -221,7 +243,7 @@ Write down the equation for the logistic regression model of STA on CPR.
 $$\text{logit} \left(\pi(CPR)\right)= \ldots$$
 </div>
 
-#### Part f
+#### Part e
 
 Using the `glm()` function, obtain the maximum likelihood estimates of the coefficient parameters of the logistic regression model in Part f. Using these estimates, write down fitted logistic regression model.
 
@@ -243,7 +265,7 @@ $$\begin{aligned}
 
 </div>
 
-#### Part g
+#### Part f
 
 Write a sentence interpreting the odds ratio for the coefficients in Part g's model. Please include the 95% confidence interval.
 
@@ -271,7 +293,7 @@ tbl_regression(cpr_glm, exponentiate = TRUE) %>%
 
 </div>
 
-#### Part h
+#### Part g
 
 Write down the equation for the logistic regression model of STA on LOC.
 
@@ -280,7 +302,7 @@ Write down the equation for the logistic regression model of STA on LOC.
 $$\text{logit} \left(\pi(LOC)\right)= \ldots$$
 </div>
 
-#### Part i
+#### Part h
 
 Using the `glm()` function, obtain the maximum likelihood estimates of the coefficient parameters of the logistic regression model in Part h. Present the coefficient estimates. No need to write out the fitted regression equation. 
 
@@ -303,7 +325,7 @@ loc_coef %>% gt() %>%
 ```
 </div>
 
-#### Part j
+#### Part i
 
 Write a sentence interpreting the odds ratio of death for the indicator of coma. Please include the 95% confidence interval.
 
