@@ -21,6 +21,12 @@ source(here('class_dates.R'))
 - Quiz 1 opens today!
 - Lab 1 discussion exit ticket 
   - If you weren't in class and didn't receive an email about the make-up assignment, please let me know
+- HW 1 notes from TAs
+  - Question 8d: summary output for lm vs glm
+    - Mostly the same, actual values and fit statistics depend on the random component
+    - And won't mean the same thing
+  - Check your assumptions!!
+  - `riskratio()` function
 
 
 ## Key Dates

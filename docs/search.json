@@ -13032,5 +13032,26 @@
     "title": "Key Info and Announcements",
     "section": "Last time",
     "text": "Last time\n\nLooked at interpretations and predicted values for our simple fitted logistic regression model\nDiscussed how to interpret the estimated regression coefficients and the estimated odds ratios from our regression!\n\nDid this for a continuous variable, binary variable, and multi-level categorical variable\n\nCalculated predicted probability for an individual/observation with a specific covariate value\nCalculated predicted probabilities across all values for a covariate (visualization part)\nCalculated the confidence intervals for all of these to get a sense of the significance of these estimated coefficients, odds ratios, and probabilities"
+  },
+  {
+    "objectID": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-13-1",
+    "href": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-13-1",
+    "title": "Lesson 7: Prediction and Visualization in Simple Logistic Regression",
+    "section": "We can add the confidence intervals (1/3)",
+    "text": "We can add the confidence intervals (1/3)\n\nModel with LSBC and race/ethnicity\n\n\nbc_re = glm(Late_stage_diag ~ Race_Ethnicity, data = bc, family = binomial)\n\n\nnewdata2 = data.frame(Race_Ethnicity = levels(bc$Race_Ethnicity))\npred2 = predict(bc_re, newdata = newdata2, se.fit = T, type = \"link\")\nLL_CI1 = pred2$fit - qnorm(1-0.05/2) * pred2$se.fit\nUL_CI1 = pred2$fit + qnorm(1-0.05/2) * pred2$se.fit\n\nwith_CI = data.frame(Race_Ethnicity = levels(bc$Race_Ethnicity), \n                     pred = inv.logit(pred2$fit), \n                     LL = inv.logit(LL_CI1), \n                     UL = inv.logit(UL_CI1))"
+  },
+  {
+    "objectID": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-23-1",
+    "href": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-23-1",
+    "title": "Lesson 7: Prediction and Visualization in Simple Logistic Regression",
+    "section": "We can add the confidence intervals (2/3)",
+    "text": "We can add the confidence intervals (2/3)\n\nprob_stage_CI = ggplot(data = with_CI, aes(x = Race_Ethnicity)) +\n  geom_errorbar(aes(ymin = LL, ymax = UL), size = 1, width = 0.2) + \n  geom_point(aes(y = pred), size = 4, color = \"#70AD47\") +\n  labs(x = \"Race/Ethnicity\", \n       y = \"Estimated probability of \\n Late stage BC diagnosis\")  + \n  theme_classic() +\n  theme(axis.title = element_text(size = 20), \n        axis.text = element_text(size = 15), \n        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),\n        title = element_text(size = 20)) +\n  ylim(0, 1)"
+  },
+  {
+    "objectID": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-33-1",
+    "href": "lessons/07_Pred_Viz/07_Pred_Viz.html#we-can-add-the-confidence-intervals-33-1",
+    "title": "Lesson 7: Prediction and Visualization in Simple Logistic Regression",
+    "section": "We can add the confidence intervals (3/3)",
+    "text": "We can add the confidence intervals (3/3)"
   }
 ]
