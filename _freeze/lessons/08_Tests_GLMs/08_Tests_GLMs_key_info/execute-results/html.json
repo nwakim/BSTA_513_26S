@@ -1,0 +1,15 @@
+{
+  "hash": "245fc838f2d3142bd6336a96f980bb72",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Key Info and Announcements\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\neditor_options: \n  chunk_output_type: console\n---\n\n\n::: {.cell}\n\n:::\n\n\n## Announcements\n\n- Quiz 1 opens today!\n- Lab 1 discussion exit ticket \n  - If you weren't in class and didn't receive an email about the make-up assignment, please let me know\n\n\n## Key Dates\n\n- Quiz 1 opens 04/22\n  - closes 04/26\n- Lab 2 due 04/26\n\n## Last time\n\n- Looked at interpretations and predicted values for our *simple* fitted logistic regression model \n- Discussed how to interpret the estimated regression coefficients and the estimated odds ratios from our regression!\n  - Did this for a continuous variable, binary variable, and multi-level categorical variable\n- Calculated predicted probability for an individual/observation with a specific covariate value\n- Calculated predicted probabilities across all values for a covariate (visualization part)\n- Calculated the confidence intervals for all of these to get a sense of the significance of these estimated coefficients, odds ratios, and probabilities\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

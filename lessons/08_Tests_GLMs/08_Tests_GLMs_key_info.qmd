@@ -8,15 +8,26 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+#| echo: false
+#| message: false
+
+library(here)
+source(here('class_dates.R'))
+```
+
 ## Announcements
 
 - Quiz 1 opens today!
+- Lab 1 discussion exit ticket 
+  - If you weren't in class and didn't receive an email about the make-up assignment, please let me know
 
 
 ## Key Dates
 
-- Quiz 1 opens 4/22
-- Lab 2 due 4/26
+- Quiz 1 opens `r q1_open %>% format("%m/%d")`
+  - closes `r q1_close %>% format("%m/%d")`
+- Lab 2 due `r lab2 %>% format("%m/%d")`
 
 ## Last time
 
