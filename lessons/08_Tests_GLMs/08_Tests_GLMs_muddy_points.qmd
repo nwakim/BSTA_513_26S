@@ -9,26 +9,59 @@ editor_options:
   chunk_output_type: console
 ---
 
+## Muddy Points from Spring 2026
+
+### 1. Since the wald and score are approximations of the LRT is the main reason to use wald for convenience?
+
+Yep! It's kinda like doing the normal approximation for a proportion. If the sample is large enough, it's a pretty close approximation, and it's easier to calculate the CI's with the Wald.
+
+### 2. Why does the Score test not get used as often?
+
+I think it's because it's not as easy to calculate as the Wald test, and it's not as precise as the LRT. So it's kinda in the middle in terms of convenience and precision. Doesn't really win out vs the Wald nor LRT. 
+
+### 3. I cannot remember why OLS means we can use t-test and F-test for the models
+
+OLS models have a closed-form solution for the MLEs, and the sampling distribution of the MLEs is normal. This allows us to use the t-test and F-test to test hypotheses about the coefficients. In contrast, GLMs do not have a closed-form solution for the MLEs, and the sampling distribution of the MLEs is not normal. This is why we need to use different tests (Wald, Score, LRT) for GLMs.
+
+### 4. To get the deviance, we are looking at the difference in likelihoods between the fitted model and saturated model, then we use the deviance of these models to get to the LRT... How is the saturated model being calculated?
+
+We actually don't need to fit/calculate the saturated model. The saturated model is a theoretical model that perfectly fits the data. The deviance of the fitted model is calculated as -2 times the log-likelihood of the fitted model, and the deviance of the saturated model is calculated as -2 times the log-likelihood of the saturated model. The difference in deviance between the fitted model and the saturated model is then used to calculate the LRT statistic.
+
+Since the saturated model is part of the deviance for the two fitted models that we are comparing, it actually gets cancelled out!
+
+
+### 5. The thing I'm struggling with is understanding the application of the tests. I get the basics, but not what the data mean when ran through said tests.
+
+The main application for the LRT is to compare two nested models. For example, we might want to compare a model with age as a covariate to a model without age as a covariate. The LRT would tell us if the model with age fits the data significantly better than the model without age. **This is typically used in building our overarching multivariable models! When we start deciding which variables are important for fitting the data, we need to compare models with and without certain covariates. The LRT is a way to do this.**
+
+The main application of the Wald test is to test if a specific coefficient (e.g., $\beta_1$) is significantly different from 0. For example, if we are interested in the association between age and the outcome, we would look at the Wald test for the coefficient of age. If the Wald test is significant, it suggests that there is a significant association between age and the outcome. **I mostly use the Wald test for reporting the confidence intervals for specific coefficients (more precisely the exponential of the coefficients, aka odds ratios). And that way I can quantify the relationship between our predictor and outcome in terms of the odds ratio, confidence interval, and significance.**
+
+
 ## Muddy Points from Spring 2025
 
-### Deviance for LRT. Specifically slide 27 I got really lost, but I started to grasp it on the next couple slides a little bit better.
+### 1. For the Wald test we treat "1" as our new "0" correct? so if the 95% CI crosses 1 then it is invalid (like 0.5 to 1.3) , if it crosses 0 (like -0.5 to 0.2) it is fine? why is that?
 
-#### So just to clarify when we actually run a LRT we do not need the saturated models correct that is only for calculating deviance?
+The "1" threshold corresponds to the null value for the odds ratio (or risk ratio, etc.). If the confidence interval includes 1, then we cannot reject the null hypothesis that the odds ratio is equal to 1 (i.e., no association). If the confidence interval includes 0, that would be a problem because odds ratios cannot be negative.
 
-### the nested in LRT vs a moving coefficient target in Wald. Wald is one model, and how the coefficient changes within the model, and LRT is with and without age in the same model? why would we omit a covariate, is it to see if adding it in gets us closer to our saturated model? Still confused on what Wald is actually looking at TBH
+The "0" threshold corresponds to the null value for the log-odds ratio (or log-risk ratio, etc.). If the confidence interval includes 0, then we cannot reject the null hypothesis that the log-odds ratio is equal to 0 (i.e., no association). If the confidence interval includes 1, that would be a problem because log-odds ratios can be negative.
 
-### I was wondering on what is the "difference" in the Wald test represents? You mention B_1 and \widehat Beta_1 -- is it just the difference between the two? What does B_1 and \widehat Beta_1 mean in case?
+### 2. Just to be clear, we can use LRT in place of the score test?
 
-### In the RStudio GLM output, is the Wald test used for the multilevel variables? When we would report these, would we still use that estimate and CI or use LRT? The LRT measures the "difference of likelihoods". Is this the same as comparing the deviance with/without the covariate.?
+The LRT is the most precise way to test the difference between two models, but it can be computationally intensive. The Score test is an approximation that can be used when the LRT is not feasible. So yes, you can use the LRT in place of the Score test, but I wouldn't necessarily frame things this way. I'd say I can use the Score test as an approximation of the LRT. 
 
+### 3. Deviance for LRT. Specifically slide 27 I got really lost, but I started to grasp it on the next couple slides a little bit better.
 
-### If we're interested in learning more about the Score test, are there any resources you recommend to look into this?
+#### 3a. So just to clarify when we actually run a LRT we do not need the saturated models correct that is only for calculating deviance?
 
-### Do you have the diagram with the different distributions transformations.
+### 4. the nested in LRT vs a moving coefficient target in Wald. Wald is one model, and how the coefficient changes within the model, and LRT is with and without age in the same model? why would we omit a covariate, is it to see if adding it in gets us closer to our saturated model? Still confused on what Wald is actually looking at TBH
 
-### For the Wald test we treat "1" as our new "0" correct? so if the 95% CI crosses 1 then it is invalid (like 0.5 to 1.3) , if it crosses 0 (like -0.5 to 0.2) it is fine? why is that?
+### 5. I was wondering on what is the "difference" in the Wald test represents? You mention B_1 and \widehat Beta_1 -- is it just the difference between the two? What does B_1 and \widehat Beta_1 mean in case?
 
-### Just to be clear, we can use LRT in place of the score test?
+### 6. In the RStudio GLM output, is the Wald test used for the multilevel variables? When we would report these, would we still use that estimate and CI or use LRT? The LRT measures the "difference of likelihoods". Is this the same as comparing the deviance with/without the covariate.?
+
+### 7. If we're interested in learning more about the Score test, are there any resources you recommend to look into this?
+
+### 8. Do you have the diagram with the different distributions transformations.
 
 ## Muddy Points from Spring 2024
 

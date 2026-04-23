@@ -594,6 +594,7 @@ library(lmtest)
 bc_age = glm(Late_stage_diag ~ Age_c, data = bc, family = binomial)
 bc_int = glm(Late_stage_diag ~ 1, data = bc, family = binomial)
 lmtest::lrtest(bc_age, bc_int)
+# anova(bc_int, bc_age, test = "Chisq") # another option to run it
 ```
 
 ## Example: BC diagnosis and age {background-image="./images/title_green.png" background-size="2500px 150px" background-position="top"}
