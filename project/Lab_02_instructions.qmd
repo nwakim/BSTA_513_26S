@@ -154,6 +154,10 @@ Fill in the below table (or any other way you wish to present the same informati
 
 We want to explore the relationship between our predictors and food insecurity before we get into regression. This will help us understand the data better and identify any potential issues. 
 
+::: callout-note
+Use your predictors from the activity above. If you are doing LASSO, you do not need to use ALL the variables in your dataset.
+:::
+
 #### Categorical predictors: Create contingency tables
 
 For each categorical covariate, create a contingency table between it and food insecurity. You can create a table (using `table()`) for each categorical variable with the outcome. **No need to make these tables pretty.**
