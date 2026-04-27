@@ -10,32 +10,15 @@ editor_options:
 
 ## Announcements
 
-- HW 1 grades and feedback will be returned by Friday
-- Homework 1 notes
-  - Question 4b: 
-  - Question 8b: `na.fail` vs. `na.omit`
-    - We are under the "factory fresh" settings
-    - `na.fail` will stop our code and show an error, so I don't think we run into that
-    - `na.omit` automatically performs a complete case analysis
-  - Question 8d: the same = similar
-    - The output is similar with the same structure
-    - They will be slightly different at the bottom because glm and lm use different measures of model fit
-- Adri Jones and Student Success Center will be hosting more Community & Chat events (IYKYK) in Vanport 620M for the following dates from 11:00 AM-12:30 PM:
-  - May 7
-  - May 21 
-  - June 4
-  - June 18
-  - IYKYK = "if you known you know"
-- Re: SPH pop up shop is open through May 15
-  - Link: <https://www.promoplace.com/ohsu-psu-soph-company>
-  - If you want to be on a group order, email me with screenshot(s) of what you want with every option selected. **By Monday May 5th class time.**
+- Waiting on a few people to take Quiz 1
+- Lab 2 discussion this Wednesday! 
+  - In-person, required
+- If you are a BSTA student, we have group advising this Thursday at 5:30 in VPT 515
 
 ## Key Dates
 
-- Quiz 1 opens on 4/23
-- Lab 2 due 4/25
-- Lab 2 discussion on 4/30!!
 - HW 2 due 5/2
+- Lab 3 due 5/10
 
 ## Last class
 
