@@ -7935,7 +7935,7 @@
     "href": "lessons/10_Interactions/10_Interactions.html#what-is-an-effect-modifier",
     "title": "Lesson 10: Interactions",
     "section": "What is an effect modifier?",
-    "text": "What is an effect modifier?\n\n\n\nAn additional variable in the model\n\nOutside of the main relationship between \\(Y\\) and \\(X_1\\) that we are studying\n\n\n \n\nAn effect modifier will change the effect of \\(X_1\\) on \\(Y\\) depending on its value\n\nAka: as the effect modifier’s values change, so does the association between \\(Y\\) and \\(X_1\\)\nSo the coefficient estimating the relationship between \\(Y\\) and \\(X_1\\) changes with another variable"
+    "text": "What is an effect modifier?\n\n\n\nAn additional variable in the model\n\nOutside of the main relationship between \\(Y\\) and \\(X_1\\) that we are studying\n\n\n \n\nAn effect modifier will change the effect of \\(X_1\\) on \\(Y\\) depending on its value\n\nAka: as the effect modifier’s values change, so does the association between \\(Y\\) and \\(X_1\\)\nSo the coefficient estimating the relationship between \\(Y\\) and \\(X_1\\) changes with another variable\n\nWe need to anchor our \\(X_1\\) vs \\(Y\\) relationship in a value of \\(X_2\\)\n\nOdds ratio for \\(X_1\\) must be reported for a specific \\(X_2\\)"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#confounding-vs.-interaction",
@@ -7956,7 +7956,7 @@
     "href": "lessons/10_Interactions/10_Interactions.html#example-of-interaction",
     "title": "Lesson 10: Interactions",
     "section": "Example of interaction",
-    "text": "Example of interaction\n\n\n\nIn a cohort study of elderly people the chance of death (outcome) within 2 years was much higher for those who had previously suffered a hip fracture at the start of these 2 years, but the excess risk associated with a hip fracture was significantly higher for males vs. females\n\n \n\nThis is an interaction between hip fracture status (yes/no) and sex (unclear if assigned at birth or no)\n\n \n\nOdds ratio for females &gt; odds ratio for males"
+    "text": "Example of interaction\n\n\n\nIn a cohort study of elderly people the chance of death (outcome) within 2 years was much higher for those who had previously suffered a hip fracture at the start of these 2 years, but the excess risk associated with a hip fracture was significantly higher for males vs. females\n\n \n\nThis is an interaction between hip fracture status (yes/no) and sex (unclear if assigned at birth or no)\n\n \n\nOdds ratio for females &gt; odds ratio for males\n\nOdds ratio = odds ratio of death, comparing previous hip fracture to no hip fracture"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#types-of-interactions-non-interactions",
@@ -7991,14 +7991,14 @@
     "href": "lessons/10_Interactions/10_Interactions.html#understand-the-interaction-23",
     "title": "Lesson 10: Interactions",
     "section": "Understand the interaction (2/3)",
-    "text": "Understand the interaction (2/3)\n\n\n\nIf age does not interact with sex, the distance between \\(l_2\\) and \\(l_1\\) is the log odds ratio for sex, controlling for age (\\(l_2 - l_1\\)) stays the same for all values of age.\n\n \n\nIf age interacts with sex, the distance between \\(l_3\\) and \\(l_1\\) is the log odds ratio for sex, controlling for age.\n\nAge values need to be specified because (\\(l_3 - l_1\\)) differs for different values of age.\nMust specify age when reporting odds ratio comparing sex"
+    "text": "Understand the interaction (2/3)\n\n\n\nIf age does not interact with sex, the distance between \\(l_2\\) and \\(l_1\\) is the log odds ratio for sex, controlling for age (\\(l_2 - l_1\\)) stays the same for all values of age.\n\n \n\nIf age interacts with sex, the distance between \\(l_3\\) and \\(l_1\\) is the log odds ratio for sex at specific values of age\n\nAge values need to be specified because (\\(l_3 - l_1\\)) differs for different values of age.\nMust specify age when reporting odds ratio comparing sex"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#understand-the-interaction-33",
     "href": "lessons/10_Interactions/10_Interactions.html#understand-the-interaction-33",
     "title": "Lesson 10: Interactions",
     "section": "Understand the interaction (3/3)",
-    "text": "Understand the interaction (3/3)\n\n\n\nIn the real world, it is rare to see two completely parallel logit plots as we see \\(l_2\\) and \\(l_1\\)\n\nBut we need to determine if the difference between \\(l_2\\) and \\(l_3\\) is important in the model\n\n\n \n\nWe may not want to include the interaction term unless it is statistically significant and/or clinically meaningful\n\n \n\nLikelihood ratio test (or Wald test sometimes) may be used to test the significance of an interaction term"
+    "text": "Understand the interaction (3/3)\n\n\n\nIn the real world, it is rare to see two completely parallel logit plots as we see \\(l_2\\) and \\(l_1\\)\n\nBut we need to determine if the difference between \\(l_2\\) and \\(l_3\\) is important in the model\n\n\n \n\nWe may not want to include the interaction term unless it is statistically significant and/or clinically meaningful\n\n \n\nLikelihood ratio test (or Wald test sometimes) may be used to test the significance of an interaction term\n\nCompare model with interaction to model without interaction"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#poll-everywhere-question-2",
@@ -8299,56 +8299,56 @@
     "href": "lessons/L02_Discussion/L02_Discussion.html#notes-from-me-and-the-tas",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Notes from me and the TAs",
-    "text": "Notes from me and the TAs\n\nUsing ANY_HARDSHIP or MULT_HARDSHIPS\n\nIf you look at the User Guide, this involves information from food security\n\nUsing “Survey Questions”\n\nBe very careful of this!\n\nInterpreting estimated ORs\n\nIf your main variable had &gt;6 categories I’m sorry if you interpreted every single one\n\nMake sure you are taking the inverse logit to find the predicted probability\nMake sure you are plotting the predicted probability, not the ORs\nThe TAs left comments in the rubric! Please look at them!"
+    "text": "Notes from me and the TAs"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion.html#get-into-groups-of-2-4",
     "href": "lessons/L02_Discussion/L02_Discussion.html#get-into-groups-of-2-4",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Get into groups of 2-4",
-    "text": "Get into groups of 2-4\n\nNo more than 4!\nTry to group with people with whos you do not already work on labs\nIntroduce yourself if you do not know each other\nShare you html documents with each other (email, airdrop, etc.)\n\n\n\n\n−+\n05:00"
+    "text": "Get into groups of 2-4\n\nNo more than 4!\nTry to group with people with whos you do not already work on labs\nIntroduce yourself if you do not know each other\nShare you html documents with each other (email, airdrop, etc.)"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion.html#introduce-research-question",
     "href": "lessons/L02_Discussion/L02_Discussion.html#introduce-research-question",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Introduce Research Question",
-    "text": "Introduce Research Question\n\nShare your research question with each other!\n\nShould be using the same outcome + your main variable\n\nShare your other variables\n\n \n\n\n\n−+\n05:00"
+    "text": "Introduce Research Question\n\nShare your research question with each other!\n\nShould be using the same outcome + your main variable\n\nShare your other variables"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion.html#double-check-code-for-variables",
     "href": "lessons/L02_Discussion/L02_Discussion.html#double-check-code-for-variables",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Double check code for variables",
-    "text": "Double check code for variables\n\nDid everyone code their variables correctly?\nIf you changed something to a factor, does it have the correct levels?\n\n\n\n\n−+\n10:00"
+    "text": "Double check code for variables\n\nDid everyone code their variables correctly?\nIf you changed something to a factor, does it have the correct levels?"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion.html#discuss-your-confounderseffect-modifiers",
     "href": "lessons/L02_Discussion/L02_Discussion.html#discuss-your-confounderseffect-modifiers",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Discuss your confounders/effect modifiers",
-    "text": "Discuss your confounders/effect modifiers\n\nDoes not need to have a causal framework\nDo you think we need to adjust for certain variables?\nDo you think there will be interactions?\nIf you think there are interactions, try to narrow it down to 1-2 variables\n\n\n\n\n−+\n10:00"
+    "text": "Discuss your confounders/effect modifiers\n\nDoes not need to have a causal framework\nDo you think we need to adjust for certain variables?\nDo you think there will be interactions?\nIf you think there are interactions, try to narrow it down to 1-2 variables"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion.html#contingency-tables-bivariate-analysis",
     "href": "lessons/L02_Discussion/L02_Discussion.html#contingency-tables-bivariate-analysis",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Contingency tables + bivariate analysis",
-    "text": "Contingency tables + bivariate analysis\n\nBased on your reasoning in the previous activity and the tables/plots, do you think we need to adjust for any variables?\nWhat trends are you seeing?\nDo you have any cells with low counts?\n\n\n\n\n−+\n10:00"
+    "text": "Contingency tables + bivariate analysis\n\nBased on your reasoning in the previous activity and the tables/plots, do you think we need to adjust for any variables?\nWhat trends are you seeing?\nDo you have any cells with low counts?"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion.html#simple-logistic-regression",
     "href": "lessons/L02_Discussion/L02_Discussion.html#simple-logistic-regression",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Simple logistic regression",
-    "text": "Simple logistic regression\n\nDoes everyone have the correct interpretations of the estimated odds ratios?\nWhat’s your reference group?\nWhat trends are you seeing?\n\n\n\n\n−+\n10:00"
+    "text": "Simple logistic regression\n\nDoes everyone have the correct interpretations of the estimated odds ratios?\nWhat’s your reference group?\nWhat trends are you seeing?"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion.html#predicted-probabilities",
     "href": "lessons/L02_Discussion/L02_Discussion.html#predicted-probabilities",
     "title": "Lab 2: Feedback and Discussion",
     "section": "Predicted Probabilities",
-    "text": "Predicted Probabilities\n\nLet’s just check each other’s code and probabilities\nWhat would your predicted probabilities look like if you had a confounder? effect modifier?\n\n\n\n\n−+\n10:00"
+    "text": "Predicted Probabilities\n\nLet’s just check each other’s code and probabilities\nWhat would your predicted probabilities look like if you had a confounder? effect modifier?"
   },
   {
     "objectID": "lessons/L02_Discussion/L02_Discussion_muddy_points.html",
@@ -13074,5 +13074,89 @@
     "title": "Muddy Points",
     "section": "",
     "text": "Yep! It’s kinda like doing the normal approximation for a proportion. If the sample is large enough, it’s a pretty close approximation, and it’s easier to calculate the CI’s with the Wald.\n\n\n\nI think it’s because it’s not as easy to calculate as the Wald test, and it’s not as precise as the LRT. So it’s kinda in the middle in terms of convenience and precision. Doesn’t really win out vs the Wald nor LRT.\n\n\n\nOLS models have a closed-form solution for the MLEs, and the sampling distribution of the MLEs is normal. This allows us to use the t-test and F-test to test hypotheses about the coefficients. In contrast, GLMs do not have a closed-form solution for the MLEs, and the sampling distribution of the MLEs is not normal. This is why we need to use different tests (Wald, Score, LRT) for GLMs.\n\n\n\nWe actually don’t need to fit/calculate the saturated model. The saturated model is a theoretical model that perfectly fits the data. The deviance of the fitted model is calculated as -2 times the log-likelihood of the fitted model, and the deviance of the saturated model is calculated as -2 times the log-likelihood of the saturated model. The difference in deviance between the fitted model and the saturated model is then used to calculate the LRT statistic.\nSince the saturated model is part of the deviance for the two fitted models that we are comparing, it actually gets cancelled out!\n\n\n\nThe main application for the LRT is to compare two nested models. For example, we might want to compare a model with age as a covariate to a model without age as a covariate. The LRT would tell us if the model with age fits the data significantly better than the model without age. This is typically used in building our overarching multivariable models! When we start deciding which variables are important for fitting the data, we need to compare models with and without certain covariates. The LRT is a way to do this.\nThe main application of the Wald test is to test if a specific coefficient (e.g., \\(\\beta_1\\)) is significantly different from 0. For example, if we are interested in the association between age and the outcome, we would look at the Wald test for the coefficient of age. If the Wald test is significant, it suggests that there is a significant association between age and the outcome. I mostly use the Wald test for reporting the confidence intervals for specific coefficients (more precisely the exponential of the coefficients, aka odds ratios). And that way I can quantify the relationship between our predictor and outcome in terms of the odds ratio, confidence interval, and significance."
+  },
+  {
+    "objectID": "lessons/09_Multiple_logistic_regression/09_Multiple_logistic_regression_muddy_points.html#muddy-points-from-spring-2025",
+    "href": "lessons/09_Multiple_logistic_regression/09_Multiple_logistic_regression_muddy_points.html#muddy-points-from-spring-2025",
+    "title": "Muddy Points",
+    "section": "Muddy Points from Spring 2025",
+    "text": "Muddy Points from Spring 2025\n\n1. Was the reference for race just a random selection (in the example where we were looking at 60 year olds)?\n\nThe issues with the summary function I missed what the issue was."
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#can-i-make-this-numeric",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#can-i-make-this-numeric",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Can I make this numeric?",
+    "text": "Can I make this numeric?\n\nI’ve been getting this question for a few variables\nSome variables that might seem like we can convert to numeric\n\nPPEDUCAT\nPPINCIMP\nNUM_CHILD_HH\nNUM_OWN_CHILD\nNUM_FAM_SIZE\n\n\n \n\nTo convert a categorical variable to numeric, we need to convince ourselves that the categorical variable has a linear relationship with the log-odds of food insecurity\nHow do we do that?"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#treat-predictor-as-continuous",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#treat-predictor-as-continuous",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "4. Treat predictor as continuous",
+    "text": "4. Treat predictor as continuous\n\nWhen we treat a predictor as continuous, we need to make sure we have linearity between continuous predictor and log-odds\nEasier to test this by fitting a logistic regression with the predictor\nTest linearity by fitting logistic regression with the predictor, then visually examining if predicted log-odds follows roughly linear pattern"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#get-into-groups-of-2-4ish",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#get-into-groups-of-2-4ish",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Get into groups of 2-4ish",
+    "text": "Get into groups of 2-4ish\n\nTry to group with people with whos you do not already work on labs\nIntroduce yourself if you do not know each other\nShare you html documents with each other (email, airdrop, etc.)"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#check-linearity",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#check-linearity",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Check linearity!",
+    "text": "Check linearity!\n\nWhen we treat a predictor as continuous, we need to make sure we have linearity between the predictor and log-odds\nEasier to test this by fitting a logistic regression with the predictor\nTest linearity by fitting logistic regression with the predictor, then visually examining if predicted log-odds follows roughly linear pattern\n\n \n\nLet’s test this out with income"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#section",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#section",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "",
+    "text": "First, I run a logistic regression model with PPINCIMP and FOOD_INSEC\n\n\nincome_glm = wbns3 %&gt;% glm(formula = FOOD_INSEC ~ PPINCIMP, family = binomial)\n\n\nThen I use predict() to calculate the log-odds for each category\n\n\nnewdata = data.frame(PPINCIMP = levels(wbns3$PPINCIMP)) \npred = predict(income_glm, newdata, se.fit=T, type = \"link\")\n\npred_link = data.frame(PPINCIMP = levels(wbns3$PPINCIMP), \n                       Pred = pred$fit, \n                       LL_CI1 = pred$fit - qnorm(1-0.05/2) * pred$se.fit, \n                       UL_CI1 = pred$fit + qnorm(1-0.05/2) * pred$se.fit) %&gt;% \n  mutate(PPINCIMP = factor(PPINCIMP, levels = levels(wbns3$PPINCIMP)))"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#set-up-the-predicted-log-odds",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#set-up-the-predicted-log-odds",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Set up the predicted log-odds",
+    "text": "Set up the predicted log-odds\n\nFirst, I run a logistic regression model with PPINCIMP and FOOD_INSEC\n\n\nincome_glm = wbns3 %&gt;% glm(formula = FOOD_INSEC ~ PPINCIMP, family = binomial)\n\n\nThen I use predict() to calculate the log-odds for each category\n\n\nnewdata = data.frame(PPINCIMP = levels(wbns3$PPINCIMP)) \npred = predict(income_glm, newdata, se.fit=T, type = \"link\")\n\npred_link = data.frame(PPINCIMP = levels(wbns3$PPINCIMP), \n                       Pred = pred$fit, \n                       LL_CI1 = pred$fit - qnorm(1-0.05/2) * pred$se.fit, \n                       UL_CI1 = pred$fit + qnorm(1-0.05/2) * pred$se.fit) %&gt;% \n  mutate(PPINCIMP = factor(PPINCIMP, levels = levels(wbns3$PPINCIMP)))"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#now-i-can-plot-the-log-odds-vs.-income",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#now-i-can-plot-the-log-odds-vs.-income",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Now I can plot the log-odds vs. income",
+    "text": "Now I can plot the log-odds vs. income\n\n\nCode\nggplot() + \n  labs(y = \"Log-odds of Outcome\") +\n  geom_point(data = pred_link, aes(x = PPINCIMP, y=Pred), size=3) +\n  geom_errorbar(data = pred_link, aes(x = PPINCIMP, y=Pred, ymin = LL_CI1, ymax = UL_CI1), width = 0.25) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#now-i-can-plot-the-log-odds-vs.-income-what-do-we-notice",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#now-i-can-plot-the-log-odds-vs.-income-what-do-we-notice",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Now I can plot the log-odds vs. income: what do we notice??",
+    "text": "Now I can plot the log-odds vs. income: what do we notice??\n\n\nCode\nggplot() + \n  labs(y = \"Log-odds of Outcome\") +\n  geom_point(data = pred_link, aes(x = PPINCIMP, y=Pred), size=3) +\n  geom_errorbar(data = pred_link, aes(x = PPINCIMP, y=Pred, ymin = LL_CI1, ymax = UL_CI1), width = 0.25) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#so-i-need-to-go-back-and-map-the-levels-to-their-midpoints",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#so-i-need-to-go-back-and-map-the-levels-to-their-midpoints",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "So I need to go back and map the levels to their midpoints",
+    "text": "So I need to go back and map the levels to their midpoints\n\nwbns4 &lt;- wbns3 %&gt;%\n  mutate(income_midpoint = case_when(\n    PPINCIMP == \"Less than $5,000\"     ~ 2500,\n    PPINCIMP == \"$5,000 to $7,499\"     ~ 6250,\n    PPINCIMP == \"$7,500 to $9,999\"     ~ 8750,\n    PPINCIMP == \"$10,000 to $12,499\"   ~ 11250,\n    PPINCIMP == \"$12,500 to $14,999\"   ~ 13750,\n    PPINCIMP == \"$15,000 to $19,999\"   ~ 17500,\n    PPINCIMP == \"$20,000 to $24,999\"   ~ 22500,\n    PPINCIMP == \"$25,000 to $29,999\"   ~ 27500,\n    PPINCIMP == \"$30,000 to $34,999\"   ~ 32500,\n    PPINCIMP == \"$35,000 to $39,999\"   ~ 37500,\n    PPINCIMP == \"$40,000 to $49,999\"   ~ 45000,\n    PPINCIMP == \"$50,000 to $59,999\"   ~ 55000,\n    PPINCIMP == \"$60,000 to $74,999\"   ~ 67500,\n    PPINCIMP == \"$75,000 to $84,999\"   ~ 80000,\n    PPINCIMP == \"$85,000 to $99,999\"   ~ 92500,\n    PPINCIMP == \"$100,000 to $124,999\" ~ 112500,\n    PPINCIMP == \"$125,000 to $149,999\" ~ 137500,\n    PPINCIMP == \"$150,000 to $174,999\" ~ 162500,\n    PPINCIMP == \"$175,000 to $199,999\" ~ 187500,\n    PPINCIMP == \"$200,000 to $249,999\" ~ 225000,\n    PPINCIMP == \"$250,000 or more\"     ~ 300000\n  ))"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#do-same-prediction-but-now-inclue-midpoints",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#do-same-prediction-but-now-inclue-midpoints",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Do same prediction, but now inclue midpoints!",
+    "text": "Do same prediction, but now inclue midpoints!\n\nnewdata = data.frame(PPINCIMP = levels(wbns4$PPINCIMP)) \npred = predict(income_glm, newdata, se.fit=T, type = \"link\")\n\npred_link = data.frame(PPINCIMP = levels(wbns4$PPINCIMP), \n                       income_midpoint = sort(unique(wbns4$income_midpoint)), \n                       Pred = pred$fit, \n                       LL_CI1 = pred$fit - qnorm(1-0.05/2) * pred$se.fit, \n                       UL_CI1 = pred$fit + qnorm(1-0.05/2) * pred$se.fit) %&gt;% \n  mutate(PPINCIMP = factor(PPINCIMP, levels = levels(wbns4$PPINCIMP)))"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#and-plot-again-with-midpoints",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#and-plot-again-with-midpoints",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "And plot again with midpoints!",
+    "text": "And plot again with midpoints!\n\n\nCode\nggplot() + \n  labs(y = \"Log-odds of Outcome\") +\n  geom_point(data = pred_link, aes(x = income_midpoint, y=Pred), size=3) +\n  geom_errorbar(data = pred_link, aes(x = income_midpoint, y=Pred, ymin = LL_CI1, ymax = UL_CI1), width = 0.25) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
   }
 ]

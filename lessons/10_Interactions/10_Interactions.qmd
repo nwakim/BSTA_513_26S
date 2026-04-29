@@ -3,7 +3,7 @@ title: "Lesson 10: Interactions"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/28/2025"
+date: "`r library(here); source(here('class_dates.R')); w5d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -157,6 +157,9 @@ slopes
     -   Aka: as the effect modifier's values change, so does the association between $Y$ and $X_1$
 
     -   So the coefficient estimating the relationship between $Y$ and $X_1$ changes with another variable
+
+- We need to anchor our $X_1$ vs $Y$ relationship in a value of $X_2$
+  - Odds ratio for $X_1$ must be reported for a **specific** $X_2$
 :::
 
 ::: column
@@ -228,6 +231,7 @@ Please refer to [Lesson 11 from BSTA 512/612](https://nwakim.github.io/W2024_BST
  
 
 -   Odds ratio for females > odds ratio for males
+    - Odds ratio = odds ratio of death, comparing previous hip fracture to no hip fracture
 
 :::
 ::: {.column width="45%"}
@@ -266,7 +270,7 @@ No interaction and three potential effects of interaction between two covariates
 ## Understand the interaction (1/3)
 
 ::: columns
-::: {.column width="25%"}
+::: {.column width="30%"}
 -   Figure plots the logits (log-odds) under two different models:
     - Model 1: No interaction between sex and age
     - Model 2: Interaction between sex and age
@@ -285,7 +289,7 @@ No interaction and three potential effects of interaction between two covariates
 
 
 :::
-::: {.column width="75%"}
+::: {.column width="70%"}
 ![](images/understand_int1.png){fig-align="center"}
 :::
 :::
@@ -298,7 +302,7 @@ No interaction and three potential effects of interaction between two covariates
 
  
 
--   [**If age interacts with sex**]{style="color:#5B9BD5"}, the distance between $l_3$ and $l_1$ is the log odds ratio for sex, controlling for age. 
+-   [**If age interacts with sex**]{style="color:#5B9BD5"}, the distance between $l_3$ and $l_1$ is the log odds ratio for sex at specific values of age 
 
     -   Age values need to be specified because ($l_3 - l_1$) differs for different values of age.
 
@@ -330,6 +334,7 @@ No interaction and three potential effects of interaction between two covariates
  
 
 -   Likelihood ratio test (or Wald test sometimes) may be used to test the significance of an interaction term
+    - Compare model **with** interaction to model **without** interaction
 
 :::
 ::: {.column width="50%"}

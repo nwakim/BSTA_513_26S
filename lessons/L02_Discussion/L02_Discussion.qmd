@@ -3,7 +3,7 @@ title: "Lab 2: Feedback and Discussion"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "04/30/2025"
+date: "`r library(here); source(here('class_dates.R')); w5d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -44,19 +44,134 @@ library(epiDisplay)
 
 ## Notes from me and the TAs
 
-- Using `ANY_HARDSHIP` or `MULT_HARDSHIPS`
-  - If you look at the User Guide, this involves information from food security
-- Using "Survey Questions"
-  - Be very careful of this! 
-- Interpreting estimated ORs
-  - If your main variable had >6 categories I'm sorry if you interpreted every single one
-- Make sure you are taking the inverse logit to find the predicted probability
-- Make sure you are plotting the predicted probability, not the ORs
-- The TAs left comments in the rubric! Please look at them! 
 
-## Get into groups of 2-4
 
-- No more than 4! 
+
+## Can I make this numeric?
+
+- I've been getting this question for a few variables
+- Some variables that might seem like we can convert to numeric 
+  - PPEDUCAT
+  - PPINCIMP
+  - NUM_CHILD_HH
+  - NUM_OWN_CHILD
+  - NUM_FAM_SIZE
+
+ 
+
+- To convert a categorical variable to numeric, we need to convince ourselves that the categorical variable has a linear relationship with the log-odds of food insecurity
+
+- How do we do that?
+
+## Check linearity!
+
+-   When we treat a predictor as continuous, we need to make sure we have **linearity between the predictor and log-odds**
+-   Easier to test this by fitting a logistic regression with the predictor
+
+- Test linearity by fitting logistic regression with the predictor, then visually examining if predicted log-odds follows roughly linear pattern
+
+ 
+
+- Let's test this out with income
+
+## Set up the predicted log-odds
+
+```{r}
+#| echo: false
+
+load("/Users/wakim/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Projects/Teaching_projects/Teaching_DEIJ_Datasets/Datasets/Food_insecurity_2023/Data/Processed/wbns_data_2026-04-16.rda")
+```
+
+- First, I run a logistic regression model with `PPINCIMP` and `FOOD_INSEC`
+
+```{r}
+income_glm = wbns3 %>% glm(formula = FOOD_INSEC ~ PPINCIMP, family = binomial)
+```
+
+- Then I use `predict()` to calculate the log-odds for each category
+
+```{r}
+newdata = data.frame(PPINCIMP = levels(wbns3$PPINCIMP)) 
+pred = predict(income_glm, newdata, se.fit=T, type = "link")
+
+pred_link = data.frame(PPINCIMP = levels(wbns3$PPINCIMP), 
+                       Pred = pred$fit, 
+                       LL_CI1 = pred$fit - qnorm(1-0.05/2) * pred$se.fit, 
+                       UL_CI1 = pred$fit + qnorm(1-0.05/2) * pred$se.fit) %>% 
+  mutate(PPINCIMP = factor(PPINCIMP, levels = levels(wbns3$PPINCIMP)))
+```
+
+## Now I can plot the log-odds vs. income: what do we notice??
+
+```{r}
+#| code-fold: true
+
+ggplot() + 
+  labs(y = "Log-odds of Outcome") +
+  geom_point(data = pred_link, aes(x = PPINCIMP, y=Pred), size=3) +
+  geom_errorbar(data = pred_link, aes(x = PPINCIMP, y=Pred, ymin = LL_CI1, ymax = UL_CI1), width = 0.25) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## So I need to go back and map the levels to their midpoints {.smaller}
+
+```{r}
+wbns4 <- wbns3 %>%
+  mutate(income_midpoint = case_when(
+    PPINCIMP == "Less than $5,000"     ~ 2500,
+    PPINCIMP == "$5,000 to $7,499"     ~ 6250,
+    PPINCIMP == "$7,500 to $9,999"     ~ 8750,
+    PPINCIMP == "$10,000 to $12,499"   ~ 11250,
+    PPINCIMP == "$12,500 to $14,999"   ~ 13750,
+    PPINCIMP == "$15,000 to $19,999"   ~ 17500,
+    PPINCIMP == "$20,000 to $24,999"   ~ 22500,
+    PPINCIMP == "$25,000 to $29,999"   ~ 27500,
+    PPINCIMP == "$30,000 to $34,999"   ~ 32500,
+    PPINCIMP == "$35,000 to $39,999"   ~ 37500,
+    PPINCIMP == "$40,000 to $49,999"   ~ 45000,
+    PPINCIMP == "$50,000 to $59,999"   ~ 55000,
+    PPINCIMP == "$60,000 to $74,999"   ~ 67500,
+    PPINCIMP == "$75,000 to $84,999"   ~ 80000,
+    PPINCIMP == "$85,000 to $99,999"   ~ 92500,
+    PPINCIMP == "$100,000 to $124,999" ~ 112500,
+    PPINCIMP == "$125,000 to $149,999" ~ 137500,
+    PPINCIMP == "$150,000 to $174,999" ~ 162500,
+    PPINCIMP == "$175,000 to $199,999" ~ 187500,
+    PPINCIMP == "$200,000 to $249,999" ~ 225000,
+    PPINCIMP == "$250,000 or more"     ~ 300000
+  ))
+```
+
+## Do same prediction, but now inclue midpoints!
+
+```{r}
+newdata = data.frame(PPINCIMP = levels(wbns4$PPINCIMP)) 
+pred = predict(income_glm, newdata, se.fit=T, type = "link")
+
+pred_link = data.frame(PPINCIMP = levels(wbns4$PPINCIMP), 
+                       income_midpoint = sort(unique(wbns4$income_midpoint)), 
+                       Pred = pred$fit, 
+                       LL_CI1 = pred$fit - qnorm(1-0.05/2) * pred$se.fit, 
+                       UL_CI1 = pred$fit + qnorm(1-0.05/2) * pred$se.fit) %>% 
+  mutate(PPINCIMP = factor(PPINCIMP, levels = levels(wbns4$PPINCIMP)))
+```
+
+## And plot again with midpoints!
+
+```{r}
+#| code-fold: true
+
+ggplot() + 
+  labs(y = "Log-odds of Outcome") +
+  geom_point(data = pred_link, aes(x = income_midpoint, y=Pred), size=3) +
+  geom_errorbar(data = pred_link, aes(x = income_midpoint, y=Pred, ymin = LL_CI1, ymax = UL_CI1), width = 0.25) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+# Now to peer discussion
+
+## Get into groups of 2-4ish
+
 - Try to group with people with whos you do not already work on labs 
 - Introduce yourself if you do not know each other
 - Share you html documents with each other (email, airdrop, etc.)
@@ -79,15 +194,6 @@ countdown::countdown(5)
 countdown::countdown(5)
 ```
 
-## Double check code for variables
-
-- Did everyone code their variables correctly?
-- If you changed something to a factor, does it have the correct levels?
-
-```{r}
-#| echo: false
-countdown::countdown(10)
-```
 
 ## Discuss your confounders/effect modifiers
 

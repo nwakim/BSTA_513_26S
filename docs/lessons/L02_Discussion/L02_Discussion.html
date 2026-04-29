@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-665ef5c5d77cfb05cd7a07c04fb2ab30.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Nicky Wakim">
-  <meta name="dcterms.date" content="2025-04-30">
+  <meta name="dcterms.date" content="2026-04-29">
   <title>Categorical Data Analysis – Lab 2: Feedback and Discussion</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,8 +32,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #575f66;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #575f66; } /* Normal */
+    code span.al { color: #f51818; background-color: #faefef; font-weight: bold; } /* Alert */
+    code span.an { color: #e6ba7e; } /* Annotation */
+    code span.at { color: #399ee6; } /* Attribute */
+    code span.bn { color: #ff9940; } /* BaseN */
+    code span.bu { color: #4cbf99; } /* BuiltIn */
+    code span.cf { color: #fa8d3e; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4cbf99; } /* Char */
+    code span.cn { color: #a37acc; } /* Constant */
+    code span.co { color: #607880; font-style: italic; } /* Comment */
+    code span.cv { color: #a37acc; } /* CommentVar */
+    code span.do { color: #607880; } /* Documentation */
+    code span.dt { color: #fa8d3e; } /* DataType */
+    code span.dv { color: #ff9940; } /* DecVal */
+    code span.er { color: #f51818; text-decoration: underline; } /* Error */
+    code span.ex { color: #399ee6; font-weight: bold; } /* Extension */
+    code span.fl { color: #ff9940; } /* Float */
+    code span.fu { color: #f2ae49; } /* Function */
+    code span.im { color: #86b300; } /* Import */
+    code span.in { color: #ff9940; } /* Information */
+    code span.kw { color: #fa8d3e; font-weight: bold; } /* Keyword */
+    code span.op { color: #ed9366; } /* Operator */
+    code span.ot { color: #55b4d4; } /* Other */
+    code span.pp { color: #f07171; } /* Preprocessor */
+    code span.re { color: #399ee6; background-color: #ddecf3; } /* RegionMarker */
+    code span.sc { color: #4cbf99; } /* SpecialChar */
+    code span.ss { color: #4cbf99; } /* SpecialString */
+    code span.st { color: #86b300; } /* String */
+    code span.va { color: #55b4d4; } /* Variable */
+    code span.vs { color: #86b300; } /* VerbatimString */
+    code span.wa { color: #f07171; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-879b85e47848f420eaf0aa30a5c8b01f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b1e859115d028fe606a708693efd5e1f.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -124,8 +193,8 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../../site_libs/countdown-0.4.0/countdown.js"></script>
+  <link href="../../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+  <script src="../../site_libs/countdown-0.6.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -142,42 +211,150 @@ Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2025-04-30</p>
+  <p class="date">2026-04-29</p>
 </section>
 <section id="notes-from-me-and-the-tas" class="slide level2">
 <h2>Notes from me and the TAs</h2>
+</section>
+<section id="can-i-make-this-numeric" class="slide level2">
+<h2>Can I make this numeric?</h2>
 <ul>
-<li>Using <code>ANY_HARDSHIP</code> or <code>MULT_HARDSHIPS</code>
+<li>I’ve been getting this question for a few variables</li>
+<li>Some variables that might seem like we can convert to numeric
 <ul>
-<li>If you look at the User Guide, this involves information from food security</li>
+<li>PPEDUCAT</li>
+<li>PPINCIMP</li>
+<li>NUM_CHILD_HH</li>
+<li>NUM_OWN_CHILD</li>
+<li>NUM_FAM_SIZE</li>
 </ul></li>
-<li>Using “Survey Questions”
+</ul>
+<p>&nbsp;</p>
 <ul>
-<li>Be very careful of this!</li>
-</ul></li>
-<li>Interpreting estimated ORs
-<ul>
-<li>If your main variable had &gt;6 categories I’m sorry if you interpreted every single one</li>
-</ul></li>
-<li>Make sure you are taking the inverse logit to find the predicted probability</li>
-<li>Make sure you are plotting the predicted probability, not the ORs</li>
-<li>The TAs left comments in the rubric! Please look at them!</li>
+<li><p>To convert a categorical variable to numeric, we need to convince ourselves that the categorical variable has a linear relationship with the log-odds of food insecurity</p></li>
+<li><p>How do we do that?</p></li>
 </ul>
 </section>
-<section id="get-into-groups-of-2-4" class="slide level2">
-<h2>Get into groups of 2-4</h2>
+<section id="check-linearity" class="slide level2">
+<h2>Check linearity!</h2>
 <ul>
-<li>No more than 4!</li>
+<li><p>When we treat a predictor as continuous, we need to make sure we have <strong>linearity between the predictor and log-odds</strong></p></li>
+<li><p>Easier to test this by fitting a logistic regression with the predictor</p></li>
+<li><p>Test linearity by fitting logistic regression with the predictor, then visually examining if predicted log-odds follows roughly linear pattern</p></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Let’s test this out with income</li>
+</ul>
+</section>
+<section id="set-up-the-predicted-log-odds" class="slide level2">
+<h2>Set up the predicted log-odds</h2>
+<ul>
+<li>First, I run a logistic regression model with <code>PPINCIMP</code> and <code>FOOD_INSEC</code></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>income_glm <span class="ot">=</span> wbns3 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(<span class="at">formula =</span> FOOD_INSEC <span class="sc">~</span> PPINCIMP, <span class="at">family =</span> binomial)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Then I use <code>predict()</code> to calculate the log-odds for each category</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>newdata <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">PPINCIMP =</span> <span class="fu">levels</span>(wbns3<span class="sc">$</span>PPINCIMP)) </span>
+<span id="cb2-2"><a></a>pred <span class="ot">=</span> <span class="fu">predict</span>(income_glm, newdata, <span class="at">se.fit=</span>T, <span class="at">type =</span> <span class="st">"link"</span>)</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a>pred_link <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">PPINCIMP =</span> <span class="fu">levels</span>(wbns3<span class="sc">$</span>PPINCIMP), </span>
+<span id="cb2-5"><a></a>                       <span class="at">Pred =</span> pred<span class="sc">$</span>fit, </span>
+<span id="cb2-6"><a></a>                       <span class="at">LL_CI1 =</span> pred<span class="sc">$</span>fit <span class="sc">-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred<span class="sc">$</span>se.fit, </span>
+<span id="cb2-7"><a></a>                       <span class="at">UL_CI1 =</span> pred<span class="sc">$</span>fit <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred<span class="sc">$</span>se.fit) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a></a>  <span class="fu">mutate</span>(<span class="at">PPINCIMP =</span> <span class="fu">factor</span>(PPINCIMP, <span class="at">levels =</span> <span class="fu">levels</span>(wbns3<span class="sc">$</span>PPINCIMP)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="now-i-can-plot-the-log-odds-vs.-income-what-do-we-notice" class="slide level2">
+<h2>Now I can plot the log-odds vs.&nbsp;income: what do we notice??</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb3-2"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Log-odds of Outcome"</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> pred_link, <span class="fu">aes</span>(<span class="at">x =</span> PPINCIMP, <span class="at">y=</span>Pred), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> pred_link, <span class="fu">aes</span>(<span class="at">x =</span> PPINCIMP, <span class="at">y=</span>Pred, <span class="at">ymin =</span> LL_CI1, <span class="at">ymax =</span> UL_CI1), <span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+
+</div>
+<img data-src="L02_Discussion_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="so-i-need-to-go-back-and-map-the-levels-to-their-midpoints" class="slide level2 smaller">
+<h2>So I need to go back and map the levels to their midpoints</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>wbns4 <span class="ot">&lt;-</span> wbns3 <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">mutate</span>(<span class="at">income_midpoint =</span> <span class="fu">case_when</span>(</span>
+<span id="cb4-3"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"Less than $5,000"</span>     <span class="sc">~</span> <span class="dv">2500</span>,</span>
+<span id="cb4-4"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$5,000 to $7,499"</span>     <span class="sc">~</span> <span class="dv">6250</span>,</span>
+<span id="cb4-5"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$7,500 to $9,999"</span>     <span class="sc">~</span> <span class="dv">8750</span>,</span>
+<span id="cb4-6"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$10,000 to $12,499"</span>   <span class="sc">~</span> <span class="dv">11250</span>,</span>
+<span id="cb4-7"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$12,500 to $14,999"</span>   <span class="sc">~</span> <span class="dv">13750</span>,</span>
+<span id="cb4-8"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$15,000 to $19,999"</span>   <span class="sc">~</span> <span class="dv">17500</span>,</span>
+<span id="cb4-9"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$20,000 to $24,999"</span>   <span class="sc">~</span> <span class="dv">22500</span>,</span>
+<span id="cb4-10"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$25,000 to $29,999"</span>   <span class="sc">~</span> <span class="dv">27500</span>,</span>
+<span id="cb4-11"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$30,000 to $34,999"</span>   <span class="sc">~</span> <span class="dv">32500</span>,</span>
+<span id="cb4-12"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$35,000 to $39,999"</span>   <span class="sc">~</span> <span class="dv">37500</span>,</span>
+<span id="cb4-13"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$40,000 to $49,999"</span>   <span class="sc">~</span> <span class="dv">45000</span>,</span>
+<span id="cb4-14"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$50,000 to $59,999"</span>   <span class="sc">~</span> <span class="dv">55000</span>,</span>
+<span id="cb4-15"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$60,000 to $74,999"</span>   <span class="sc">~</span> <span class="dv">67500</span>,</span>
+<span id="cb4-16"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$75,000 to $84,999"</span>   <span class="sc">~</span> <span class="dv">80000</span>,</span>
+<span id="cb4-17"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$85,000 to $99,999"</span>   <span class="sc">~</span> <span class="dv">92500</span>,</span>
+<span id="cb4-18"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$100,000 to $124,999"</span> <span class="sc">~</span> <span class="dv">112500</span>,</span>
+<span id="cb4-19"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$125,000 to $149,999"</span> <span class="sc">~</span> <span class="dv">137500</span>,</span>
+<span id="cb4-20"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$150,000 to $174,999"</span> <span class="sc">~</span> <span class="dv">162500</span>,</span>
+<span id="cb4-21"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$175,000 to $199,999"</span> <span class="sc">~</span> <span class="dv">187500</span>,</span>
+<span id="cb4-22"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$200,000 to $249,999"</span> <span class="sc">~</span> <span class="dv">225000</span>,</span>
+<span id="cb4-23"><a></a>    PPINCIMP <span class="sc">==</span> <span class="st">"$250,000 or more"</span>     <span class="sc">~</span> <span class="dv">300000</span></span>
+<span id="cb4-24"><a></a>  ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="do-same-prediction-but-now-inclue-midpoints" class="slide level2">
+<h2>Do same prediction, but now inclue midpoints!</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>newdata <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">PPINCIMP =</span> <span class="fu">levels</span>(wbns4<span class="sc">$</span>PPINCIMP)) </span>
+<span id="cb5-2"><a></a>pred <span class="ot">=</span> <span class="fu">predict</span>(income_glm, newdata, <span class="at">se.fit=</span>T, <span class="at">type =</span> <span class="st">"link"</span>)</span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a>pred_link <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">PPINCIMP =</span> <span class="fu">levels</span>(wbns4<span class="sc">$</span>PPINCIMP), </span>
+<span id="cb5-5"><a></a>                       <span class="at">income_midpoint =</span> <span class="fu">sort</span>(<span class="fu">unique</span>(wbns4<span class="sc">$</span>income_midpoint)), </span>
+<span id="cb5-6"><a></a>                       <span class="at">Pred =</span> pred<span class="sc">$</span>fit, </span>
+<span id="cb5-7"><a></a>                       <span class="at">LL_CI1 =</span> pred<span class="sc">$</span>fit <span class="sc">-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred<span class="sc">$</span>se.fit, </span>
+<span id="cb5-8"><a></a>                       <span class="at">UL_CI1 =</span> pred<span class="sc">$</span>fit <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">*</span> pred<span class="sc">$</span>se.fit) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a></a>  <span class="fu">mutate</span>(<span class="at">PPINCIMP =</span> <span class="fu">factor</span>(PPINCIMP, <span class="at">levels =</span> <span class="fu">levels</span>(wbns4<span class="sc">$</span>PPINCIMP)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="and-plot-again-with-midpoints" class="slide level2">
+<h2>And plot again with midpoints!</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb6-2"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Log-odds of Outcome"</span>) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> pred_link, <span class="fu">aes</span>(<span class="at">x =</span> income_midpoint, <span class="at">y=</span>Pred), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> pred_link, <span class="fu">aes</span>(<span class="at">x =</span> income_midpoint, <span class="at">y=</span>Pred, <span class="at">ymin =</span> LL_CI1, <span class="at">ymax =</span> UL_CI1), <span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+
+</div>
+<img data-src="L02_Discussion_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section>
+<section id="now-to-peer-discussion" class="title-slide slide level1 center">
+<h1>Now to peer discussion</h1>
+
+</section>
+<section id="get-into-groups-of-2-4ish" class="slide level2">
+<h2>Get into groups of 2-4ish</h2>
+<ul>
 <li>Try to group with people with whos you do not already work on labs</li>
 <li>Introduce yourself if you do not know each other</li>
 <li>Share you html documents with each other (email, airdrop, etc.)</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_5af7cff7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+<countdown-timer class="countdown" id="timer_c5ca3ca5" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -193,25 +370,7 @@ Nicky Wakim
 <p>&nbsp;</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_136ba75f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="double-check-code-for-variables" class="slide level2">
-<h2>Double check code for variables</h2>
-<ul>
-<li>Did everyone code their variables correctly?</li>
-<li>If you changed something to a factor, does it have the correct levels?</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_7d41f492" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+<countdown-timer class="countdown" id="timer_e6746ae1" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -225,10 +384,7 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_7d778298" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+<countdown-timer class="countdown" id="timer_72cc5242" minutes="10" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -241,10 +397,7 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_bb051ff3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+<countdown-timer class="countdown" id="timer_5fe007c9" minutes="10" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -257,10 +410,7 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_f21c83ea" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+<countdown-timer class="countdown" id="timer_bb2d7fc6" minutes="10" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -272,15 +422,12 @@ Nicky Wakim
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_ac2246f1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+<countdown-timer class="countdown" id="timer_0b7843b7" minutes="10" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -537,190 +684,173 @@ Nicky Wakim
     </script>
 
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>
