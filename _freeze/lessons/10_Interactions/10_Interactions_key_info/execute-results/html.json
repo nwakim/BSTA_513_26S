@@ -1,0 +1,15 @@
+{
+  "hash": "2991f809ad6950ca861ffa21f4116908",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Key Info and Announcements\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\neditor_options: \n  chunk_output_type: console\n---\n\n\n\n## Announcements\n\n- Time tomorrow to grade Quiz 1\n- Don't forget the search function on our site!!\n- Lab 3 should be posted tomorrow!\n\n## Key Dates\n\n- HW 2 due 05/03\n- Lab 3 due 05/10\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -7851,7 +7851,7 @@
     "href": "lessons/10_Interactions/10_Interactions_key_info.html#key-dates",
     "title": "Key Info and Announcements",
     "section": "Key Dates",
-    "text": "Key Dates\n\nLab 2 discussion on 4/30!!\nHW 2 due 5/2\nLab 3 due 5/9\n\nWill post tomorrow!!"
+    "text": "Key Dates\n\nHW 2 due 05/03\nLab 3 due 05/10"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions_key_info.html#last-class",
@@ -8250,14 +8250,14 @@
     "href": "lessons/10_Interactions/10_Interactions_key_info.html",
     "title": "Key Info and Announcements",
     "section": "",
-    "text": "Time tomorrow to grade Quiz 1\nDon’t forget the search function on our site!!\n\n\n\n\nAdri Jones and Student Success Center will be hosting more Community & Chat events (IYKYK) in Vanport 620M for the following dates from 11:00 AM-12:30 PM:\n\nMay 7\nMay 21\nJune 4\nJune 18\nIYKYK = “if you known you know”\n\nRe: SPH pop up shop is open through May 15\n\nLink: https://www.promoplace.com/ohsu-psu-soph-company\nIf you want to be on a group order, email me with screenshot(s) of what you want with every option selected. By Monday May 5th class time."
+    "text": "Time tomorrow to grade Quiz 1\nDon’t forget the search function on our site!!\nLab 3 should be posted tomorrow!"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions_key_info.html#announcements",
     "href": "lessons/10_Interactions/10_Interactions_key_info.html#announcements",
     "title": "Key Info and Announcements",
     "section": "",
-    "text": "Time tomorrow to grade Quiz 1\nDon’t forget the search function on our site!!\n\n\n\n\nAdri Jones and Student Success Center will be hosting more Community & Chat events (IYKYK) in Vanport 620M for the following dates from 11:00 AM-12:30 PM:\n\nMay 7\nMay 21\nJune 4\nJune 18\nIYKYK = “if you known you know”\n\nRe: SPH pop up shop is open through May 15\n\nLink: https://www.promoplace.com/ohsu-psu-soph-company\nIf you want to be on a group order, email me with screenshot(s) of what you want with every option selected. By Monday May 5th class time."
+    "text": "Time tomorrow to grade Quiz 1\nDon’t forget the search function on our site!!\nLab 3 should be posted tomorrow!"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#revisit-from-512612-what-is-a-confounder",
@@ -13158,5 +13158,12 @@
     "title": "Lab 2: Feedback and Discussion",
     "section": "And plot again with midpoints!",
     "text": "And plot again with midpoints!\n\n\nCode\nggplot() + \n  labs(y = \"Log-odds of Outcome\") +\n  geom_point(data = pred_link, aes(x = income_midpoint, y=Pred), size=3) +\n  geom_errorbar(data = pred_link, aes(x = income_midpoint, y=Pred, ymin = LL_CI1, ymax = UL_CI1), width = 0.25) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "lessons/L02_Discussion/L02_Discussion.html#notes-from-the-tas",
+    "href": "lessons/L02_Discussion/L02_Discussion.html#notes-from-the-tas",
+    "title": "Lab 2: Feedback and Discussion",
+    "section": "Notes from the TAs",
+    "text": "Notes from the TAs\n\nPlease make sure to state which model building strategy you are using!\nTAs say your interpretations have been great!"
   }
 ]

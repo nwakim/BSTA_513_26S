@@ -42,8 +42,10 @@ library(epiDisplay)
 
 ```
 
-## Notes from me and the TAs
+## Notes from the TAs
 
+- Please make sure to state which model building strategy you are using!
+- TAs say your interpretations have been great!
 
 
 
