@@ -281,11 +281,11 @@ No interaction and three potential effects of interaction between two covariates
 
  
 
--   Risk factor: sex 
+-   Risk factor: sex  
 
  
 
--   Covariate to be controlled: age
+-   Covariate to be controlled: age 
 
 
 :::

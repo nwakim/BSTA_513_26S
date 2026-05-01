@@ -4540,7 +4540,7 @@
     "href": "project/Lab_03_instructions.html",
     "title": "Lab 3 Instructions",
     "section": "",
-    "text": "Caution\n\n\n\nThis lab is NOT ready to be worked on!! (3/30/2026)"
+    "text": "Caution\n\n\n\nReady to be worked on!! (5/1/2026)"
   },
   {
     "objectID": "project/Lab_03_instructions.html#directions",
@@ -4554,7 +4554,7 @@
     "href": "project/Lab_03_instructions.html#lab-activities",
     "title": "Lab 3 Instructions",
     "section": "2 Lab activities",
-    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate research question\n\n\n\n\n\n\nImportantTask\n\n\n\nPlease restate your research question below using the provided format (1 sentence). You can change the wording if you’d like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.\n\n\nIn this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Fit a multiple logistic regression model\nRecall, we have not removed missing observations. In homework 1, we discussed what glm() does with missing values automatically.\n\n\n\n\n\n\nImportantTask\n\n\n\nFit a main effects model with 5 of your covariates. This will not necessarily be your final model, but we can construct interpretations and code that will be useful in your final model.\n\n\n\n\n2.3 Present the odds ratio in a table\n\n\n\n\n\n\nImportantTask\n\n\n\nUse the tbl_regression() function to make a table of the odds ratios from your fitted model.\n\n\n\n\n2.4 Present the odds ratio in a forest plot\n\n\n\n\n\n\nImportantTask\n\n\n\nUse the code from our lesson on Multiple Logistic Regression (Lesson 9) to make a forest plot of the odds ratio from your fitted model. Make sure your main variable looks presentable! The other ones do not need to look perfect since they may not be in your final model.\n\n\n\n\n2.5 Interpret the odds ratio for your main covariate\n\n\n\n\n\n\nImportantTask\n\n\n\nInterpret the estimated odds ratio(s) for the covariate from your research question. Make sure to include the 95% confidence intervals and what other variables you adjusted for."
+    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate project type\n\n\n\n\n\n\nImportantTask\n\n\n\nRestate your project type: LASSO or purposeful model selection.\nPurposeful model selection only: Please restate your research question below using the provided format (1 sentence). You can change the wording if you’d like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.\n\n\nProject type: LASSO or purposeful model selection\nPurposeful model selection only: In this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Can I make this categorical variable into a numeric one?\n\n\n\n\n\n\nNote\n\n\n\nThis is NOT a required part of the lab! You can leave these variables as categorical if you want.\n\n\nI want us to follow the steps laid out in our Lab 2 Discussion to determine if we can use a numeric representation for a few categorical variables.\nThere are a few variables in our dataset that are categorical but have a natural ordering:\n\nPPEDUCAT\nPPINCIMP\nNUM_CHILD_HH\nNUM_OWN_CHILD\nNUM_FAM_SIZE\n\nIf you want to use these as numeric values, you need to convince yourself that the relationship between the predictor and log-odds of food insecurity is linear. Please complete the following steps:\n\nFit a logistic regression model with the predictor of interest as the only covariate (as categorical) and food insecurity as the outcome.\nUse predict() to get the predicted log-odds of food insecurity for each observation.\nPlot the predicted log-odds against the predictor. If the levels are not equally spaced, you can plot the predicted log-odds against the numeric representation of the predictor.\nExamine the plot to determine if the relationship looks roughly linear. If it does, you can use the numeric representation of the predictor in your model. If it does not, you should keep the predictor as categorical.\n\n\n\n\n\n\n\nImportantTask\n\n\n\nIf you decide to use a numeric representation for any categorical variables, please complete the steps for that variable and include the plot from the final step.\n\n\n\n\n2.3 Fit a multiple logistic regression model\nRecall, we have not removed missing observations. In homework 1, we discussed what glm() does with missing values automatically.\n\n\n\n\n\n\nImportantTask\n\n\n\nFit a main effects model with 5 of your covariates. This will not necessarily be your final model, but we can construct interpretations and code that will be useful in your final model.\n\n\n\n\n2.4 Present the odds ratio in a table\n\n\n\n\n\n\nImportantTask\n\n\n\nUse the tbl_regression() function to make a table of the odds ratios from your fitted model.\n\n\n\n\n2.5 Present the odds ratio in a forest plot\nIf you are using LASSO, the output from the R functions will not be in the same format as a typical glm() output. You will need to extract the coefficients and confidence intervals from the LASSO output and create a forest plot manually. So we won’t use ggplot the same way we’ve learned with glm() output. The following code is a good place to start for a forest plot mirroring the output type we’d get from LASSO. I’ve named the output of my model glm_mod.\n\ntidy_df &lt;- tidy(glm_mod, conf.int = T, exponentiate = T) %&gt;%\n  filter(term != \"(Intercept)\")\n\nggplot(tidy_df, aes(y = term, x = estimate)) +\n  geom_vline(xintercept = 1, linetype = \"dashed\", color = \"red\") +\n  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.15) +\n  geom_point(size = 3) +\n  theme_minimal() +\n  theme(axis.text.y = element_text(face = \"bold\"))\n\nIf you are doing Purposeful model selection, you can use the code from our lesson on Multiple Logistic Regression (Lesson 9) to make a forest plot of the odds ratio from your fitted model.\n\n\n\n\n\n\nImportantTask\n\n\n\nMake a forest plot of the odds ratio from your fitted model. Make sure your main variable looks presentable! The other ones do not need to look perfect since they may not be in your final model.\n\n\n\n\n2.6 Interpret the odds ratio for your main covariate\n\n\n\n\n\n\nImportantTask\n\n\n\nInterpret the estimated odds ratio(s) for the covariate from your research question. Make sure to include the 95% confidence intervals and what other variables you adjusted for.\nRemember that this is not necessarily your final model. I just want to set us up with a good template for how to interpret our results after Lab 4."
   },
   {
     "objectID": "project/Lab_02_instructions.html",
@@ -7912,7 +7912,7 @@
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html",
     "href": "lessons/10_Interactions/10_Interactions.html",
-    "title": "Lesson 11: Interactions",
+    "title": "Lesson 10: Interactions",
     "section": "",
     "text": "Connect understanding of confounding and interactions from linear regression to logistic regression.\nDetermine if an additional independent variable is a not a confounder nor effect modifier, is a confounder but not effect modifier, or is an effect modifier.\nCalculate and interpret fitted interactions, including plotting the log-odds, predicted probability, and odds ratios."
   },
@@ -8026,7 +8026,7 @@
     "href": "lessons/10_Interactions/10_Interactions.html#step-1-testing-the-interaction",
     "title": "Lesson 10: Interactions",
     "section": "Step 1: Testing the interaction",
-    "text": "Step 1: Testing the interaction\n\nWe test with \\(\\alpha = 0.10\\)\nFollow the LRT procedure in Lesson 6, slide 38\nUse the hypothesis tests for the specific covariate combo:\n\n\n\n\n\nBinary & continuous variable\n\n\nTesting a single coefficient for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)\n\n\n\n\n\nBinary & continuous variables\n\n\nTesting a group of coefficients for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)\n\n\n\n\n\n\n\nBinary & multi-level variable\n\n\nTesting a group of coefficients for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)\n\n\n\n\n\nTwo continuous variables\n\n\nTesting a single coefficient for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)"
+    "text": "Step 1: Testing the interaction\n\nWe test with \\(\\alpha = 0.10\\)\nFollow the LRT procedure in Lesson 6, slide 38\nUse the hypothesis tests for the specific covariate combo:\n\n\n\n\n\nBinary & continuous variable\n\n\nTesting a single coefficient for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)\n\n\n\n\n\nBinary & continuous variables\n\n\nTesting a group of coefficients for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)\n\n\n\n\n\n\n\n\nBinary & multi-level variable\n\n\nTesting a group of coefficients for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)\n\n\n\n\n\nTwo continuous variables\n\n\nTesting a single coefficient for the interaction term using LRT comparing full model (with interaction) to reduced model (without interaction)"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#poll-everywhere-question-2-1",
@@ -8075,14 +8075,14 @@
     "href": "lessons/10_Interactions/10_Interactions.html#example-glow-study-calculate-the-proportions",
     "title": "Lesson 10: Interactions",
     "section": "Example: GLOW Study: Calculate the proportions",
-    "text": "Example: GLOW Study: Calculate the proportions\n\nglow2 = glow %&gt;% \n  group_by(age, priorfrac, fracture) %&gt;% # last one needs to be outcome\n  summarise(n = n()) %&gt;%\n  mutate(freq = n / sum(n)) %&gt;% # takes the proportion of yes/no\n  filter(fracture == \"Yes\") # Filtering so only \"success\" shown\n  #filter(freq != 1 | n != 1) \n\nhead(glow2)\n\n# A tibble: 6 × 5\n# Groups:   age, priorfrac [6]\n    age priorfrac fracture     n  freq\n  &lt;int&gt; &lt;fct&gt;     &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;\n1    56 No        Yes          3 0.15 \n2    56 Yes       Yes          1 1    \n3    57 No        Yes          3 0.158\n4    57 Yes       Yes          1 0.333\n5    58 No        Yes          3 0.15 \n6    59 Yes       Yes          2 0.667"
+    "text": "Example: GLOW Study: Calculate the proportions\n\nglow2 = glow %&gt;% \n  group_by(age, priorfrac, fracture) %&gt;% # last one needs to be outcome\n  summarise(n = n()) %&gt;%\n  mutate(freq = n / sum(n)) %&gt;% # takes the proportion of yes/no\n  filter(fracture == \"Yes\") # Filtering so only \"success\" shown\n\n`summarise()` has regrouped the output.\nℹ Summaries were computed grouped by age, priorfrac, and fracture.\nℹ Output is grouped by age and priorfrac.\nℹ Use `summarise(.groups = \"drop_last\")` to silence this message.\nℹ Use `summarise(.by = c(age, priorfrac, fracture))` for per-operation grouping\n  (`?dplyr::dplyr_by`) instead.\n\n  #filter(freq != 1 | n != 1) \n\nhead(glow2)\n\n# A tibble: 6 × 5\n# Groups:   age, priorfrac [6]\n    age priorfrac fracture     n  freq\n  &lt;int&gt; &lt;fct&gt;     &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;\n1    56 No        Yes          3 0.15 \n2    56 Yes       Yes          1 1    \n3    57 No        Yes          3 0.158\n4    57 Yes       Yes          1 0.333\n5    58 No        Yes          3 0.15 \n6    59 Yes       Yes          2 0.667"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#example-glow-study-plot-the-proportions",
     "href": "lessons/10_Interactions/10_Interactions.html#example-glow-study-plot-the-proportions",
     "title": "Lesson 10: Interactions",
     "section": "Example: GLOW Study: Plot the proportions",
-    "text": "Example: GLOW Study: Plot the proportions\n\nggplot(data = glow2, aes(y = freq, x = age, color = priorfrac)) +\n  geom_point() + ylim(0, 1) + geom_smooth(se = F) +\n  labs(x = \"Age (years)\", y = \"Proportion of fracture\", \n       color = \"Prior fracture\", title = \"Sample proportion of fracture by age and prior fracture\") +\n  theme(axis.title = element_text(size = 18), axis.text = element_text(size = 18), \n        title = element_text(size = 18), legend.text=element_text(size=18))\n\n\n\nFrom sample proportions, looks like age and prior fracture may have an interaction!"
+    "text": "Example: GLOW Study: Plot the proportions\n\nggplot(data = glow2, aes(y = freq, x = age, color = priorfrac)) +\n  geom_point() + ylim(0, 1) + geom_smooth(se = F) +\n  labs(x = \"Age (years)\", y = \"Proportion of fracture\", \n       color = \"Prior fracture\", title = \"Sample proportion of fracture by age and prior fracture\") +\n  theme(axis.title = element_text(size = 18), axis.text = element_text(size = 18), \n        title = element_text(size = 18), legend.text=element_text(size=18))\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nFrom sample proportions, looks like age and prior fracture may have an interaction!"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#example-glow-study-1",
@@ -8166,7 +8166,7 @@
     "href": "lessons/10_Interactions/10_Interactions.html#plot-of-estimated-log-odds",
     "title": "Lesson 10: Interactions",
     "section": "Plot of estimated log odds",
-    "text": "Plot of estimated log odds\n\nprior_age = expand_grid(priorfrac = c(\"No\", \"Yes\"), age_c = (55:90)-69)\nfrac_pred_log = predict(glow_m3, prior_age, se.fit = T, type=\"link\")\npred_glow2 = prior_age %&gt;% mutate(frac_pred_log = frac_pred_log$fit, \n                                  age = age_c + mean_age)\n\nggplot(pred_glow2) + #geom_point(aes(x = age, y = frac_pred, color = priorfrac)) +\n  geom_smooth(method = \"loess\", aes(x = age, y = frac_pred_log, color = priorfrac)) +\n  theme(text = element_text(size=20), title = element_text(size=16)) +\n  labs(color = \"Prior Fracture\", x = \"Age (years)\", y = \"Log-Odds of Fracture\")"
+    "text": "Plot of estimated log odds\n\nprior_age = expand_grid(priorfrac = c(\"No\", \"Yes\"), age_c = (55:90)-69)\nfrac_pred_log = predict(glow_m3, prior_age, se.fit = T, type=\"link\")\npred_glow2 = prior_age %&gt;% mutate(frac_pred_log = frac_pred_log$fit, \n                                  age = age_c + mean_age)\n\nggplot(pred_glow2) + #geom_point(aes(x = age, y = frac_pred, color = priorfrac)) +\n  geom_smooth(method = \"loess\", aes(x = age, y = frac_pred_log, color = priorfrac)) +\n  theme(text = element_text(size=20), title = element_text(size=16)) +\n  labs(color = \"Prior Fracture\", x = \"Age (years)\", y = \"Log-Odds of Fracture\")\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#poll-everywhere-question-6-bonus-q-if-were-feeling-it",
@@ -8180,7 +8180,7 @@
     "href": "lessons/10_Interactions/10_Interactions.html#plot-the-predicted-probability-of-fracture",
     "title": "Lesson 10: Interactions",
     "section": "Plot the predicted probability of fracture",
-    "text": "Plot the predicted probability of fracture\n\nfrac_pred = predict(glow_m3, prior_age, se.fit = T, type=\"response\")\npred_glow = prior_age %&gt;% mutate(frac_pred = frac_pred$fit, \n                                  age = age_c + mean_age)\n\nggplot(pred_glow) + #geom_point(aes(x = age, y = frac_pred, color = priorfrac)) +\n  geom_smooth(method = \"loess\", aes(x = age, y = frac_pred, color = priorfrac)) +\n  theme(text = element_text(size=20), title = element_text(size=16)) + ylim(0,1) +\n  labs(color = \"Prior Fracture\", x = \"Age (years)\", y = \"Predicted Probability of Fracture\")"
+    "text": "Plot the predicted probability of fracture\n\nfrac_pred = predict(glow_m3, prior_age, se.fit = T, type=\"response\")\npred_glow = prior_age %&gt;% mutate(frac_pred = frac_pred$fit, \n                                  age = age_c + mean_age)\n\nggplot(pred_glow) + #geom_point(aes(x = age, y = frac_pred, color = priorfrac)) +\n  geom_smooth(method = \"loess\", aes(x = age, y = frac_pred, color = priorfrac)) +\n  theme(text = element_text(size=20), title = element_text(size=16)) + ylim(0,1) +\n  labs(color = \"Prior Fracture\", x = \"Age (years)\", y = \"Predicted Probability of Fracture\")\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#odds-ratio-in-the-presence-of-interaction-12",
@@ -8236,14 +8236,14 @@
     "href": "lessons/10_Interactions/10_Interactions.html#plotting-the-odds-ratio-for-an-interaction",
     "title": "Lesson 10: Interactions",
     "section": "Plotting the odds ratio for an interaction",
-    "text": "Plotting the odds ratio for an interaction\n\nggplot(pred_glow2) +\n  geom_hline(yintercept = 1) +\n  geom_smooth(method = \"loess\", aes(x = age, y = OR_YN)) +\n  theme(text = element_text(size=20), title = element_text(size=16)) +\n  labs(x = \"Age (years)\", y = \"Estimated odds ratio\", title = \"Odds ratio of fracture outcome comparing \\n prior fracture to no prior fracture\")"
+    "text": "Plotting the odds ratio for an interaction\n\nggplot(pred_glow2) +\n  geom_hline(yintercept = 1) +\n  geom_smooth(method = \"loess\", aes(x = age, y = OR_YN)) +\n  theme(text = element_text(size=20), title = element_text(size=16)) +\n  labs(x = \"Age (years)\", y = \"Estimated odds ratio\", title = \"Odds ratio of fracture outcome comparing \\n prior fracture to no prior fracture\")\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#how-would-i-report-these-results",
     "href": "lessons/10_Interactions/10_Interactions.html#how-would-i-report-these-results",
     "title": "Lesson 10: Interactions",
     "section": "How would I report these results?",
-    "text": "How would I report these results?\n\nRemember our main covariate is prior fracture, so we want to focuse on how age changes the relationship between prior fracture and a new fracture!\n\n\n\nFor individuals 69 years old, the estimated odds of a new fracture for individuals with prior fracture is 2.72 times the estimated odds of a new fracture for individuals with no prior fracture (95% CI: 1.70, 4.35). As seen in Figure 1 (a), the estimated odds ratio of a new fracture when comparing prior fracture status decreases with age, indicating that the effect of prior fractures on new fractures decreases as individuals get older. In Figure 1 (b), it is evident that for both prior fracture statuses, the predicted probability of a new fracture increases as age increases. However, the predicted probability of new fracture for those without a prior fracture increases at a higher rate than that of individuals with a prior fracture. Thus, the predicted probabilities of a new fracture converge at age [insert age here].\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Odds ratio of fracture outcome comparing prior fracture to no prior fracture\n\n\n\n\n\n\n\n\n\n\n\n(b) Predicted probability of fracture\n\n\n\n\n\n\n\nFigure 1: Plots of odds ratio and predicted probability from fitted interaction model"
+    "text": "How would I report these results?\n\nRemember our main covariate is prior fracture, so we want to focuse on how age changes the relationship between prior fracture and a new fracture!\n\n\n\nFor individuals 69 years old, the estimated odds of a new fracture for individuals with prior fracture is 2.72 times the estimated odds of a new fracture for individuals with no prior fracture (95% CI: 1.70, 4.35). As seen in Figure 1 (a), the estimated odds ratio of a new fracture when comparing prior fracture status decreases with age, indicating that the effect of prior fractures on new fractures decreases as individuals get older. In Figure 1 (b), it is evident that for both prior fracture statuses, the predicted probability of a new fracture increases as age increases. However, the predicted probability of new fracture for those without a prior fracture increases at a higher rate than that of individuals with a prior fracture. Thus, the predicted probabilities of a new fracture converge at age [insert age here].\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n(a) Odds ratio of fracture outcome comparing prior fracture to no prior fracture\n\n\n\n\n\n\n\n\n\n\n\n(b) Predicted probability of fracture\n\n\n\n\n\n\n\nFigure 1: Plots of odds ratio and predicted probability from fitted interaction model"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions_key_info.html",
@@ -8285,7 +8285,7 @@
     "href": "lessons/10_Interactions/10_Interactions.html#calculate-odds-ratios-across-values-estimable",
     "title": "Lesson 10: Interactions",
     "section": "Calculate odds ratios across values (estimable())",
-    "text": "Calculate odds ratios across values (estimable())\n\nWe could use estimable() to calculate this linear combination of coefficients (see BSTA 512 Lesson)\n\n\nlibrary(gmodels)\nglow_m3 %&gt;% estimable(\n               cbind(\"(Intercept)\"                = 0,   # beta0\n                     \"priorfracYes\"               = 1,   # beta1\n                     \"age_c\"                      = 0,   # beta2\n                     \"priorfracYes:age_c\"         = (55:90)-69), \n                   conf.int = 0.95) %&gt;% \n  exp(.) %&gt;%\n  head(5)\n\n            Estimate Std. Error X^2 value       DF Pr(&gt;|X^2|) Lower.CI Upper.CI\n(0 1 0 -14) 6.081961   1.613392   1535383 2.718282   1.000161 2.354473 15.71063\n(0 1 0 -13) 5.742790   1.578600   2324162 2.718282   1.000129 2.321435 14.20657\n(0 1 0 -12) 5.422533   1.545094   3605103 2.718282   1.000102 2.287290 12.85533\n(0 1 0 -11) 5.120136   1.512903   5721950 2.718282   1.000080 2.251861 11.64184\n(0 1 0 -10) 4.834603   1.482070   9262667 2.718282   1.000062 2.214941 10.55260"
+    "text": "Calculate odds ratios across values (estimable())\n\nWe could use estimable() to calculate this linear combination of coefficients (see BSTA 512 Lesson)\n\n\nlibrary(gmodels)\n\n\nAttaching package: 'gmodels'\n\n\nThe following object is masked from 'package:epiDisplay':\n\n    ci\n\nglow_m3 %&gt;% estimable(\n               cbind(\"(Intercept)\"                = 0,   # beta0\n                     \"priorfracYes\"               = 1,   # beta1\n                     \"age_c\"                      = 0,   # beta2\n                     \"priorfracYes:age_c\"         = (55:90)-69), \n                   conf.int = 0.95) %&gt;% \n  exp(.) %&gt;%\n  head(5)\n\n            Estimate Std. Error X^2 value       DF Pr(&gt;|X^2|) Lower.CI Upper.CI\n(0 1 0 -14) 6.081961   1.613392   1535383 2.718282   1.000161 2.354473 15.71063\n(0 1 0 -13) 5.742790   1.578600   2324162 2.718282   1.000129 2.321435 14.20657\n(0 1 0 -12) 5.422533   1.545094   3605103 2.718282   1.000102 2.287290 12.85533\n(0 1 0 -11) 5.120136   1.512903   5721950 2.718282   1.000080 2.251861 11.64184\n(0 1 0 -10) 4.834603   1.482070   9262667 2.718282   1.000062 2.214941 10.55260"
   },
   {
     "objectID": "lessons/10_Interactions/10_Interactions.html#calculate-odds-ratios-across-values-predict",
@@ -8383,7 +8383,7 @@
     "href": "project/LastName_FirstInit_Lab_03.html#lab-activities",
     "title": "Lab 3",
     "section": "2 Lab activities",
-    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate research question\n\n\n\n\n\n\nTask\n\n\n\nPlease restate your research question below using the provided format (1 sentence). You can change the wording if you’d like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.\n\n\nIn this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Fit a multiple logistic regression model\n\n\n\n\n\n\nTask\n\n\n\nFit a main effects model with 5 of your covariates. This will not necessarily be your final model, but we can construct interpretations and code that will be useful in your final model.\n\n\n\n\n2.3 Present the odds ratio in a table\n\n\n\n\n\n\nTask\n\n\n\nUse the tbl_regression() function to make a table of the odds ratios from your fitted model.\n\n\n\n\n2.4 Present the odds ratio in a forest plot\n\n\n\n\n\n\nTask\n\n\n\nUse the code from our lesson on Multiple Logistic Regression (Lesson 9) to make a forest plot of the odds ratio from your fitted model. Make sure your main variable looks presentable! The other ones do not need to look perfect since they may not be in your final model.\n\n\n\n\n2.5 Interpret the odds ratio for your main covariate\n\n\n\n\n\n\nTask\n\n\n\nInterpret the estimated odds ratio(s) for the covariate from your research question. Make sure to include the 95% confidence intervals and what other variables you adjusted for."
+    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate project type\n\n\n\n\n\n\nImportantTask\n\n\n\nRestate your project type: LASSO or purposeful model selection.\nPurposeful model selection only: Please restate your research question below using the provided format (1 sentence). You can change the wording if you’d like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.\n\n\nProject type: LASSO or purposeful model selection\nPurposeful model selection only: In this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Can I make this categorical variable into a numeric one?\n\n\n\n\n\n\nImportantTask\n\n\n\nIf you decide to use a numeric representation for any categorical variables, please complete the steps for that variable and include the plot from the final step.\n\n\n\n\n2.3 Fit a multiple logistic regression model\n\n\n\n\n\n\nImportantTask\n\n\n\nFit a main effects model with 5 of your covariates. This will not necessarily be your final model, but we can construct interpretations and code that will be useful in your final model.\n\n\n\n\n2.4 Present the odds ratio in a table\n\n\n\n\n\n\nImportantTask\n\n\n\nUse the tbl_regression() function to make a table of the odds ratios from your fitted model.\n\n\n\n\n2.5 Present the odds ratio in a forest plot\n\n\n\n\n\n\nImportantTask\n\n\n\nMake a forest plot of the odds ratio from your fitted model. Make sure your main variable looks presentable! The other ones do not need to look perfect since they may not be in your final model.\n\n\n\n\n2.6 Interpret the odds ratio for your main covariate\n\n\n\n\n\n\nImportantTask\n\n\n\nInterpret the estimated odds ratio(s) for the covariate from your research question. Make sure to include the 95% confidence intervals and what other variables you adjusted for.\nRemember that this is not necessarily your final model. I just want to set us up with a good template for how to interpret our results after Lab 4."
   },
   {
     "objectID": "project/Lab_03_rubric.html",
@@ -13165,5 +13165,82 @@
     "title": "Lab 2: Feedback and Discussion",
     "section": "Notes from the TAs",
     "text": "Notes from the TAs\n\nPlease make sure to state which model building strategy you are using!\nTAs say your interpretations have been great!"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#bias-variance-trade-off",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#bias-variance-trade-off",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Bias-variance trade off",
+    "text": "Bias-variance trade off\n\nRecall from 512/612: MSE can be written as a function of the bias and variance \\[MSE = \\text{bias}\\big(\\widehat\\beta\\big)^2 + \\text{variance}\\big(\\widehat\\beta\\big)\\]\nFor the same data:\n\nMore covariates: less bias, more variance (Overfitting)\nFewer covariates: more bias, less variance (Underfitting)"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#the-goals-of-association-vs.-prediction",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#the-goals-of-association-vs.-prediction",
+    "title": "Lesson 14: Model Building V2",
+    "section": "The goals of association vs. prediction",
+    "text": "The goals of association vs. prediction\n\n\n\n\nAssociation / Explanatory\n\n\nGoal: Understand a specific variable’s effect after adjusting for others.\nFocus on odds ratios and p-values.\n\n\n\n\n\nPrediction\n\n\nGoal: Most precise prediction of the response variable.\nInterpreting coefficients is secondary.\nShrinkage methods (like LASSO) help by removing noise."
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#why-glmnet",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#why-glmnet",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Why glmnet?",
+    "text": "Why glmnet?\n\nIt is the “industry standard” for penalized regression.\nIt is computationally efficient and fast.\nKey Difference: It does not use the y ~ x1 + x2 formula syntax. It requires:\n\nA numeric matrix of predictors (\\(X\\)).\nA numeric vector for the outcome (\\(Y\\))."
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#preparing-the-data-matrix-format",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#preparing-the-data-matrix-format",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Preparing the Data: Matrix format",
+    "text": "Preparing the Data: Matrix format\nSince glmnet needs a matrix, we use model.matrix() to handle our categorical variables automatically.\n\n# Define the outcome\ny &lt;- glow1$fracture\n\n# Define the predictor matrix (removing intercept and ID columns)\n# The [-1] removes the intercept column created by model.matrix\nx &lt;- model.matrix(fracture ~ priorfrac + age_c + premeno + momfrac + armassist + smoke, \n                  data = glow1)[, -1]\n\nhead(x)\n\n  priorfracYes age_c premenoYes momfracYes armassistYes smokeYes\n1            0    -7          0          0            0        0\n2            0    -4          0          0            0        0\n3            1    19          0          1            1        0\n4            0    13          0          0            0        0\n5            0    -8          0          0            0        0\n6            1    -2          0          0            0        1"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#three-types-of-penalized-regression",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#three-types-of-penalized-regression",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Three types of penalized regression",
+    "text": "Three types of penalized regression\nThe alpha parameter in glmnet determines the method:\n\nLasso (alpha = 1): Shrinks coefficients to exactly zero. Great for variable selection.\nRidge (alpha = 0): Shrinks coefficients toward zero, but never exactly zero.\nElastic Net (0 &lt; alpha &lt; 1): A weighted average of both."
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#step-1-splitting-data",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#step-1-splitting-data",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Step 1: Splitting data",
+    "text": "Step 1: Splitting data\nWe split the matrix and vector into training and testing sets.\n\ntrain_rows &lt;- sample(1:nrow(x), 0.8 * nrow(x))\n\nx_train &lt;- x[train_rows, ]\nx_test  &lt;- x[-train_rows, ]\n\ny_train &lt;- y[train_rows]\ny_test  &lt;- y[-train_rows]"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#step-2-fit-lasso-and-tune-lambda",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#step-2-fit-lasso-and-tune-lambda",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Step 2: Fit LASSO and Tune \\(\\lambda\\)",
+    "text": "Step 2: Fit LASSO and Tune \\(\\lambda\\)\nInstead of picking a random penalty, we use Cross-Validation (cv.glmnet) to find the best \\(\\lambda\\).\n\n# family = \"binomial\" for logistic regression\n# alpha = 1 for LASSO\ncv_fit &lt;- cv.glmnet(x_train, y_train, family = \"binomial\", alpha = 1, \n                    thresh = 1e-12)\n\ny = as.numeric(y_train)-1\nx = x_train\nbeta = coef(cv_fit, s = \"lambda.min\", exact = TRUE, x = x, y = y)\nlambda = cv_fit$lambda.min\n\n# Example for Lasso inference\nlibrary(selectiveInference)\n# You need the original x, y, and the fixed lambda\nout = fixedLassoInf(x, y, beta, lambda, family=\"binomial\")\nout \n\n\nCall:\nfixedLassoInf(x = x, y = y, beta = beta, lambda = lambda, family = \"binomial\")\n\nTesting results at lambda = 0.003, with alpha = 0.100\n\n Var   Coef Z-score P-value LowConfPt UpConfPt LowTailArea UpTailArea\n   1  0.846   3.182   0.002     0.393    1.288       0.049      0.048\n   2  0.044   3.029   0.004     0.018    0.068       0.050      0.049\n   3  0.282   0.894   0.445    -1.137    0.770       0.050      0.049\n   4  0.879   2.690   0.008     0.297    1.417       0.049      0.050\n   5  0.292   1.144   0.274    -0.492    0.705       0.049      0.049\n   6 -0.510  -0.990   0.382    -1.318    1.517       0.050      0.049\n\nNote: coefficients shown are full regression coefficients\n\nplot(cv_fit)"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#step-3-identify-selected-variables",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#step-3-identify-selected-variables",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Step 3: Identify Selected Variables",
+    "text": "Step 3: Identify Selected Variables\nWe can view the coefficients at the “best” lambda (the one that minimizes deviance).\n\n# Variables with a \".\" were dropped by the model\ncoef(cv_fit, s = \"lambda.min\")\n\n7 x 1 sparse Matrix of class \"dgCMatrix\"\n              lambda.min\n(Intercept)  -1.58257628\npriorfracYes  0.81464874\nage_c         0.04164144\npremenoYes    0.21639733\nmomfracYes    0.82055920\narmassistYes  0.26745005\nsmokeYes     -0.40842764"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#step-4-prediction-and-evaluation",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#step-4-prediction-and-evaluation",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Step 4: Prediction and Evaluation",
+    "text": "Step 4: Prediction and Evaluation\nFinally, we test our model’s performance on the testing set.\n\n# Get predicted probabilities\npreds &lt;- predict(cv_fit, newx = x_test, s = \"lambda.min\", type = \"response\")\n\n# Calculate AUC\nlasso_roc &lt;- roc(y_test, as.vector(preds))\nlasso_roc$auc\n\nArea under the curve: 0.6615"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#step-5-visualizing-the-roc-curve",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#step-5-visualizing-the-roc-curve",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Step 5: Visualizing the ROC Curve",
+    "text": "Step 5: Visualizing the ROC Curve\n\nplot(lasso_roc, col = \"#C2352F\", lwd = 3, main = \"LASSO Performance (Testing Set)\")"
+  },
+  {
+    "objectID": "lessons/14_Model_building/14_Model_Building_V2.html#summary",
+    "href": "lessons/14_Model_building/14_Model_Building_V2.html#summary",
+    "title": "Lesson 14: Model Building V2",
+    "section": "Summary",
+    "text": "Summary\n\nglmnet requires data as a matrix (x) and a vector (y).\nWe use cv.glmnet to automatically find the best penalty (\\(\\lambda\\)).\nLASSO performing variable selection by forcing some coefficients to zero.\nPrediction accuracy is assessed on a held-out testing set."
   }
 ]

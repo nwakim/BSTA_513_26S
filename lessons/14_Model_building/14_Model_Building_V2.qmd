@@ -1,0 +1,306 @@
+---
+title: "Lesson 14: Model Building V2"
+subtitle: "With an emphasis on prediction"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#C2352F"
+date: "05/14/2025"
+format: 
+  revealjs:
+    theme: "../simple_NW.scss"
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: "Lesson 14: Model Building"
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(gt)
+library(gtsummary)
+library(tidyverse)
+library(glmnet) # The standard engine for LASSO
+library(pROC)   # For evaluation
+library(here)
+library(aplore3)
+library(openintro)
+library(tidyr)
+
+theme_set(theme_minimal())
+
+mean_age = mean(glow500$age) %>% round()
+glow1 = glow500 %>% mutate(age_c = age - mean_age)
+
+set.seed(513613)
+```
+
+# Learning Objectives
+
+1. Understand the place of LASSO regression within association and prediction modeling for binary outcomes.
+
+2. **Understand the standard workflow for the `glmnet` package.**
+
+3. Understand how penalized regression is a form of model/variable selection.
+
+4. Perform LASSO regression using `glmnet` and find the optimal penalty ($\lambda$).
+
+# Learning Objectives
+
+::: lob
+1. Understand the place of LASSO regression within association and prediction modeling for binary outcomes.
+:::
+
+## Bias-variance trade off
+
+- Recall from 512/612: MSE can be written as a function of the bias and variance
+  $$MSE = \text{bias}\big(\widehat\beta\big)^2 + \text{variance}\big(\widehat\beta\big)$$
+
+- **For the same data:**
+    - **More covariates:** less bias, more variance (Overfitting)
+    - **Fewer covariates:** more bias, less variance (Underfitting)
+
+
+
+## The goals of association vs. prediction
+
+::::::::::: columns
+:::::: column
+::::: definition
+::: def-title
+Association / Explanatory
+:::
+- **Goal:** Understand a specific variable's effect after adjusting for others.
+- Focus on odds ratios and p-values.
+:::::
+::::::
+
+:::::: column
+::::: proposition
+::: prop-title
+Prediction
+:::
+- **Goal:** Most precise prediction of the response variable.
+- Interpreting coefficients is secondary.
+- **Shrinkage methods** (like LASSO) help by removing noise.
+:::::
+::::::
+:::::::::::
+
+# Learning Objectives
+
+::: lob
+2. Understand the standard workflow for the `glmnet` package.
+:::
+
+## Why `glmnet`?
+
+- It is the "industry standard" for penalized regression.
+- It is computationally efficient and fast.
+- **Key Difference:** It does not use the `y ~ x1 + x2` formula syntax. It requires:
+    1. A **numeric matrix** of predictors ($X$).
+    2. A **numeric vector** for the outcome ($Y$).
+
+## Preparing the Data: Matrix format
+
+Since `glmnet` needs a matrix, we use `model.matrix()` to handle our categorical variables automatically.
+
+```{r}
+# Define the outcome
+y <- glow1$fracture
+
+# Define the predictor matrix (removing intercept and ID columns)
+# The [-1] removes the intercept column created by model.matrix
+x <- model.matrix(fracture ~ priorfrac + age_c + premeno + momfrac + armassist + smoke, 
+                  data = glow1)[, -1]
+
+head(x)
+```
+
+# Learning Objectives
+
+::: lob
+3. Understand how penalized regression is a form of model/variable selection.
+:::
+
+## Three types of penalized regression
+
+The `alpha` parameter in `glmnet` determines the method:
+
+- **Lasso (`alpha = 1`):** Shrinks coefficients to exactly zero. Great for variable selection.
+- **Ridge (`alpha = 0`):** Shrinks coefficients toward zero, but never exactly zero.
+- **Elastic Net (`0 < alpha < 1`):** A weighted average of both.
+
+# Learning Objectives
+
+::: lob
+4. Perform LASSO regression using `glmnet` and find the optimal penalty ($\lambda$).
+:::
+
+## Step 1: Splitting data
+
+We split the matrix and vector into training and testing sets.
+
+```{r}
+train_rows <- sample(1:nrow(x), 0.8 * nrow(x))
+
+x_train <- x[train_rows, ]
+x_test  <- x[-train_rows, ]
+
+y_train <- y[train_rows]
+y_test  <- y[-train_rows]
+```
+
+## Step 2: Fit LASSO and Tune $\lambda$
+
+Instead of picking a random penalty, we use **Cross-Validation** (`cv.glmnet`) to find the best $\lambda$.
+
+```{r}
+# family = "binomial" for logistic regression
+# alpha = 1 for LASSO
+cv_fit <- cv.glmnet(x_train, y_train, family = "binomial", alpha = 1, 
+                    thresh = 1e-12)
+
+y = as.numeric(y_train)-1
+x = x_train
+beta = coef(cv_fit, s = "lambda.min", exact = TRUE, x = x, y = y)
+lambda = cv_fit$lambda.min
+
+# Example for Lasso inference
+library(selectiveInference)
+# You need the original x, y, and the fixed lambda
+out = fixedLassoInf(x, y, beta, lambda, family="binomial")
+out
+
+# 2. Transform the output into a "tidy" tibble
+lasso_inference_df <- tibble(
+  term      = names(out$vars),
+  estimate  = exp(out$coef0),
+  std.error = out$sd,
+  statistic = out$z,
+  p.value   = out$pv,
+  conf.low  = exp(out$ci[,1]),
+  conf.high = exp(out$ci[,2])
+)
+
+glm_mod = glow1[train_rows, ] %>%
+  glm(formula = fracture ~ priorfrac + age_c + premeno + momfrac + armassist + smoke,
+      family = "binomial")
+
+
+tidy_df <- tidy(glm_mod, conf.int = T, exponentiate = T)
+
+lasso_to_plot <- tibble(
+  term      = colnames(x)[out$vars], 
+  estimate  = exp(out$coef0),
+  std.error = out$sd,
+  statistic = out$z,
+  p.value   = out$pv,
+  conf.low  = exp(out$ci[,1]),
+  conf.high = exp(out$ci[,2]),
+  model     = "LASSO (Selective Inference)"
+)
+
+tbl_regression(lasso_inference_df)
+
+# 2. Clean up and label the GLM data
+glm_to_plot <- tidy_df %>%
+  filter(term != "(Intercept)") %>%
+  mutate(model = "Standard GLM (Logistic)") %>%
+  # Ensure columns match for binding
+  dplyr::select(term, estimate, std.error, statistic, p.value, conf.low, conf.high, model)
+
+# 3. Combine them
+combined_data <- bind_rows(lasso_to_plot, glm_to_plot)
+
+# 4. Create the Forest Plot
+ggplot(combined_data, aes(y = term, x = estimate, color = model)) +
+  # Add vertical null line
+  geom_vline(xintercept = 1, linetype = "dashed", color = "black", alpha = 0.5) +
+  # Use position_dodge to prevent the points/lines from overlapping
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), 
+                 height = 0.3, 
+                 position = position_dodge(width = 0.5)) +
+  geom_point(size = 3, position = position_dodge(width = 0.5)) +
+  # Use Log scale for x-axis to balance ORs correctly
+  scale_x_log10() +
+  # Custom colors
+  scale_color_manual(values = c("LASSO (Selective Inference)" = "#C2352F", 
+                                "Standard GLM (Logistic)" = "#2F5597")) +
+  labs(
+    title = "Comparison of Model Estimates",
+    subtitle = "Odds Ratios and 95% Confidence Intervals",
+    x = "Odds Ratio (Log Scale)",
+    y = NULL,
+    color = "Model Type"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.y = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+```
+
+```{r}
+tidy_df <- tidy(glm_mod, conf.int = T, exponentiate = T) %>%
+  filter(term != "(Intercept)")
+
+ggplot(tidy_df, aes(y = term, x = estimate)) +
+  # Add a vertical line at the null (OR = 1)
+  geom_vline(xintercept = 1, linetype = "dashed", color = "red") +
+  # Add the horizontal confidence intervals
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.2) +
+  # Add the point estimates
+  geom_point(size = 3, color = "#C2352F") +
+  theme_minimal() +
+  theme(axis.text.y = element_text(face = "bold"))
+```
+
+
+
+## Step 3: Identify Selected Variables
+
+We can view the coefficients at the "best" lambda (the one that minimizes deviance).
+
+```{r}
+# Variables with a "." were dropped by the model
+coef(cv_fit, s = "lambda.min")
+```
+
+## Step 4: Prediction and Evaluation
+
+Finally, we test our model's performance on the testing set.
+
+```{r}
+# Get predicted probabilities
+preds <- predict(cv_fit, newx = x_test, s = "lambda.min", type = "response")
+
+# Calculate AUC
+lasso_roc <- roc(y_test, as.vector(preds))
+lasso_roc$auc
+```
+
+## Step 5: Visualizing the ROC Curve
+
+```{r}
+#| fig-align: center
+plot(lasso_roc, col = "#C2352F", lwd = 3, main = "LASSO Performance (Testing Set)")
+```
+
+## Summary
+
+- **`glmnet`** requires data as a matrix (`x`) and a vector (`y`).
+- We use **`cv.glmnet`** to automatically find the best penalty ($\lambda$).
+- LASSO performing **variable selection** by forcing some coefficients to zero.
+- Prediction accuracy is assessed on a held-out **testing set**.

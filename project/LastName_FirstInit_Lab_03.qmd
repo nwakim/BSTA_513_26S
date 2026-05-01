@@ -3,7 +3,6 @@ title: "Lab 3"
 author: "Your name here!!!"
 subtitle: "BSTA 513/613"
 date-modified: "today"
-categories: [""]
 format: 
   html:
     link-external-newwindow: true
@@ -44,22 +43,34 @@ The purpose of this lab is to fit a multiple logistic regression model and pract
 I have left it up to you to load the needed packages for this lab.
 :::
 
-### Restate research question
+### Restate project type
 
 ::: callout-important
 #### Task
 
-Please restate your research question below using the provided format (1 sentence). You can change the wording if you'd like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.
+Restate your project type: LASSO or purposeful model selection.
+
+**Purposeful model selection only:** Please restate your research question below using the provided format (1 sentence). You can change the wording if you'd like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.
 :::
 
-In this study, we will investigate the association between food insecurity and ________. 
+**Project type:** LASSO or purposeful model selection
+
+**Purposeful model selection only:** In this study, we will investigate the association between food insecurity and \_\_\_\_\_\_\_\_.
+
+### Can I make this categorical variable into a numeric one?
+
+::: callout-important
+#### Task
+
+If you decide to use a numeric representation for any categorical variables, please complete the steps for that variable and include the plot from the final step.
+:::
 
 ### Fit a multiple logistic regression model
 
 ::: callout-important
 #### Task
 
-Fit a main effects model with 5 of your covariates. This will not necessarily be your final model, but we can construct interpretations and code that will be useful in your final model. 
+Fit a main effects model with 5 of your covariates. **This will not necessarily be your final model, but we can construct interpretations and code that will be useful in your final model.** 
 :::
 
 ### Present the odds ratio in a table
@@ -75,7 +86,7 @@ Use the `tbl_regression()` function to make a table of the odds ratios from your
 ::: callout-important
 #### Task
 
-Use the code from our lesson on Multiple Logistic Regression (Lesson 9) to make a forest plot of the odds ratio from your fitted model. Make sure your main variable looks presentable! The other ones do not need to look perfect since they may not be in your final model. 
+Make a forest plot of the odds ratio from your fitted model. Make sure your main variable looks presentable! The other ones do not need to look perfect since they may not be in your final model. 
 :::
 
 ### Interpret the odds ratio for your main covariate
@@ -84,4 +95,8 @@ Use the code from our lesson on Multiple Logistic Regression (Lesson 9) to make 
 #### Task
 
 Interpret the estimated odds ratio(s) for the covariate from your research question. Make sure to include the 95% confidence intervals and what other variables you adjusted for. 
+
+**Remember that this is not necessarily your final model. I just want to set us up with a good template for how to interpret our results after Lab 4.**
 :::
+
+
