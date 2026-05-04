@@ -1,9 +1,11 @@
 {
-  "hash": "2991f809ad6950ca861ffa21f4116908",
+  "hash": "b3c1aecf33190348658c1fc500403cd7",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Key Info and Announcements\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\neditor_options: \n  chunk_output_type: console\n---\n\n\n\n## Announcements\n\n- Time tomorrow to grade Quiz 1\n- Don't forget the search function on our site!!\n- Lab 3 should be posted tomorrow!\n\n## Key Dates\n\n- HW 2 due 05/03\n- Lab 3 due 05/10\n\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Key Info and Announcements\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\neditor_options: \n  chunk_output_type: console\n---\n\n\n\n## Announcements\n\n- Quiz 1 grades released\n- Don't forget the search function on our site!!\n- No need to fill out every question in exit tickets\n- Lab 3 posted\n\n## Key Dates\n\n- HW 2 due 05/03\n- Lab 3 due 05/10\n- Quiz 2 opens 05/13\n    - Closes 05/17\n- HW 3 due 05/17\n\n",
+    "supporting": [
+      "10_Interactions_key_info_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

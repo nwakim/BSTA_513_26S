@@ -431,7 +431,7 @@ Testing a **single coefficient** for the interaction term using LRT comparing fu
 ::: column
 ::: definition
 ::: def-title
-Binary & continuous variables
+Multi-level categorical & continuous variables
 :::
 
 ::: def-cont
@@ -735,13 +735,11 @@ tidy(glow_m3, conf.int = T) %>%
 
     -   Test the significance of the interaction term in Model 3
     
-    -   We can use the Wald test or LRT
+    -   We can use LRT (or Wald test bc only one coefficient for interaction)
 
  
 
 -   If not an effect modifier, check the change in coefficient for prior fracture between Model 1 and Model 2
-
- 
 
 :::
 
@@ -794,13 +792,11 @@ tidy(glow_m3, conf.int = T) %>%
 
     -   Test the significance of the interaction term in Model 3
     
-    -   We can use the Wald test or LRT
+    -   We can use LRT (or Wald test bc only one coefficient for interaction)
 
  
 
 -   If not an effect modifier, check the change in coefficient for prior fracture between Model 1 and Model 2
-
- 
 
 ::: box2
 **Short version of testing the interaction:** Wald statistic for the interaction coefficient, $\widehat{\beta}_3$, is statistically significant with $p= 0.022$. Thus, there is evidence of a statistical interaction between these age and prior fracture.

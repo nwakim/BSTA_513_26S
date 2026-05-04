@@ -15,13 +15,16 @@ source(here("class_dates.R"))
 
 ## Announcements
 
-- Time tomorrow to grade Quiz 1
+- Quiz 1 grades released
 - Don't forget the search function on our site!!
-- Lab 3 should be posted tomorrow!
+- No need to fill out every question in exit tickets
+- Lab 3 posted
 
 ## Key Dates
 
 - HW 2 due `{r} hw2 %>% format("%m/%d")`
 - Lab 3 due `{r} lab3 %>% format("%m/%d")`
-
+- Quiz 2 opens `{r} q2_open %>% format("%m/%d")`
+    - Closes `{r} q2_close %>% format("%m/%d")`
+- HW 3 due `{r} hw3 %>% format("%m/%d")`
 
