@@ -1,11 +1,9 @@
 {
-  "hash": "b3c1aecf33190348658c1fc500403cd7",
+  "hash": "b69d3cd8906dd5e0184508958d756774",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Key Info and Announcements\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\neditor_options: \n  chunk_output_type: console\n---\n\n\n\n## Announcements\n\n- Quiz 1 grades released\n- Don't forget the search function on our site!!\n- No need to fill out every question in exit tickets\n- Lab 3 posted\n\n## Key Dates\n\n- HW 2 due 05/03\n- Lab 3 due 05/10\n- Quiz 2 opens 05/13\n    - Closes 05/17\n- HW 3 due 05/17\n\n",
-    "supporting": [
-      "10_Interactions_key_info_files"
-    ],
+    "markdown": "---\ntitle: \"Key Info and Announcements\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\neditor_options: \n  chunk_output_type: console\n---\n\n\n\n## Announcements\n\n- Quiz 1 grades released\n- Don't forget the search function on our site!!\n- No need to fill out every question in exit tickets\n- Lab 3 posted\n- Hint for an easier time with the poster\n  - Have you been recording your work so far?\n  - Methods section: you can start this!\n    - What variables have you transformed?\n    - What is our outcome?\n    - What type of model selection are you using?\n\n## Key Dates\n\n- HW 2 due 05/03\n- Lab 3 due 05/10\n- Quiz 2 opens 05/13\n    - Closes 05/17\n- HW 3 due 05/17\n\n",
+    "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

@@ -19,6 +19,12 @@ source(here("class_dates.R"))
 - Don't forget the search function on our site!!
 - No need to fill out every question in exit tickets
 - Lab 3 posted
+- Hint for an easier time with the poster
+  - Have you been recording your work so far?
+  - Methods section: you can start this!
+    - What variables have you transformed?
+    - What is our outcome?
+    - What type of model selection are you using?
 
 ## Key Dates
 
