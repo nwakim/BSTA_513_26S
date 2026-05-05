@@ -1101,7 +1101,7 @@ For individuals 69 years old, the estimated odds of a new fracture for individua
 #| layout-ncol: 2
 #| echo: false
 
-# save(pred_glow2, glow_m3, prior_age, file = here("lectures", "12_Assessing_fit/data", "glow_results.Rda"))
+#save(pred_glow2, glow_m3, prior_age, file = here("lessons", "12_Assessing_fit/data", "glow_results.Rda"))
 
 ggplot(pred_glow2) +
   geom_hline(yintercept = 1) +

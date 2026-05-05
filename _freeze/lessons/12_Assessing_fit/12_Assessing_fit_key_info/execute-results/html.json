@@ -1,0 +1,15 @@
+{
+  "hash": "25dfd1eecc8b2ff98eb80327b75c15d0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Key Info and Announcements\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\neditor_options: \n  chunk_output_type: console\n---\n\n\n\n## Announcements\n\n- Monday (5/11) is another required in-person attendance day!! \n  - Email me if you have extenuating circumstances\n- HW 2\n  - For the model with LOC, make sure you are creating the indicator for LOC categories! $$\\text{logit} \\left(\\pi(LOC)\\right)=\\beta_0 + \\beta_1 \\times I(LOC =\\text{``Deep Stupor\"}) + \\beta_2 \\times I(LOC =\\text{``Coma\"})$$\n- R conference in Portland!! **on 6/26-6/27** <https://cascadiarconf.com/>\n  - ~$50 for in-person\n  - A good place for networking! \n\n\n## Key Dates\n\n- Lab 3 due 05/10\n- Quiz 2 opens 05/13\n    - Closes 05/17\n- HW 3 due 05/17\n\n## Last class\n\n- Interactions!\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
