@@ -23,6 +23,21 @@ source(here("class_dates.R"))
   - ~$50 for in-person
   - A good place for networking! 
 
+### Recurring
+
+#### Bunnies & Burritos
+
+Please join the SPH Student Success Center on Wednesday, June 3rd from Noon-2pm on the 6th floor in Vanport for our 3rd Annual Bunnies & Burritos event. Come take a break from your busy term and hold a bunny, grab a burrito, and connect with SPH students, faculty, and staff. We look forward to celebrating all your hard work and accomplishments this year!  
+ 
+Please RSVP by May 27th, 2026 for food ordering purposes! 
+ 
+[RSVP HERE](https://docs.google.com/forms/d/e/1FAIpQLSelZojJPz_qpj7Rm-p-OyGJKQKPBj2NELbwaDS9FUTwchcGmQ/viewform)
+
+#### Fall internship at Boehringer Ingelheim
+
+Global Biostatistics & Data Sciences in Boehringer Ingelheim currently has a Fall Co-Op internship position open for both Master and PhD students. The internship is well suited for students with strong backgrounds in statistics, biostatistics, data science, or related quantitative fields, and it offers exposure to real‑world data analysis and statistical applications in pharmaceutical research and drug development.
+ 
+- [Clinical Data Science - Statistics Fall Co-Op MS Job Details | BoehringerPRD](https://jobs.boehringer-ingelheim.com/job/Ridgefield%2C-CT-Clinical-Data-Science-Statistics-Fall-Co-Op-MS-Unit/1385159233/)
 
 ## Key Dates
 
