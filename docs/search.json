@@ -2321,7 +2321,7 @@
     "href": "lessons/12_Assessing_fit/12_Assessing_fit.html#pearson-residual",
     "title": "Lesson 12: Assessing Model Fit (and comparing non-nested models)",
     "section": "Pearson Residual",
-    "text": "Pearson Residual\n\nIn logistic regression model, can use Pearson residual for summary measure of goodness-of-fit Uses the \\(\\widehat{Y}_j\\) fitted value from previous slide\nPearson residual for jth covariate pattern is: \\[r\\left(Y_j,{\\hat{\\pi}}_j\\right)=\\frac{(Y_j-m_j{\\hat{\\pi}}_j)}{\\sqrt{m_j{\\hat{\\pi}}_j(1-{\\hat{\\pi}}_j)}}=\\frac{(Y_j-{\\hat{Y}}_i)}{\\sqrt{{\\hat{Y}}_i(1-{\\hat{\\pi}}_j)}}\\]\nThe summary statistics of Pearson residual is thus: \\[X^2=\\sum_{j=1}^{J}{r\\left(Y_j,{\\hat{\\pi}}_j\\right)^2}\\]"
+    "text": "Pearson Residual\n\nIn logistic regression model, can use Pearson residual for summary measure of goodness-of-fit Uses the \\(\\widehat{Y}_j\\) fitted value from previous slide\nPearson residual for jth covariate pattern is: \\[r\\left(Y_j,{\\hat{\\pi}}_j\\right)=\\frac{(Y_j-m_j{\\hat{\\pi}}_j)}{\\sqrt{m_j{\\hat{\\pi}}_j(1-{\\hat{\\pi}}_j)}}=\\frac{(Y_j-{\\hat{Y}}_j)}{\\sqrt{{\\hat{Y}}_j(1-{\\hat{\\pi}}_j)}}\\]\nThe summary statistics of Pearson residual is thus: \\[X^2=\\sum_{j=1}^{J}{r\\left(Y_j,{\\hat{\\pi}}_j\\right)^2}\\]"
   },
   {
     "objectID": "lessons/12_Assessing_fit/12_Assessing_fit.html#pearson-residual-procedure",
