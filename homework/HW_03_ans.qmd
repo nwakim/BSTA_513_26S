@@ -255,52 +255,6 @@ coll_model
 Not given
 :::
 
-### Question 3
-
-This question stems from an example from an [online textbook](https://bookdown.org/rwnahhas/RMPH/) by Dr. Ramzi W. Nahhas. The dataset for this problem includes a subset of individuals from the 2019 National Survey on Drug Use and Health (NSDUH). Overall, our study aims included investigating potential risk factors for lifetime heroin use. Lifetime heroin use is a binary outcome, which we regress on age at first use of alcohol (alc_agefirst), age with 6 categories (demog_age_cat6), and sex assigned at birth (demog_sex).
-
-```{r echo=TRUE}
-load(here("data", "nsduh2019_adult_sub_rmph.RData"))
-nsduh = nsduh_adult_sub %>% 
-  dplyr::select(her_lifetime, alc_agefirst, demog_age_cat6, demog_sex) %>% 
-  drop_na()
-```
-
-#### Part a
-
-Using the `nsduh` dataset from the above chunk of code, please run a regression model and present the model summary using lifetime heroin use as our outcome, and age at first use of alcohol, categorical age, and sex assigned at birth as covariates in our model. No need to write out your model, you just need to write the R code to run it.
-
-::: blue
-```{r}
-#| warning: false
-#| echo: false
-her_model = glm(her_lifetime ~ alc_agefirst + demog_age_cat6 +
-                demog_sex, family = binomial, data = nsduh)
-
-m_tidy = tidy(her_model, conf.int = T) 
-
-m_tidy %>% gt() %>% 
-  tab_options(table.font.size = 16) %>%
-  fmt_number(decimals = 3)
-```
-:::
-
-#### Part b
-
-Are we encountering a numerical problem with our regression? If yes, please name the numerical issue. What first clued you into that issue? Provide conclusive evidence of this numerical issue (with a contingency table), and explain which variable(s) are causing this problem.
-
-::: blue
-Yes
-:::
-
-#### Part c
-
-What would you do to "fix" this numerical issue? Please apply your "fix" and rerun the regression
-
-::: blue
-Not given
-:::
-
 ## Questions Part 2
 
 The following questions are intended to give you **practice in connecting concepts** that will help you make decisions in real world applications.
@@ -313,8 +267,8 @@ Using a similar table to the one in Lesson 8, go back through the parts in this 
 |-------------------|------------------|------------------|------------------|
 | Question 1, Part c: testing group of variables |  |  |  |
 | Question 1, Part d: testing interaction |  |  |  |
-| Question 2, Part e: creating 95% CI for main effects |  |  |  |
-| Question 2, Part f: creating 95% CI for odds ratios |  |  |  |
+| Question 1, Part e: creating 95% CI for each main effect |  |  |  |
+| Question 1, Part f: creating 95% CI for each odds ratio |  |  |  |
 
 ::: blue
 One row filled out:

@@ -9,6 +9,7 @@ format:
     toc: true
     self-contained: true
     page-layout: full
+    number-sections: true
   pdf: default 
 editor_options: 
   chunk_output_type: console
@@ -112,35 +113,35 @@ Compute the predicted probability of hospital discharge for a subject who is 63 
 
 We will continue to work with the ICU data in Question 1. Please refer back to the information above. In this question, we will use the ICU data to fit a multivariable logistic regression model.
 
-#### Part a
+#### Part a {#sec-L09-MLR}
 
 From the above list (AGE, CAN, CPR, INF, and LOC) of independent variables, identify if each is a continuous, binary, or multi-level (\>2) categorical variable.
 
-#### Part b
+#### Part b {#sec-L09-MLR}
 
 For the binary and multi-level categorical variables, please identify a reference group for each. Include justification for the reference group.
 
-#### Part c
+#### Part c {#sec-L09-MLR}
 
 For the categorical variables (binary and multi-group), please mutate the variables within the ICU dataset to set your chosen reference groups.
 
-#### Part d
+#### Part d {#sec-L05-SLR-part-d}
 
 Write down the equation for the logistic regression model of STA on CPR.
 
-#### Part e
+#### Part e  {#sec-L05-SLR}
 
-Using the `glm()` function, obtain the maximum likelihood estimates of the coefficient parameters of the logistic regression model in Part e. Using these estimates, write down fitted logistic regression model.
+Using the `glm()` function, obtain the maximum likelihood estimates of the coefficient parameters of the logistic regression model in Part d (@sec-L05-SLR-part-d). Using these estimates, write down fitted logistic regression model.
 
-#### Part f
+#### Part f {#sec-L06-OR-interp}
 
-Write a sentence interpreting the odds ratio for the CPR in Part f's model. Please include the 95% confidence interval.
+Write a sentence interpreting the odds ratio for the CPR in Part e's model. Please include the 95% confidence interval.
 
-#### Part g
+#### Part g {#sec-L05-SLR}
 
 Write down the equation for the logistic regression model of STA on LOC.
 
-#### Part h
+#### Part h {#sec-L05-SLR}
 
 Using the `glm()` function, obtain the maximum likelihood estimates of the coefficient parameters of the logistic regression model in Part h. Present the coefficient estimates. No need to write out the fitted regression equation.
 
@@ -148,7 +149,7 @@ Please take note of the warnings that you receive from fitting the `glm()` model
 
 Check the number of observations that have a deep stupor and death at discharge and the number of observations that have a deep stupor and live at discharge. You can do this using the `table()` function to create a contingency table.
 
-#### Part i
+#### Part i {#sec-L06-OR-interp}
 
 Write a sentence interpreting the odds ratio of death for the indicator of coma. Please include the 95% confidence interval.
 
@@ -156,7 +157,7 @@ Write a sentence interpreting the odds ratio of death for the indicator of coma.
 
 The following questions are intended to give you **practice in connecting concepts** that will help you make decisions in real world applications.
 
-### Question 3
+### Question 3 {#sec-L08-Tests}
 
 Using a similar table to the one in Lesson 8, go back through the parts in this homework and determine which test can be run .
 

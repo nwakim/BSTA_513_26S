@@ -112,6 +112,30 @@ Plot the leverage by predicted probability. Do you notice any influential points
 
 ### Question 2
 
+This question stems from an example from an [online textbook](https://bookdown.org/rwnahhas/RMPH/) by Dr. Ramzi W. Nahhas. The dataset for this problem includes a subset of individuals from the 2019 National Survey on Drug Use and Health (NSDUH). Overall, our study aims included investigating potential risk factors for lifetime heroin use. Lifetime heroin use is a binary outcome, which we regress on age at first use of alcohol (alc_agefirst), age with 6 categories (demog_age_cat6), and sex assigned at birth (demog_sex).
+
+```{r echo=TRUE}
+load(here("data", "nsduh2019_adult_sub_rmph.RData"))
+nsduh = nsduh_adult_sub %>% 
+  dplyr::select(her_lifetime, alc_agefirst, demog_age_cat6, demog_sex) %>% 
+  drop_na()
+```
+
+#### Part a 
+
+Using the `nsduh` dataset from the above chunk of code, please run a regression model using lifetime heroin use as our outcome, and age at first use of alcohol, categorical age, and sex assigned at birth as covariates in our model. No need to write out your model, you just need to write the R code to run the regression and display the summary. 
+
+
+#### Part b
+
+Are we encountering a numerical problem with our regression? If yes, please name the numerical issue. What first clued you into that issue? Provide conclusive evidence of this numerical issue (with a contingency table), and explain which variable(s) are causing this problem. 
+
+
+#### Part c
+What would you do to "fix" this numerical issue? Please apply your "fix" and rerun the regression
+
+### Question 3
+
 *In this problem, we will practice fitting and interpreting a **log-binomial regression.** *
 
 This question is taken from the Hosmer and Lemeshow textbook. The ICU study data set consists of a sample of 200 subjects who were part of a much larger study on survival of patients following admission to an adult intensive care unit (ICU). The dataset should be available in our shared folder. The major goal of this study was to develop a logistic regression model to predict the probability of survival to hospital discharge of these patients. In this question, the primary outcome variable is vital (survival) status at hospital discharge, STA. Clinicians associated with the study felt that a key determinant of survival was the patient’s age at admission, AGE. We will build to a multivariable logistic regression model while adjusting for cancer part of the present problem (CAN), CPR prior to ICU admission (CPR), infection probable at ICU admission (INF), and level of consciousness at ICU admission (LOC).
@@ -146,7 +170,7 @@ We were not able to fit a model with age, but let's just entertain a scenario he
 
 ## Questions Part 2
 
-### Question 3
+### Question 4
 
 For each of the following outcomes, what type of regression would you use? Explain your answer.
 
