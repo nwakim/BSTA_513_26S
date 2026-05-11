@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Nicky Wakim">
-  <meta name="dcterms.date" content="2026-05-11">
+  <meta name="dcterms.date" content="2026-05-06">
   <title>Categorical Data Analysis – Lesson 13: Model Diagnostics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -209,38 +209,29 @@ Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2026-05-11</p>
+  <p class="date">2026-05-06</p>
 </section>
 <section>
 <section id="learning-objectives" class="title-slide slide level1 center">
 <h1>Learning Objectives</h1>
 <ol type="1">
-<li><p>Understand the components of calculations for logistic regression diagnostics</p></li>
-<li><p>Plot and determine observations where regression does not fit well or are influential using specific diagnostic values</p></li>
+<li>Understand the components of calculations for logistic regression diagnostics</li>
+<li>Plot and determine observations where regression does not fit well or are influential using specific diagnostic values</li>
 </ol>
-<div class="cell">
-<style type="text/css">
-.reveal code {
-  max-height: 80% !important;
-}
-</style>
-</div>
 </section>
 <section id="review-of-model-assessment-so-far" class="slide level2">
 <h2>Review of model assessment so far</h2>
 <ul>
-<li><p>Overall measurements of fit</p>
-<ul>
-<li><p>How well does the fitted logistic regression model predict the outcome?</p></li>
-<li><p>Different ways to measure the answer to this question</p></li>
-</ul></li>
+<li>Overall measurements of fit</li>
+<li>How well does the fitted logistic regression model predict the outcome?</li>
+<li>Different ways to measure the answer to this question</li>
 </ul>
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 22%">
-<col style="width: 33%">
-<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -284,470 +275,149 @@ Nicky Wakim
 </tbody>
 </table>
 </section>
-<section id="next-week-for-model-assessment" class="slide level2">
-<h2>Next week for model assessment</h2>
+<section id="today-diagnostic-measures" class="slide level2">
+<h2>Today: Diagnostic Measures</h2>
 <ul>
-<li><p>Numerical problems</p>
-<ul>
-<li>Assess pre and post model fit</li>
-<li>Numerical problems often depend on the final model (which variables and interactions are included)</li>
-</ul></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><p>Different numerical problems to look out for</p>
-<ul>
-<li>Zero cell count</li>
-<li>Complete separation</li>
-<li>Multicollinearity</li>
-</ul></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><strong>Today:</strong> We now use model diagnostics to identify any <strong>observations</strong> that the model does not fit well</li>
+<li>We move from overall fit to investigating <strong>individual data</strong> or <strong>covariate pattern</strong> data</li>
+<li>Make sure the overall measure has not been influenced by certain observations</li>
+<li>Assessed for <strong>each covariate pattern</strong> <span class="math inline">\(j\)</span> or each individual observation</li>
+<li><strong>Main diagnostic measurements we will look at:</strong></li>
+<li>Standardized Deviance residuals, <span class="math inline">\(d_i\)</span> (Outliers)</li>
+<li>Cook’s distance, <span class="math inline">\(D_i\)</span> (Overall Influence)</li>
+<li>Change in coefficients, <span class="math inline">\(DFBETA\)</span> or <span class="math inline">\(\Delta \widehat{\beta}_j\)</span> (Coefficient Influence)</li>
+<li>Change in estimated probabilities, <span class="math inline">\(DFFITS_i\)</span> (Prediction Influence)</li>
 </ul>
 </section>
-<section id="assumptions-linear-regression-vs.-logistic-regression" class="slide level2">
-<h2>Assumptions: Linear Regression vs.&nbsp;Logistic Regression</h2>
-<div class="columns">
-<div class="column">
-<div class="axiom">
-<div class="axiom-title">
-<p>Linear Regression Assumptions</p>
-</div>
-<div class="axiom-cont">
+<section id="diagnostic-statistics-computation" class="slide level2">
+<h2>Diagnostic Statistics Computation</h2>
 <ul>
-<li>Linearity of relationship between <strong><span class="math inline">\(Y\)</span></strong> and covariates</li>
-<li>Independence of observations</li>
-<li>Normality of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> (residuals)</li>
-<li>Equality of variance of residuals (homoscedasticity)</li>
-</ul>
-</div>
-</div>
-</div><div class="column">
-<div class="proof1">
-<div class="proof-title">
-<p>Logistic Regression Assumptions</p>
-</div>
-<div class="proof-cont">
-<ul>
-<li>Linearity of relationship between <strong>logit of outcome</strong> and covariates</li>
-<li>Independence of observations</li>
-<li>Distribution of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> follows the prescribed one (binomial in our case)</li>
-</ul>
-</div>
-</div>
-</div></div>
-<ul>
-<li>Back in <a href="https://nwakim.github.io/BSTA_513_S25/lessons/05_Simple_logistic_reg/05_Simple_logistic_reg.html#/title-slide">Lesson 5: Simple Logistic Regression</a>, we walk through linear regression assumptions that do not hold for logistic regression</li>
-<li>Because our assumptions for logistic regression are a little different than linear regression, we <strong>need slightly different diagnostic tools</strong> to assess observations that may be outliers or influential points</li>
-</ul>
-</section></section>
-<section>
-<section id="learning-objectives-1" class="title-slide slide level1 center">
-<h1>Learning Objectives</h1>
-<div class="lob">
-<ol type="1">
-<li>Understand the components of calculations for logistic regression diagnostics</li>
-</ol>
-</div>
-<ol start="2" type="1">
-<li>Plot and determine observations where regression does not fit well or are influential using specific diagnostic values</li>
-</ol>
-</section>
-
-
-
-
-
-<section id="some-diagnostics-of-logistic-regression" class="slide level2">
-<h2>(Some) Diagnostics of Logistic Regression</h2>
-<ul>
-<li><p>Measures at the observation level for model diagnostics!</p></li>
-<li><p>Model diagnostics of logistic regression can be assessed by checking for <strong>outliers</strong>:</p>
-<ul>
-<li><ol type="1">
-<li>Standardized Deviance residuals, <span class="math inline">\(d_i\)</span></li>
-</ol></li>
-</ul></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><p>Model diagnostics of logistic regression can be assessed by checking how <strong>influential</strong> an observation is:</p>
-<ul>
-<li><ol start="2" type="1">
-<li>Cook’s distance, <span class="math inline">\(D_i\)</span></li>
-</ol></li>
-<li><ol start="3" type="1">
-<li>Change in coefficients, <span class="math inline">\(DFBETA\)</span> or <span class="math inline">\(\Delta \widehat{\beta}_j\)</span></li>
-</ol></li>
-<li><ol start="4" type="1">
-<li>Change in estimated probabilities, <span class="math inline">\(DFFITS_i\)</span></li>
-</ol></li>
-</ul></li>
+<li><strong>Approach 1</strong>: computed by covariate pattern (Hosmer-Lemeshow preference)</li>
+<li><strong>Approach 2</strong>: individual observation approach</li>
+<li>Why consider both?</li>
+<li>When the number of covariate patterns is much smaller than <span class="math inline">\(n\)</span>, we risk failing to identify poorly fit groups if we only look at individuals.</li>
+<li>Conversely, in models with continuous predictors, most individuals <em>are</em> their own covariate pattern.</li>
 </ul>
 </section>
 <section id="standardized-deviance-residuals-d_i" class="slide level2">
 <h2>1. Standardized Deviance Residuals (<span class="math inline">\(d_i\)</span>)</h2>
 <ul>
-<li>Identifies <strong>outliers</strong>: observations where the <strong>model’s prediction is far from the truth</strong>.</li>
-</ul>
-<p><span class="math display">\[\text{deviance residual}_i = \text{sign}(y_i - \widehat{\pi}_i) \cdot \sqrt{-2\left[y_i\log\left(\dfrac{y_i}{\widehat{\pi}_i}\right) + (1-y_i)\log\left(\dfrac{1-y_i}{1-\widehat{\pi}_i}\right)\right]}\]</span></p>
-<ul>
-<li>Standardized to account for leverage (<span class="math inline">\(h_i\)</span>, measure of distance between observed predictors and mean predictors):</li>
+<li>Identifies <strong>outliers</strong>: observations where the model’s prediction is far from the truth.</li>
+<li>Standardized to account for leverage (<span class="math inline">\(h_i\)</span>):</li>
 </ul>
 <p><span class="math display">\[d_i = \frac{\text{deviance residual}_i}{\sqrt{1-h_i}}\]</span></p>
 <ul>
-<li><strong>Rule of Thumb:</strong> Large values (typically <span class="math inline">\(|d_i| &gt; 3\)</span>) indicate that the model does not fit observation <span class="math inline">\(i\)</span> well</li>
+<li><strong>Rule of Thumb:</strong> Large values (typically <span class="math inline">\(|d_i| &gt; 3\)</span>) indicate a covariate pattern that the model does not fit well.</li>
 </ul>
 </section>
 <section id="cooks-distance-d_i" class="slide level2">
 <h2>2. Cook’s Distance (<span class="math inline">\(D_i\)</span>)</h2>
 <ul>
-<li>Measures the <strong>aggregate influence</strong> of an observation on all regression coefficients.</li>
+<li>Measures the <strong>aggregate influence</strong> of a covariate pattern on all regression coefficients.</li>
 <li>It asks: “How much would the whole model change if we deleted this pattern?”</li>
-<li>Combined measure of leverage (<span class="math inline">\(h_i\)</span>) and the residual, with <span class="math inline">\(k\)</span> coefficients.</li>
-</ul>
-<p><span class="math display">\[D_i = \dfrac{d_i^2 h_i}{(k-1)(1-h_i)^2}\]</span></p>
-<ul>
-<li><strong>Rule of Thumb:</strong> Flag values where <span class="math inline">\(D_i &gt; 1\)</span> or <span class="math inline">\(D_i &gt; 4/n\)</span></li>
+<li>Combined measure of leverage (<span class="math inline">\(h_i\)</span>) and the residual.</li>
+<li><strong>Rule of Thumb:</strong> Flag values where <span class="math inline">\(D_i &gt; 1\)</span> or <span class="math inline">\(D_i &gt; 4/n\)</span>.</li>
 </ul>
 </section>
 <section id="change-in-coefficients-dfbeta" class="slide level2">
 <h2>3. Change in Coefficients (DFBETA)</h2>
 <ul>
-<li>Measures the change in a <strong>specific</strong> coefficient <span class="math inline">\(\widehat{\beta}_j\)</span> if an observation is excluded.</li>
-</ul>
-<p><span class="math display">\[\Delta \widehat{\beta}_j = \frac{\widehat{\beta}_j - \widehat{\beta}_{j(-i)}}{SE(\widehat{\beta}_{j(-i)})}\]</span></p>
-<ul>
-<li>Useful for ensuring our variable of interest (e.g., Prior Fracture) isn’t being driven by a single observation</li>
-<li>This is different than the change in coefficient when we remove a predictor from the model (e.g., change in coefficient for prior fracture when we remove age from the model)</li>
-<li><strong>Rule of Thumb:</strong> Look for <span class="math inline">\(|DFBETA| &gt; \dfrac{2}{\sqrt{n}}\)</span>.</li>
+<li><p>Measures the change in a <strong>specific</strong> coefficient <span class="math inline">\(\widehat{\beta}_j\)</span> if an observation is excluded.</p></li>
+<li><p><span class="math display">\[\Delta \widehat{\beta}_j = \frac{\widehat{\beta}_j - \widehat{\beta}_{j(-i)}}{SE(\widehat{\beta}_{j(-i)})}\]</span></p></li>
+<li><p>Useful for ensuring our variable of interest (e.g., Prior Fracture) isn’t being driven by a single weird data point.</p></li>
+<li><p><strong>Rule of Thumb:</strong> Look for <span class="math inline">\(|DFBETA| &gt; 2/\sqrt{n}\)</span>.</p></li>
 </ul>
 </section>
-<section id="change-in-fitted-probabilities-dffits" class="slide level2">
-<h2>4. Change in fitted probabilities (DFFITS)</h2>
+<section id="change-in-probabilities-dffits" class="slide level2">
+<h2>4. Change in Probabilities (DFFITS)</h2>
 <ul>
-<li><p>Measures the impact on the <strong>predicted probability</strong> (the “fit”)</p></li>
-<li><p>It is the number of standard deviations the fitted value changes when an observation is removed</p></li>
-<li><p><strong>Rule of Thumb:</strong> Flag if <span class="math inline">\(|DFFITS| &gt; 2\sqrt{k/n}\)</span></p></li>
+<li>Measures the impact on the <strong>predicted probability</strong> (the “fit”).</li>
+<li>It is the number of standard deviations the fitted value changes when an observation is removed.</li>
+<li><strong>Rule of Thumb:</strong> Flag if <span class="math inline">\(|DFFITS| &gt; 2\sqrt{p/n}\)</span>.</li>
 </ul>
 </section></section>
 <section>
-<section id="learning-objectives-2" class="title-slide slide level1 center">
-<h1>Learning Objectives</h1>
-<ol type="1">
-<li>Understand the components of calculations for logistic regression diagnostics</li>
-</ol>
+<section id="visual-assessment" class="title-slide slide level1 center">
+<h1>Visual Assessment</h1>
 <div class="lob">
 <ol start="2" type="1">
 <li>Plot and determine observations where regression does not fit well or are influential using specific diagnostic values</li>
 </ol>
 </div>
 </section>
-<section id="recall-the-model-we-fit-glow-study-with-interactions" class="slide level2">
-<h2>Recall the model we fit: GLOW Study with interactions</h2>
+<section id="how-do-we-get-these-values-in-r" class="slide level2">
+<h2>How do we get these values in R?</h2>
 <ul>
-<li><p><strong>Outcome variable:</strong> any fracture in the first year of follow up (FRACTURE: 0 or 1)</p></li>
-<li><p><strong>Risk factor/variable of interest:</strong> history of prior fracture (PRIORFRAC: 0 or 1)</p></li>
-<li><p><strong>Potential confounder or effect modifier:</strong> age (AGE, a continuous variable)</p></li>
-<li><p>Fitted model with interactions: <span class="math display">\[\begin{aligned} \text{logit}\left(\widehat\pi(\mathbf{X})\right) &amp; = \widehat\beta_0 &amp;+ &amp;\widehat\beta_1\cdot I(\text{PF}) &amp; + &amp;\widehat\beta_2\cdot Age&amp; + &amp;\widehat\beta_3 \cdot I(\text{PF}) \cdot Age \\  
-\text{logit}\left(\widehat\pi(\mathbf{X})\right) &amp; = -1.376 &amp;+ &amp;1.002\cdot I(\text{PF})&amp; + &amp;0.063\cdot Age&amp; -&amp;0.057 \cdot I(\text{PF}) \cdot Age
-\end{aligned}\]</span></p></li>
+<li>We use <code>broom::augment</code> to get the core residuals and <code>influence.measures</code> for the rest.</li>
 </ul>
-<p>&nbsp;</p>
-<ul>
-<li>Lesson 12: determined the overall fit of this model</li>
-<li>Today: determine the if any observations/covariate patterns that model does not fit well</li>
-</ul>
-</section>
-<section id="recall-our-friend-augment" class="slide level2">
-<h2>Recall our friend <code>augment()</code>?</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Augment for residuals</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-3"><a></a>aug_glow <span class="ot">=</span> <span class="fu">augment</span>(glow_m3, <span class="at">type.predict =</span> <span class="st">"response"</span>, <span class="at">type.residuals =</span> <span class="st">"deviance"</span>)</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># Calculate influence measures (Cook's D, DFFITS, DFBETAs)</span></span>
-<span id="cb1-6"><a></a>infl <span class="ot">=</span> <span class="fu">influence.measures</span>(glow_m3)</span>
-<span id="cb1-7"><a></a>dx_glow <span class="ot">=</span> <span class="fu">cbind</span>(aug_glow, <span class="fu">as.data.frame</span>(infl<span class="sc">$</span>infmat)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-8"><a></a>          dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(cook.d, cov.r, hat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a></a>aug_glow <span class="ot">=</span> <span class="fu">augment</span>(glow_m3, <span class="at">type.predict =</span> <span class="st">"response"</span>, <span class="at">type.residuals =</span> <span class="st">"deviance"</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># Calculate influence measures (Cook's D, DFFITS, DFBETAs)</span></span>
+<span id="cb1-5"><a></a>infl <span class="ot">=</span> <span class="fu">influence.measures</span>(glow_m3)</span>
+<span id="cb1-6"><a></a>glow_dx <span class="ot">=</span> <span class="fu">cbind</span>(aug_glow, <span class="fu">as.data.frame</span>(infl<span class="sc">$</span>infmat)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a></a>          <span class="fu">rename</span>(<span class="at">std.dev.res =</span> .std.resid, <span class="at">cooksd =</span> cook.d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="key-to-the-values" class="slide level2">
-<h2>Key to the values</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<ul>
-<li><code>.fitted</code>: Estimated probability of events (<span class="math inline">\(\widehat{\pi}\)</span>)</li>
-<li><code>.resid</code>: Deviance residual</li>
-<li><code>.hat</code>: Leverage</li>
-<li><code>.sigma</code>: Standard error of the residuals</li>
-<li><code>.cooksd</code>: Cook’s distance</li>
-<li><code>.std.resid</code>: Standardized deviance residual</li>
-<li><code>dfb.1_</code>: Change in coef. estimate for intercept</li>
-<li><code>dfb.prrY</code>: Change in coef. estimate for prior fracture</li>
-<li><code>dfb.age_c</code>: Change in coef. estimate for age</li>
-<li><code>dfb.pY:_</code>: Change in coef. estimate for interaction between age and prior fracture</li>
-<li><code>dffit</code>: Change in predicted probability of fracture</li>
-</ul>
-</div><div class="column" style="width:52%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">glimpse</span>(dx_glow, <span class="at">width=</span><span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 500
-Columns: 14
-$ fracture   &lt;fct&gt; No, No, No, No, No, No, No, N…
-$ priorfrac  &lt;fct&gt; No, No, Yes, No, No, Yes, No,…
-$ age_c      &lt;dbl&gt; -7, -4, 19, 13, -8, -2, 15, 1…
-$ .fitted    &lt;dbl&gt; 0.1402159, 0.1643855, 0.43133…
-$ .resid     &lt;dbl&gt; -0.5496799, -0.5993128, -1.06…
-$ .hat       &lt;dbl&gt; 0.003811004, 0.003143864, 0.0…
-$ .sigma     &lt;dbl&gt; 1.027863, 1.027807, 1.027018,…
-$ .cooksd    &lt;dbl&gt; 0.0001565683, 0.0001555953, 0…
-$ .std.resid &lt;dbl&gt; -0.5507303, -0.6002571, -1.07…
-$ dfb.1_     &lt;dbl&gt; -2.632841e-02, -2.994570e-02,…
-$ dfb.prrY   &lt;dbl&gt; 0.01472703, 0.01675039, -0.01…
-$ dfb.ag_c   &lt;dbl&gt; 2.185329e-02, 1.536230e-02, -…
-$ `dfb.pY:_` &lt;dbl&gt; -0.013507094, -0.009495139, -…
-$ dffit      &lt;dbl&gt; -0.03314002, -0.03279756, -0.…</code></pre>
-</div>
-</div>
-</div></div>
-</section>
-<section id="cutoffs-and-visual-assessment-for-diagnostics" class="slide level2">
-<h2>Cutoffs and visual assessment for diagnostics</h2>
-<ul>
-<li><p>The plots allow us to identify those covariate patterns that are…</p>
-<ul>
-<li><p>Poorly fit</p>
-<ul>
-<li>Large values of standardized deviance residuals (<span class="math inline">\(d_i\)</span>)</li>
-</ul></li>
-<li><p>Influential on estimated coefficients</p>
-<ul>
-<li>Large values of Cook’s distance (<span class="math inline">\(D_i\)</span>), change in coefficient estimates (<span class="math inline">\(\Delta \widehat{\beta}_j\)</span>), and change in predicted probabilities (<span class="math inline">\(DFFITS_i\)</span>)</li>
-</ul></li>
-</ul></li>
-<li><p>We plot the diagnostic values <strong>against the predicted probabilities</strong> to see if there are any patterns in the poorly fit or influential observations</p></li>
-</ul>
-</section>
-<section id="glow-study-standardized-deviance-residuals" class="slide level2">
-<h2>GLOW Study: Standardized Deviance Residuals</h2>
+<section id="glow-standardized-deviance-residuals" class="slide level2">
+<h2>GLOW: Standardized Deviance Residuals</h2>
 <div class="columns">
 <div class="column">
 <ul>
-<li>Look for <span class="math inline">\(|d_i| &gt; 3\)</span></li>
-<li>Points at the top/bottom indicate patterns where <span class="math inline">\(Y\)</span> is the opposite of what we expected</li>
+<li>Look for <span class="math inline">\(|d_i| &gt; 3\)</span>.</li>
+<li>Points at the top/bottom indicate patterns where <span class="math inline">\(Y\)</span> is the opposite of what we expected.</li>
 </ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>dx_glow <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">abs</span>(.std.resid) <span class="sc">&gt;</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(priorfrac, age_c, </span>
-<span id="cb4-3"><a></a>                .fitted, .std.resid)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] priorfrac  age_c      .fitted    .std.resid
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
-</div>
-</div>
 </div><div class="column">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(dx_glow, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .std.resid)) <span class="sc">+</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Predicted Probability"</span>, <span class="at">y =</span> <span class="st">"Std. Deviance Residual"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">ggplot</span>(glow_dx, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> std.dev.res)) <span class="sc">+</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-3"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Predicted Probability"</span>, <span class="at">y =</span> <span class="st">"Std. Deviance Residual"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="13_Model_diagnostics_files/figure-revealjs/unnamed-chunk-6-1.png" width="864"></p>
+<p><img data-src="13_Model_diagnostics_v2_files/figure-revealjs/unnamed-chunk-3-1.png" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="glow-study-cooks-distance" class="slide level2">
-<h2>GLOW Study: Cook’s Distance</h2>
+<section id="glow-cooks-distance" class="slide level2">
+<h2>GLOW: Cook’s Distance</h2>
 <div class="columns">
 <div class="column">
 <ul>
-<li>Threshold: <span class="math inline">\(D_i &gt; 1\)</span></li>
-<li>Points above the line are influential on our results.</li>
+<li>Threshold: <span class="math inline">\(4/500 = 0.008\)</span>.</li>
+<li>Points above the line are “globally” influential on our results.</li>
 </ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>dx_glow <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.cooksd <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(priorfrac, age_c, .fitted, .cooksd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] priorfrac age_c     .fitted   .cooksd  
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
-</div>
-</div>
 </div><div class="column">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(dx_glow, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .cooksd)) <span class="sc">+</span></span>
-<span id="cb9-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Predicted Probability"</span>, <span class="at">y =</span> <span class="st">"Cook's Distance"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(glow_dx, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> cooksd)) <span class="sc">+</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.008</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Predicted Probability"</span>, <span class="at">y =</span> <span class="st">"Cook's Distance"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="13_Model_diagnostics_files/figure-revealjs/unnamed-chunk-8-1.png" width="768"></p>
+<p><img data-src="13_Model_diagnostics_v2_files/figure-revealjs/unnamed-chunk-4-1.png" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="glow-study-change-in-coefficient-estimates-for-prior-fracture" class="slide level2">
-<h2>GLOW Study: Change in coefficient estimates (for prior fracture)</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Book recommends flagging observsations if change in coefficient estimates are greater than <span class="math inline">\(2/\sqrt{n}\)</span></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>dx_glow <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dfb.prrY <span class="sc">&gt;</span> <span class="dv">2</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">500</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">select</span>(priorfrac, age_c, .fitted, dfb.prrY) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">head</span>(<span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    priorfrac age_c   .fitted   dfb.prrY
-377       Yes     3 0.4113188 0.09307664
-383       Yes    -8 0.3977192 0.14436585
-385       Yes     3 0.4113188 0.09307664
-387       Yes     1 0.4088354 0.10203872
-404       Yes    -7 0.3989493 0.13946650
-409       Yes    -3 0.4038826 0.12039584
-411       Yes    -2 0.4051190 0.11574619
-412       Yes    -4 0.4026474 0.12509002
-415       Yes    -6 0.4001808 0.13462262
-417       Yes    -1 0.4063566 0.11113848
-422       Yes    -2 0.4051190 0.11574619
-429       Yes    -7 0.3989493 0.13946650
-436       Yes    -4 0.4026474 0.12509002
-444       Yes    -7 0.3989493 0.13946650
-453       Yes     1 0.4088354 0.10203872</code></pre>
-</div>
-</div>
-</div><div class="column">
-<div class="cell">
-<details class="code-fold">
-<summary>To make the plot</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(dx_glow) <span class="sc">+</span> </span>
-<span id="cb12-2"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">500</span>), <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>.fitted, <span class="at">y=</span>dfb.prrY), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb12-4"><a></a>  <span class="fu">xlab</span>(<span class="st">"Estimated/Predicted Probability of Fracture"</span>) <span class="sc">+</span></span>
-<span id="cb12-5"><a></a>  <span class="fu">ylab</span>(<span class="st">"Change in Coefficient Estimates"</span>) <span class="sc">+</span></span>
-<span id="cb12-6"><a></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">26</span>)) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="13_Model_diagnostics_files/figure-revealjs/unnamed-chunk-10-1.png" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="glow-study-changed-in-predicted-probability" class="slide level2">
-<h2>GLOW Study: Changed in predicted probability</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Flag if <span class="math inline">\(|DFFITS| &gt; 2\sqrt{k/n}\)</span></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>dx_glow <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">abs</span>(dffit) <span class="sc">&gt;</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">4</span><span class="sc">/</span><span class="dv">500</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a></a>  <span class="fu">select</span>(priorfrac, age_c, .fitted, dffit) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">head</span>(<span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    priorfrac age_c   .fitted      dffit
-3         Yes    19 0.4313389 -0.1813034
-169       Yes    21 0.4338587 -0.2014239
-178        No    20 0.4686423 -0.1845408
-192       Yes   -12 0.3928116 -0.1793038
-228       Yes   -12 0.3928116 -0.1793038
-280        No    21 0.4842350 -0.1977886
-328       Yes    21 0.4338587 -0.2014239
-383       Yes    -8 0.3977192  0.1983474
-398        No    20 0.4686423  0.2020885
-404       Yes    -7 0.3989493  0.1875104
-408       Yes    20 0.4325984  0.2326503
-421       Yes    15 0.4263101  0.1794865
-424       Yes    20 0.4325984  0.2326503
-429       Yes    -7 0.3989493  0.1875104
-444       Yes    -7 0.3989493  0.1875104</code></pre>
-</div>
-</div>
-</div><div class="column">
-<div class="cell">
-<details class="code-fold">
-<summary>To make the plot</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(dx_glow) <span class="sc">+</span> </span>
-<span id="cb15-2"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">4</span><span class="sc">/</span><span class="dv">500</span>), <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>.fitted, <span class="at">y=</span>dffit), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb15-4"><a></a>  <span class="fu">xlab</span>(<span class="st">"Predicted Probability of Fracture"</span>) <span class="sc">+</span></span>
-<span id="cb15-5"><a></a>  <span class="fu">ylab</span>(<span class="st">"Change in Predicted Probability"</span>) <span class="sc">+</span></span>
-<span id="cb15-6"><a></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">26</span>)) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="13_Model_diagnostics_files/figure-revealjs/unnamed-chunk-12-1.png" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="after-identifying-points" class="slide level2">
-<h2>After identifying points</h2>
-<ul>
-<li><p>Do a data quality check</p>
-<ul>
-<li>Unless you have a very good reason to believe the data are not measured correctly, then we leave it in</li>
-<li>Recall our <a href="https://nwakim.github.io/BSTA_512_W25/lessons/15_MLR_Diagnostics/15_MLR_Diagnostics.html?q=outlier#/how-do-we-deal-with-influential-points">slide from Linear Models (BSTA 512/612)</a></li>
-<li>Common to do nothing</li>
-</ul></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li>We are not too worried about a few outliers</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><p>If we have quite a lot of outliers that are highly influential, potential reasons can be considered:</p>
-<ul>
-<li><p>The link used in logistic regression model is not appropriate for outcome</p>
-<ul>
-<li>This is usually unlikely, since logistic regression model is very flexible (think back to why we transformed our outcome from binary form)</li>
-</ul></li>
-<li><p>One or more important covariates missing in the model</p>
-<ul>
-<li>At least one of the covariates in the model has been entered in the wrong scale (think age-squared vs.&nbsp;age)</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="how-would-i-report-this-combining-all-model-assessment" class="slide level2">
-<h2>How would I report this? (Combining all model assessment)</h2>
-<ul>
-<li>Assuming I have not checked other final models (no other models to compare AIC/BIC or AUC with)</li>
-</ul>
-<p><strong>Methods:</strong> Our final logistic regression model consisted of the outcome, fracture, and predictors including prior fracture, age, and their interaction. To assess the overall model fit, we calculated the AUC-ROC. We identified observations with high standardized deviance residual (absolute value greater than 3), Cook’s distance (greater than 1), and change in predicted probability (greater than 0.179). No identified observations were omitted.</p>
-<p>&nbsp;</p>
-<p><strong>Results:</strong> The AUC-ROC was 0.68. Out of 500 observations, we identified 26 with high change in predicted probability.</p>
-<p>&nbsp;</p>
-<p><strong>Discussion:</strong></p>
-<ul>
-<li><p>AUC-ROC low: Included covariates were pre-determined</p></li>
-<li><p>Influential points were kept in because all observations were within feasible range of the predictors and outcome. (we could try age-squared and see if that helps AUC and/or diagnostics)</p></li>
-</ul>
+<section id="summary-reporting" class="slide level2">
+<h2>Summary &amp; Reporting</h2>
+<p><strong>Methods:</strong> We assessed model fit using Standardized Deviance residuals (outliers), Cook’s Distance (overall influence), and DFBETAs (coefficient stability).</p>
+<p><strong>Results:</strong> AUC-ROC was 0.68. We identified <span class="math inline">\(X\)</span> observations with Cook’s distance <span class="math inline">\(&gt; 0.008\)</span>. Sensitivity analysis showed coefficient estimates remained stable; thus, all observations were retained.</p>
+<p><strong>Discussion:</strong> High influence points were investigated and found to represent valid clinical scenarios (e.g., older patients with prior fractures who did not refracture), and were kept in the model.</p>
 
 
 </section></section>

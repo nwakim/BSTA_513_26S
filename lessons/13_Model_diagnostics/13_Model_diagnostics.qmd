@@ -3,7 +3,7 @@ title: "Lesson 13: Model Diagnostics"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "05/12/2025"
+date: "`r library(here); source(here('class_dates.R')); w7d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -43,6 +43,10 @@ mean_age = mean(glow500$age) %>% round()
 glow1 = glow500 %>% mutate(age_c = age - mean_age)
 load(here("lessons", "12_Assessing_fit/data", "glow_results.Rda"))
 source(here("lessons", "13_Model_diagnostics", "Logistic_Dx_Functions.R"))
+
+# glow_m3 = glm(fracture ~ priorfrac + armassist, data = glow1, family = binomial)
+
+theme_set(theme_bw(base_size = 22))
 ```
 
 
@@ -59,7 +63,7 @@ source(here("lessons", "13_Model_diagnostics", "Logistic_Dx_Functions.R"))
 ```
 
 
-## Review of model assessment so far (1/2)
+## Review of model assessment so far
 
 -   Overall measurements of fit
 
@@ -75,7 +79,7 @@ source(here("lessons", "13_Model_diagnostics", "Logistic_Dx_Functions.R"))
 | AIC                  | Only to compare models | $AIC = -2 \cdot \text{log-likelihood} + 2q$                                                                         | `AIC(model_name)`          |
 | BIC                  | Only to compare models | $BIC = -2 \cdot \text{log-likelihood} + q\text{log}(n)$                                                             | `BIC(model_name)`          |
 
-## Review of model assessment so far (2/2)
+## Next week for model assessment
 
 
 -   Numerical problems
@@ -139,7 +143,7 @@ Logistic Regression Assumptions
 
 2. Plot and determine observations where regression does not fit well or are influential using specific diagnostic values
 
-## Review of Number of Covariate Patterns
+## Review of Number of Covariate Patterns {visibility="hidden"}
 
 -   Covariate patterns are the **unique covariate combinations** that are observed
 
@@ -154,78 +158,40 @@ Logistic Regression Assumptions
    
 -   When we have **continuous covariates**, the number of covariate patterns will be close to the **number of individuals in the dataset**
 
-## From overall fit measure to diagnostic measures
+## From overall fit measure to diagnostic measures {visibility="hidden"}
 
--   Now we need to investigate diagnostics looking at individual data or covariate pattern data
+-   Now we need to investigate diagnostics looking at *individual* data or *covariate pattern* data
 
     -   Make sure the overall measure has not been influenced by certain observations
 
  
 
 
--   Assessed for **each covariate pattern** $j$ or each individual observation
+-   Assessed for **each covariate pattern** $j$ or **each individual observation**
 
  
 
 - **Main diagnostic measurements we will look at: **
-  - Change in standardized Pearson residuals, $\Delta X^2_j$
-  - Change in standardized Deviance residuals, $\Delta D_j$
-  - Leverage, $h_j$
-  - Change in coefficients, DFBETA or $\Delta \widehat{\beta}_j$
+  - Standardized Deviance residuals, $d_i$ (outliers)
+  - Cook's distance, $D_i$
+  - Change in coefficients, $DFBETA$ or $\Delta \widehat{\beta}_j$
+  - Change in estimated probabilities, $DFFITS_i$
 
-## Hat Matrix and Leverage Values: Linear regression {visibility="hidden"}
-
--   We have learned “hat” matrix and leverage values from linear regression diagnostics
-
- 
-
--   In linear regression, the hat matrix projects the outcome variable onto the covariate space: 
-    
-     
-    -   $H=X\left(X^\prime X\right)^{-1}X^\prime$ and $\widehat{y}=Hy$
-
-     
-
-    -   The linear regression residuals is thus $y - \widehat{y}$, or $(I-H)y$
-
- 
-
--   The leverage is just the diagonal elements of the hat matrix, which is proportional to the distance of $x_j$ to the mean of the data $\overline{x}$
-
-
-## Hat Matrix and Leverage Values: Logistic regression {visibility="hidden"}
-
--   In logistic regression model, the hat matrix is: $$H=V^\frac{1}{2}X\left(X^\prime V\ X\right)^{-1}X^\prime V^\frac{1}{2}$$
-
--   The leverage for covariate pattern $j$ is $$h_j=m_j\cdot\widehat{\pi}\left(\textbf{x}_j\right)\left[1-\widehat{\pi}\left(\textbf{x}_j\right)\right]\textbf{x}_j^\prime\left(\textbf{X}^\prime\textbf{VX}\right)^{-1}\textbf{x}_j=v_j\cdot b_j$$
-
-    -   $b$:    weighted distance of $x_j$ from $\overline{x}$
-    -   $v_j$:   model based estimator of the variance of $y_j$
-
-          -   $v_j=m_j\cdot\widehat{\pi}\left(\textbf{x}_j\right)\left[1-\widehat{\pi}\left(\textbf{x}_j\right)\right]$
-
--   $h_j$ **reflects the relative influence of each covariate pattern on the model’s fit**
-  - Specifically relating to the distance between $X_j$ and $\overline{X}$
-
-## Poll Everywhere Question 1 {visibility="hidden"}
-
-- Used to ask what $m_j$ represents 
-
-## Diagnostic Statistics Computation (1/2)
+## Diagnostic Statistics Computation {visibility="hidden"}
 
 -   Two diagnostic statistics computation approach
 
     -   **Approach 1**: computed by covariate pattern
 
         -   Recommendation of Hosmer-Lemeshow textbook
-        -   R uses this approach
         -   Identify outliers as group that shares the same covariate values (in the same covariate pattern)
+        -   Can be better if you have very few covariate patterns
     
      
     
     -   **Approach 2**: individual observation approach
 
-        -   SAS uses this approach
+        -   SAS and R use this approach automatically
         -   Identify outliers as individual
 
  
@@ -234,7 +200,7 @@ Logistic Regression Assumptions
 
     -   When the number of covariate pattern is much smaller than $n$, there is risk that we may fail to identify influential and/or poorly fit covariate patterns using individual based on residual
     
-## Poll Everywhere Question 1
+## Poll Everywhere Question 1 {visibility="hidden"}
 
 ## Diagnostic Statistics Computation (2/2) {visibility="hidden"}
 
@@ -249,39 +215,65 @@ Consider a covariate pattern with $m_j$ subjects with estimated probability $\wi
     -   Residual from covariate pattern will identify poorly fit covariate patterns
 
 
-## Diagnostics of Logistic Regression 
 
--   Model diagnostics of logistic regression can be assessed by checking how influential a covariate pattern is:
+## (Some) Diagnostics of Logistic Regression 
 
-     
+-   Measures at the observation level for model diagnostics!
 
-    -   Look at [change in residuals if a covariate pattern is excluded]{style="color:#70AD47"}
+-   Model diagnostics of logistic regression can be assessed by checking for **outliers**:
 
-        -   Change in standardized Pearson residual
-        -   Change in standardized Deviance residual
-    
-     
-    
-    -   Look at [change in coefficients if a covariate pattern is excluded]{style="color:#5B9BD5"}
-
-
-## Change of Standardized Residuals
-
--   Change in **standardized Pearson Chi-square statistic** due to deletion of subjects with covariate pattern $x_j$: $$\Delta X_j^2 = r_{sj}^2 = \dfrac{r_j^2}{1-h_j}$$
-  - Aka: Does model fit way better when we delete a covariate pattern group?
-
--   *Don’t need to know this*: change in **standardized deviance statistic** due to deletion of subjects with covariate pattern $x_j$: $$\Delta D_j = \dfrac{d_j^2}{1-h_j}$$
-
--   Refer to [*Lesson 12: Assessing Model Fit*](https://nwakim.github.io/BSTA_513_S25/lessons/12_Assessing_fit/12_Assessing_fit.html#/pearson-residual) for expression of Pearson residual
-
-
-## Change of Estimated Coefficients
-
--   Change in estimated coefficients due to deletion of subjects with covariate pattern $x_j$: $$\Delta \widehat{\beta}_j = \dfrac{r_j^2 h_j}{(1-h_j)^2}$$
+      - (1) Standardized Deviance residuals, $d_i$
 
  
 
--   This is the logistic regression analog of Cook’s influence statistic (in linear regression)
+-   Model diagnostics of logistic regression can be assessed by checking how **influential** an observation is:
+
+      - (2) Cook's distance, $D_i$
+      - (3) Change in coefficients, $DFBETA$ or $\Delta \widehat{\beta}_j$
+      - (4) Change in estimated probabilities, $DFFITS_i$
+
+## 1. Standardized Deviance Residuals ($d_i$)
+
+* Identifies **outliers**: observations where the **model's prediction is far from the truth**.
+
+$$\text{deviance residual}_i = \text{sign}(y_i - \widehat{\pi}_i) \cdot \sqrt{-2\left[y_i\log\left(\dfrac{y_i}{\widehat{\pi}_i}\right) + (1-y_i)\log\left(\dfrac{1-y_i}{1-\widehat{\pi}_i}\right)\right]}$$
+
+* Standardized to account for leverage ($h_i$, measure of distance between observed predictors and mean predictors):
+
+$$d_i = \frac{\text{deviance residual}_i}{\sqrt{1-h_i}}$$
+
+
+
+* **Rule of Thumb:** Large values (typically $|d_i| > 3$) indicate that the model does not fit observation $i$ well
+
+## 2. Cook's Distance ($D_i$)
+
+* Measures the **aggregate influence** of an observation on all regression coefficients.
+* It asks: "How much would the whole model change if we deleted this pattern?"
+* Combined measure of leverage ($h_i$) and the residual, with $k$ coefficients.
+
+$$D_i = \dfrac{d_i^2 h_i}{(k-1)(1-h_i)^2}$$
+
+* **Rule of Thumb:** Flag values where $D_i > 1$ or $D_i > 4/n$
+
+## 3. Change in Coefficients (DFBETA)
+
+* Measures the change in a **specific** coefficient $\widehat{\beta}_j$ if an observation is excluded.
+
+$$\Delta \widehat{\beta}_j = \frac{\widehat{\beta}_j - \widehat{\beta}_{j(-i)}}{SE(\widehat{\beta}_{j(-i)})}$$
+
+
+* Useful for ensuring our variable of interest (e.g., Prior Fracture) isn't being driven by a single observation
+- This is different than the change in coefficient when we remove a predictor from the model (e.g., change in coefficient for prior fracture when we remove age from the model)
+* **Rule of Thumb:** Look for $|DFBETA| > \dfrac{2}{\sqrt{n}}$.
+
+## 4. Change in fitted probabilities (DFFITS)
+
+* Measures the impact on the **predicted probability** (the "fit")
+* It is the number of standard deviations the fitted value changes when an observation is removed
+
+
+* **Rule of Thumb:** Flag if $|DFFITS| > 2\sqrt{k/n}$
 
 
 # Learning Objectives
@@ -291,21 +283,6 @@ Consider a covariate pattern with $m_j$ subjects with estimated probability $\wi
 ::: lob
 2. Plot and determine observations where regression does not fit well or are influential using specific diagnostic values
 :::
-
-## Visual Assessment for Diagnostics of Logistic Regression (I)
-
--   In logistic regression, we mainly rely on graphical methods
-
-    -   Because the distribution of diagnostic measures under null hypothesis (that the model fits) is only known in certain limited settings
-
- 
-
--   Four plots for analysis of diagnostics in logistic regression:
-
-    -   $\Delta X_j^2$ vs. ${\widehat{\pi}}_j$
-	  -   $\Delta D_j$ vs. ${\widehat{\pi}}_j$
-	  -   $\Delta\widehat{\beta}_j$ vs. ${\widehat{\pi}}_j$
-	  -   $h_j$ vs. ${\widehat{\pi}}_j$
 
 ## Recall the model we fit: GLOW Study with interactions
 
@@ -324,182 +301,123 @@ Consider a covariate pattern with $m_j$ subjects with estimated probability $\wi
 -   Lesson 12: determined the overall fit of this model
 -   Today: determine the if any observations/covariate patterns that model does not fit well
 
-## How do we get these values in R?
+## Recall our friend `augment()`?
 
--   Nice function in the R script `Logistic_Dx_Functions.R` 
-
-    -   Highly suggest you save this R script for future use!!
 ```{r}
-source(here("lessons", "13_Model_diagnostics", "Logistic_Dx_Functions.R"))
-dx_glow = dx(glow_m3)
-glimpse(dx_glow)
+# Augment for residuals
+library(broom)
+aug_glow = augment(glow_m3, type.predict = "response", type.residuals = "deviance")
+
+# Calculate influence measures (Cook's D, DFFITS, DFBETAs)
+infl = influence.measures(glow_m3)
+dx_glow = cbind(aug_glow, as.data.frame(infl$infmat)) %>%
+          dplyr::select(-c(cook.d, cov.r, hat))
 ```
 
 ## Key to the values
 
 ::: columns
-::: column
+::: {.column width="48%"}
+- `.fitted`: Estimated probability of events ($\widehat{\pi}$)
+- `.resid`: Deviance residual
+- `.hat`: Leverage
+- `.sigma`: Standard error of the residuals
+- `.cooksd`: Cook's distance 
+- `.std.resid`: Standardized deviance residual
+- `dfb.1_`: Change in coef. estimate for intercept
+- `dfb.prrY`: Change in coef. estimate for prior fracture
+- `dfb.age_c`: Change in coef. estimate for age
+- `dfb.pY:_`: Change in coef. estimate for interaction between age and prior fracture
+- `dffit`: Change in predicted probability of fracture
+:::
+
+::: {.column width="52%"}
 ```{r}
-colnames(dx_glow)
+glimpse(dx_glow, width=50)
 ```
 :::
-
-::: column
-For each covariate pattern (which is each row) ...
-
--   `y`: Number of events
--   `P`: Estimated probability of events ($\widehat{\pi}$)
--   `n`: Number of observations ($m_j$)
--   `yhat`: Estimated number of events 
--   `Pr`: Pearson residual
--   `dr`: Deviance
--   `h`: leverage
--   `sPr`: Standardized Pearson residual
--   `sdr`: Standardized deviance
--   `dChisq`: Change in standardized Pearson residual
--   `dDev`: Change in standardized deviance
--   `dBhat`: Change in coefficient estimates
-
-:::
 :::
 
-## Poll Everywhere Question 2
-
-## Visual Assessment for Diagnostics of Logistic Regression
+## Cutoffs and visual assessment for diagnostics
 
 -   The plots allow us to identify those covariate patterns that are...
 
     -   Poorly fit 
 
-        -   Large values of $\Delta X_j^2$ (and/or $\Delta D_j$ if we looked at those)
+        -   Large values of standardized deviance residuals ($d_i$)
 
     -   Influential on estimated coefficients 
 
-        -   Large values of $\Delta\widehat{\beta}_j$
+        -   Large values of Cook's distance ($D_i$), change in coefficient estimates ($\Delta \widehat{\beta}_j$), and change in predicted probabilities ($DFFITS_i$)
         
--   If you are interested to look at the contribution of leverage ($h_j$) to the values of the diagnostic statistic, you may also look at plots of:
+-   We plot the diagnostic values **against the predicted probabilities** to see if there are any patterns in the poorly fit or influential observations
 
-    -   $\Delta X_j^2$ vs. ${\widehat{\pi}}_j$
-	  -   $\Delta D_j$ vs. ${\widehat{\pi}}_j$
-	  -   $\Delta\widehat{\beta}_j$ vs. ${\widehat{\pi}}_j$
-
-## GLOW study: Change in standardized Pearson residuals
+## GLOW Study: Standardized Deviance Residuals
 
 ::: columns
 ::: column
--   Generally, the points that curve from top left to bottom right of plot correspond to covariate patterns with $Y_j = 1$
 
-    -   Opposite corresponds to $Y_j = 0$
-
--   Points in the top left or top right corners identify the covariate patterns that are poorly fit 
-
--   We may use 4 as a crude approximation to the upper 95th percentile for $\Delta X_j^2$
-
-    -   95th percentile of chi-squared distribution is 3.84
-:::
-
-::: column
-```{r fig.height=7, fig.width=8}
-#| code-fold: true
-#| code-summary: "To make the plot"
-
-ggplot(dx_glow) + 
-  geom_hline(yintercept = 4, col = "red", linetype="dashed", size=2) +
-  geom_point(aes(x=P, y=dChisq), size = 3) + 
-  xlab("Estimated/Predicted Probability of Fracture") +
-  ylab("Change in Std. Pearson Residual") +
-  theme(text = element_text(size = 26)) + 
-  xlim(0,1)
-```
-:::
-:::
-
-
-## GLOW study: Change in standardized Pearson residuals
-
-::: columns
-::: column
--   Generally, the points that curve from top left to bottom right of plot correspond to covariate patterns with $Y_j = 1$
-
-    -   Opposite corresponds to $Y_j = 0$
-    
--   Points in the top left or top right corners identify the covariate patterns that are poorly fit 
-
--   We may use 4 as a crude approximation to the upper 95th percentile for $\Delta X_j^2$
-
-    -   95th percentile of chi-squared distribution is 3.84
-    
--   Which point is over 4?
+- Look for $|d_i| > 3$
+- Points at the top/bottom indicate patterns where $Y$ is the opposite of what we expected
 
 ```{r}
-dx_glow %>% filter(dChisq > 4) %>% 
-  select(priorfracYes, age_c, P, dChisq)
+dx_glow %>% filter(abs(.std.resid) > 3) |> 
+  dplyr::select(priorfrac, age_c, 
+                .fitted, .std.resid)
 ```
-
 :::
 
 ::: column
-```{r fig.height=7, fig.width=8}
+
+```{r fig.height=7, fig.width=9}
 #| code-fold: true
-#| code-summary: "To make the plot"
-
-ggplot(dx_glow) + 
-  geom_hline(yintercept = 4, col = "red", linetype="dashed", size=2) +
-  geom_point(aes(x=P, y=dChisq), size = 3) + 
-  xlab("Estimated/Predicted Probability of Fracture") +
-  ylab("Change in Std. Pearson Residual") +
-  theme(text = element_text(size = 26)) + 
-  xlim(0,1)
+ggplot(dx_glow, aes(x = .fitted, y = .std.resid)) +
+  geom_point() +
+  geom_hline(yintercept = c(-3, 3), col = "red", linetype="dashed") +
+  labs(x = "Predicted Probability", y = "Std. Deviance Residual")
 ```
+
 :::
 :::
 
-## GLOW study: Change in standardized Deviance residuals
+## GLOW Study: Cook's Distance
 
 ::: columns
 ::: column
--   Same investigation as Pearson residuals
 
--   Points in the top left or top right corners identify the covariate patterns that are poorly fit 
-
--   Use 4 as a crude approximation to the upper 95th percentile 
-
--   Which point is over 4?
+* Threshold: $D_i > 1$
+* Points above the line are influential on our results.
 
 ```{r}
-dx_glow %>% filter(dDev > 4) %>% 
-  select(priorfracYes, age_c, P, dDev)
+dx_glow %>% filter(.cooksd > 1) %>%
+  dplyr::select(priorfrac, age_c, .fitted, .cooksd)
 ```
 
 :::
-
 ::: column
+
 ```{r fig.height=7, fig.width=8}
 #| code-fold: true
-#| code-summary: "To make the plot"
-
-ggplot(dx_glow) + 
-  geom_hline(yintercept = 4, col = "red", linetype="dashed", size=2) +
-  geom_point(aes(x=P, y=dDev), size = 3) + 
-  xlab("Estimated/Predicted Probability of Fracture") +
-  ylab("Change in Std. Deviance Residual") +
-  theme(text = element_text(size = 26)) + xlim(0, 1)
+ggplot(dx_glow, aes(x = .fitted, y = .cooksd)) +
+  geom_point() +
+  geom_hline(yintercept = 1, col = "red", linetype="dashed") +
+  labs(x = "Predicted Probability", y = "Cook's Distance")
 ```
+
 :::
 :::
 
-## GLOW Study: Change in coefficient estimates
+## GLOW Study: Change in coefficient estimates (for prior fracture)
 
 ::: columns
 ::: column
--   Book recommends flagging certain covariate patterns if change in coefficient estimates are greater than 1 
-
--   All values of $\Delta\widehat{\beta}_j$ are below 0.09
+-   Book recommends flagging observsations if change in coefficient estimates are greater than $2/\sqrt{n}$ 
 
 
 ```{r}
-dx_glow %>% filter(dBhat > 0.075) %>% 
-  select(priorfracYes, age_c, P, dBhat)
+dx_glow %>% filter(dfb.prrY > 2/sqrt(500)) %>% 
+  select(priorfrac, age_c, .fitted, dfb.prrY) %>%
+  head(15)
 ```
 
 :::
@@ -510,8 +428,8 @@ dx_glow %>% filter(dBhat > 0.075) %>%
 #| code-summary: "To make the plot"
 
 ggplot(dx_glow) + 
-  geom_hline(yintercept = 1, col = "red", linetype="dashed", size=2) +
-  geom_point(aes(x=P, y=dBhat), size = 3) + 
+  geom_hline(yintercept = 2/sqrt(500), col = "red", linetype="dashed", size=2) +
+  geom_point(aes(x=.fitted, y=dfb.prrY), size = 3) + 
   xlab("Estimated/Predicted Probability of Fracture") +
   ylab("Change in Coefficient Estimates") +
   theme(text = element_text(size = 26)) + xlim(0,1)
@@ -519,25 +437,17 @@ ggplot(dx_glow) +
 :::
 :::
 
-## GLOW Study: Leverage
+## GLOW Study: Changed in predicted probability
 
 ::: columns
 ::: column
+- Flag if $|DFFITS| > 2\sqrt{k/n}$
 
--   We can use the same rule as linear regression: $h_j > 3p/n$ 
-
-    -   Flag these points as high leverage
-    
--   Points with high leverage
-
-    -   $p=4$: four regression coefficients
-    -   $n=500$: 500 total observations
-    -   Look for $h_j > 3p/n = 3\cdot4 /500 = 0.024$
 
 ```{r}
-dx_glow %>% filter(h > 3*4/500) %>% 
-  select(priorfracYes, age_c, P, h) %>% 
-  head()
+dx_glow %>% filter(abs(dffit) > 2*sqrt(4/500)) %>% 
+  select(priorfrac, age_c, .fitted, dffit) %>%
+  head(15)
 ```
 
 :::
@@ -548,35 +458,11 @@ dx_glow %>% filter(h > 3*4/500) %>%
 #| code-summary: "To make the plot"
 
 ggplot(dx_glow) + 
-  geom_hline(yintercept = 3*4/500, col = "red", linetype="dashed", size=2) +
-  geom_point(aes(x=P, y=h), size=3) + 
-  xlab("Estimated/Predicted Probability of Fracture") +
-  ylab("Leverage") +
-  theme(text = element_text(size = 26)) + xlim(0, 1)
-```
-:::
-:::
-
-## Find Out the “Influential” Observation From the Data Set 
-
-::: columns
-::: {.column width="30%"}
-
--   We identified covariate patterns that may be poorly fit or influential
-
- 
-
--   Let's identify the covariate patterns that were not fit well 
-
-:::
-
-::: {.column width="70%"}
-```{r}
-dx_glow %>% mutate(Cov_patt = 1:nrow(.)) %>%
-  filter(dChisq > 4 | dDev > 4 | dBhat > 1 | 
-          h > 3*4/500) %>%
-  select(Cov_patt, y, P, h, dChisq, dDev, dBhat, h) %>%
-  round(., 3)
+  geom_hline(yintercept = 2*sqrt(4/500), col = "red", linetype="dashed", size=2) +
+  geom_point(aes(x=.fitted, y=dffit), size = 3) + 
+  xlab("Predicted Probability of Fracture") +
+  ylab("Change in Predicted Probability") +
+  theme(text = element_text(size = 26)) + xlim(0,1)
 ```
 :::
 :::
@@ -591,13 +477,11 @@ dx_glow %>% mutate(Cov_patt = 1:nrow(.)) %>%
     
  
 
--   If only a few covariate patterns do not fit well ($y_j$ differs from $m_j\widehat\pi_j$ ), we are not too worried
-
-    -   We had 15 out of 71 covariate patterns
+-   We are not too worried about a few outliers
     
  
 
--   If quite a few covariate patterns do not fit well, potential reasons can be considered:
+-   If we have quite a lot of outliers that are highly influential, potential reasons can be considered:
 
     -   The link used in logistic regression model is not appropriate for outcome
 
@@ -612,11 +496,11 @@ dx_glow %>% mutate(Cov_patt = 1:nrow(.)) %>%
 
 -   Assuming I have not checked other final models (no other models to compare AIC/BIC or AUC with)
 
-**Methods:** To assess the overall model fit, we calculated the AUC-ROC. We also calculated several model diagnostics including standardized Pearson residual, standardized deviance, change in coefficient estimates, and leverage. We identified covariate patterns with high standardized Pearson residual (greater than 4), standardized deviance (greater than 4), change in coefficient estimates (greater than 1), and leverage (greater than 0.024). 
+**Methods:** Our final logistic regression model consisted of the outcome, fracture, and predictors including prior fracture, age, and their interaction. To assess the overall model fit, we calculated the AUC-ROC. We identified observations with high standardized deviance residual (absolute value greater than 3), Cook's distance (greater than 1), and change in predicted probability (greater than 0.179). No identified observations were omitted.
 
  
 
-**Results:** Our final logistic regression model consisted of the outcome, fracture, and predictors including prior fracture, age, and their interaction. The AUC-ROC was 0.68. Out of 71 convariate patterns, we identified 11 with high leverage and 4 with high standardized Pearson residual, standardized deviance, or change in coefficient estimates. No identified observations were omitted. 
+**Results:** The AUC-ROC was 0.68. Out of 500 observations, we identified 26 with high change in predicted probability. 
 
  
 
@@ -624,7 +508,7 @@ dx_glow %>% mutate(Cov_patt = 1:nrow(.)) %>%
 
 -   AUC-ROC low: Included covariates were pre-determined 
 
--   Influential points were kept in because all observations were within feasible range of the predictors and outcome. (we could try age-sqaured and see if that helps AUC and/or diagnostics)
+-   Influential points were kept in because all observations were within feasible range of the predictors and outcome. (we could try age-squared and see if that helps AUC and/or diagnostics)
 
 
 

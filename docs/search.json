@@ -4596,7 +4596,7 @@
     "href": "project/Lab_04_instructions.html#lab-activities",
     "title": "Lab 4 Instructions",
     "section": "2 Lab activities",
-    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate research question\n\n\n\n\n\n\nImportantTask\n\n\n\nPlease restate your research question below using the provided format (1 sentence). You can change the wording if you’d like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.\n\n\nIn this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Build your model\nYou will need to build a model for your outcome. You can focus on (1) prediction modeling and LASSO regression or (2) association modeling and purposeful model selection. We discussed prediction modeling in Lesson 14. We discussed association modeling in BSTA 512/612, also Lesson 14.\nFor this activity, you may either:\n\nUse LASSO to build a model with no interactions\nUse Purposeful model selection to build a model with at least one interaction\n\nI highly suggest picking the model selection strategy based on your desired learning objective. LASSO will help stretch your R coding and machine learning skills. Purposeful model selection will allow you to cement many concepts that we learned within 512/612 and 513/613.\nI will not be taking you through step-by-step. Please follow my work from Lesson 14 in 513/613 or from Lab 4 in 512/612.\n\n\n\n\n\n\nImportantTask\n\n\n\nYou may either:\n\nUse LASSO to build a model with no interactions\nUse Purposeful model selection to build a model with at least one interaction\n\n\n\n\n\n2.3 Assess your model fit\n\n\n\n\n\n\nImportantTask\n\n\n\nCalculate the ROC-AUC of your model.\n\n\n\n\n2.4 Perform model diagnostics\nYou can find the R script for the dx() function here.\n\n\n\n\n\n\nImportantTask\n\n\n\nCheck your diagnostic plots and cutoffs (change in Pearson residuals, change in coefficients, and leverage) to identify and investigate any influential or outlier observations. Are these observations feasible?"
+    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate project type\n\n\n\n\n\n\nImportantTask\n\n\n\nRestate your project type: LASSO or purposeful model selection.\nPurposeful model selection only: Please restate your research question below using the provided format (1 sentence). You can change the wording if you’d like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.\n\n\nProject type: LASSO or purposeful model selection\nPurposeful model selection only: In this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Build your model\nIt’s time for your decision on model building to SHINE! You will need to build a model for your outcome using LASSO or purposeful model selection (see your project type above heh). We discussed prediction modeling in Lesson 14. We discussed association modeling and purposeful model selection in BSTA 512/612, also Lesson 14.\nFor this activity, you may either:\n\nUse LASSO to build a model with no interactions\nUse Purposeful model selection to build a model with at least one interaction\n\nI highly suggest picking the model selection strategy based on your desired learning objective. LASSO will help stretch your R coding and machine learning skills. Purposeful model selection will allow you to cement many concepts that we learned within 512/612 and 513/613.\nI will not be taking you through step-by-step. Please follow my work from Lesson 14 in 513/613 (for LASSO) or from Lab 4 in 512/612 (for purposeful model selection).\n\n\n\n\n\n\nImportantTask\n\n\n\nBuild a model for your outcome:\n\nUse LASSO to build a model with no interactions\nUse Purposeful model selection to build a model with at least one interaction\n\n\n\n\n\n2.3 Assess your model fit\n\n\n\n\n\n\nImportantTask\n\n\n\nCalculate the ROC-AUC of your model.\n\n\n\n\n2.4 Perform model diagnostics\n\n\n\n\n\n\nImportantTask\n\n\n\nCheck your diagnostic plots and cutoffs (change in Pearson residuals, change in coefficients, and leverage) to identify and investigate any influential or outlier observations. Are these observations feasible?\n\n\n\n\n2.5 OPTIONAL: Interpret your results\nThis will be really helpful for your poster, but you can do it now or later!\nGo back to Lab 3 and look at your visualizations and interpretations of ORs and/or predicted probabilities.\nIf you are doing purposeful model selection, you can go back to these plots and update them based on your final model.\nIf you are doing LASSO, you have some options for your results, discussion, and conclusion. You can focus on answering “what are the most important predictors of food insecurity?” or you can extend this to “what are the most important predictors of food insecurity and how do they relate to food insecurity?” If you want to do the latter, you can use your LASSO model and follow the steps in Lesson 14 to get ORs and predicted probabilities for your LASSO model.\n\n\n\n\n\n\nImportantOPTIONAL Task\n\n\n\nOPTIONAL: Update your visualizations and interpretations from Lab 3 based on your final model."
   },
   {
     "objectID": "project.html#labs",
@@ -8908,7 +8908,7 @@
     "href": "project/LastName_FirstInit_Lab_04.html#lab-activities",
     "title": "Lab 4",
     "section": "2 Lab activities",
-    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate research question\nIn this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Build your model\n\n\n2.3 Assess your model fit\n\n\n2.4 Perform model diagnostics"
+    "text": "2 Lab activities\n\n\n\n\n\n\nNote\n\n\n\nI have left it up to you to load the needed packages for this lab.\n\n\n\n2.1 Restate project type\n\n\n\n\n\n\nImportantTask\n\n\n\nRestate your project type: LASSO or purposeful model selection.\nPurposeful model selection only: Please restate your research question below using the provided format (1 sentence). You can change the wording if you’d like, but please make sure it is still clear. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.\n\n\nProject type: LASSO or purposeful model selection\nPurposeful model selection only: In this study, we will investigate the association between food insecurity and ________.\n\n\n2.2 Build your model\n\n\n\n\n\n\nImportantTask\n\n\n\nBuild a model for your outcome:\n\nUse LASSO to build a model with no interactions\nUse Purposeful model selection to build a model with at least one interaction\n\n\n\n\n\n2.3 Assess your model fit\n\n\n\n\n\n\nImportantTask\n\n\n\nCalculate the ROC-AUC of your model.\n\n\n\n\n2.4 Perform model diagnostics\n\n\n\n\n\n\nImportantTask\n\n\n\nCheck your diagnostic plots and cutoffs (change in Pearson residuals, change in coefficients, and leverage) to identify and investigate any influential or outlier observations. Are these observations feasible?\n\n\n\n\n2.5 OPTIONAL: Interpret your results\n\n\n\n\n\n\nImportantOPTIONAL Task\n\n\n\nOPTIONAL: Update your visualizations and interpretations from Lab 3 based on your final model."
   },
   {
     "objectID": "lessons/12_Assessing_fit/12_Assessing_fit_key_info.html",
@@ -9090,7 +9090,7 @@
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#diagnostics-of-logistic-regression",
     "title": "Lesson 13: Model Diagnostics",
     "section": "Diagnostics of Logistic Regression",
-    "text": "Diagnostics of Logistic Regression\n\nModel diagnostics of logistic regression can be assessed by checking how influential a covariate pattern is:\n \n\nLook at change in residuals if a covariate pattern is excluded\n\nChange in standardized Pearson residual\nChange in standardized Deviance residual\n\n\n \n\nLook at change in coefficients if a covariate pattern is excluded"
+    "text": "Diagnostics of Logistic Regression\n\nModel diagnostics of logistic regression can be assessed by checking for outliers:\n\nStandardized Deviance residuals, \\(d_i\\)\n\nModel diagnostics of logistic regression can be assessed by checking how influential an observation is:\n\nCook’s distance, \\(D_i\\)\nChange in coefficients, \\(DFBETA\\) or \\(\\Delta \\widehat{\\beta}_j\\)\nChange in estimated probabilities, \\(DFFITS_i\\)"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-of-standardized-residuals",
@@ -9104,7 +9104,7 @@
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-of-estimated-coefficients",
     "title": "Lesson 13: Model Diagnostics",
     "section": "Change of Estimated Coefficients",
-    "text": "Change of Estimated Coefficients\n\nChange in estimated coefficients due to deletion of subjects with covariate pattern \\(x_j\\): \\[\\Delta \\widehat{\\beta}_j = \\dfrac{r_j^2 h_j}{(1-h_j)^2}\\]\n\n \n\nThis is the logistic regression analog of Cook’s influence statistic (in linear regression)"
+    "text": "Change of Estimated Coefficients\n\nChange in estimated coefficients due to deletion of subjects with covariate pattern \\(x_j\\): \\[\\Delta \\widehat{\\beta}_i = \\dfrac{r_i^2 h_i}{(1-h_i)^2}\\]\n\n \n\nThis is the logistic regression analog of Cook’s influence statistic (in linear regression)"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#visual-assessment-for-diagnostics-of-logistic-regression-i",
@@ -9125,14 +9125,14 @@
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#how-do-we-get-these-values-in-r",
     "title": "Lesson 13: Model Diagnostics",
     "section": "How do we get these values in R?",
-    "text": "How do we get these values in R?\n\nNice function in the R script Logistic_Dx_Functions.R\n\nHighly suggest you save this R script for future use!!\n\n\n\nsource(here(\"lessons\", \"13_Model_diagnostics\", \"Logistic_Dx_Functions.R\"))\ndx_glow = dx(glow_m3)\nglimpse(dx_glow)\n\nRows: 71\nColumns: 16\n$ `(Intercept)`        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ priorfracYes         &lt;dbl&gt; 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0…\n$ age_c                &lt;dbl&gt; 1, -7, 7, -2, 10, 20, 1, -2, 2, 8, 18, -8, 11, 10…\n$ `priorfracYes:age_c` &lt;dbl&gt; 1, 0, 7, 0, 10, 0, 0, -2, 2, 0, 0, 0, 0, 0, -3, 0…\n$ y                    &lt;dbl&gt; 2, 2, 3, 2, 2, 1, 3, 3, 1, 5, 1, 3, 2, 1, 1, 4, 1…\n$ P                    &lt;dbl&gt; 0.4088354, 0.1402159, 0.4162991, 0.1822879, 0.420…\n$ n                    &lt;int&gt; 5, 15, 7, 10, 5, 2, 12, 8, 3, 15, 2, 18, 7, 4, 3,…\n$ yhat                 &lt;dbl&gt; 2.0441770, 2.1032389, 2.9140936, 1.8228786, 2.100…\n$ Pr                   &lt;dbl&gt; -0.04018670, -0.07677228, 0.06586860, 0.14507476,…\n$ dr                   &lt;dbl&gt; -0.04023255, -0.07730975, 0.06577949, 0.14332786,…\n$ h                    &lt;dbl&gt; 0.008844090, 0.003811004, 0.008725450, 0.00290085…\n$ sPr                  &lt;dbl&gt; -0.04036559, -0.07691899, 0.06615786, 0.14528564,…\n$ sdr                  &lt;dbl&gt; -0.04041165, -0.07745749, 0.06606836, 0.14353620,…\n$ dChisq               &lt;dbl&gt; 0.001629381, 0.005916530, 0.004376863, 0.02110791…\n$ dDev                 &lt;dbl&gt; 0.001633102, 0.005999662, 0.004365028, 0.02060264…\n$ dBhat                &lt;dbl&gt; 1.453897e-05, 2.263418e-05, 3.852626e-05, 6.14091…"
+    "text": "How do we get these values in R?\n\nNice function in the R script Logistic_Dx_Functions.R\n\nHighly suggest you save this R script for future use!!\n\n\n\n# Augment for residuals\naug_glow = augment(glow_m3, type.predict = \"response\", type.residuals = \"deviance\")\n\n# Calculate influence measures (Cook's D, DFFITS, DFBETAs)\ninfl = influence.measures(glow_m3)\ndx_glow = cbind(aug_glow, as.data.frame(infl$infmat)) %&gt;%\n          dplyr::select(-c(cook.d, cov.r, hat))"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#key-to-the-values",
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#key-to-the-values",
     "title": "Lesson 13: Model Diagnostics",
     "section": "Key to the values",
-    "text": "Key to the values\n\n\n\ncolnames(dx_glow)\n\n [1] \"(Intercept)\"        \"priorfracYes\"       \"age_c\"             \n [4] \"priorfracYes:age_c\" \"y\"                  \"P\"                 \n [7] \"n\"                  \"yhat\"               \"Pr\"                \n[10] \"dr\"                 \"h\"                  \"sPr\"               \n[13] \"sdr\"                \"dChisq\"             \"dDev\"              \n[16] \"dBhat\"             \n\n\n\nFor each covariate pattern (which is each row) …\n\ny: Number of events\nP: Estimated probability of events (\\(\\widehat{\\pi}\\))\nn: Number of observations (\\(m_j\\))\nyhat: Estimated number of events\nPr: Pearson residual\ndr: Deviance\nh: leverage\nsPr: Standardized Pearson residual\nsdr: Standardized deviance\ndChisq: Change in standardized Pearson residual\ndDev: Change in standardized deviance\ndBhat: Change in coefficient estimates"
+    "text": "Key to the values\n\n\n\n.fitted: Estimated probability of events (\\(\\widehat{\\pi}\\))\n.resid: Deviance residual\n.hat: Leverage\n.sigma: Standard error of the residuals\n.cooksd: Cook’s distance\n.std.resid: Standardized deviance residual\ndfb.1_: Change in coef. estimate for intercept\ndfb.prrY: Change in coef. estimate for prior fracture\ndfb.age_c: Change in coef. estimate for age\ndfb.pY:_: Change in coef. estimate for interaction between age and prior fracture\ndffit: Change in predicted probability of fracture\n\n\n\nglimpse(dx_glow, width=50)\n\nRows: 500\nColumns: 14\n$ fracture   &lt;fct&gt; No, No, No, No, No, No, No, N…\n$ priorfrac  &lt;fct&gt; No, No, Yes, No, No, Yes, No,…\n$ age_c      &lt;dbl&gt; -7, -4, 19, 13, -8, -2, 15, 1…\n$ .fitted    &lt;dbl&gt; 0.1402159, 0.1643855, 0.43133…\n$ .resid     &lt;dbl&gt; -0.5496799, -0.5993128, -1.06…\n$ .hat       &lt;dbl&gt; 0.003811004, 0.003143864, 0.0…\n$ .sigma     &lt;dbl&gt; 1.027863, 1.027807, 1.027018,…\n$ .cooksd    &lt;dbl&gt; 0.0001565683, 0.0001555953, 0…\n$ .std.resid &lt;dbl&gt; -0.5507303, -0.6002571, -1.07…\n$ dfb.1_     &lt;dbl&gt; -2.632841e-02, -2.994570e-02,…\n$ dfb.prrY   &lt;dbl&gt; 0.01472703, 0.01675039, -0.01…\n$ dfb.ag_c   &lt;dbl&gt; 2.185329e-02, 1.536230e-02, -…\n$ `dfb.pY:_` &lt;dbl&gt; -0.013507094, -0.009495139, -…\n$ dffit      &lt;dbl&gt; -0.03314002, -0.03279756, -0.…"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#poll-everywhere-question-3",
@@ -9146,7 +9146,7 @@
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#visual-assessment-for-diagnostics-of-logistic-regression",
     "title": "Lesson 13: Model Diagnostics",
     "section": "Visual Assessment for Diagnostics of Logistic Regression",
-    "text": "Visual Assessment for Diagnostics of Logistic Regression\n\nThe plots allow us to identify those covariate patterns that are…\n\nPoorly fit\n\nLarge values of \\(\\Delta X_j^2\\) (and/or \\(\\Delta D_j\\) if we looked at those)\n\nInfluential on estimated coefficients\n\nLarge values of \\(\\Delta\\widehat{\\beta}_j\\)\n\n\nIf you are interested to look at the contribution of leverage (\\(h_j\\)) to the values of the diagnostic statistic, you may also look at plots of:\n\n\\(\\Delta X_j^2\\) vs. \\({\\widehat{\\pi}}_j\\)\n\\(\\Delta D_j\\) vs. \\({\\widehat{\\pi}}_j\\)\n\\(\\Delta\\widehat{\\beta}_j\\) vs. \\({\\widehat{\\pi}}_j\\)"
+    "text": "Visual Assessment for Diagnostics of Logistic Regression\n\nThe plots allow us to identify those covariate patterns that are…\n\nPoorly fit\n\nLarge values of standardized deviance residuals (\\(d_i\\))\n\nInfluential on estimated coefficients\n\nLarge values of Cook’s distance (\\(D_i\\)), change in coefficient estimates (\\(\\Delta \\widehat{\\beta}_j\\)), and change in predicted probabilities (\\(DFFITS_i\\))\n\n\nWe plot the diagnostic values against the predicted probabilities to see if there are any patterns in the poorly fit or influential covariate patterns"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-standardized-pearson-residuals",
@@ -9173,43 +9173,43 @@
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-standardized-deviance-residuals",
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-standardized-deviance-residuals",
     "title": "Lesson 13: Model Diagnostics",
-    "section": "GLOW study: standardized Deviance residuals",
-    "text": "GLOW study: standardized Deviance residuals\n\n\n\nSame investigation as Pearson residuals\nPoints in the top left or top right corners identify the covariate patterns that are poorly fit\nUse 4 as a crude approximation to the upper 95th percentile\nWhich point is over 4?\n\n\ndx_glow %&gt;% filter(dDev &gt; 4) %&gt;% \n  select(priorfracYes, age_c, P, dDev)\n\n   priorfracYes age_c         P     dDev\n          &lt;num&gt; &lt;num&gt;     &lt;num&gt;    &lt;num&gt;\n1:            0   -10 0.1190935 4.841217\n2:            0     7 0.2812460 5.313540\n3:            1     6 0.4150524 4.325664\n\n\n\n\n\nTo make the plot\nggplot(dx_glow) + geom_point(aes(x=P, y=dDev), size = 3) + \n  xlab(\"Estimated/Predicted Probability of Fracture\") +\n  ylab(\"Change in Std. Deviance Residual\") +\n  theme(text = element_text(size = 26))"
+    "section": "GLOW Study: Standardized Deviance Residuals",
+    "text": "GLOW Study: Standardized Deviance Residuals\n\n\n\nLook for \\(|d_i| &gt; 3\\)\nPoints at the top/bottom indicate patterns where \\(Y\\) is the opposite of what we expected\n\n\ndx_glow %&gt;% filter(abs(.std.resid) &gt; 3) |&gt; \n  dplyr::select(priorfrac, age_c, \n                .fitted, .std.resid)\n\n[1] priorfrac  age_c      .fitted    .std.resid\n&lt;0 rows&gt; (or 0-length row.names)\n\n\n\n\n\nCode\nggplot(dx_glow, aes(x = .fitted, y = .std.resid)) +\n  geom_point() +\n  geom_hline(yintercept = c(-3, 3), col = \"red\", linetype=\"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"Std. Deviance Residual\")"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-change-in-coefficient-estimates",
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-change-in-coefficient-estimates",
     "title": "Lesson 13: Model Diagnostics",
     "section": "GLOW Study: Change in coefficient estimates",
-    "text": "GLOW Study: Change in coefficient estimates\n\n\n\nBook recommends flagging certain covariate patterns if change in coefficient estimates are greater than 1\nAll values of \\(\\Delta\\widehat{\\beta}_j\\) are below 0.09\n\n\ndx_glow %&gt;% filter(dBhat &gt; 0.075) %&gt;% \n  select(priorfracYes, age_c, P, dBhat)\n\n   priorfracYes age_c         P      dBhat\n          &lt;num&gt; &lt;num&gt;     &lt;num&gt;      &lt;num&gt;\n1:            1    20 0.4325984 0.08926472\n\n\n\n\n\nTo make the plot\nggplot(dx_glow) + \n  geom_hline(yintercept = 1, col = \"red\", linetype=\"dashed\", size=2) +\n  geom_point(aes(x=P, y=dBhat), size = 3) + \n  xlab(\"Estimated/Predicted Probability of Fracture\") +\n  ylab(\"Change in Coefficient Estimates\") +\n  theme(text = element_text(size = 26)) + xlim(0,1)"
+    "text": "GLOW Study: Change in coefficient estimates\n\n\n\nBook recommends flagging certain covariate patterns if change in coefficient estimates are greater than\nAll values of \\(\\Delta\\widehat{\\beta}_j\\) are below 0.09\n\n\ndx_glow %&gt;% filter(dfb.prrY &gt; 0.075) %&gt;% \n  select(priorfrac, age_c, .fitted, dfb.prrY)\n\n    priorfrac age_c   .fitted   dfb.prrY\n377       Yes     3 0.4113188 0.09307664\n383       Yes    -8 0.3977192 0.14436585\n385       Yes     3 0.4113188 0.09307664\n387       Yes     1 0.4088354 0.10203872\n397       Yes     7 0.4162991 0.07548837\n404       Yes    -7 0.3989493 0.13946650\n409       Yes    -3 0.4038826 0.12039584\n411       Yes    -2 0.4051190 0.11574619\n412       Yes    -4 0.4026474 0.12509002\n415       Yes    -6 0.4001808 0.13462262\n417       Yes    -1 0.4063566 0.11113848\n422       Yes    -2 0.4051190 0.11574619\n428       Yes     7 0.4162991 0.07548837\n429       Yes    -7 0.3989493 0.13946650\n436       Yes    -4 0.4026474 0.12509002\n444       Yes    -7 0.3989493 0.13946650\n453       Yes     1 0.4088354 0.10203872\n460       Yes   -13 0.3915880 0.16979870\n466       Yes   -12 0.3928116 0.16457698\n468       Yes    -5 0.4014135 0.12983139\n469       Yes    -2 0.4051190 0.11574619\n480       Yes    -4 0.4026474 0.12509002\n482       Yes   -10 0.3952627 0.15434259\n487       Yes     7 0.4162991 0.07548837\n488       Yes     2 0.4100765 0.09754169\n489       Yes    -4 0.4026474 0.12509002\n493       Yes   -10 0.3952627 0.15434259\n498       Yes    -8 0.3977192 0.14436585\n\n\n\n\n\nTo make the plot\nggplot(dx_glow) + \n  geom_hline(yintercept = 2/sqrt(500), col = \"red\", linetype=\"dashed\", size=2) +\n  geom_point(aes(x=.fitted, y=dfb.prrY), size = 3) + \n  xlab(\"Estimated/Predicted Probability of Fracture\") +\n  ylab(\"Change in Coefficient Estimates\") +\n  theme(text = element_text(size = 26)) + xlim(0,1)"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-leverage",
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-leverage",
     "title": "Lesson 13: Model Diagnostics",
     "section": "GLOW Study: Leverage",
-    "text": "GLOW Study: Leverage\n\n\n\nWe can use the same rule as linear regression: \\(h_j &gt; 3p/n\\)\n\nFlag these points as high leverage\n\nPoints with high leverage\n\n\\(p=4\\): four regression coefficients\n\\(n=500\\): 500 total observations\nLook for \\(h_j &gt; 3p/n = 3\\cdot4 /500 = 0.024\\)\n\n\n\ndx_glow %&gt;% filter(h &gt; 3*4/500) %&gt;% \n  select(priorfracYes, age_c, P, h) %&gt;% \n  head()\n\n   priorfracYes age_c         P          h\n          &lt;num&gt; &lt;num&gt;     &lt;num&gt;      &lt;num&gt;\n1:            0    20 0.4686423 0.02688958\n2:            1   -12 0.3928116 0.03186122\n3:            0    19 0.4531105 0.02451738\n4:            1   -11 0.3940365 0.02900675\n5:            1    19 0.4313389 0.02895824\n6:            1    18 0.4300804 0.02621708\n\n\n\n\n\nTo make the plot\nggplot(dx_glow) + \n  geom_hline(yintercept = 3*4/500, col = \"red\", linetype=\"dashed\", size=2) +\n  geom_point(aes(x=P, y=h), size=3) + \n  xlab(\"Estimated/Predicted Probability of Fracture\") +\n  ylab(\"Leverage\") +\n  theme(text = element_text(size = 26)) + xlim(0, 1)"
+    "text": "GLOW Study: Leverage\n\n\n\nWe can use the same rule as linear regression: \\(h_j &gt; 3p/n\\)\n\nFlag these points as high leverage\n\nPoints with high leverage\n\n\\(p=4\\): four regression coefficients\n\\(n=500\\): 500 total observations\nLook for \\(h_j &gt; 3p/n = 3\\cdot4 /500 = 0.024\\)\n\n\n\ndx_glow %&gt;% filter(h &gt; 3*4/500) %&gt;% \n  select(priorfracYes, age_c, P, h) %&gt;% \n  head()\n\n   priorfracYes age_c         P          h\n          &lt;num&gt; &lt;num&gt;     &lt;num&gt;      &lt;num&gt;\n1:            0    20 0.4686423 0.02688958\n2:            0    19 0.4531105 0.02451738\n3:            1   -10 0.3952627 0.02633050\n4:            1   -11 0.3940365 0.02900675\n5:            1    19 0.4313389 0.02895824\n6:            1    18 0.4300804 0.02621708\n\n\n\n\n\nTo make the plot\nggplot(dx_glow) + \n  geom_hline(yintercept = 3*4/500, col = \"red\", linetype=\"dashed\", size=2) +\n  geom_point(aes(x=P, y=h), size=3) + \n  xlab(\"Estimated/Predicted Probability of Fracture\") +\n  ylab(\"Leverage\") +\n  theme(text = element_text(size = 26)) + xlim(0, 1)"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#find-out-the-influential-observation-from-the-data-set",
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#find-out-the-influential-observation-from-the-data-set",
     "title": "Lesson 13: Model Diagnostics",
     "section": "Find Out the “Influential” Observation From the Data Set",
-    "text": "Find Out the “Influential” Observation From the Data Set\n\n\n\nWe identified covariate patterns that may be poorly fit or influential\n\n \n\nLet’s identify the covariate patterns that were not fit well\n\n\n\ndx_glow %&gt;% mutate(Cov_patt = 1:nrow(.)) %&gt;%\n  filter(dChisq &gt; 4 | dDev &gt; 4 | dBhat &gt; 1 | \n          h &gt; 3*4/500) %&gt;%\n  select(Cov_patt, y, P, h, dChisq, dDev, dBhat, h) %&gt;%\n  round(., 3)\n\n    Cov_patt     y     P     h dChisq  dDev dBhat\n       &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt; &lt;num&gt; &lt;num&gt;\n 1:        6     1 0.469 0.027  0.008 0.008 0.000\n 2:       22     1 0.393 0.032  0.046 0.047 0.002\n 3:       36     1 0.453 0.025  0.178 0.183 0.004\n 4:       43     0 0.119 0.005  2.581 4.841 0.012\n 5:       45     6 0.164 0.003  4.414 3.554 0.014\n 6:       47     0 0.281 0.006  3.148 5.314 0.018\n 7:       48     0 0.394 0.029  0.670 1.032 0.020\n 8:       49     2 0.431 0.029  0.698 0.693 0.021\n 9:       50     0 0.430 0.026  0.775 1.155 0.021\n10:       53     0 0.415 0.008  2.862 4.326 0.024\n11:       57     2 0.395 0.026  0.949 0.924 0.026\n12:       63     0 0.484 0.029  0.967 1.364 0.029\n13:       69     0 0.434 0.035  1.588 2.358 0.058\n14:       70     1 0.392 0.035  1.610 1.943 0.058\n15:       71     2 0.433 0.032  2.710 3.462 0.089"
+    "text": "Find Out the “Influential” Observation From the Data Set\n\n\n\nWe identified covariate patterns that may be poorly fit or influential\n\n \n\nLet’s identify the covariate patterns that were not fit well\n\n\n\n# dx_glow %&gt;% mutate(Cov_patt = 1:nrow(.)) %&gt;%\n#   filter(dChisq &gt; 4 | dDev &gt; 4 | dBhat &gt; 1 | \n#           h &gt; 3*4/500) %&gt;%\n#   select(Cov_patt, y, .fitted, h, dChisq, dDev, dBhat, h) %&gt;%\n#   round(., 3)"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#after-identifying-points",
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#after-identifying-points",
     "title": "Lesson 13: Model Diagnostics",
     "section": "After identifying points",
-    "text": "After identifying points\n\nDo a data quality check\n\nUnless you have a very good reason to believe the data are not measured correctly, then we leave it in\nRecall our slide from Linear Models (BSTA 512/612)\nCommon to do nothing\n\n\n \n\nIf only a few covariate patterns do not fit well (\\(y_j\\) differs from \\(m_j\\widehat\\pi_j\\) ), we are not too worried\n\nWe had 15 out of 71 covariate patterns\n\n\n \n\nIf quite a few covariate patterns do not fit well, potential reasons can be considered:\n\nThe link used in logistic regression model is not appropriate for outcome\n\nThis is usually unlikely, since logistic regression model is very flexible (think back to why we transformed our outcome from binary form)\n\nOne or more important covariates missing in the model\n\nAt least one of the covariates in the model has been entered in the wrong scale (think age-squared vs. age)"
+    "text": "After identifying points\n\nDo a data quality check\n\nUnless you have a very good reason to believe the data are not measured correctly, then we leave it in\nRecall our slide from Linear Models (BSTA 512/612)\nCommon to do nothing\n\n\n \n\nWe are not too worried about a few outliers\n\n \n\nIf we have quite a lot of outliers that are highly influential, potential reasons can be considered:\n\nThe link used in logistic regression model is not appropriate for outcome\n\nThis is usually unlikely, since logistic regression model is very flexible (think back to why we transformed our outcome from binary form)\n\nOne or more important covariates missing in the model\n\nAt least one of the covariates in the model has been entered in the wrong scale (think age-squared vs. age)"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#how-would-i-report-this-combining-all-model-assessment",
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#how-would-i-report-this-combining-all-model-assessment",
     "title": "Lesson 13: Model Diagnostics",
     "section": "How would I report this? (Combining all model assessment)",
-    "text": "How would I report this? (Combining all model assessment)\n\nAssuming I have not checked other final models (no other models to compare AIC/BIC or AUC with)\n\nMethods: To assess the overall model fit, we calculated the AUC-ROC. We also calculated several model diagnostics including standardized Pearson residual, standardized deviance, change in coefficient estimates, and leverage. We identified covariate patterns with high standardized Pearson residual (greater than 4), standardized deviance (greater than 4), change in coefficient estimates (greater than 1), and leverage (greater than 0.024).\n \nResults: Our final logistic regression model consisted of the outcome, fracture, and predictors including prior fracture, age, and their interaction. The AUC-ROC was 0.68. Out of 71 convariate patterns, we identified 11 with high leverage and 4 with high standardized Pearson residual, standardized deviance, or change in coefficient estimates. No identified observations were omitted.\n \nDiscussion:\n\nAUC-ROC low: Included covariates were pre-determined\nInfluential points were kept in because all observations were within feasible range of the predictors and outcome. (we could try age-sqaured and see if that helps AUC and/or diagnostics)"
+    "text": "How would I report this? (Combining all model assessment)\n\nAssuming I have not checked other final models (no other models to compare AIC/BIC or AUC with)\n\nMethods: Our final logistic regression model consisted of the outcome, fracture, and predictors including prior fracture, age, and their interaction. To assess the overall model fit, we calculated the AUC-ROC. We identified observations with high standardized deviance residual (absolute value greater than 3), Cook’s distance (greater than 1), and change in predicted probability (greater than 0.179). No identified observations were omitted.\n \nResults: The AUC-ROC was 0.68. Out of 500 observations, we identified 26 with high change in predicted probability.\n \nDiscussion:\n\nAUC-ROC low: Included covariates were pre-determined\nInfluential points were kept in because all observations were within feasible range of the predictors and outcome. (we could try age-squared and see if that helps AUC and/or diagnostics)"
   },
   {
     "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#assumptions-linear-regression-vs.-logistic-regression",
@@ -9223,7 +9223,7 @@
     "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#from-overall-fit-measure-to-diagnostic-measures",
     "title": "Lesson 13: Model Diagnostics",
     "section": "From overall fit measure to diagnostic measures",
-    "text": "From overall fit measure to diagnostic measures\n\nNow we need to investigate diagnostics looking at individual data or covariate pattern data\n\nMake sure the overall measure has not been influenced by certain observations\n\n\n \n\nAssessed for each covariate pattern \\(j\\) or each individual observation\n\n \n\nMain diagnostic measurements we will look at: \n\nChange in standardized Pearson residuals, \\(\\Delta X^2_j\\)\nChange in standardized Deviance residuals, \\(\\Delta D_j\\)\nLeverage, \\(h_j\\)\nChange in coefficients, DFBETA or \\(\\Delta \\widehat{\\beta}_j\\)"
+    "text": "From overall fit measure to diagnostic measures\n\nNow we need to investigate diagnostics looking at individual data or covariate pattern data\n\nMake sure the overall measure has not been influenced by certain observations\n\n\n \n\nAssessed for each covariate pattern \\(j\\) or each individual observation\n\n \n\nMain diagnostic measurements we will look at: \n\nStandardized Deviance residuals, \\(d_i\\) (outliers)\nCook’s distance, \\(D_i\\)\nChange in coefficients, \\(DFBETA\\) or \\(\\Delta \\widehat{\\beta}_j\\)\nChange in estimated probabilities, \\(DFFITS_i\\)"
   },
   {
     "objectID": "lessons/L03_Discussion/L03_Discussion_muddy_points.html",
@@ -13256,5 +13256,250 @@
     "title": "Lesson 12: Assessing Model Fit (and comparing non-nested models)",
     "section": "Assessing model fit: nested vs unnested models",
     "text": "Assessing model fit: nested vs unnested models\n\n\n\n\nNested models and LRT\n\n\n\nIf we have two nested models, we can use likelihood ratio test to compare the fit of the two models\n\nNested models: one model’s variables are a subset of the other\n\n\n\n\n\n\n\n\n\n\n\n\nUnnested models and comparisons\n\n\n\nIf we have two unnested models, we cannot use likelihood ratio test to compare the fit of the two models\n\nNon-nested models: can have overlapping variables, but not a complete subset of variables"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#review-of-model-assessment-so-far",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#review-of-model-assessment-so-far",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Review of model assessment so far",
+    "text": "Review of model assessment so far\n\nOverall measurements of fit\n\nHow well does the fitted logistic regression model predict the outcome?\nDifferent ways to measure the answer to this question\n\n\n\n\n\n\n\n\n\n\n\nMeasure of fit\nHypothesis tested?\nEquation\nR code\n\n\n\n\nPearson residual\nYes\n\\(X^2=\\sum_{j=1}^{J}{r\\left(Y_j,{\\widehat{\\pi}}_j\\right)^2}\\)\nNot given\n\n\nHosmer-Lemeshow test\nYes\n\\(\\widehat{C}=\\sum_{k=1}^{g}\\frac{\\left(o_k-n_k^\\prime{\\bar{\\pi}}_k\\right)^2}{n_k^\\prime{\\bar{\\pi}}_k(1-{\\bar{\\pi}}_k)}\\)\nhoslem.test()\n\n\nAUC-ROC\nKinda\nNot given\nauc(observed, predicted)\n\n\nAIC\nOnly to compare models\n\\(AIC = -2 \\cdot \\text{log-likelihood} + 2q\\)\nAIC(model_name)\n\n\nBIC\nOnly to compare models\n\\(BIC = -2 \\cdot \\text{log-likelihood} + q\\text{log}(n)\\)\nBIC(model_name)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#next-week-for-model-assessment",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#next-week-for-model-assessment",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Next week for model assessment",
+    "text": "Next week for model assessment\n\nNumerical problems\n\nAssess pre and post model fit\nNumerical problems often depend on the final model (which variables and interactions are included)\n\n\n \n\nDifferent numerical problems to look out for\n\nZero cell count\nComplete separation\nMulticollinearity\n\n\n \n\nToday: We now use model diagnostics to identify any observations that the model does not fit well"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#review-of-model-assessment-so-far",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#review-of-model-assessment-so-far",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Review of model assessment so far",
+    "text": "Review of model assessment so far\n\nOverall measurements of fit\nHow well does the fitted logistic regression model predict the outcome?\nDifferent ways to measure the answer to this question\n\n\n\n\n\n\n\n\n\n\nMeasure of fit\nHypothesis tested?\nEquation\nR code\n\n\n\n\nPearson residual\nYes\n\\(X^2=\\sum_{j=1}^{J}{r\\left(Y_j,{\\widehat{\\pi}}_j\\right)^2}\\)\nNot given\n\n\nHosmer-Lemeshow test\nYes\n\\(\\widehat{C}=\\sum_{k=1}^{g}\\frac{\\left(o_k-n_k^\\prime{\\bar{\\pi}}_k\\right)^2}{n_k^\\prime{\\bar{\\pi}}_k(1-{\\bar{\\pi}}_k)}\\)\nhoslem.test()\n\n\nAUC-ROC\nKinda\nNot given\nauc(observed, predicted)\n\n\nAIC\nOnly to compare models\n\\(AIC = -2 \\cdot \\text{log-likelihood} + 2q\\)\nAIC(model_name)\n\n\nBIC\nOnly to compare models\n\\(BIC = -2 \\cdot \\text{log-likelihood} + q\\text{log}(n)\\)\nBIC(model_name)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#moving-from-overall-fit-to-diagnostics",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#moving-from-overall-fit-to-diagnostics",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Moving from Overall Fit to Diagnostics",
+    "text": "Moving from Overall Fit to Diagnostics\n\nToday: We use model diagnostics to identify any individual observations that the model does not fit well or that disproportionately drive our results.\nOutliers: Observations for which the response \\(Y\\) is unusual given the predictors \\(X\\) (Model fits poorly).\nInfluential Points: Observations that have a large effect on the estimated coefficients (\\(\\hat{\\beta}\\)) or predicted probabilities (\\(\\hat{\\pi}\\)).\nThe New Diagnostic Toolkit:\nStandardized Deviance residuals (\\(d_i\\)): Identify outliers.\nCook’s distance (\\(D_i\\)): Identify overall influence on all coefficients.\nChange in coefficients (\\(DFBETA\\)): Influence on specific coefficients.\nChange in estimated probabilities (\\(DFFITS_i\\)): Influence on predicted values."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#standardized-deviance-residuals-d_i",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#standardized-deviance-residuals-d_i",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "1. Standardized Deviance Residuals (\\(d_i\\))",
+    "text": "1. Standardized Deviance Residuals (\\(d_i\\))\n\nIdentifies outliers: observations where the model’s prediction is far from the truth.\nStandardized to account for leverage (\\(h_i\\)):\n\n\\[d_i = \\frac{\\text{deviance residual}_i}{\\sqrt{1-h_i}}\\]\n\nRule of Thumb: Large values (typically \\(|d_i| &gt; 3\\)) indicate a covariate pattern that the model does not fit well."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#cooks-distance-d_i",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#cooks-distance-d_i",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "2. Cook’s Distance (\\(D_i\\))",
+    "text": "2. Cook’s Distance (\\(D_i\\))\n\nMeasures the aggregate influence of a covariate pattern on all regression coefficients.\nIt asks: “How much would the whole model change if we deleted this pattern?”\nCombined measure of leverage (\\(h_i\\)) and the residual.\nRule of Thumb: Flag values where \\(D_i &gt; 1\\) or \\(D_i &gt; 4/n\\)."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#dfbeta-change-in-coefficients",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#dfbeta-change-in-coefficients",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "3. DFBETA (Change in Coefficients)",
+    "text": "3. DFBETA (Change in Coefficients)\n\nMeasures how much a specific coefficient \\(\\hat{\\beta}_j\\) changes when observation \\(i\\) is removed.\nUseful if we care about the stability of a specific predictor (e.g., Prior Fracture).\n\\[DFBETA_{j(i)} = \\frac{\\hat{\\beta}_j - \\hat{\\beta}_{j(-i)}}{SE(\\hat{\\beta}_{j(-i)})}\\]\nRule of thumb: \\(|DFBETA| &gt; 2/\\sqrt{n}\\) is often used to flag influential points."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#dffits-change-in-fitted-values",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#dffits-change-in-fitted-values",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "4. DFFITS (Change in Fitted Values)",
+    "text": "4. DFFITS (Change in Fitted Values)\n\nMeasures the impact of observation \\(i\\) on its own predicted value.\nIt is the number of standard deviations that the fitted value changes when the \\(i^{th}\\) observation is omitted.\n\\[DFFITS_i = \\frac{\\hat{y}_i - \\hat{y}_{i(-i)}}{\\hat{\\sigma}_{(-i)}\\sqrt{h_i}}\\]\nRule of thumb: Flag if \\(|DFFITS_i| &gt; 2\\sqrt{p/n}\\) (where \\(p\\) is number of parameters)."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#how-do-we-get-these-values-in-r",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#how-do-we-get-these-values-in-r",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "How do we get these values in R?",
+    "text": "How do we get these values in R?\n\nWe use broom::augment to get the core residuals and influence.measures for the rest.\n\n\n# Augment for residuals\naug_glow = augment(glow_m3, type.predict = \"response\", type.residuals = \"deviance\")\n\n# Calculate influence measures (Cook's D, DFFITS, DFBETAs)\ninfl = influence.measures(glow_m3)\nglow_dx = cbind(aug_glow, as.data.frame(infl$infmat)) %&gt;%\n          rename(std.dev.res = .std.resid, cooksd = cook.d)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-outliers-standardized-deviance-residuals",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-outliers-standardized-deviance-residuals",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Visualizing Outliers: Standardized Deviance Residuals",
+    "text": "Visualizing Outliers: Standardized Deviance Residuals\n\n\n\nWe look for points outside the \\([-3, 3]\\) range.\nPoints with \\(Y=1\\) but very low \\(\\hat{\\pi}\\) will have large positive residuals.\nPoints with \\(Y=0\\) but very high \\(\\hat{\\pi}\\) will have large negative residuals.\n\n\n\n\nCode\nggplot(glow_dx, aes(x = .fitted, y = .std.resid)) +\n  geom_point(alpha = 0.5) +\n  geom_hline(yintercept = c(-3, 3), col = \"red\", linetype = \"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"Std. Deviance Residual\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-global-influence-cooks-distance",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-global-influence-cooks-distance",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Visualizing Global Influence: Cook’s Distance",
+    "text": "Visualizing Global Influence: Cook’s Distance\n\n\n\nWe check for points that stand out from the “crowd.”\nThreshold \\(4/n = 4/500 = 0.008\\).\n\n\nglow_dx %&gt;% filter(cooksd &gt; 4/500) %&gt;%\n  select(priorfrac, age_c, .fitted, cooksd) %&gt;% head(3)\n\n    priorfrac age_c   .fitted      cooksd\n383       Yes    -8 0.3977192 0.008507571\n386        No   -12 0.1065885 0.011236571\n398        No    20 0.4686423 0.008049063\n\n\n\n\n\nCode\nggplot(glow_dx, aes(x = index, y = cooksd)) +\n  geom_segment(aes(xend = index, yend = 0), alpha = 0.5) +\n  geom_hline(yintercept = 4/500, col = \"red\", linetype = \"dashed\") +\n  labs(x = \"Observation Index\", y = \"Cook's Distance\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-prediction-influence-dffits",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-prediction-influence-dffits",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Visualizing Prediction Influence: DFFITS",
+    "text": "Visualizing Prediction Influence: DFFITS\n\n\n\nThreshold: \\(2\\sqrt{p/n} = 2\\sqrt{4/500} \\approx 0.179\\).\n\n\nthresh_dffits &lt;- 2 * sqrt(4/500)\nglow_dx %&gt;% filter(abs(dffits) &gt; thresh_dffits) %&gt;%\n  select(priorfrac, age_c, .fitted, dffits) %&gt;% head(3)\n\n    priorfrac age_c   .fitted     dffits\n3         Yes    19 0.4313389 -0.1813034\n169       Yes    21 0.4338587 -0.2014239\n178        No    20 0.4686423 -0.1845408\n\n\n\n\n\nCode\nggplot(glow_dx, aes(x = .fitted, y = dffits)) +\n  geom_point(alpha = 0.5) +\n  geom_hline(yintercept = c(-thresh_dffits, thresh_dffits), col = \"red\", linetype = \"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"DFFITS\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-coefficient-influence-dfbetas",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#visualizing-coefficient-influence-dfbetas",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Visualizing Coefficient Influence: DFBETAs",
+    "text": "Visualizing Coefficient Influence: DFBETAs\n\n\n\nLet’s look at the influence on the interaction term (priorfracYes:age_c).\nThreshold: \\(2/\\sqrt{n} = 2/\\sqrt{500} \\approx 0.089\\).\n\n\nthresh_dfb &lt;- 2 / sqrt(500)\n\n\n\n\nCode\nggplot(glow_dx, aes(x = index, y = `dfb_priorfracYes:age_c`)) +\n  geom_point(alpha = 0.5) +\n  geom_hline(yintercept = c(-thresh_dfb, thresh_dfb), col = \"red\", linetype = \"dashed\") +\n  labs(x = \"Observation Index\", y = \"DFBETA: Interaction\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#summary-how-to-deal-with-these-points",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#summary-how-to-deal-with-these-points",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Summary: How to deal with these points?",
+    "text": "Summary: How to deal with these points?\n\nData Audit: Are these outliers due to entry errors? (e.g., Age = 1000?)\nModel Specification: Does a high residual mean we are missing a non-linear term (like \\(Age^2\\)) or an important interaction?\nSensitivity Analysis: 1. Run model with all data.\n\n\nRun model excluding highly influential points (\\(D_i\\) or \\(DFFITS\\)).\nIf conclusions change, report both and explain why those specific individuals are unique.\n\n\nGenerally: Do not delete observations just because they are “inconvenient” or “influential” unless they are clearly erroneous."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#how-would-i-report-this-updated",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#how-would-i-report-this-updated",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "How would I report this? (Updated)",
+    "text": "How would I report this? (Updated)\nMethods: To assess the model diagnostics, we calculated standardized deviance residuals to identify outliers and Cook’s distance, DFFITS, and DFBETAs to assess influence. We used a threshold of \\(|d_{std}| &gt; 3\\) for outliers and \\(4/n\\) for Cook’s distance.\nResults: Our final model included prior fracture, age, and their interaction. We identified 12 observations with high global influence (Cook’s \\(D &gt; 0.008\\)) and 2 potential outliers (\\(|d_{std}| &gt; 3\\)). A sensitivity analysis was conducted by removing the most influential points; however, the direction and significance of the primary predictors remained stable. Thus, all observations were retained in the final reported model."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#today-diagnostic-measures",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#today-diagnostic-measures",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Today: Diagnostic Measures",
+    "text": "Today: Diagnostic Measures\n\nWe move from overall fit to investigating individual data or covariate pattern data\nMake sure the overall measure has not been influenced by certain observations\nAssessed for each covariate pattern \\(j\\) or each individual observation\nMain diagnostic measurements we will look at:\nStandardized Deviance residuals, \\(d_i\\) (Outliers)\nCook’s distance, \\(D_i\\) (Overall Influence)\nChange in coefficients, \\(DFBETA\\) or \\(\\Delta \\widehat{\\beta}_j\\) (Coefficient Influence)\nChange in estimated probabilities, \\(DFFITS_i\\) (Prediction Influence)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#diagnostic-statistics-computation",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#diagnostic-statistics-computation",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Diagnostic Statistics Computation",
+    "text": "Diagnostic Statistics Computation\n\nApproach 1: computed by covariate pattern (Hosmer-Lemeshow preference)\nApproach 2: individual observation approach\nWhy consider both?\nWhen the number of covariate patterns is much smaller than \\(n\\), we risk failing to identify poorly fit groups if we only look at individuals.\nConversely, in models with continuous predictors, most individuals are their own covariate pattern."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#change-in-coefficients-dfbeta",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#change-in-coefficients-dfbeta",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "3. Change in Coefficients (DFBETA)",
+    "text": "3. Change in Coefficients (DFBETA)\n\nMeasures the change in a specific coefficient \\(\\widehat{\\beta}_j\\) if an observation is excluded.\n\\[\\Delta \\widehat{\\beta}_j = \\frac{\\widehat{\\beta}_j - \\widehat{\\beta}_{j(-i)}}{SE(\\widehat{\\beta}_{j(-i)})}\\]\nUseful for ensuring our variable of interest (e.g., Prior Fracture) isn’t being driven by a single weird data point.\nRule of Thumb: Look for \\(|DFBETA| &gt; 2/\\sqrt{n}\\)."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#change-in-probabilities-dffits",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#change-in-probabilities-dffits",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "4. Change in Probabilities (DFFITS)",
+    "text": "4. Change in Probabilities (DFFITS)\n\nMeasures the impact on the predicted probability (the “fit”).\nIt is the number of standard deviations the fitted value changes when an observation is removed.\nRule of Thumb: Flag if \\(|DFFITS| &gt; 2\\sqrt{p/n}\\)."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#glow-standardized-deviance-residuals",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#glow-standardized-deviance-residuals",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "GLOW: Standardized Deviance Residuals",
+    "text": "GLOW: Standardized Deviance Residuals\n\n\n\nLook for \\(|d_i| &gt; 3\\).\nPoints at the top/bottom indicate patterns where \\(Y\\) is the opposite of what we expected.\n\n\n\n\nCode\nggplot(glow_dx, aes(x = .fitted, y = std.dev.res)) +\n  geom_point() +\n  geom_hline(yintercept = c(-3, 3), col = \"red\", linetype=\"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"Std. Deviance Residual\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#glow-cooks-distance",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#glow-cooks-distance",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "GLOW: Cook’s Distance",
+    "text": "GLOW: Cook’s Distance\n\n\n\nThreshold: \\(4/500 = 0.008\\).\nPoints above the line are “globally” influential on our results.\n\n\n\n\nCode\nggplot(glow_dx, aes(x = .fitted, y = cooksd)) +\n  geom_point() +\n  geom_hline(yintercept = 0.008, col = \"red\", linetype=\"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"Cook's Distance\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#summary-reporting",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics_v2.html#summary-reporting",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Summary & Reporting",
+    "text": "Summary & Reporting\nMethods: We assessed model fit using Standardized Deviance residuals (outliers), Cook’s Distance (overall influence), and DFBETAs (coefficient stability).\nResults: AUC-ROC was 0.68. We identified \\(X\\) observations with Cook’s distance \\(&gt; 0.008\\). Sensitivity analysis showed coefficient estimates remained stable; thus, all observations were retained.\nDiscussion: High influence points were investigated and found to represent valid clinical scenarios (e.g., older patients with prior fractures who did not refracture), and were kept in the model."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#standardized-deviance-residuals-d_i",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#standardized-deviance-residuals-d_i",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "1. Standardized Deviance Residuals (\\(d_i\\))",
+    "text": "1. Standardized Deviance Residuals (\\(d_i\\))\n\nIdentifies outliers: observations where the model’s prediction is far from the truth.\n\n\\[\\text{deviance residual}_i = \\text{sign}(y_i - \\widehat{\\pi}_i) \\cdot \\sqrt{-2\\left[y_i\\log\\left(\\dfrac{y_i}{\\widehat{\\pi}_i}\\right) + (1-y_i)\\log\\left(\\dfrac{1-y_i}{1-\\widehat{\\pi}_i}\\right)\\right]}\\]\n\nStandardized to account for leverage (\\(h_i\\), measure of distance between observed predictors and mean predictors):\n\n\\[d_i = \\frac{\\text{deviance residual}_i}{\\sqrt{1-h_i}}\\]\n\nRule of Thumb: Large values (typically \\(|d_i| &gt; 3\\)) indicate that the model does not fit observation \\(i\\) well"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#cooks-distance-d_i",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#cooks-distance-d_i",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "2. Cook’s Distance (\\(D_i\\))",
+    "text": "2. Cook’s Distance (\\(D_i\\))\n\nMeasures the aggregate influence of an observation on all regression coefficients.\nIt asks: “How much would the whole model change if we deleted this pattern?”\nCombined measure of leverage (\\(h_i\\)) and the residual, with \\(k\\) coefficients.\n\n\\[D_i = \\dfrac{d_i^2 h_i}{(k-1)(1-h_i)^2}\\]\n\nRule of Thumb: Flag values where \\(D_i &gt; 1\\) or \\(D_i &gt; 4/n\\)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-in-coefficients-dfbeta",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-in-coefficients-dfbeta",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "3. Change in Coefficients (DFBETA)",
+    "text": "3. Change in Coefficients (DFBETA)\n\nMeasures the change in a specific coefficient \\(\\widehat{\\beta}_j\\) if an observation is excluded.\n\n\\[\\Delta \\widehat{\\beta}_j = \\frac{\\widehat{\\beta}_j - \\widehat{\\beta}_{j(-i)}}{SE(\\widehat{\\beta}_{j(-i)})}\\]\n\nUseful for ensuring our variable of interest (e.g., Prior Fracture) isn’t being driven by a single observation\nThis is different than the change in coefficient when we remove a predictor from the model (e.g., change in coefficient for prior fracture when we remove age from the model)\nRule of Thumb: Look for \\(|DFBETA| &gt; \\dfrac{2}{\\sqrt{n}}\\)."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-in-probabilities-dffits",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-in-probabilities-dffits",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "4. Change in Probabilities (DFFITS)",
+    "text": "4. Change in Probabilities (DFFITS)\n\nMeasures the impact on the predicted probability (the “fit”).\nIt is the number of standard deviations the fitted value changes when an observation is removed.\nRule of Thumb: Flag if \\(|DFFITS| &gt; 2\\sqrt{p/n}\\)."
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-standardized-deviance-residuals",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-standardized-deviance-residuals",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "GLOW: Standardized Deviance Residuals",
+    "text": "GLOW: Standardized Deviance Residuals\n\n\n\nLook for \\(|d_i| &gt; 3\\).\nPoints at the top/bottom indicate patterns where \\(Y\\) is the opposite of what we expected.\n\n\n\n\nCode\nggplot(dx_glow, aes(x = .fitted, y = .std.resid)) +\n  geom_point() +\n  geom_hline(yintercept = c(-3, 3), col = \"red\", linetype=\"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"Std. Deviance Residual\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-cooks-distance",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-cooks-distance",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "GLOW: Cook’s Distance",
+    "text": "GLOW: Cook’s Distance\n\n\n\nThreshold: \\(4/500 = 0.008\\).\nPoints above the line are “globally” influential on our results.\n\n\n\n\nCode\nggplot(dx_glow, aes(x = .fitted, y = .cooksd)) +\n  geom_point() +\n  geom_hline(yintercept = 0.008, col = \"red\", linetype=\"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"Cook's Distance\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-changed-in-predicted-probability",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-changed-in-predicted-probability",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "GLOW Study: Changed in predicted probability",
+    "text": "GLOW Study: Changed in predicted probability\n\n\n\nFlag if \\(|DFFITS| &gt; 2\\sqrt{k/n}\\)\n\n\ndx_glow %&gt;% filter(abs(dffit) &gt; 2*sqrt(4/500)) %&gt;% \n  select(priorfrac, age_c, .fitted, dffit) %&gt;%\n  head(15)\n\n    priorfrac age_c   .fitted      dffit\n3         Yes    19 0.4313389 -0.1813034\n169       Yes    21 0.4338587 -0.2014239\n178        No    20 0.4686423 -0.1845408\n192       Yes   -12 0.3928116 -0.1793038\n228       Yes   -12 0.3928116 -0.1793038\n280        No    21 0.4842350 -0.1977886\n328       Yes    21 0.4338587 -0.2014239\n383       Yes    -8 0.3977192  0.1983474\n398        No    20 0.4686423  0.2020885\n404       Yes    -7 0.3989493  0.1875104\n408       Yes    20 0.4325984  0.2326503\n421       Yes    15 0.4263101  0.1794865\n424       Yes    20 0.4325984  0.2326503\n429       Yes    -7 0.3989493  0.1875104\n444       Yes    -7 0.3989493  0.1875104\n\n\n\n\n\nTo make the plot\nggplot(dx_glow) + \n  geom_hline(yintercept = 2*sqrt(4/500), col = \"red\", linetype=\"dashed\", size=2) +\n  geom_point(aes(x=.fitted, y=dffit), size = 3) + \n  xlab(\"Predicted Probability of Fracture\") +\n  ylab(\"Change in Predicted Probability\") +\n  theme(text = element_text(size = 26)) + xlim(0,1)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#some-diagnostics-of-logistic-regression",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#some-diagnostics-of-logistic-regression",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "(Some) Diagnostics of Logistic Regression",
+    "text": "(Some) Diagnostics of Logistic Regression\n\nMeasures at the observation level for model diagnostics!\nModel diagnostics of logistic regression can be assessed by checking for outliers:\n\n\nStandardized Deviance residuals, \\(d_i\\)\n\n\n\n \n\nModel diagnostics of logistic regression can be assessed by checking how influential an observation is:\n\n\nCook’s distance, \\(D_i\\)\n\n\nChange in coefficients, \\(DFBETA\\) or \\(\\Delta \\widehat{\\beta}_j\\)\n\n\nChange in estimated probabilities, \\(DFFITS_i\\)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#recall-our-friend-augment",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#recall-our-friend-augment",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Recall our friend augment()?",
+    "text": "Recall our friend augment()?\n\n# Augment for residuals\nlibrary(broom)\naug_glow = augment(glow_m3, type.predict = \"response\", type.residuals = \"deviance\")\n\n# Calculate influence measures (Cook's D, DFFITS, DFBETAs)\ninfl = influence.measures(glow_m3)\ndx_glow = cbind(aug_glow, as.data.frame(infl$infmat)) %&gt;%\n          dplyr::select(-c(cook.d, cov.r, hat))"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-in-fitted-probabilities-dffits",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#change-in-fitted-probabilities-dffits",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "4. Change in fitted probabilities (DFFITS)",
+    "text": "4. Change in fitted probabilities (DFFITS)\n\nMeasures the impact on the predicted probability (the “fit”)\nIt is the number of standard deviations the fitted value changes when an observation is removed\nRule of Thumb: Flag if \\(|DFFITS| &gt; 2\\sqrt{k/n}\\)"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#cutoffs-and-visual-assessment-for-diagnostics",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#cutoffs-and-visual-assessment-for-diagnostics",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "Cutoffs and visual assessment for diagnostics",
+    "text": "Cutoffs and visual assessment for diagnostics\n\nThe plots allow us to identify those covariate patterns that are…\n\nPoorly fit\n\nLarge values of standardized deviance residuals (\\(d_i\\))\n\nInfluential on estimated coefficients\n\nLarge values of Cook’s distance (\\(D_i\\)), change in coefficient estimates (\\(\\Delta \\widehat{\\beta}_j\\)), and change in predicted probabilities (\\(DFFITS_i\\))\n\n\nWe plot the diagnostic values against the predicted probabilities to see if there are any patterns in the poorly fit or influential observations"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-cooks-distance",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-cooks-distance",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "GLOW Study: Cook’s Distance",
+    "text": "GLOW Study: Cook’s Distance\n\n\n\nThreshold: \\(D_i &gt; 1\\)\nPoints above the line are influential on our results.\n\n\ndx_glow %&gt;% filter(.cooksd &gt; 1) %&gt;%\n  dplyr::select(priorfrac, age_c, .fitted, .cooksd)\n\n[1] priorfrac age_c     .fitted   .cooksd  \n&lt;0 rows&gt; (or 0-length row.names)\n\n\n\n\n\nCode\nggplot(dx_glow, aes(x = .fitted, y = .cooksd)) +\n  geom_point() +\n  geom_hline(yintercept = 1, col = \"red\", linetype=\"dashed\") +\n  labs(x = \"Predicted Probability\", y = \"Cook's Distance\")"
+  },
+  {
+    "objectID": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-change-in-coefficient-estimates-for-prior-fracture",
+    "href": "lessons/13_Model_diagnostics/13_Model_diagnostics.html#glow-study-change-in-coefficient-estimates-for-prior-fracture",
+    "title": "Lesson 13: Model Diagnostics",
+    "section": "GLOW Study: Change in coefficient estimates (for prior fracture)",
+    "text": "GLOW Study: Change in coefficient estimates (for prior fracture)\n\n\n\nBook recommends flagging observsations if change in coefficient estimates are greater than \\(2/\\sqrt{n}\\)\n\n\ndx_glow %&gt;% filter(dfb.prrY &gt; 2/sqrt(500)) %&gt;% \n  select(priorfrac, age_c, .fitted, dfb.prrY) %&gt;%\n  head(15)\n\n    priorfrac age_c   .fitted   dfb.prrY\n377       Yes     3 0.4113188 0.09307664\n383       Yes    -8 0.3977192 0.14436585\n385       Yes     3 0.4113188 0.09307664\n387       Yes     1 0.4088354 0.10203872\n404       Yes    -7 0.3989493 0.13946650\n409       Yes    -3 0.4038826 0.12039584\n411       Yes    -2 0.4051190 0.11574619\n412       Yes    -4 0.4026474 0.12509002\n415       Yes    -6 0.4001808 0.13462262\n417       Yes    -1 0.4063566 0.11113848\n422       Yes    -2 0.4051190 0.11574619\n429       Yes    -7 0.3989493 0.13946650\n436       Yes    -4 0.4026474 0.12509002\n444       Yes    -7 0.3989493 0.13946650\n453       Yes     1 0.4088354 0.10203872\n\n\n\n\n\nTo make the plot\nggplot(dx_glow) + \n  geom_hline(yintercept = 2/sqrt(500), col = \"red\", linetype=\"dashed\", size=2) +\n  geom_point(aes(x=.fitted, y=dfb.prrY), size = 3) + \n  xlab(\"Estimated/Predicted Probability of Fracture\") +\n  ylab(\"Change in Coefficient Estimates\") +\n  theme(text = element_text(size = 26)) + xlim(0,1)"
   }
 ]

@@ -1,0 +1,192 @@
+---
+title: "Lesson 13: Model Diagnostics"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#C2352F"
+date: "`r library(here); source(here('class_dates.R')); w6d2`"
+format: 
+  revealjs:
+    theme: "../simple_NW.scss"
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: "Lesson 13: Model Diagnostics"
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto 
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(here)
+library(aplore3)
+library(regressinator)
+library(ggplot2)
+library(broom)
+library(gt)
+library(gtsummary)
+
+theme_set(theme_minimal())
+
+mean_age = mean(glow500$age) %>% round()
+glow1 = glow500 %>% mutate(age_c = age - mean_age)
+load(here("lessons", "12_Assessing_fit/data", "glow_results.Rda"))
+# Assuming glow_m3 is the interaction model
+
+```
+
+# Learning Objectives
+
+1. Understand the components of calculations for logistic regression diagnostics
+2. Plot and determine observations where regression does not fit well or are influential using specific diagnostic values
+
+## Review of model assessment so far
+
+* Overall measurements of fit
+* How well does the fitted logistic regression model predict the outcome?
+* Different ways to measure the answer to this question
+
+
+
+| Measure of fit | Hypothesis tested? | Equation | R code |
+| --- | --- | --- | --- |
+| Pearson residual | Yes | $X^2=\sum_{j=1}^{J}{r\left(Y_j,{\widehat{\pi}}_j\right)^2}$ | Not given |
+| Hosmer-Lemeshow test | Yes | $\widehat{C}=\sum_{k=1}^{g}\frac{\left(o_k-n_k^\prime{\bar{\pi}}_k\right)^2}{n_k^\prime{\bar{\pi}}_k(1-{\bar{\pi}}_k)}$ | `hoslem.test()` |
+| AUC-ROC | Kinda | Not given | `auc(observed, predicted)` |
+| AIC | Only to compare models | $AIC = -2 \cdot \text{log-likelihood} + 2q$ | `AIC(model_name)` |
+| BIC | Only to compare models | $BIC = -2 \cdot \text{log-likelihood} + q\text{log}(n)$ | `BIC(model_name)` |
+
+## Today: Diagnostic Measures
+
+* We move from overall fit to investigating **individual data** or **covariate pattern** data
+* Make sure the overall measure has not been influenced by certain observations
+* Assessed for **each covariate pattern** $j$ or each individual observation
+* **Main diagnostic measurements we will look at:**
+* Standardized Deviance residuals, $d_i$ (Outliers)
+* Cook's distance, $D_i$ (Overall Influence)
+* Change in coefficients, $DFBETA$ or $\Delta \widehat{\beta}_j$ (Coefficient Influence)
+* Change in estimated probabilities, $DFFITS_i$ (Prediction Influence)
+
+
+
+## Diagnostic Statistics Computation
+
+* **Approach 1**: computed by covariate pattern (Hosmer-Lemeshow preference)
+* **Approach 2**: individual observation approach
+* Why consider both?
+* When the number of covariate patterns is much smaller than $n$, we risk failing to identify poorly fit groups if we only look at individuals.
+* Conversely, in models with continuous predictors, most individuals *are* their own covariate pattern.
+
+
+
+## 1. Standardized Deviance Residuals ($d_i$)
+
+* Identifies **outliers**: observations where the model's prediction is far from the truth.
+* Standardized to account for leverage ($h_i$):
+
+$$d_i = \frac{\text{deviance residual}_i}{\sqrt{1-h_i}}$$
+
+
+* **Rule of Thumb:** Large values (typically $|d_i| > 3$) indicate a covariate pattern that the model does not fit well.
+
+## 2. Cook's Distance ($D_i$)
+
+* Measures the **aggregate influence** of a covariate pattern on all regression coefficients.
+* It asks: "How much would the whole model change if we deleted this pattern?"
+* Combined measure of leverage ($h_i$) and the residual.
+* **Rule of Thumb:** Flag values where $D_i > 1$ or $D_i > 4/n$.
+
+## 3. Change in Coefficients (DFBETA)
+
+* Measures the change in a **specific** coefficient $\widehat{\beta}_j$ if an observation is excluded.
+* $$\Delta \widehat{\beta}_j = \frac{\widehat{\beta}_j - \widehat{\beta}_{j(-i)}}{SE(\widehat{\beta}_{j(-i)})}$$
+
+
+* Useful for ensuring our variable of interest (e.g., Prior Fracture) isn't being driven by a single weird data point.
+* **Rule of Thumb:** Look for $|DFBETA| > 2/\sqrt{n}$.
+
+## 4. Change in Probabilities (DFFITS)
+
+* Measures the impact on the **predicted probability** (the "fit").
+* It is the number of standard deviations the fitted value changes when an observation is removed.
+* **Rule of Thumb:** Flag if $|DFFITS| > 2\sqrt{p/n}$.
+
+# Visual Assessment
+
+::: lob
+2. Plot and determine observations where regression does not fit well or are influential using specific diagnostic values
+:::
+
+## How do we get these values in R?
+
+* We use `broom::augment` to get the core residuals and `influence.measures` for the rest.
+
+```{r}
+# Augment for residuals
+aug_glow = augment(glow_m3, type.predict = "response", type.residuals = "deviance")
+
+# Calculate influence measures (Cook's D, DFFITS, DFBETAs)
+infl = influence.measures(glow_m3)
+glow_dx = cbind(aug_glow, as.data.frame(infl$infmat)) %>%
+          rename(std.dev.res = .std.resid, cooksd = cook.d)
+
+```
+
+## GLOW: Standardized Deviance Residuals
+
+::: columns
+::: column
+
+* Look for $|d_i| > 3$.
+* Points at the top/bottom indicate patterns where $Y$ is the opposite of what we expected.
+:::
+::: column
+
+```{r fig.height=7, fig.width=8}
+#| code-fold: true
+ggplot(glow_dx, aes(x = .fitted, y = std.dev.res)) +
+  geom_point() +
+  geom_hline(yintercept = c(-3, 3), col = "red", linetype="dashed") +
+  labs(x = "Predicted Probability", y = "Std. Deviance Residual")
+
+```
+
+:::
+:::
+
+## GLOW: Cook's Distance
+
+::: columns
+::: column
+
+* Threshold: $4/500 = 0.008$.
+* Points above the line are "globally" influential on our results.
+:::
+::: column
+
+```{r fig.height=7, fig.width=8}
+#| code-fold: true
+ggplot(glow_dx, aes(x = .fitted, y = cooksd)) +
+  geom_point() +
+  geom_hline(yintercept = 0.008, col = "red", linetype="dashed") +
+  labs(x = "Predicted Probability", y = "Cook's Distance")
+
+```
+
+:::
+:::
+
+## Summary & Reporting
+
+**Methods:** We assessed model fit using Standardized Deviance residuals (outliers), Cook’s Distance (overall influence), and DFBETAs (coefficient stability).
+
+**Results:** AUC-ROC was 0.68. We identified $X$ observations with Cook's distance $> 0.008$. Sensitivity analysis showed coefficient estimates remained stable; thus, all observations were retained.
+
+**Discussion:** High influence points were investigated and found to represent valid clinical scenarios (e.g., older patients with prior fractures who did not refracture), and were kept in the model.
