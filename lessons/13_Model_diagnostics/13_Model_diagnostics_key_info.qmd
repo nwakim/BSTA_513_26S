@@ -8,21 +8,46 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+library(here)
+source(here("class_dates.R"))
+```
+
 ## Announcements
 
 - Quiz 2 opens Wednesday
   - Lesson 6-9
-  - More info on logistics will be updated on [this page](quiz_info/quiz_02_info.qmd)
-  - Think GLM tests in simple logistic regression, in multivariable regression, for a single variable, for groups of variables, and for interactions
+  - Think GLM tests in in multivariable regression, for a single variable, for groups of variables, and for interactions
   - Can you interpret an odds ratio in a multivariable model?
   - Can you interpret a predicted probability?
-- You’re invited to our Antiracism Initiative Town Hall Series, a three-part space for reflection, dialogue, and shared accountability as we continue our school’s antiracism efforts.
-  - [RSVP here by May 14](https://portlandstate.qualtrics.com/jfe/form/SV_8iRKE6ljC7I6xtY)
-  - May 20- Day 1 will offer a general overview of the Antiracism Initiative, including highlights and reflections from Academic Years 2020–2024. We'll revisit the work done so far and where we’re headed.
-  - May 21- Day 2 will center faculty voices as we dive into the Qualitative Data Practice Initiative, which aims to strengthen how we understand and act on student feedback.
-  - **May 22- Day 3 will mirror that conversation from day 2 in a student-centered space, where we’ll invite students to share experiences, ideas, and insights to help shape the future of this initiative.**
+  - NO interactions
+- Need to finish model fit assessment today
 
+### Recurring
+
+#### Bunnies & Burritos
+
+Please join the SPH Student Success Center on Wednesday, June 3rd from Noon-2pm on the 6th floor in Vanport for our 3rd Annual Bunnies & Burritos event. Come take a break from your busy term and hold a bunny, grab a burrito, and connect with SPH students, faculty, and staff. We look forward to celebrating all your hard work and accomplishments this year!  
+ 
+Please RSVP by May 27th, 2026 for food ordering purposes! 
+ 
+[RSVP HERE](https://docs.google.com/forms/d/e/1FAIpQLSelZojJPz_qpj7Rm-p-OyGJKQKPBj2NELbwaDS9FUTwchcGmQ/viewform)
+
+#### R Cascadia Conference
+
+R conference in Portland!! **on 6/26-6/27** <https://cascadiarconf.com/>
+
+- ~$50 for in-person
+- For the PNW, so good networking for semi-local opportunities
+
+#### Fall internship at Boehringer Ingelheim
+
+Global Biostatistics & Data Sciences in Boehringer Ingelheim currently has a Fall Co-Op internship position open for both Master and PhD students. The internship is well suited for students with strong backgrounds in statistics, biostatistics, data science, or related quantitative fields, and it offers exposure to real‑world data analysis and statistical applications in pharmaceutical research and drug development.
+ 
+- [Clinical Data Science - Statistics Fall Co-Op MS Job Details | BoehringerPRD](https://jobs.boehringer-ingelheim.com/job/Ridgefield%2C-CT-Clinical-Data-Science-Statistics-Fall-Co-Op-MS-Unit/1385159233/)
 
 ## Key Dates
-- Quiz 2 opens on 5/14 at 3pm
-- Homework 3 due 5/16
+
+- Quiz 2 opens `{r} q2_open %>% format("%m/%d")`
+    - Closes `{r} q2_close %>% format("%m/%d")`
+- HW 3 due `{r} hw3 %>% format("%m/%d")`
