@@ -23,7 +23,7 @@ source(here("class_dates.R"))
 
 ## File Naming
 
--   For HW Assignments, please use the following file naming: "Lastname_Firstinitial_HW0.qmd" and "Lastname_Firstinitial_HW0.html"
+- For HW Assignments, please use the following file naming: "Lastname_Firstinitial_HW0.qmd" and "Lastname_Firstinitial_HW0.html"
 
 ## Rubrics
 
