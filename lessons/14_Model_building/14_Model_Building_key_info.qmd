@@ -17,7 +17,7 @@ source(here("class_dates.R"))
 
 - Lab 3 feedback
   - Good job! 
-  - Remember that you can rescale age and income
+  - Remember that you can scale age and income
   
 - Quiz 2 opens TODAY
   - Lesson 6-9
