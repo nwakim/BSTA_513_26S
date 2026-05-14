@@ -947,6 +947,8 @@ tbl_regression(RE_glm, exponentiate = TRUE) %>%
 
 ## How to present odds ratios: Forest Plot Setup
 
+**Check out my reference on [making a forest plot!](/references/Forest_plots.qmd)**
+
 ```{r}
 library(broom.helpers)
 RE_tidy = tidy_and_attach(RE_glm, conf.int=T, exponentiate = T) %>%

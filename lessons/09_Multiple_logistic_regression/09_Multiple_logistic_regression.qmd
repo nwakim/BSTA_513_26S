@@ -989,6 +989,8 @@ tbl_regression(multi_bc,
 
 ## How to present odds ratios: Forest Plot Setup
 
+**Check out my reference on [making a forest plot!](/references/Forest_plots.qmd)**
+
 ```{r}
 library(broom.helpers)
 MLR_tidy = tidy_and_attach(multi_bc, conf.int=T, exponentiate = T) %>%
@@ -996,7 +998,7 @@ MLR_tidy = tidy_and_attach(multi_bc, conf.int=T, exponentiate = T) %>%
   tidy_add_reference_rows() %>%
   tidy_add_estimate_to_reference_rows() %>%
   tidy_add_term_labels()
-glimpse(MLR_tidy)
+glimpse(MLR_tidy, width = 60)
 ```
 
 ## How to present odds ratios: Forest Plot Setup {.smaller}

@@ -42,7 +42,7 @@ library(expss)
 
 # Load the data - update code if the csv file is not in the same location on your computer
 # If you need to download the file, please go to ur shared folder under Data > Slides
-load(here("../../W25_BSTA_512_612/BSTA_512_W25_site/lessons/15_MLR_Diagnostics/final_mod.rda"))
+load(here("../../BSTA_512_25W/BSTA_512_W25_site/lessons/15_MLR_Diagnostics/final_mod.rda"))
 gapm2 = gapm2 %>%
   mutate(members_oecd_g77 = factor(members_oecd_g77, levels = c("g77", "oecd", "others"), 
                                    labels = c("Group of 77", "OECD", "Others")), 
@@ -266,6 +266,8 @@ table1
 
 ## 2. Regression table or Forest plot (if no interactions)
 
+**Check out my reference on [making a forest plot!](/references/Forest_plots.qmd)**
+
 ::::: columns
 ::: {.column width="52%"}
 ```{r}
@@ -464,9 +466,9 @@ Table \_\_: Estimated odds ratios and confidence intervals of death at discharge
 
 ```{r}
 #| echo: true
-gtsave(reg_table, filename = here("lessons/19_Poster_help/reg_table.png"))
-gtsave(table1, filename = here("lessons/19_Poster_help/table1.png"))
-ggsave(forest_plot, filename = here("lessons/19_Poster_help/forest_plot.png"))
+# gtsave(reg_table, filename = here("lessons/19_Poster_help/reg_table.png"))
+# gtsave(table1, filename = here("lessons/19_Poster_help/table1.png"))
+# ggsave(forest_plot, filename = here("lessons/19_Poster_help/forest_plot.png"))
 ```
 
 -   When I first ran the above, I got the following message: `The package "webshot2" is required to save gt tables as images. ✖ Would you like to install it? 1: Yes 2: No`

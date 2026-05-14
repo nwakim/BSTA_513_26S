@@ -1,0 +1,205 @@
+---
+title: "Tutorial on Forest Plot"
+format: 
+  html:
+    page-layout: full
+    link-external-newwindow: true
+    toc: true
+    highlight-style: ayu-light
+code-block-border-left: "#70AD47"
+code-annotations: hover
+self-contained: true
+---
+
+```{r}
+#| message: false
+#| echo: false
+
+# PLEASE DO NOT REMOVE THIS CODE CHUNK!!!
+### ADD YOUR LIBRARIES HERE!!! ####
+
+library(tidyverse)
+library(gtsummary)
+library(here)
+library(stringr)
+library(GGally)
+library(skimr)
+```
+
+```{r}
+#| echo: false
+
+load("/Users/wakim/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Projects/Teaching_projects/Teaching_DEIJ_Datasets/Datasets/Food_insecurity_2023/Data/Processed/wbns_data_2026-04-16.rda")
+wbns3 = wbns3 %>%
+  mutate(PPAGE_10 = PPAGE/10)
+```
+
+Let's say I have my data ready and I want to fit a multivariable logistic regression model and make a forest plot of the resulting odds ratios. I'm going to walk through my process step by step.
+
+### *Step 1:* Fit the model
+
+Using my data called `wbns3` and my outcome variable `FOOD_INSEC`, I will fit a multivariable logistic regression model with the following predictors: annual household income (`PPINCIMP`), internet access (`XACSNET`), family size (`FAMSIZE`), education level (`PPEDUCAT`), and age (scaled by 10 years, `PPAGE_10`). 
+
+```{r}
+model = wbns3 %>% 
+  glm(
+    formula = FOOD_INSEC ~ PPINCIMP + XACSNET + FAMSIZE + PPEDUCAT + PPAGE_10, 
+    family = binomial
+    )
+```
+
+### *Step 2:* Tidy the model output
+
+My next step is to tidy the model output and prepare it for plotting. I will use the `broom.helpers` package to tidy the model output. 
+
+::: callout-important
+Hover over the numbers on the left side of the code chunk to see the explanations for each step of the code.
+:::
+
+```{r}
+#| message: false
+#| code-annotations: hover
+
+library(broom.helpers)
+MLR_tidy0 = 
+  tidy_and_attach(                                   # <1>
+    model,                                           # <1>
+    conf.int=T,                                      # <1>
+    exponentiate = T                                 # <1>
+    ) %>%                                            # <1>
+  tidy_remove_intercept() %>%                        # <2>
+  tidy_add_reference_rows() %>%                      # <3>
+  tidy_add_estimate_to_reference_rows() %>%          # <4>
+  tidy_add_term_labels() %>%                         # <5>
+  mutate(                                            # <6>
+    var_label = case_match(                          # <7>
+      var_label,
+      "PPINCIMP" ~ "Annual\nhousehold\nincome",      # <8>
+      "XACSNET"  ~ "Internet\naccess",               
+      "FAMSIZE"  ~ "Family\nsize",                   
+      "PPEDUCAT" ~ "Education\nlevel",                
+      "PPAGE_10" ~ ""                                # <8>
+    ),                                             # <7>
+    label = case_match(                             # <9>
+      label, 
+      "PPAGE_10" ~ "Age (by 10 years)", 
+      .default = label
+    )                                              # <9>
+  ) %>%                                            # <6>      
+  mutate( # <12>
+    label = fct_rev(
+      fct_inorder(label)
+      )
+    )     # <12>
+
+```
+
+1. Take `model` to tidy the model output, get confidence intervals, and exponentiate the estimates to get odds ratios.
+2. Remove the intercept from the tidy output.
+3. Add rows for the reference categories of the categorical predictors. For example, for internet access, the reference category is "No" and it will show on our forest plot. You can chose to remove this, but it often helpful in multi-level categorical variables to show the reference category on the plot.
+4. Add the odds ratio of 1 to the reference rows so that they can be plotted on the forest plot.
+5. Add variable labels so we can show the variable names for categorical variables.
+6. We need to use mutate to change a few of the variable names and labels.
+7. Update the variable labels to be more descriptive. For categorical variables, we want to name the variable. For continuous variables, we want this to be blank, so we include a " ". 
+8. Add line breaks using `\n` between words. This will help the variable labels fit better on the plot. You may need to try out different placements of the line breaks to get the best fit for your plot.
+9. Update labels to be more presentable and descriptive. This update should only be for continuous variables. 
+10. For example, I can take `PPAGE_10`, which is the measurement of age in 10 year increments, and create a label called "Age (by 10 years)"
+11. I set `.default = label` so that all other labels that I have not specified are maintained. 
+12. Reorder the levels of `label` so they show in the order they appear in the data frame. This is important for the forest plot to show the variables in the order we want.
+
+
+### *Step 3:* Make a forest plot
+
+Using the tidied data on the model output, I can now make a forest plot of the odds ratios and confidence intervals.
+
+```{r} 
+#| fig-height: 8
+#| fig-width: 7
+#| code-annotations: hover
+
+library(ggplot2)
+
+ggplot(                          # <1>
+  data = MLR_tidy0,              # <2>
+  aes(                           # <3>
+    y=label,                      # <4>
+    x=estimate,           # <5>
+    xmin=conf.low,        # <6>
+    xmax=conf.high        # <7>
+    )                     # <3>
+  ) +                      # <1>
+  
+  geom_point(   # <8>
+    size = 2
+    ) +  # <8>
+  
+  geom_errorbarh(         # <9>
+    width = 0.2         
+    ) + # <9>
+  
+  geom_vline(             # <10>
+    xintercept=1,         # <11>
+    color='#C2352F',       # <12> 
+    linetype='dashed',    # <13>
+    ) +                    # <10>
+  
+  facet_grid(                 # <14>
+    rows = vars(var_label),     # <15>
+    scales = "free",          # <16>
+    space='free_y',            # <17>
+    switch = "y"               # <18>
+    ) +                        # <14>
+  
+  labs(                       # <19>
+    x = "OR (95% CI)",         # <20>
+    title = "Odds ratios of food insecurity",  # <21>
+    y = element_blank()  # <22>
+    ) + # <19>
+  
+  theme_classic() + # <23> 
+  
+  theme(   # <24>
+    axis.title = element_text(size = 14), # <25>
+    axis.text = element_text(size = 14), # <26>
+    title = element_text(size = 14), # <27>
+    strip.placement = "outside",  # <28>
+    strip.text.y.left = element_text(size = 14, angle = 0),  # <29>
+    strip.background = element_blank() # <30>
+    ) # <24>
+
+```
+
+1. Start a `ggplot` to specify the data and aesthetics. 
+2. Assign the data frame `MLR_tidy0` to the plot.
+3. Set up the aesthetics for the plot.
+4. Set the y-axis to be the `label` variable, which contains the labels for each predictor. This will allow us to show the predictor names on the y-axis of the plot.
+5. Set the x-axis to be the `estimate` variable, which contains the odds ratios.
+6. Set the `xmin` aesthetic to be the `conf.low` variable, which contains the lower bound of the confidence intervals for the odds ratios.
+7. Set the `xmax` aesthetic to be the `conf.high` variable, which contains the upper bound of the confidence intervals for the odds ratios.
+8. Add points for the odds ratios. The `size` argument controls the size of the points.
+9. Add horizontal error bars for the confidence intervals. The `height` argument controls the width of the error bars.
+10. Add a vertical dashed line at x=1 to indicate the null value for odds ratios. This helps to visually assess which predictors are statistically significant (i.e., those whose confidence intervals do not cross 1).
+11. Set the x-intercept of the vertical line to 1, which is the null value for odds ratios.
+12. Set the color of the vertical line to a red color (you can choose any color you like).
+13. Set the line type of the vertical line to dashed. You can choose other line types such as "dotted" or "solid" if you prefer.
+15. Facet the plot by the variable labels so that each predictor is shown in its own row. This is helpful for categorical variables that need to be gathered by the variable.
+16. Specify that the rows of the facets should be based on the `var_label` variable, which contains the descriptive labels for each predictor. This allows us to group the categorical levels of each predictor together in the plot. For example, all levels of annual household income will be grouped together under the label "Annual household income".
+17. The `scales = "free"` argument allows each facet to have its own x-axis scale, which can be helpful if the odds ratios vary widely across predictors. 
+18. The `space='free_y'` argument allows the height of each facet to adjust based on the number of levels in the predictor. 
+19. The `switch = "y"` argument moves the facet labels to the left side of the plot for better readability.
+20. Add labels for the axes and title of the plot.
+21. Set the x-axis label to "OR (95% CI)" to indicate that the x-axis shows odds ratios and their 95% confidence intervals.
+22. Set the title of the plot to "Odds ratios of food insecurity" (you can choose any title you like).
+23. Set the y-axis label to be blank since we are showing the predictor names on the y-axis and don't need an additional label.
+24. Use a classic theme for the plot to improve its appearance. I didn't realize this before, but if you put it after the other `theme()`, it will override the other theme settings. So make sure to put `theme_classic()` before the other `theme()` to keep your custom theme settings.
+25. Customize the theme of the plot to improve its appearance.
+26. Set the size of the axis titles to 14. For example, the x-axis title "OR (95% CI)" will be size 14.
+27. Set the size of the axis text to 14. For example, the x-axis tick labels (the numbers on the x-axis) will be size 14.
+28. Set the size of the plot title to 14.
+29. Move the facet strip labels to the outside of the plot for better readability. This puts the labels like "Annual household income" on the left side of the income labels.
+30. Set the size of the facet strip text to 14 and set the angle to 0 so that the text is horizontal. This makes the facet labels easier to read.
+31. Remove the background of the facet strips for a cleaner look. Try commenting this out! It might be nice to have blocks so it's easier to see which levels belong to which predictor, especially if you have a lot of predictors with many levels. 
+
+
+
+
