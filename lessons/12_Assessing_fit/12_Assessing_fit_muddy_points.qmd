@@ -9,6 +9,18 @@ editor_options:
   chunk_output_type: console
 ---
 
+## Muddy Points from Spring 2026
+
+### 1. If the AUC is poor, should you not use that model, or does it just indicate less of a relationship between the variables?
+
+It just indicates less predictive power of the model. A poor AUC means that the model is not good at distinguishing between the classes (e.g., positive vs. negative cases). 
+
+It does not mean we should not use the model. The AUC can be low for many reasons, such as a small sample size, noisy data, or a weak relationship between the predictors and the outcome. 
+
+### 2. do you typically first use test to assess model fit Not comparing to any other models (Pearson or HL), and then the ROC-AUC/AIC/BIC to compare to other models? Trying to get a sense of how these tests are typically used in practice since it's kind of a lot to keep straight
+
+In all honesty, I don't really use Pearson nor HL tests... No model is amazing... So I don't usually go for the absolute measures of fit. I usually just compare models using AIC/BIC and ROC-AUC.
+
 ## Muddy Points from Spring 2025
 
 ### 1. Calculating the g-value in the H-L test.

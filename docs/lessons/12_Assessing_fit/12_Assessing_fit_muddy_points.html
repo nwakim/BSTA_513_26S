@@ -164,7 +164,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#muddy-points-from-spring-2025" id="toc-muddy-points-from-spring-2025" class="nav-link active" data-scroll-target="#muddy-points-from-spring-2025">Muddy Points from Spring 2025</a>
+  <li><a href="#muddy-points-from-spring-2026" id="toc-muddy-points-from-spring-2026" class="nav-link active" data-scroll-target="#muddy-points-from-spring-2026">Muddy Points from Spring 2026</a>
+  <ul class="collapse">
+  <li><a href="#if-the-auc-is-poor-should-you-not-use-that-model-or-does-it-just-indicate-less-of-a-relationship-between-the-variables" id="toc-if-the-auc-is-poor-should-you-not-use-that-model-or-does-it-just-indicate-less-of-a-relationship-between-the-variables" class="nav-link" data-scroll-target="#if-the-auc-is-poor-should-you-not-use-that-model-or-does-it-just-indicate-less-of-a-relationship-between-the-variables">1. If the AUC is poor, should you not use that model, or does it just indicate less of a relationship between the variables?</a></li>
+  <li><a href="#do-you-typically-first-use-test-to-assess-model-fit-not-comparing-to-any-other-models-pearson-or-hl-and-then-the-roc-aucaicbic-to-compare-to-other-models-trying-to-get-a-sense-of-how-these-tests-are-typically-used-in-practice-since-its-kind-of-a-lot-to-keep-straight" id="toc-do-you-typically-first-use-test-to-assess-model-fit-not-comparing-to-any-other-models-pearson-or-hl-and-then-the-roc-aucaicbic-to-compare-to-other-models-trying-to-get-a-sense-of-how-these-tests-are-typically-used-in-practice-since-its-kind-of-a-lot-to-keep-straight" class="nav-link" data-scroll-target="#do-you-typically-first-use-test-to-assess-model-fit-not-comparing-to-any-other-models-pearson-or-hl-and-then-the-roc-aucaicbic-to-compare-to-other-models-trying-to-get-a-sense-of-how-these-tests-are-typically-used-in-practice-since-its-kind-of-a-lot-to-keep-straight">2. do you typically first use test to assess model fit Not comparing to any other models (Pearson or HL), and then the ROC-AUC/AIC/BIC to compare to other models? Trying to get a sense of how these tests are typically used in practice since it’s kind of a lot to keep straight</a></li>
+  </ul></li>
+  <li><a href="#muddy-points-from-spring-2025" id="toc-muddy-points-from-spring-2025" class="nav-link" data-scroll-target="#muddy-points-from-spring-2025">Muddy Points from Spring 2025</a>
   <ul class="collapse">
   <li><a href="#calculating-the-g-value-in-the-h-l-test." id="toc-calculating-the-g-value-in-the-h-l-test." class="nav-link" data-scroll-target="#calculating-the-g-value-in-the-h-l-test.">1. Calculating the g-value in the H-L test.</a></li>
   <li><a href="#is-aic-or-bic-better-than-the-other-i-had-a-problem-last-quarter-where-one-model-had-a-lower-aic-and-the-other-had-a-lower-bic-and-i-didnt-know-which-was-actually-better." id="toc-is-aic-or-bic-better-than-the-other-i-had-a-problem-last-quarter-where-one-model-had-a-lower-aic-and-the-other-had-a-lower-bic-and-i-didnt-know-which-was-actually-better." class="nav-link" data-scroll-target="#is-aic-or-bic-better-than-the-other-i-had-a-problem-last-quarter-where-one-model-had-a-lower-aic-and-the-other-had-a-lower-bic-and-i-didnt-know-which-was-actually-better.">3. Is AIC or BIC better than the other? I had a problem last quarter where one model had a lower AIC and the other had a lower BIC and I didn’t know which was actually better.</a></li>
@@ -195,7 +200,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 7, 2026</p>
+      <p class="date-modified">May 13, 2026</p>
     </div>
   </div>
     
@@ -206,6 +211,18 @@ window.Quarto = {
 </header>
 
 
+<section id="muddy-points-from-spring-2026" class="level2">
+<h2 class="anchored" data-anchor-id="muddy-points-from-spring-2026">Muddy Points from Spring 2026</h2>
+<section id="if-the-auc-is-poor-should-you-not-use-that-model-or-does-it-just-indicate-less-of-a-relationship-between-the-variables" class="level3">
+<h3 class="anchored" data-anchor-id="if-the-auc-is-poor-should-you-not-use-that-model-or-does-it-just-indicate-less-of-a-relationship-between-the-variables">1. If the AUC is poor, should you not use that model, or does it just indicate less of a relationship between the variables?</h3>
+<p>It just indicates less predictive power of the model. A poor AUC means that the model is not good at distinguishing between the classes (e.g., positive vs.&nbsp;negative cases).</p>
+<p>It does not mean we should not use the model. The AUC can be low for many reasons, such as a small sample size, noisy data, or a weak relationship between the predictors and the outcome.</p>
+</section>
+<section id="do-you-typically-first-use-test-to-assess-model-fit-not-comparing-to-any-other-models-pearson-or-hl-and-then-the-roc-aucaicbic-to-compare-to-other-models-trying-to-get-a-sense-of-how-these-tests-are-typically-used-in-practice-since-its-kind-of-a-lot-to-keep-straight" class="level3">
+<h3 class="anchored" data-anchor-id="do-you-typically-first-use-test-to-assess-model-fit-not-comparing-to-any-other-models-pearson-or-hl-and-then-the-roc-aucaicbic-to-compare-to-other-models-trying-to-get-a-sense-of-how-these-tests-are-typically-used-in-practice-since-its-kind-of-a-lot-to-keep-straight">2. do you typically first use test to assess model fit Not comparing to any other models (Pearson or HL), and then the ROC-AUC/AIC/BIC to compare to other models? Trying to get a sense of how these tests are typically used in practice since it’s kind of a lot to keep straight</h3>
+<p>In all honesty, I don’t really use Pearson nor HL tests… No model is amazing… So I don’t usually go for the absolute measures of fit. I usually just compare models using AIC/BIC and ROC-AUC.</p>
+</section>
+</section>
 <section id="muddy-points-from-spring-2025" class="level2">
 <h2 class="anchored" data-anchor-id="muddy-points-from-spring-2025">Muddy Points from Spring 2025</h2>
 <section id="calculating-the-g-value-in-the-h-l-test." class="level3">
