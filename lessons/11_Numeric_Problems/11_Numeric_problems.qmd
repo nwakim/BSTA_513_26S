@@ -3,7 +3,7 @@ title: "Lesson 11: Numerical Problems"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "05/5/2025"
+date: "`r library(here); source(here('class_dates.R')); w8d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -41,6 +41,7 @@ library(ggpubr)
 library(boot) # for inv.logit()
 library(lmtest)
 library(epiDisplay)
+library(forcats)
 
 library(car)
 library(mctest)
@@ -302,7 +303,33 @@ ggplot(data = ex1, aes(x = x, fill = outcome)) +
 :::
 :::
 
+## 2. Collapse the categories of predictor: first check if close enough!
+
+Just to be safe: I'd check the Fisher's Exact test for the 2x2 table of groups 2 and 3:
+
+::: columns
+::: {.column width="70%"}
+```{r}
+ex1_1 = ex1 %>% 
+  filter(x != "One") %>%
+  mutate(x = factor(x, levels = c("Two", "Three")), 
+         outcome = factor(outcome, levels=c("1", "0")))
+
+fisher.test(x = table(ex1_1$x, ex1_1$outcome))
+```
+:::
+::: {.column width="30%"}
+
+::: box2
+Remember, I'm using Fisher's Exact test because I have a zero cell count! If the expected cell count was > 5, I could use a difference in proportions or Chi-squared test. 
+
+:::
+:::
+:::
+
 ## 2. Collapse the categories of predictor
+
+**NOT APPROPRIATE, but let's run through the thought experiment**
 
 Combine groups 2 and 3:
 ```{r}
@@ -437,11 +464,11 @@ This looks pretty good. We've mostly captured the trend of the outcome proportio
 
  
     
--   If you see a big coefficient estimate with a big standard deviation for a specific category or interaction...
+-   If you see a **big coefficient estimate** with a **big standard deviation** for a specific category or interaction...
     
      
     
-    -   ...this may mean that a low cell count for that category is causing you issues!
+    -   ...this may mean that a **low cell count for that category is causing you issues!**
 
 ## Zero cell count: summary
 
@@ -520,14 +547,13 @@ ex3
 
 :::
 
- 
 
 ```{r}
 #| warning: true
 m1 = glm(outcome ~ x1 + x2, data = ex3, family=binomial)
 ```
 
--   Outcomes of 0 and 1 are completely separated by `x2`
+-   Outcomes of 0 and 1 are completely separated by `x1`
     
     -   If `x1 > 4` then outcome is 1
     -   If `x1 < 4` then outcome is 0
@@ -590,6 +616,7 @@ tidy(m1, conf.int=T) %>% gt() %>%
 -   Collapse categorical variables in a meaningful way
 
     -   Easiest and best if stat methods are restricted (common for collaborations)
+    -   Other reasons why you MUST stay with logistic regression
 
  
 
@@ -599,13 +626,13 @@ tidy(m1, conf.int=T) %>% gt() %>%
 
  
 
--   Firth logistic regression
+-   Firth logistic regression (best option in terms of statistical properties)
 
     -   Uses penalized likelihood estimation method
 
     -   Basically takes the likelihood (that has no maximum) and adds a penalty that makes the MLE estimatable 
 
-![](images/firth.png){.absolute bottom=5 right=0 width="150"}
+![](images/firth.png){.absolute bottom=8 right=0 width="150"}
 
 ## Firth logistic regression
 
@@ -615,7 +642,7 @@ m1_f = logistf(outcome ~ x1 + x2, data = ex3, family=binomial)
 summary(m1_f) # Cannot use tidy on this :(
 ```
 
-![](images/firth.png){.absolute bottom=5 right=0 width="150"}
+![](images/firth.png){.absolute bottom=8 right=0 width="150"}
 
 # Learning Objectives
 
@@ -643,7 +670,7 @@ summary(m1_f) # Cannot use tidy on this :(
     -   Because multicollinearity problems may involve relationships among more than two covariates 
 
 
-## Multicollinearity: example (1/4)
+## Multicollinearity: example (1/2)
 
 -   Table below is a simulated data with 
 
@@ -655,57 +682,7 @@ summary(m1_f) # Cannot use tidy on this :(
 
 ![](images/collin_ex_tb.png){fig-align="center"}
 
-## Multicollinearity: example (2/4)
-
--   Four logistic regression models using data in the previous slide
-
--   Consequence of multicollinearity: large coefficient estimates and/or standard errors
-
- 
-
-::: columns
-::: {.column width="10%"}
-
-:::
-
-::: {.column width="80%"}
-
-![](images/collin_ex_coef.png){fig-align="center"}
-
-:::
-::: {.column width="10%"}
-
-:::
-
-:::
-
-
-
-## Multicollinearity: example (3/4)
-
--   Four logistic regression models using data in the previous slide
-
--   Consequence of multicollinearity: large coefficient estimates and/or standard errors
-
- 
-
-::: columns
-::: {.column width="10%"}
-
-:::
-
-::: {.column width="80%"}
-
-![](images/collin_ex_coef_mod.png){fig-align="center"}
-
-:::
-::: {.column width="10%"}
-
-:::
-
-:::
-
-## Multicollinearity: example (4/4)
+## Multicollinearity: example (2/2)
 
 -   Four logistic regression models using data in the previous slide
 

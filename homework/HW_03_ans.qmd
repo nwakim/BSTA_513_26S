@@ -60,6 +60,10 @@ A code sheet for the variables to be considered is displayed in Table 1.5 below 
 
 ![](./images/ICU_codebook.png){width="557"}
 
+::: callout-important
+The answers in this question are based on "Living" as the reference for STA.
+:::
+
 #### Part a
 
 Write down the population equation for the logistic regression model of STA on AGE, CAN, CPR, and INF. How many parameters does this model contain?

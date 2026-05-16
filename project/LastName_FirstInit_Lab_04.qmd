@@ -64,6 +64,8 @@ Build a model for your outcome:
 
 1.  Use LASSO to build a model with no interactions
 2.  Use Purposeful model selection to build a model with at least one interaction
+
+**Make sure to show your process!!**
 :::
 
 ### Assess your model fit
@@ -74,6 +76,8 @@ Calculate the ROC-AUC of your model.
 :::
 
 ### Perform model diagnostics
+
+**For purposeful model selection only** 
 
 ::: callout-important
 #### Task
