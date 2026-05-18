@@ -16,6 +16,8 @@ source(here("class_dates.R"))
 ## Announcements
 
 - **Check out my reference on [making a forest plot!](/references/Forest_plots.qmd)**
+- Waiting on a few more quizzes
+- 
 
 ### Recurring
 
