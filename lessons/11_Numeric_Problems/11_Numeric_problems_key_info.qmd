@@ -48,8 +48,3 @@ Global Biostatistics & Data Sciences in Boehringer Ingelheim currently has a Fal
     - Closes `{r} q2_close %>% format("%m/%d")`
 - HW 3 due `{r} hw3 %>% format("%m/%d")`
 
-## Key Dates
-
-- Lab 3 due 5/9
-- Quiz 2 open on 5/14
-- Homework 3 due 5/16

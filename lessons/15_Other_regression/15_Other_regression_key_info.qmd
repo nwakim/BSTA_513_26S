@@ -8,29 +8,46 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+library(here)
+source(here("class_dates.R"))
+```
+
 ## Announcements
 
-- I removed HW 5
-  - Last HW will be HW 4
-  - HW 4 will have a log-binomial regression on it!!
-    - But will be covered next Wednesday
+- **Check out my reference on [making a forest plot!](/references/Forest_plots.qmd)**
+- Waiting on a few more quizzes
+- Interactions and ORs in HW 3
 
-### Email from Jamie about PE
+### Recurring
 
-Please share this email widely with EPI and BSTA students.
+#### Bunnies & Burritos
 
-I just met with OHSU Orthopaedics and they are looking for an epi student AND a biostatistics student to do a research PE with Dr. Yoo over multiple terms. This project will most likely pivot to multiple PE opportunities, as well. This will also be posted to the opportunities board, but I wanted to get the word out ASAP. Below are some details about the PE. 
+Please join the SPH Student Success Center on Wednesday, June 3rd from Noon-2pm on the 6th floor in Vanport for our 3rd Annual Bunnies & Burritos event. Come take a break from your busy term and hold a bunny, grab a burrito, and connect with SPH students, faculty, and staff. We look forward to celebrating all your hard work and accomplishments this year!  
+ 
+Please RSVP by May 27th, 2026 for food ordering purposes! 
+ 
+[RSVP HERE](https://docs.google.com/forms/d/e/1FAIpQLSelZojJPz_qpj7Rm-p-OyGJKQKPBj2NELbwaDS9FUTwchcGmQ/viewform)
 
-- OHSU (hybrid), unpaid, duration of PE is flexible (two terms is encouraged), start date preferred: June 23 (but flexible to start in fall) 
-- Project: Multiple project opportunities for answering nuanced questions in orthopaedic surgery using large datasets through EPIC Cosmos etc
-- Deliverables: Opportunity to own multiple questions - great opportunity for a motivated student looking for a springboard into academia.
-- All students, regardless of citizenship status (DACA, undocumented, international) are eligible and encouraged to apply!
+#### R Cascadia Conference
 
-Interested students can email Jamie, and she will connect them with Zach, who is assisting with the PE set up. Please let me know if you or students have any questions!
+R conference in Portland!! **on 6/26-6/27** <https://cascadiarconf.com/>
+
+- ~$50 for in-person
+- For the PNW, so good networking for semi-local opportunities
+
+#### Fall internship at Boehringer Ingelheim
+
+Global Biostatistics & Data Sciences in Boehringer Ingelheim currently has a Fall Co-Op internship position open for both Master and PhD students. The internship is well suited for students with strong backgrounds in statistics, biostatistics, data science, or related quantitative fields, and it offers exposure to real‑world data analysis and statistical applications in pharmaceutical research and drug development.
+ 
+- [Clinical Data Science - Statistics Fall Co-Op MS Job Details | BoehringerPRD](https://jobs.boehringer-ingelheim.com/job/Ridgefield%2C-CT-Clinical-Data-Science-Statistics-Fall-Co-Op-MS-Unit/1385159233/)
 
 ## Key Dates
-- Lab 4 due this Friday (5/23)
-- Quiz 3 opens on 5/28, closes on 6/1
-- HW 4 due next Friday (5/30)
-  - Extension can be granted until 6/6
-  
+
+- Lab 4 due `{r} lab4 %>% format("%m/%d")`
+- Quiz 3 opens `{r} q3_open %>% format("%m/%d")`
+    - Closes `{r} q3_close %>% format("%m/%d")`
+- HW 4 due `{r} hw4 %>% format("%m/%d")`
+- Project poster DAY on `{r} w11d1 %>% format("%m/%d")`
+- Poster due `{r} proj %>% format("%m/%d")`
+
