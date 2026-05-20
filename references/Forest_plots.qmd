@@ -159,11 +159,11 @@ ggplot(                          # <1>
   theme_classic() + # <23> 
   
   theme(   # <24>
-    axis.title = element_text(size = 14), # <25>
-    axis.text = element_text(size = 14), # <26>
-    title = element_text(size = 14), # <27>
+    axis.title = element_text(size = 12), # <25>
+    axis.text = element_text(size = 12), # <26>
+    title = element_text(size = 12), # <27>
     strip.placement = "outside",  # <28>
-    strip.text.y.left = element_text(size = 14, angle = 0),  # <29>
+    strip.text.y.left = element_text(size = 12, angle = 0),  # <29>
     strip.background = element_blank() # <30>
     ) # <24>
 

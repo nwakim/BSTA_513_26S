@@ -18,7 +18,7 @@ editor_options:
 ---
 
 ::: callout-important
-Ready to go! (Nicky 5/30)
+Needs to be updated (NIcky 5/19/2026)
 
 [And check out the excel spreadsheet I made that tallies all the needed components for 100%](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1C6F4620-298D-4D42-A15E-8B5522E6A995%7D&file=Project_Rubric.xlsx&action=default&mobileredirect=true)
 :::

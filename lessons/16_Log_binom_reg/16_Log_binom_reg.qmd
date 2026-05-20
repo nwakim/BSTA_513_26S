@@ -3,7 +3,7 @@ title: "Lesson 16: Log-binomial Regression"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "05/28/2025"
+date: "`r library(here); source(here('class_dates.R')); w8d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -297,11 +297,11 @@ tidy(glow2_log_binom, conf.int = T, exponentiate = T) %>%
 
 $$\text{log}\left(\widehat\pi(\mathbf{X})\right) = \widehat\beta_0 + \widehat\beta_1  \cdot I(\text{PF}= \text{``Yes"}) + \widehat\beta_2  \cdot Age$$
 
-- $\exp(\beta_0)$: The risk of fracture (outcome event) for someone who had no prior fracture and is the mean age of `r mean_age` years old
+- $\exp(\widehat{\beta}_0)$: The estimated risk of fracture (outcome event) for someone who had no prior fracture and is the mean age of `r mean_age` years old
 
-- $\exp(\beta_1)$: The risk of fracture for someone who had a prior fracture is $\exp(\beta_1)$ times the risk of fracture for someone who did not have a prior fracture, adjusting for age.
+- $\exp(\widehat{\beta}_1)$: The estimated risk of fracture for someone who had a prior fracture is $\exp(\widehat{\beta}_1)$ times the estimated risk of fracture for someone who did not have a prior fracture, adjusting for age.
 
-- $\exp(\beta_2)$: For every one year increase in age, the risk of fracture is $\exp(\beta_2)$ times, adjusting for prior fracture.
+- $\exp(\widehat{\beta}_2)$: For every one year increase in age, the estimated risk of fracture increases $\exp(\widehat{\beta}_2)$ times, adjusting for prior fracture.
 
  
 
