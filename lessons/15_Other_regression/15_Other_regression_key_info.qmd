@@ -21,33 +21,40 @@ source(here("class_dates.R"))
 
 ### Recurring
 
+#### Visual Thinking and Data Visualization for Clinical Research
+
+[Link to site](https://www.ohsu.edu/octri/visual-thinking-and-data-visualization-clinical-research)
+
+This highly interactive session presents ways to use visual thinking to strengthen research and scientific communication. In order to visualize data well, we have to understand our research deeply. Likewise, in order to understand our research deeply, we need to be able to visualize it well. Centered around a graph makeover, the talk presents three real-world design principles that can clarify both data visualization and critical thinking.
+
+Kate Miller is Director of the Visual Thinking and Data Visualization Program at the Quantitative Sciences Unit at Stanford Medical School, as well as a Senior Biostatistician there. She uses visual thinking every day in her collaborative work with clinical research teams.
+
 #### Bunnies & Burritos
 
-Please join the SPH Student Success Center on Wednesday, June 3rd from Noon-2pm on the 6th floor in Vanport for our 3rd Annual Bunnies & Burritos event. Come take a break from your busy term and hold a bunny, grab a burrito, and connect with SPH students, faculty, and staff. We look forward to celebrating all your hard work and accomplishments this year!  
- 
-Please RSVP by May 27th, 2026 for food ordering purposes! 
- 
+Please join the SPH Student Success Center on Wednesday, June 3rd from Noon-2pm on the 6th floor in Vanport for our 3rd Annual Bunnies & Burritos event. Come take a break from your busy term and hold a bunny, grab a burrito, and connect with SPH students, faculty, and staff. We look forward to celebrating all your hard work and accomplishments this year!
+
+Please RSVP by May 27th, 2026 for food ordering purposes!
+
 [RSVP HERE](https://docs.google.com/forms/d/e/1FAIpQLSelZojJPz_qpj7Rm-p-OyGJKQKPBj2NELbwaDS9FUTwchcGmQ/viewform)
 
 #### R Cascadia Conference
 
 R conference in Portland!! **on 6/26-6/27** <https://cascadiarconf.com/>
 
-- ~$50 for in-person
+- \~\$50 for in-person
 - For the PNW, so good networking for semi-local opportunities
 
 #### Fall internship at Boehringer Ingelheim
 
 Global Biostatistics & Data Sciences in Boehringer Ingelheim currently has a Fall Co-Op internship position open for both Master and PhD students. The internship is well suited for students with strong backgrounds in statistics, biostatistics, data science, or related quantitative fields, and it offers exposure to real‑world data analysis and statistical applications in pharmaceutical research and drug development.
- 
-- [Clinical Data Science - Statistics Fall Co-Op MS Job Details | BoehringerPRD](https://jobs.boehringer-ingelheim.com/job/Ridgefield%2C-CT-Clinical-Data-Science-Statistics-Fall-Co-Op-MS-Unit/1385159233/)
+
+- [Clinical Data Science - Statistics Fall Co-Op MS Job Details \| BoehringerPRD](https://jobs.boehringer-ingelheim.com/job/Ridgefield%2C-CT-Clinical-Data-Science-Statistics-Fall-Co-Op-MS-Unit/1385159233/)
 
 ## Key Dates
 
 - Lab 4 due `{r} lab4 %>% format("%m/%d")`
 - Quiz 3 opens `{r} q3_open %>% format("%m/%d")`
-    - Closes `{r} q3_close %>% format("%m/%d")`
+  - Closes `{r} q3_close %>% format("%m/%d")`
 - HW 4 due `{r} hw4 %>% format("%m/%d")`
 - Project poster DAY on `{r} w11d1 %>% format("%m/%d")`
 - Poster due `{r} proj %>% format("%m/%d")`
-
