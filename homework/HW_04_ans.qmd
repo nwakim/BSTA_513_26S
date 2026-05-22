@@ -36,7 +36,7 @@ library(here)
 
 ### Question 1
 
-*In this problem, we will practice performing model diagnostics in a logistic regression model. You will need to download and source the `Logistic_Dx_Functions.R` file from the shared Data folder.*
+*In this problem, we will practice performing model diagnostics in a logistic regression model.*
 
 This question is taken from the Hosmer and Lemeshow textbook. The ICU study data set consists of a sample of 200 subjects who were part of a much larger study on survival of patients following admission to an adult intensive care unit (ICU). The dataset should be available in our shared folder. The major goal of this study was to develop a logistic regression model to predict the probability of survival to hospital discharge of these patients. In this question, the primary outcome variable is vital (survival) status at hospital discharge, STA. Clinicians associated with the study felt that a key determinant of survival was the patient’s age at admission, AGE. We will build to a multivariable logistic regression model while adjusting for cancer part of the present problem (CAN), CPR prior to ICU admission (CPR), infection probable at ICU admission (INF), and level of consciousness at ICU admission (LOC).
 
@@ -71,20 +71,24 @@ m1_tidy %>% gt() %>%
   fmt_number(decimals = 3)
 ```
 
-
 ```{r}
 #| echo: false
 
-source(here("data", "Logistic_Dx_Functions.R"))
-dx_icu = dx(model1)
-glimpse(dx_icu)
+# Augment for residuals
+library(broom)
+aug_m1 = augment(model1, type.predict = "response", type.residuals = "deviance")
+
+# Calculate influence measures (Cook's D, DFFITS, DFBETAs)
+infl = influence.measures(model1)
+dx_m1 = cbind(aug_m1, as.data.frame(infl$infmat)) %>%
+          dplyr::select(-c(cook.d, cov.r, hat))
 ```
 
 :::
 
 #### Part a
 
-How many covariate patterns does the regression equation have?
+How many potential covariate patterns does the regression equation have?
 
 ::: blue
 Not given
@@ -92,24 +96,21 @@ Not given
 
 #### Part b
 
-Plot the change in standardized Pearson residual by predicted probability. Do you notice any potential outliers? Explain your reasoning.
+Plot the standardized Deviance residual by predicted probability. Do you notice any potential outliers? Explain your reasoning.
 
 ::: blue
 ```{r fig.height=5, fig.width=8}
 
-ggplot(dx_icu) + 
-  geom_hline(yintercept = 4, col = "red", linetype="dashed", linewidth=1) +
-  geom_point(aes(x=P, y=dChisq), size = 3) + 
-  xlab("Estimated/Predicted Probability of Death") +
-  ylab("Change in Std. Pearson Residual") +
-  theme(text = element_text(size = 18)) + 
-  xlim(0,1)
+ggplot(dx_m1, aes(x = .fitted, y = .std.resid)) +
+  geom_point() +
+  geom_hline(yintercept = c(-3, 3), col = "red", linetype="dashed") +
+  labs(x = "Predicted Probability", y = "Std. Deviance Residual")
 ```
 :::
 
 #### Part c
 
-Plot the change in standardized Deviance residual by predicted probability. Do you notice any potential outliers? Explain your reasoning.
+Plot the Cook's distance by predicted probability. Do you notice any potential influential points? Explain your reasoning.
 
 ::: blue
 Not given
@@ -123,13 +124,6 @@ Plot the change in coefficient estimate by predicted probability. Do you notice 
 Not given
 :::
 
-#### Part e
-
-Plot the leverage by predicted probability. Do you notice any influential points? Explain your reasoning.
-
-::: blue
-Not given
-:::
 
 ### Question 2
 
