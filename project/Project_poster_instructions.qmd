@@ -18,9 +18,9 @@ editor_options:
 ---
 
 ::: callout-important
-Needs to be updated (NIcky 5/19/2026)
+Ready to go! (Nicky 5/26/26)
 
-[And check out the excel spreadsheet I made that tallies all the needed components for 100%](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1C6F4620-298D-4D42-A15E-8B5522E6A995%7D&file=Project_Rubric.xlsx&action=default&mobileredirect=true)
+[And check out the excel spreadsheet I made that tallies all the needed components for 100%](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Resources/Project_Rubric_513_613_26S.xlsx?d=w5ebea0e980ee4149a3897e923c866a0d&csf=1&web=1&e=CGg89t)
 :::
 
 ------------------------------------------------------------------------
@@ -31,7 +31,7 @@ The purpose section was partially developed using ChatGPT by feeding in my previ
 
 ### Purpose
 
-A scientific poster serves as a visual and concise way to communicate research findings. For this project, your poster should highlight your linear regression analysis and results while ensuring the context and methods are clearly explained. Posters should balance visuals (e.g., tables, figures) with text to engage an audience effectively.
+A scientific poster serves as a visual and concise way to communicate research findings. For this project, your poster should highlight your regression analysis and results while ensuring the context and methods are clearly explained. Posters should balance visuals (e.g., tables, figures) with text to engage an audience effectively.
 
 ### Formatting guide
 
@@ -41,31 +41,27 @@ A scientific poster serves as a visual and concise way to communicate research f
     -   Powerpoint is a common way to make a poster
         -   This option is easier to start but more annoying when you have to edit visuals and fix the poster
         -   [Some help creating it](https://www.slidesai.io/blog/how-to-make-a-poster-powerpoint)
-    -   There are poster templates in Quarto
-        -   This will be a little harder to start, but easier to edit visuals
-        -   [Quarto template](https://github.com/quarto-ext/typst-templates/tree/main/poster)
 -   **Please submit a PDF of your poster**
 -   Poster dimensions: 36" by 24"
     -   Mostly important to keep the ratio as 6:4
     -   Use a landscape layout
 -   Font size should be no less than 20pt
 -   Sectioning of the report
-    -   Main sections that were required: Introduction, Methods, Results, Conclusion, and References
+    -   Main sections that were required: Introduction (or Background), Methods, Results, Conclusion (or Discussion), and References
     -   Other sections that might help group specific methods or results
 -   Title information at the top of the poster
     -   This includes the title itself, your name, and the date
--   Poster printing for class on 3/17
-    -   Print in color!!
+-   Poster printing for class on 6/8
+    -   Print in color if you can! (I know we can have printer issues in the Vanport building)
     -   Using your PDF, and opening in Adobe Reader, then use the print function
     -   You should see something like this: ![](/project/images/poster_printing.png)
     -   Choose the poster print option then choose the appropriate Tile Scale to make the poster span 4 pages
     -   Note: not all printers accommodate this
-    -   You should be able to print in Vanport
-        -   I do not want you to pay for printing - please let me know if you are unable to print for free
-        -   Here are two documents in the Student files to help with printing
-            -   [Printer info](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Resources/Printers.pdf?csf=1&web=1&e=2CD9k5)
-            -   [Printer guidance](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Resources/Printing,%20Copying,%20Scanning%20Overview%20(OHSU%20and%20PSU).pdf?csf=1&web=1&e=K93grX)
-    -   **Posters presented on 6/9 in class do NOT need to be what you turn in at 11pm in Sakai**
+
+::: callout-note
+- Printing in Vanport is still a little dicey, so if you have access to a printer that can print posters, I would recommend using that
+-   **Posters presented on 6/8 in class do NOT need to be what you turn in on 6/9 at 11pm in Sakai**
+:::
 
 #### Tables and figures
 
@@ -89,45 +85,32 @@ A scientific poster serves as a visual and concise way to communicate research f
         -   I will not take off points if there are a few sprinkled in
         -   If *every or close to every* sentence has mistakes, then I will take off
 
-::: callout-note
-#### The project report is a separate file from the labs
-
-You can save tables and figures from labs or separate files, then load them in the report
-
--   Save R objects in analyses file:
-    -   Suppose you named the Table 1 as `table1`
-    -   `save(table1, file = "table1.Rdata")`
--   Load R objects in report file: `load(file = "table1.Rdata")`
-:::
-
 ### Poster template
 
--   [Powerpoint Template](https://ohsuitg-my.sharepoint.com/:p:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Resources/poster_template.pptx?d=w171b4f2e4f1d4ee1a72f499f15d736af&csf=1&web=1&e=Nsqqqs)
+-   [Powerpoint Template](https://ohsuitg-my.sharepoint.com/:p:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Resources/poster_template.pptx?d=wb113c78c33e4497fab393030df6448e6&csf=1&web=1&e=2STsp5)
     -   Feel free to adjust this poster visually
--   [Quarto Template]
-    -   Only works if you followed the steps in the Quarto template in the Formatting Guide
-    -   Feel free to adjust this poster visually
-
+    
 ### Poster examples
 
--   [Poster 1](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Sample_poster/McVeety_Trans_Single_Payer_Poster.pdf?csf=1&web=1&e=PsN3TI)
+-   [Poster 1](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster/McVeety_Trans_Single_Payer_Poster.pdf?csf=1&web=1&e=L77P3h)
     -   Good example of layouts and well-executed visuals
--   [Poster 2](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Sample_poster/Analysis%20of%20Veterans%27%20Non-disclosure%20of%20Suicidal%20Thoughts.pdf?csf=1&web=1&e=z7V8cv)
+-   [Poster 2](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster/Analysis%20of%20Veterans%27%20Non-disclosure%20of%20Suicidal%20Thoughts.pdf?csf=1&web=1&e=MTVk2f)
     -   Good example of a forest plot to display coefficient estimates of many covariates
     -   Good example of patient information displayed
     -   Good highlight of the study goals in the background
--   [Poster 3](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W25_BSTA_512_612/Student_files/Project/Sample_poster/nwakim_prop_score.pdf?csf=1&web=1&e=xefr7T)
+-   [Poster 3](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster/nwakim_prop_score.pdf?csf=1&web=1&e=rN4Sry)
     -   Done by Nicky (a long time ago) so please excuse a lot of the poor language around race/ethnicity
         -   I have learned a lot since then! My statistics education did not do a great job of incorporating responsible practice around participant's identities
     -   Showing this poster because it is a good example of the level of detail expected in our poster's background, methods, and conclusions
+- [More posters can be found in our shared folder](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster?csf=1&web=1&e=eBBVb4)
 
 ### Grading
 
 The project report is out of 36 points. Note that the Statistical Methods and Results sections are graded on an 8-point scale, while all other components are graded on a 4-point scale.
 
-[Please see the excel spreadsheet if you would like to check if you have all the needed components for the poster!](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1C6F4620-298D-4D42-A15E-8B5522E6A995%7D&file=Project_Rubric.xlsx&action=default&mobileredirect=true)
+[Please see the excel spreadsheet if you would like to check if you have all the needed components for the poster!](https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Resources/Project_Rubric_513_613_26S.xlsx?d=w5ebea0e980ee4149a3897e923c866a0d&csf=1&web=1&e=CGg89t)
 
--   In formatting, an example of a report with little editing needed is one that has zero to some grammar or spelling mistakes, no code chunks showing, and no output warnings nor messages showing.
+-   Example: In the Formatting Section, a check mark for "With little editing, the poster can be presented at a conference" means that the poster has zero (or some) grammar or spelling mistakes, no code chunks showing, and no output warnings nor messages showing.
 -   Professional figures mean
     -   I can read the words and numbers in the html
         -   Variable names are converted from the data frame version to readable text
@@ -144,8 +127,11 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
 
 ### Title
 
--   **Purpose:** Create an identifiable name for your research project that includes the main research question's variables and gives some context to the analysis or results
-  - If you did LASSO, this should emphasize that you are focusing on predicting food insecurity
+-   **Purpose:** Create an identifiable name for your research project 
+  - IF you did [purposeful model selection]{style="color:#70AD47"}, this should emphasize that you are focusing on the relationship between your explanatory variable and food insecurity
+  - If you did [LASSO]{style="color:#D6295E"}, this should emphasize that you are focusing on predicting food insecurity and what variables can predict it
+  
+
 
 ### Introduction
 
@@ -156,13 +142,22 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
 -   You may start with your bullets from Lab 1, but you should edit it and make sure it flows into your report well!
 - This should hit on three main points:
   - What is the context of this research? What is going in the world or public health sector that has led us to study this outcome? Why is the outcome important to study?
-  - Required for purposeful model selection, but not for LASSO:
+  - Required for [purposeful model selection]{style="color:#70AD47"}, but not for LASSO:What is the relationship between your explanatory variable and the outcome? Why is this relationship important to study?  
     - What prior research leads us to our research question?
-  - What is your guiding question? If you perform LASSO, it would be good to mention prediction here
+  - What is your guiding question? 
+    - Best if this comes last in the introduction
+    - Helpful if you highlight this for your audience
+    - If you perform [LASSO]{style="color:#D6295E"}, it would be good to mention prediction here
 - The intro should start broad and get more focused towards the end
 -   Should contain some references
 
 ### Methods
+
+::: callout-caution
+Think of this section as the **HOW: How did you approach your research question?** 
+
+How did you analyze the data? How did you select variables for your model? How did you check diagnostics?
+:::
 
 -   **Length: 8-10 bullets**
 -   **Purpose:** Describe the analyses that were conducted and methods used to select variables and check diagnostics
@@ -173,18 +168,20 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
         -   Did you need to do any quality control?
         -   Missing data: we performed complete case analysis
             -   1 bullet
-            -   Can be included in the Exploratory data analysis section
         -   What program did you use to analyze the data?
     -   Variables and variable creation
-        -   This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+        -   [For purposeful model selection]{style="color:#70AD47"}: This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
             -   More on creation of Table 1, not discussing the results of Table 1
         -   Includes (only include if you did one of the following)
-            -   Indicators for gender identity or race
-            -   Creating BMI
             -   Categorizing a continuous variable (even if performed in model selection)
-            -   Using scoring for an ordered categorical variable (that is not your explanatory variable)
+            -   Using scoring for an ordered categorical variable
+            -   Moving categories around or combining categories
+            -   Potential examples:
+                -  We categorized age into the following groups: \_\_\_, \_\_\_\_, \_\_\_\_, \_\_\_\_ based on existing guidelines from \<insert reference here\>.
+                -   We created a new variable for any hardship by combining the following variables: \_\_\_, \_\_\_, and \_\_\_. We categorized this variable into the following groups: \_\_\_, \_\_\_, and \_\_\_ 
+                - We treated number of children as numeric
         -   1 bullet for all variables
-    -   Model building: we performed purposeful selection OR LASSO
+    -   Model building: we performed [purposeful model selection]{style="color:#70AD47"} OR [LASSO]{style="color:#D6295E"}
         -   1-3 bullets
         -   [For purposeful model selection]{style="color:#70AD47"}, this includes
             -   Describe purposeful selection: combining existing literature, clinical significance, and analysis
@@ -193,9 +190,13 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
             -   Example: We considered the following potential confounders: list fo them. Based on our research question, existing literature, and clinical significance, we used purposeful selection to identify confounders and effect modifiers.
         -   [For LASSO]{style="color:#D6295E"}, this includes
             -   Percent split for training and testing data
-            -   What was the value of your penalty?
-    -   Final model
+            -   Did you tune your penalty? What was the value of your penalty?
+            -   Did you use cross-validation?
+            -   What variables did you exclude from consideration from LASSO?
+    -   [For purposeful model selection]{style="color:#70AD47"}: Final model
         -   1 bullet
+        - **Only for [purposeful model selection]{style="color:#70AD47"}!!**
+            - In [LASSO]{style="color:#D6295E"}, the final model is more of a result
         -   Write out your final model: It can be an equation, but a list might be nicer. 
             - Example: Our final model included main effects for ____ and an interaction between __ and __. 
     -   Model diagnostics
@@ -215,29 +216,44 @@ Methods typically describe your approach and process, not the results of that pr
 
 ### Results
 
--   **Length: mostly figures with 2-3 bullet points**
+::: callout-caution
+Think of this section as the **WHAT: What did you find?**
+
+What were the results of your analyses? What do the numbers mean (not mean like their context, but mean like direct interpretations)? What are the important trends in the data?
+:::
+
+-   **Length: mostly figures with 3-4 bullet points**
 -   **Purpose:** Relay the results from our sample's analysis typically focusing on the numbers and interpretations
 -   Tables & figures (2-3 tables or figures)
     -   The following are required tables or figures
         -   Table 1 summarizing participant characteristics both **overall**
-        -   If purposeful model selection: Table or figure with regression results
+        -   If [purposeful model selection]{style="color:#70AD47"}: Table or figure with regression results
             -   Can be a forest plot
             -   If you have A LOT of coefficient estimates, the forest plot may not work well!
-        - If LASSO: table or figure with variable importance
+        - If [LASSO]{style="color:#D6295E"}: table or figure with variable importance
     -   **1-2 figures that you think are helpful in understanding the results, for example**
         -   DAG explaining connection between variables (if you did this)
         -   Figure for the AUC-ROC
+        
         -   Table or figure to compare model fit statistics (if you did this)
         -   Table or figure for unadjusted relationship between outcome and explanatory variables
 -   [For purposeful model selection:]{style="color:#70AD47"} Interpret the **important** model coefficients in the context of the research question
-    -   2-3 bullets
+    -   3-4 bullets
     -   Interpreting the explanatory variable's relationship with IAT score is the most important thing to report!!
         -   When doing this, make sure you account for ALL interactions: If your explanatory variable has multiple interactions and you are trying to interpret one, then what does that mean about the other variables involved in the other interactions? If this is confusing, please make an appointment with me!!
 - [For LASSO:]{style="color:#D6295E"} Discuss the important variables and identify the 1-3 most important ones
-    - 2-3 bullets
+    - 3-4 bullets
     - Since our main focus is prediction, we want to discuss variables that most contribute to the prediction of the outcome
+    - Other interesting trends might include variables that you thought would be important but were not, or variables that you thought would not be important but were
+      - Were there correlated variables that were important? 
 
 ### Conclusion/Discussion
+
+::: callout-caution
+Think of this section as the **WHY: Why did we get these results?**
+
+Why are they important? Why are they relevant (or not) to the target population? Why might we use these results? Why might we not use these results? Why are they limited (and what are the consequences of those limitations)?
+:::
 
 -   **Length: 5-10 bullets**
 -   **Purpose:** Describe the main conclusions to a non-technical audience and discuss the results and give them context outside of the sample and its analysis
@@ -249,9 +265,10 @@ Methods typically describe your approach and process, not the results of that pr
 -   Some important things to include
     -   Include limitations and consequences of the limitations on the results
         -   You don't need to hit all the limitations, but think about the big ones (generalizability? independence of samples? large sample size vs. clinical significance? the way we handled variables?)
+        -   A REALLY big limitation of this analysis is that we used survey data, but did not use survey weights. This means we might have biased results that are not generalizable to the US population. 
     -   After limitations, discuss the positive parts of the results
         -   What can we do with these results? What impact can it have?
-    -   Any overarching trends that are worth noting? [@Giebel2024]
+    -   Any overarching trends that are worth noting? 
 -   Should contain some references
 
 ### References
