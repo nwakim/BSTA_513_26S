@@ -3,7 +3,7 @@ title: "Lesson 18: Introduction to Poisson Regression"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "06/4/2025"
+date: "`r library(here); source(here('class_dates.R')); w9d2`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -45,9 +45,9 @@ theme_set(theme_minimal() +
 
 # Learning Objectives
 
-2.  Understand what we can measure with Poisson regression and how to interpret coefficients.
+1.  Understand what we can measure with Poisson regression and how to interpret coefficients.
 
-3.  Understand how to adjust for different follow-up times among individuals
+2.  Understand how to adjust for different follow-up times among individuals
 
 ```{css, echo=FALSE}
 .reveal code {
@@ -135,7 +135,7 @@ Example of [**count data**]{style="color:#70AD47"}:
 
 Each female horseshoe crab in the study had a male crab attached to her in her nest. The study investigated factors that affect whether the female crab had any other males, called satellites, residing near her. Explanatory variables that are thought to affect this included the female crab's color, spine condition, and carapace width, and weight. The response outcome for each female crab is the number of satellites. There are 173 females in this study.
 
-![](./images/horseshoe_crab.jpeg){width="400" fig-align="center"}
+![](./images/horseshoe_crab.jpeg){width="375" fig-align="center"}
 :::
 
 ::: column
@@ -225,7 +225,7 @@ lc_inc = eba1977 %>% mutate(lpop = log(pop))
     -   Let $Y$ be a Poisson count **for a given unit of time or per capita**, then $\mu(X) =\lambda(X)$
     -   In a simple Poisson regression, we have
 
-$$\ln(\mu(X)) = \ln(\lambda(X)) = \beta_0 + \beta_1 X$$
+$$\log(\mu(X)) = \log(\lambda(X)) = \beta_0 + \beta_1 X$$
 
  
 
@@ -251,19 +251,19 @@ $$\ln(\mu(X)) = \ln(\lambda(X)) = \beta_0 + \beta_1 X$$
 
 ## Parameter Interpretation: Binary $X$ (1/2)
 
--   In simple Poisson regression: $$\ln(\mu(X)) = \ln(\lambda(X)) = \beta_0 + \beta_1 X$$
+-   In simple Poisson regression: $$\log(\mu(X)) = \log(\lambda(X)) = \beta_0 + \beta_1 X$$
 
 -   When $X$ is a binary variable: How do we interpret $\beta_1$?
 
-    -   When $X=0$: $$\ln(\mu(X = 0)) = \beta_0 + \beta_1 \cdot 0 = \beta_0$$
+    -   When $X=0$: $$\log(\mu(X = 0)) = \beta_0 + \beta_1 \cdot 0 = \beta_0$$
         -   $\mu(X = 0) = \exp (\beta_0)$: the mean count or rate of $Y$ when $X=0$
-    -   When $X=1$: $$\ln(\mu(X = 1)) = \beta_0 + \beta_1 \cdot 1 = \beta_0 + \beta_1$$
+    -   When $X=1$: $$\log(\mu(X = 1)) = \beta_0 + \beta_1 \cdot 1 = \beta_0 + \beta_1$$
         -   $\mu(X = 1) = \exp (\beta_0 + \beta_1)$: the mean count or rate of $Y$ when $X=1$
 
 ## Parameter Interpretation: Binary $X$ (2/2)
 
 -   When $X$ is a binary variable: How do we interpret $\beta_1$?
-    -   By subtraction, we have $$\beta_1 = \beta_0 + \beta_1 - (\beta_0) = \ln(\mu(X = 1)) -  \ln(\mu(X = 0)) = \ln \left( \dfrac{\mu(X = 1)}{\mu(X = 0)} \right)$$
+    -   By subtraction, we have $$\beta_1 = \beta_0 + \beta_1 - (\beta_0) = \log(\mu(X = 1)) -  \log(\mu(X = 0)) = \log \left( \dfrac{\mu(X = 1)}{\mu(X = 0)} \right)$$
 
     -   $\beta_1$: log-count ratio or log-rate ratio
 
@@ -278,6 +278,8 @@ $$\ln(\mu(X)) = \ln(\lambda(X)) = \beta_0 + \beta_1 X$$
     -   $\beta_0$: log-count or log-rate when $X$ is 0
 
     -   So $\exp(\beta_0)$ is the expected count or rate when $X$ is 0
+
+ 
 
 -   When $X$ is a continuous variable: How do we interpret $\beta_1$?
 
@@ -414,7 +416,7 @@ $$\begin{aligned}
 
 ## Including an offset when we have different follow-up times
 
--   What if we have data that each observation has different period of time?
+-   What if we have data where each observation has different period of time?
 
     -   For example, we look at number of ED visits when subjects are enrolled in Oregon Health Plan, however, each subjects are enrolled in the plan for different length of time…
     -   How do we incorporate this different length of time?
@@ -425,19 +427,19 @@ $$\begin{aligned}
 
 -   Then we construct:
 
-$$\begin{aligned} \ln(\lambda(X)) = & \beta_0 + \beta_1 X \\
-\ln(\lambda(X)) = \ln\left(\dfrac{\mu(X)}{t(X)}\right) = \ln(\mu(X)) - \ln(t(X)) = &\beta_0 + \beta_1 X \\
-\ln(\mu(X)) = & \ln(t(X)) + \beta_0 + \beta_1 X\\ \end{aligned}$$
+$$\begin{aligned} \log(\lambda(X)) = & \beta_0 + \beta_1 X \\
+\log(\lambda(X)) = \log\left(\dfrac{\mu(X)}{t(X)}\right) = \log(\mu(X)) - \log(t(X)) = &\beta_0 + \beta_1 X \\
+\log(\mu(X)) = & \log(t(X)) + \beta_0 + \beta_1 X\\ \end{aligned}$$
 
 ## Including an offset when we have different follow-up times
 
 -   That is, to incorporate the different lengths in the model,
 
-$$\ln(\mu(X)) =  \ln(t(X)) + \beta_0 + \beta_1 X$$
+$$\log(\mu(X)) =  \log(t(X)) + \beta_0 + \beta_1 X$$
 
 -   We have one more term in the model and this term is called **offset**, a known term in the model since $t(X)$ is known for each individual
 
--   $\ln(t(X))$ is called the offset
+-   $\log(t(X))$ is called the offset
 
 -   Offsets can also be something like the population size in a city...
 
