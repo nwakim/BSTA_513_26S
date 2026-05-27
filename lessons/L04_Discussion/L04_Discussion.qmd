@@ -68,3 +68,22 @@ countdown::countdown(5)
   - Did you assess your model with your testing set with AUC?
   - Did you omit correlated variables?
 
+```{r}
+#| echo: false
+countdown::countdown(25)
+```
+
+## Draft your methods and results section!
+
+- If you did purposeful model selection, 
+  - Take a look at your methods section from BSTA 512/612!! Make updates from my comments
+- If you did LASSO, 
+  - Brainstorm with each other on what should be included
+  - Your process should be nearly identical
+- From yuor final model, what are the important results to report?
+
+```{r}
+#| echo: false
+countdown::countdown(15)
+```
+

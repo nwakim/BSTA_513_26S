@@ -17,7 +17,19 @@ source(here("class_dates.R"))
 
 - **Check out my reference on [making a forest plot!](/references/Forest_plots.qmd)**
 - Quiz 3 opens today
-- 
+- Poster instructions are up!! 
+  - My focus is on:
+    - Can you concisely describe your analysis process?
+      - Come to office hours and ask for edits on these!!
+    - Correct interpretations
+      - ORs and interactions for purposeful model selection
+      - Most important variables for LASSO
+    - Can you discuss limitations and importance of work?
+      - Critically think about the decisions we made on the sample, analysis, variables, etc.
+        - What might be the consequences of those decisions?
+  - EXTRA CREDIT for
+    - [Bringing food/drink etc. to the Poster Day!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMzU0RkJVVThPNFZZUERNSkdWVlBBWTdEWCQlQCNjPTEu)
+    - [Completing the course eval!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQ1E0UDQ2QUhSRkpPV0JOMzY5TFA0QTUyMSQlQCNjPTEu)
 
 ### Recurring
 
