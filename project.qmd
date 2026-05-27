@@ -48,6 +48,10 @@ source(here("class_dates.R"))
 
 - Poster due [**`r proj %>% format("%m/%d")`**]{style="color:#5B9BD5;"} at 11pm
 
+- EXTRA CREDIT for
+  - [Bringing food/drink etc. to the Poster Day!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMzU0RkJVVThPNFZZUERNSkdWVlBBWTdEWCQlQCNjPTEu)
+  - [Completing the course eval!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQ1E0UDQ2QUhSRkpPV0JOMzY5TFA0QTUyMSQlQCNjPTEu)
+
 ```{r}
 #| echo: false
 g=3

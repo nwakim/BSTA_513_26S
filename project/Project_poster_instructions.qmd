@@ -122,6 +122,11 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
     -   I will not be overly critical about the formatting
     -   By consistency, I mean that you if you are citing things like (Last Name, Year) it doesn't suddenly change to number citations.
     -   If you would like to use Quarto's citation tool, you can! I actually pair it with Zotero and it works beautifully! (But I would not embark on this if you haven't used Zotero before)
+    
+
+- EXTRA CREDIT for
+  - [Bringing food/drink etc. to the Poster Day!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMzU0RkJVVThPNFZZUERNSkdWVlBBWTdEWCQlQCNjPTEu)
+  - [Completing the course eval!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQ1E0UDQ2QUhSRkpPV0JOMzY5TFA0QTUyMSQlQCNjPTEu)
 
 ## Sections
 
