@@ -189,7 +189,7 @@ A code sheet for the variables to be considered is displayed in Table 1.5 below 
 Write down the population equation for the log-binomial regression model of STA on AGE, CAN, CPR, and INF. How many parameters does this model contain?
 
 ::: blue
-This model contains 4 parameters.
+This model contains 5 parameters.
 :::
 
 #### Part b
