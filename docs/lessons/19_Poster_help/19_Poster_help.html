@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Nicky Wakim">
-  <meta name="dcterms.date" content="2025-06-04">
+  <meta name="dcterms.date" content="2026-06-01">
   <title>Categorical Data Analysis – Poster Info and Help</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -209,7 +209,7 @@ Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2025-06-04</p>
+  <p class="date">2026-06-01</p>
 </section>
 <section id="some-notes-from-last-quarters-posters-12" class="slide level2">
 <h2>Some notes from last quarter’s posters (1/2)</h2>
@@ -245,12 +245,12 @@ Nicky Wakim
 </ul></li>
 <li>There was A LOT of talk about generalizability being an issue because of the spread of our data
 <ul>
-<li>Sample sistribution ALONE does not mean our results are not generalizable</li>
-<li>The more important question is: Are there enough people (in counts) in each group/demographic/etc to make a decent estimate?</li>
+<li>Sample distribution ALONE does not mean our results are not generalizable</li>
+<li>The more important question is: How were they sampled? <strong>Please note that WBNS is a survey that SHOULD survey weights.</strong> We did not use the weights, so our sample is not representative of the US population!!</li>
 </ul></li>
 <li>Be really careful around language!!
 <ul>
-<li>Using Why or How in your title is a little misleading – we can only answer “does”</li>
+<li>Using Why or How in your title is a little misleading – we can only answer “does” or “what”</li>
 <li>Make sure you do not make implications that we are uncovering a causal pathway!!
 <ul>
 <li>We are not!</li>
@@ -274,6 +274,8 @@ Nicky Wakim
 <ul>
 <li>Things you cannot assume people know
 <ul>
+<li>How you created variable for any hardship that excludes food insecurity</li>
+<li>How you created a numeric version of categorical variables</li>
 <li>How to read R code: do not include your model equation as an <code>glm()</code> function</li>
 </ul></li>
 </ul>
@@ -291,10 +293,6 @@ Nicky Wakim
 <li>This was a big issue in last quarter’s poster</li>
 <li>Work to make things concise!! You are likely including too much information</li>
 </ul></li>
-<li>I tried the QMD poster, and it is REALLY hard to troubleshoot
-<ul>
-<li>I highly suggest making your poster in powerpoint!</li>
-</ul></li>
 </ul>
 <div class="cell">
 <style type="text/css">
@@ -305,32 +303,10 @@ Nicky Wakim
 </style>
 </div>
 </section>
-<section id="background" class="slide level2">
-<h2>Background</h2>
+<section id="background-and-methods" class="slide level2">
+<h2>Background and Methods</h2>
 <ul>
-<li><strong>Length: 5-8 bullets</strong></li>
-<li><strong>Purpose:</strong> Introduce the research question and why it is important to study</li>
-<li>This section is non-technical.
-<ul>
-<li>By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are</li>
-</ul></li>
-<li>You may start with your bullets from Lab 1, but you should edit it and make sure it flows into your report well!</li>
-<li>Should contain some references</li>
-</ul>
-</section>
-<section id="methods" class="slide level2">
-<h2>Methods</h2>
-<ul>
-<li><strong>Length: 8-10 bullets</strong></li>
-<li><strong>Purpose:</strong> Describe the analyses that were conducted and methods used to select variables and check diagnostics</li>
-<li><strong>Some important methods to discuss</strong> (You may divide these into your sections, not necessarily with these names)
-<ul>
-<li>General approach to the dataset</li>
-<li>Variables and variable creation</li>
-<li>Model building: we performed purposeful selection</li>
-<li>Final model</li>
-<li>Model diagnostics</li>
-</ul></li>
+<li>Let’s walk through the instructions!</li>
 </ul>
 </section>
 <section id="methods-example-ish" class="slide level2">
@@ -360,7 +336,7 @@ Nicky Wakim
 <p>If you did purposeful model selection:</p>
 <ol type="1">
 <li><p>Table 1</p></li>
-<li><p>Table showing odds ratios for your main variable + variable from interaction</p></li>
+<li><p>Table or figure showing odds ratios for your main variable + variable from interaction</p></li>
 <li><p>One additional figure or table to understand your research question</p></li>
 <li><p>Interpretations of odds ratios from Table in #2</p></li>
 </ol>
@@ -369,7 +345,7 @@ Nicky Wakim
 <ol type="1">
 <li><p>Table 1</p></li>
 <li><p>Table or plot showing most important variables</p></li>
-<li><p>One additional figure or table to help understand your question</p></li>
+<li><p>One additional figure or table to help understand your question (maybe AUC ROC?)</p></li>
 <li><p>Interpretations of important variables: identify top 1-3 that predict outcome</p></li>
 </ol>
 </div></div>
@@ -411,23 +387,23 @@ Nicky Wakim
 </div><div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="ikpeclbyad" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ikpeclbyad table {
+<div id="slsbxbfzgt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#slsbxbfzgt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ikpeclbyad thead, #ikpeclbyad tbody, #ikpeclbyad tfoot, #ikpeclbyad tr, #ikpeclbyad td, #ikpeclbyad th {
+#slsbxbfzgt thead, #slsbxbfzgt tbody, #slsbxbfzgt tfoot, #slsbxbfzgt tr, #slsbxbfzgt td, #slsbxbfzgt th {
   border-style: none;
 }
 
-#ikpeclbyad p {
+#slsbxbfzgt p {
   margin: 0;
   padding: 0;
 }
 
-#ikpeclbyad .gt_table {
+#slsbxbfzgt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -453,12 +429,12 @@ Nicky Wakim
   border-left-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_caption {
+#slsbxbfzgt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ikpeclbyad .gt_title {
+#slsbxbfzgt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -470,7 +446,7 @@ Nicky Wakim
   border-bottom-width: 0;
 }
 
-#ikpeclbyad .gt_subtitle {
+#slsbxbfzgt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -482,7 +458,7 @@ Nicky Wakim
   border-top-width: 0;
 }
 
-#ikpeclbyad .gt_heading {
+#slsbxbfzgt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -494,13 +470,13 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_bottom_border {
+#slsbxbfzgt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_col_headings {
+#slsbxbfzgt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -515,7 +491,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_col_heading {
+#slsbxbfzgt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -535,7 +511,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#ikpeclbyad .gt_column_spanner_outer {
+#slsbxbfzgt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -547,15 +523,15 @@ Nicky Wakim
   padding-right: 4px;
 }
 
-#ikpeclbyad .gt_column_spanner_outer:first-child {
+#slsbxbfzgt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ikpeclbyad .gt_column_spanner_outer:last-child {
+#slsbxbfzgt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ikpeclbyad .gt_column_spanner {
+#slsbxbfzgt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -567,11 +543,11 @@ Nicky Wakim
   width: 100%;
 }
 
-#ikpeclbyad .gt_spanner_row {
+#slsbxbfzgt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ikpeclbyad .gt_group_heading {
+#slsbxbfzgt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -597,7 +573,7 @@ Nicky Wakim
   text-align: left;
 }
 
-#ikpeclbyad .gt_empty_group_heading {
+#slsbxbfzgt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -612,15 +588,15 @@ Nicky Wakim
   vertical-align: middle;
 }
 
-#ikpeclbyad .gt_from_md > :first-child {
+#slsbxbfzgt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ikpeclbyad .gt_from_md > :last-child {
+#slsbxbfzgt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ikpeclbyad .gt_row {
+#slsbxbfzgt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,7 +615,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#ikpeclbyad .gt_stub {
+#slsbxbfzgt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -652,7 +628,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#ikpeclbyad .gt_stub_row_group {
+#slsbxbfzgt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -666,15 +642,15 @@ Nicky Wakim
   vertical-align: top;
 }
 
-#ikpeclbyad .gt_row_group_first td {
+#slsbxbfzgt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ikpeclbyad .gt_row_group_first th {
+#slsbxbfzgt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ikpeclbyad .gt_summary_row {
+#slsbxbfzgt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -684,16 +660,16 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#ikpeclbyad .gt_first_summary_row {
+#slsbxbfzgt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_first_summary_row.thick {
+#slsbxbfzgt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ikpeclbyad .gt_last_summary_row {
+#slsbxbfzgt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -703,7 +679,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_grand_summary_row {
+#slsbxbfzgt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -713,7 +689,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#ikpeclbyad .gt_first_grand_summary_row {
+#slsbxbfzgt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -723,7 +699,7 @@ Nicky Wakim
   border-top-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_last_grand_summary_row_top {
+#slsbxbfzgt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -733,11 +709,11 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_striped {
+#slsbxbfzgt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ikpeclbyad .gt_table_body {
+#slsbxbfzgt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -746,7 +722,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_footnotes {
+#slsbxbfzgt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -760,7 +736,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_footnote {
+#slsbxbfzgt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -769,7 +745,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#ikpeclbyad .gt_sourcenotes {
+#slsbxbfzgt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +759,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#ikpeclbyad .gt_sourcenote {
+#slsbxbfzgt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -791,72 +767,72 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#ikpeclbyad .gt_left {
+#slsbxbfzgt .gt_left {
   text-align: left;
 }
 
-#ikpeclbyad .gt_center {
+#slsbxbfzgt .gt_center {
   text-align: center;
 }
 
-#ikpeclbyad .gt_right {
+#slsbxbfzgt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ikpeclbyad .gt_font_normal {
+#slsbxbfzgt .gt_font_normal {
   font-weight: normal;
 }
 
-#ikpeclbyad .gt_font_bold {
+#slsbxbfzgt .gt_font_bold {
   font-weight: bold;
 }
 
-#ikpeclbyad .gt_font_italic {
+#slsbxbfzgt .gt_font_italic {
   font-style: italic;
 }
 
-#ikpeclbyad .gt_super {
+#slsbxbfzgt .gt_super {
   font-size: 65%;
 }
 
-#ikpeclbyad .gt_footnote_marks {
+#slsbxbfzgt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ikpeclbyad .gt_asterisk {
+#slsbxbfzgt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ikpeclbyad .gt_indent_1 {
+#slsbxbfzgt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ikpeclbyad .gt_indent_2 {
+#slsbxbfzgt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ikpeclbyad .gt_indent_3 {
+#slsbxbfzgt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ikpeclbyad .gt_indent_4 {
+#slsbxbfzgt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ikpeclbyad .gt_indent_5 {
+#slsbxbfzgt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ikpeclbyad .katex-display {
+#slsbxbfzgt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ikpeclbyad div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#slsbxbfzgt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -986,23 +962,23 @@ Nicky Wakim
 </div><div class="column" style="width:48%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="oeccmmbrub" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oeccmmbrub table {
+<div id="ixsziqrfmi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ixsziqrfmi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oeccmmbrub thead, #oeccmmbrub tbody, #oeccmmbrub tfoot, #oeccmmbrub tr, #oeccmmbrub td, #oeccmmbrub th {
+#ixsziqrfmi thead, #ixsziqrfmi tbody, #ixsziqrfmi tfoot, #ixsziqrfmi tr, #ixsziqrfmi td, #ixsziqrfmi th {
   border-style: none;
 }
 
-#oeccmmbrub p {
+#ixsziqrfmi p {
   margin: 0;
   padding: 0;
 }
 
-#oeccmmbrub .gt_table {
+#ixsziqrfmi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1028,12 +1004,12 @@ Nicky Wakim
   border-left-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_caption {
+#ixsziqrfmi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oeccmmbrub .gt_title {
+#ixsziqrfmi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1045,7 +1021,7 @@ Nicky Wakim
   border-bottom-width: 0;
 }
 
-#oeccmmbrub .gt_subtitle {
+#ixsziqrfmi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1057,7 +1033,7 @@ Nicky Wakim
   border-top-width: 0;
 }
 
-#oeccmmbrub .gt_heading {
+#ixsziqrfmi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1069,13 +1045,13 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_bottom_border {
+#ixsziqrfmi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_col_headings {
+#ixsziqrfmi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1090,7 +1066,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_col_heading {
+#ixsziqrfmi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1110,7 +1086,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#oeccmmbrub .gt_column_spanner_outer {
+#ixsziqrfmi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1122,15 +1098,15 @@ Nicky Wakim
   padding-right: 4px;
 }
 
-#oeccmmbrub .gt_column_spanner_outer:first-child {
+#ixsziqrfmi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oeccmmbrub .gt_column_spanner_outer:last-child {
+#ixsziqrfmi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oeccmmbrub .gt_column_spanner {
+#ixsziqrfmi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1142,11 +1118,11 @@ Nicky Wakim
   width: 100%;
 }
 
-#oeccmmbrub .gt_spanner_row {
+#ixsziqrfmi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oeccmmbrub .gt_group_heading {
+#ixsziqrfmi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1172,7 +1148,7 @@ Nicky Wakim
   text-align: left;
 }
 
-#oeccmmbrub .gt_empty_group_heading {
+#ixsziqrfmi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1187,15 +1163,15 @@ Nicky Wakim
   vertical-align: middle;
 }
 
-#oeccmmbrub .gt_from_md > :first-child {
+#ixsziqrfmi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oeccmmbrub .gt_from_md > :last-child {
+#ixsziqrfmi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oeccmmbrub .gt_row {
+#ixsziqrfmi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1214,7 +1190,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#oeccmmbrub .gt_stub {
+#ixsziqrfmi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1227,7 +1203,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#oeccmmbrub .gt_stub_row_group {
+#ixsziqrfmi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1241,15 +1217,15 @@ Nicky Wakim
   vertical-align: top;
 }
 
-#oeccmmbrub .gt_row_group_first td {
+#ixsziqrfmi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oeccmmbrub .gt_row_group_first th {
+#ixsziqrfmi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oeccmmbrub .gt_summary_row {
+#ixsziqrfmi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1259,16 +1235,16 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#oeccmmbrub .gt_first_summary_row {
+#ixsziqrfmi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_first_summary_row.thick {
+#ixsziqrfmi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oeccmmbrub .gt_last_summary_row {
+#ixsziqrfmi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1278,7 +1254,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_grand_summary_row {
+#ixsziqrfmi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1288,7 +1264,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#oeccmmbrub .gt_first_grand_summary_row {
+#ixsziqrfmi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1298,7 +1274,7 @@ Nicky Wakim
   border-top-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_last_grand_summary_row_top {
+#ixsziqrfmi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1308,11 +1284,11 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_striped {
+#ixsziqrfmi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oeccmmbrub .gt_table_body {
+#ixsziqrfmi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1321,7 +1297,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_footnotes {
+#ixsziqrfmi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1335,7 +1311,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_footnote {
+#ixsziqrfmi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1344,7 +1320,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#oeccmmbrub .gt_sourcenotes {
+#ixsziqrfmi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1358,7 +1334,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#oeccmmbrub .gt_sourcenote {
+#ixsziqrfmi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1366,72 +1342,72 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#oeccmmbrub .gt_left {
+#ixsziqrfmi .gt_left {
   text-align: left;
 }
 
-#oeccmmbrub .gt_center {
+#ixsziqrfmi .gt_center {
   text-align: center;
 }
 
-#oeccmmbrub .gt_right {
+#ixsziqrfmi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oeccmmbrub .gt_font_normal {
+#ixsziqrfmi .gt_font_normal {
   font-weight: normal;
 }
 
-#oeccmmbrub .gt_font_bold {
+#ixsziqrfmi .gt_font_bold {
   font-weight: bold;
 }
 
-#oeccmmbrub .gt_font_italic {
+#ixsziqrfmi .gt_font_italic {
   font-style: italic;
 }
 
-#oeccmmbrub .gt_super {
+#ixsziqrfmi .gt_super {
   font-size: 65%;
 }
 
-#oeccmmbrub .gt_footnote_marks {
+#ixsziqrfmi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oeccmmbrub .gt_asterisk {
+#ixsziqrfmi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oeccmmbrub .gt_indent_1 {
+#ixsziqrfmi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oeccmmbrub .gt_indent_2 {
+#ixsziqrfmi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oeccmmbrub .gt_indent_3 {
+#ixsziqrfmi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oeccmmbrub .gt_indent_4 {
+#ixsziqrfmi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oeccmmbrub .gt_indent_5 {
+#ixsziqrfmi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#oeccmmbrub .katex-display {
+#ixsziqrfmi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#oeccmmbrub div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ixsziqrfmi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.9.36" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="description" content="Due: Monday June 9, 2025" />
+
+<title>Project Poster Instructions – Categorical Data Analysis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+<!-- htmldependencies:E3FAD763 -->
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="/images/Bsta513.png" alt="" class="navbar-logo light-content" />
+    <img src="/images/Bsta513.png" alt="" class="navbar-logo dark-content" />
+    </a>
+    <a class="navbar-brand" href="/index.html">
+    <span class="navbar-title">Categorical Data Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="/schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/instructors.html"> 
+<span class="menu-text">Instructors</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/quiz.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/homeworks.html"> 
+<span class="menu-text">Homework</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <div id="quarto-toc-target"></div>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project Poster Instructions</h1>
+<p class="subtitle lead">BSTA 512/612</p>
+</div>
+
+<div>
+  <div class="description">
+    Due: Monday June 9, 2025
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">May 29, 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#directions" id="toc-directions"><span class="header-section-number">1</span> Directions</a>
+  <ul>
+  <li><a href="#purpose" id="toc-purpose"><span class="header-section-number">1.1</span> Purpose</a></li>
+  <li><a href="#formatting-guide" id="toc-formatting-guide"><span class="header-section-number">1.2</span> Formatting guide</a></li>
+  <li><a href="#poster-template" id="toc-poster-template"><span class="header-section-number">1.3</span> Poster template</a></li>
+  <li><a href="#poster-examples" id="toc-poster-examples"><span class="header-section-number">1.4</span> Poster examples</a></li>
+  <li><a href="#grading" id="toc-grading"><span class="header-section-number">1.5</span> Grading</a></li>
+  </ul></li>
+  <li><a href="#sections" id="toc-sections"><span class="header-section-number">2</span> Sections</a>
+  <ul>
+  <li><a href="#title" id="toc-title"><span class="header-section-number">2.1</span> Title</a></li>
+  <li><a href="#introductionbackground" id="toc-introductionbackground"><span class="header-section-number">2.2</span> Introduction/Background</a></li>
+  <li><a href="#methods" id="toc-methods"><span class="header-section-number">2.3</span> Methods</a></li>
+  <li><a href="#results" id="toc-results"><span class="header-section-number">2.4</span> Results</a></li>
+  <li><a href="#conclusiondiscussion" id="toc-conclusiondiscussion"><span class="header-section-number">2.5</span> Conclusion/Discussion</a></li>
+  <li><a href="#references" id="toc-references"><span class="header-section-number">2.6</span> References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ready to go! (Nicky 5/26/26)</p>
+<p><a href="https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Resources/Project_Rubric_513_613_26S.xlsx?d=w5ebea0e980ee4149a3897e923c866a0d&amp;csf=1&amp;web=1&amp;e=CGg89t">And check out the excel spreadsheet I made that tallies all the needed components for 100%</a></p>
+</div>
+</div>
+<hr />
+<p>The purpose section was partially developed using ChatGPT by feeding in my previous project report instructions and asking ChatGPT to edit for a poster.</p>
+<section id="directions" class="level2" data-number="1">
+<h2 data-number="1"><span class="header-section-number">1</span> Directions</h2>
+<section id="purpose" class="level3" data-number="1.1">
+<h3 data-number="1.1"><span class="header-section-number">1.1</span> Purpose</h3>
+<p>A scientific poster serves as a visual and concise way to communicate research findings. For this project, your poster should highlight your regression analysis and results while ensuring the context and methods are clearly explained. Posters should balance visuals (e.g., tables, figures) with text to engage an audience effectively.</p>
+</section>
+<section id="formatting-guide" class="level3" data-number="1.2">
+<h3 data-number="1.2"><span class="header-section-number">1.2</span> Formatting guide</h3>
+<section id="poster-specifications" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1"><span class="header-section-number">1.2.1</span> Poster specifications</h4>
+<ul>
+<li>This poster can be done in any program you would like
+<ul>
+<li>Powerpoint is a common way to make a poster
+<ul>
+<li>This option is easier to start but more annoying when you have to edit visuals and fix the poster</li>
+<li><a href="https://www.slidesai.io/blog/how-to-make-a-poster-powerpoint">Some help creating it</a></li>
+</ul></li>
+</ul></li>
+<li><strong>Please submit a PDF of your poster</strong></li>
+<li>Poster dimensions: 36” by 24”
+<ul>
+<li>Mostly important to keep the ratio as 6:4</li>
+<li>Use a landscape layout</li>
+</ul></li>
+<li>Font size should be no less than 20pt</li>
+<li>Sectioning of the report
+<ul>
+<li>Main sections that were required: Introduction (or Background), Methods, Results, Conclusion (or Discussion), and References</li>
+<li>Other sections that might help group specific methods or results</li>
+</ul></li>
+<li>Title information at the top of the poster
+<ul>
+<li>This includes the title itself, your name, and the date</li>
+</ul></li>
+<li>Poster printing for class on 6/8
+<ul>
+<li>Print in color if you can! (I know we can have printer issues in the Vanport building)</li>
+<li>Using your PDF, and opening in Adobe Reader, then use the print function</li>
+<li>You should see something like this: <img src="../project/images/poster_printing.png" class="img-fluid" /></li>
+<li>Choose the poster print option then choose the appropriate Tile Scale to make the poster span 4 pages</li>
+<li>Note: not all printers accommodate this</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Printing in Vanport is still a little dicey, so if you have access to a printer that can print posters, I would recommend using that</li>
+<li><strong>Posters presented on 6/8 in class do NOT need to be what you turn in on 6/9 at 11pm in Sakai</strong></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="tables-and-figures" class="level4" data-number="1.2.2">
+<h4 data-number="1.2.2"><span class="header-section-number">1.2.2</span> Tables and figures</h4>
+<ul>
+<li>Tables and figures should NOT have variable names as they appear in the data frame
+<ul>
+<li>Variable names should be understood by a reader</li>
+<li>Variable names should be written in full words</li>
+<li>Include a title or caption for all figures</li>
+<li>Figure and tables appear on same page or close to same page where they are first referenced</li>
+<li>Tables and figures are an appropriate size in the html</li>
+<li>Nicky is able to read all words in figures and tables</li>
+</ul></li>
+<li>Figures and tables should be clear and crisp
+<ul>
+<li>Make sure they are not blurred</li>
+<li>Screenshots are okay, but will likely make them blurry if you’re not careful</li>
+<li>Best option is to use the <code>save()</code> to save a jpg or png</li>
+</ul></li>
+</ul>
+</section>
+<section id="writing" class="level4" data-number="1.2.3">
+<h4 data-number="1.2.3"><span class="header-section-number">1.2.3</span> Writing</h4>
+<ul>
+<li>Writing, spelling, and grammar should be admissible
+<ul>
+<li>This means I can generally follow your thought/what you are trying to communicate</li>
+<li>Some spelling and grammar mistakes are allowed
+<ul>
+<li>I will not take off points if there are a few sprinkled in</li>
+<li>If <em>every or close to every</em> sentence has mistakes, then I will take off</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="poster-template" class="level3" data-number="1.3">
+<h3 data-number="1.3"><span class="header-section-number">1.3</span> Poster template</h3>
+<ul>
+<li><a href="https://ohsuitg-my.sharepoint.com/:p:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Resources/poster_template.pptx?d=wb113c78c33e4497fab393030df6448e6&amp;csf=1&amp;web=1&amp;e=2STsp5">Powerpoint Template</a>
+<ul>
+<li>Feel free to adjust this poster visually</li>
+</ul></li>
+</ul>
+</section>
+<section id="poster-examples" class="level3" data-number="1.4">
+<h3 data-number="1.4"><span class="header-section-number">1.4</span> Poster examples</h3>
+<ul>
+<li><a href="https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster/McVeety_Trans_Single_Payer_Poster.pdf?csf=1&amp;web=1&amp;e=L77P3h">Poster 1</a>
+<ul>
+<li>Good example of layouts and well-executed visuals</li>
+</ul></li>
+<li><a href="https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster/Analysis%20of%20Veterans%27%20Non-disclosure%20of%20Suicidal%20Thoughts.pdf?csf=1&amp;web=1&amp;e=MTVk2f">Poster 2</a>
+<ul>
+<li>Good example of a forest plot to display coefficient estimates of many covariates</li>
+<li>Good example of patient information displayed</li>
+<li>Good highlight of the study goals in the background</li>
+</ul></li>
+<li><a href="https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster/nwakim_prop_score.pdf?csf=1&amp;web=1&amp;e=rN4Sry">Poster 3</a>
+<ul>
+<li>Done by Nicky (a long time ago) so please excuse a lot of the poor language around race/ethnicity
+<ul>
+<li>I have learned a lot since then! My statistics education did not do a great job of incorporating responsible practice around participant’s identities</li>
+</ul></li>
+<li>Showing this poster because it is a good example of the level of detail expected in our poster’s background, methods, and conclusions</li>
+</ul></li>
+<li><a href="https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Sample_poster?csf=1&amp;web=1&amp;e=eBBVb4">More posters can be found in our shared folder</a></li>
+</ul>
+</section>
+<section id="grading" class="level3" data-number="1.5">
+<h3 data-number="1.5"><span class="header-section-number">1.5</span> Grading</h3>
+<p>The project report is out of 36 points. Note that the Statistical Methods and Results sections are graded on an 8-point scale, while all other components are graded on a 4-point scale.</p>
+<p><a href="https://ohsuitg-my.sharepoint.com/:x:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/BSTA_513_26S/Student_files_BSTA_513/Project/Resources/Project_Rubric_513_613_26S.xlsx?d=w5ebea0e980ee4149a3897e923c866a0d&amp;csf=1&amp;web=1&amp;e=CGg89t">Please see the excel spreadsheet if you would like to check if you have all the needed components for the poster!</a></p>
+<ul>
+<li>Example: In the Formatting Section, a check mark for “With little editing, the poster can be presented at a conference” means that the poster has zero (or some) grammar or spelling mistakes, no code chunks showing, and no output warnings nor messages showing.</li>
+<li>Professional figures mean
+<ul>
+<li>I can read the words and numbers in the html
+<ul>
+<li>Variable names are converted from the data frame version to readable text</li>
+<li>For example: <code>iam_001</code> does not show up on axes, instead something like: <code>Response to "Currently, I am..."</code></li>
+</ul></li>
+<li>Colors are only used if conveying information</li>
+<li>Intended message of the figure is easily understood
+<ul>
+<li>If you are trying to show a trend of mean IAT vs. an ordered categorical variable, then the variable is ordered on the x-axis</li>
+</ul></li>
+</ul></li>
+<li>For the references
+<ul>
+<li>I will not be overly critical about the formatting</li>
+<li>By consistency, I mean that you if you are citing things like (Last Name, Year) it doesn’t suddenly change to number citations.</li>
+<li>If you would like to use Quarto’s citation tool, you can! I actually pair it with Zotero and it works beautifully! (But I would not embark on this if you haven’t used Zotero before)</li>
+</ul></li>
+<li>EXTRA CREDIT for
+<ul>
+<li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMzU0RkJVVThPNFZZUERNSkdWVlBBWTdEWCQlQCNjPTEu">Bringing food/drink etc. to the Poster Day!</a></li>
+<li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQ1E0UDQ2QUhSRkpPV0JOMzY5TFA0QTUyMSQlQCNjPTEu">Completing the course eval!</a></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="sections" class="level2" data-number="2">
+<h2 data-number="2"><span class="header-section-number">2</span> Sections</h2>
+<section id="title" class="level3" data-number="2.1">
+<h3 data-number="2.1"><span class="header-section-number">2.1</span> Title</h3>
+<ul>
+<li><strong>Purpose:</strong> Create an identifiable name for your research project</li>
+<li>IF you did <span style="color:#70AD47">purposeful model selection</span>, this should emphasize that you are focusing on the relationship between your explanatory variable and food insecurity</li>
+<li>If you did <span style="color:#D6295E">LASSO</span>, this should emphasize that you are focusing on predicting food insecurity and what variables can predict it</li>
+</ul>
+</section>
+<section id="introductionbackground" class="level3" data-number="2.2">
+<h3 data-number="2.2"><span class="header-section-number">2.2</span> Introduction/Background</h3>
+<ul>
+<li><strong>Length: 5-8 bullets</strong></li>
+<li><strong>Purpose:</strong> Introduce the research question and why it is important to study</li>
+<li>This section is non-technical.
+<ul>
+<li>By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are</li>
+</ul></li>
+<li>You may start with your bullets from Lab 1, but you should edit it and make sure it flows into your report well!</li>
+<li>This should hit on three main points:
+<ul>
+<li>What is the context of this research? What is going in the world or public health sector that has led us to study this outcome? Why is the outcome important to study?</li>
+<li>Required for <span style="color:#70AD47">purposeful model selection</span>, but not for LASSO:What is the relationship between your explanatory variable and the outcome? Why is this relationship important to study?
+<ul>
+<li>What prior research leads us to our research question?</li>
+</ul></li>
+<li>What is your guiding question?
+<ul>
+<li>Best if this comes last in the introduction</li>
+<li>Helpful if you highlight this for your audience</li>
+<li>If you perform <span style="color:#D6295E">LASSO</span>, it would be good to mention prediction here</li>
+</ul></li>
+</ul></li>
+<li>The intro should start broad and get more focused towards the end</li>
+<li>Should contain some references</li>
+</ul>
+</section>
+<section id="methods" class="level3" data-number="2.3">
+<h3 data-number="2.3"><span class="header-section-number">2.3</span> Methods</h3>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of this section as the <strong>HOW: How did you approach your research question?</strong></p>
+<p>How did you analyze the data? How did you select variables for your model? How did you check diagnostics?</p>
+</div>
+</div>
+<ul>
+<li><strong>Length: 8-10 bullets</strong></li>
+<li><strong>Purpose:</strong> Describe the analyses that were conducted and methods used to select variables and check diagnostics</li>
+<li><strong>Some important methods to discuss</strong> (You may divide these into your sections, not necessarily with these names)
+<ul>
+<li>General approach to the dataset
+<ul>
+<li>2-3 bullets</li>
+<li>Where did the data come from?</li>
+<li>Did you need to do any quality control?</li>
+<li>Missing data: we performed complete case analysis
+<ul>
+<li>1 bullet</li>
+</ul></li>
+<li>What program did you use to analyze the data?</li>
+</ul></li>
+<li>Variables and variable creation
+<ul>
+<li><span style="color:#70AD47">For purposeful model selection</span>: This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+<ul>
+<li>More on creation of Table 1, not discussing the results of Table 1</li>
+</ul></li>
+<li>Includes (only include if you did one of the following)
+<ul>
+<li>Categorizing a continuous variable (even if performed in model selection)</li>
+<li>Using scoring for an ordered categorical variable</li>
+<li>Moving categories around or combining categories</li>
+<li>Potential examples:
+<ul>
+<li>We categorized age into the following groups: ___, ____, ____, ____ based on existing guidelines from &lt;insert reference here&gt;.</li>
+<li>We created a new variable for any hardship by combining the following variables: ___, ___, and ___. We categorized this variable into the following groups: ___, ___, and ___</li>
+<li>We treated number of children as numeric</li>
+</ul></li>
+</ul></li>
+<li>1 bullet for all variables</li>
+</ul></li>
+<li>Model building: we performed <span style="color:#70AD47">purposeful model selection</span> OR <span style="color:#D6295E">LASSO</span>
+<ul>
+<li>1-3 bullets</li>
+<li><span style="color:#70AD47">For purposeful model selection</span>, this includes
+<ul>
+<li>Describe purposeful selection: combining existing literature, clinical significance, and analysis</li>
+<li>How did you build the model? Describe the process</li>
+<li>Did you consider confounders and effect modifiers?</li>
+<li>Example: We considered the following potential confounders: list fo them. Based on our research question, existing literature, and clinical significance, we used purposeful selection to identify confounders and effect modifiers.</li>
+</ul></li>
+<li><span style="color:#D6295E">For LASSO</span>, this includes
+<ul>
+<li>Percent split for training and testing data</li>
+<li>Did you tune your penalty? What was the value of your penalty?</li>
+<li>Did you use cross-validation?</li>
+<li>What variables did you exclude from consideration from LASSO?</li>
+</ul></li>
+</ul></li>
+<li><span style="color:#70AD47">For purposeful model selection</span>: Final model
+<ul>
+<li>1 bullet</li>
+<li><strong>Only for <span style="color:#70AD47">purposeful model selection</span>!!</strong>
+<ul>
+<li>In <span style="color:#D6295E">LASSO</span>, the final model is more of a result</li>
+</ul></li>
+<li>Write out your final model: It can be an equation, but a list might be nicer.
+<ul>
+<li>Example: Our final model included main effects for ____ and an interaction between __ and __.</li>
+</ul></li>
+</ul></li>
+<li>Model diagnostics
+<ul>
+<li>1-2 bullets</li>
+<li>Includes
+<ul>
+<li>Process of investigating model diagnostics</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Important to keep in mind
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Methods typically describe your approach and process, not the results of that process</p>
+<ul>
+<li>For example: I might say “We investigated the linearity of each continuous covariate visually. If continuous variables were not linear, then we divided the variable into categories using existing guidelines from &lt;insert reference here&gt; or creating quartiles.”</li>
+<li>In the methods section, I would NOT say: “We investigated the linearity of each continuous covariate visually. We found that age was not linearly related to IAT scores. Thus, we categorized age into the following groups: ___, ____, ____, ____, and ____.”</li>
+<li>The last two sentences about age would be more appropriate in the Results section</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="results" class="level3" data-number="2.4">
+<h3 data-number="2.4"><span class="header-section-number">2.4</span> Results</h3>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of this section as the <strong>WHAT: What did you find?</strong></p>
+<p>What were the results of your analyses? What do the numbers mean (not mean like their context, but mean like direct interpretations)? What are the important trends in the data?</p>
+</div>
+</div>
+<ul>
+<li><strong>Length: mostly figures with 3-4 bullet points</strong></li>
+<li><strong>Purpose:</strong> Relay the results from our sample’s analysis typically focusing on the numbers and interpretations</li>
+<li>Tables &amp; figures (2-3 tables or figures)
+<ul>
+<li>The following are required tables or figures
+<ul>
+<li>Table 1 summarizing participant characteristics
+<ul>
+<li>If LASSO, use the top 10 important variables</li>
+</ul></li>
+<li>If <span style="color:#70AD47">purposeful model selection</span>: Table or figure with regression results
+<ul>
+<li>Can be a forest plot</li>
+<li>If you have A LOT of coefficient estimates, the forest plot may not work well!</li>
+</ul></li>
+<li>If <span style="color:#D6295E">LASSO</span>: table or figure with variable importance</li>
+</ul></li>
+<li><strong>1-2 figures that you think are helpful in understanding the results, for example</strong>
+<ul>
+<li><p>DAG explaining connection between variables (if you did this)</p></li>
+<li><p>Figure for the AUC-ROC</p></li>
+<li><p>Table or figure to compare model fit statistics (if you did this)</p></li>
+<li><p>Table or figure for unadjusted relationship between outcome and explanatory variables</p></li>
+</ul></li>
+</ul></li>
+<li><span style="color:#70AD47">For purposeful model selection:</span> Interpret the <strong>important</strong> model coefficients in the context of the research question
+<ul>
+<li>3-4 bullets</li>
+<li>Interpreting the explanatory variable’s relationship with IAT score is the most important thing to report!!
+<ul>
+<li>When doing this, make sure you account for ALL interactions: If your explanatory variable has multiple interactions and you are trying to interpret one, then what does that mean about the other variables involved in the other interactions? If this is confusing, please make an appointment with me!!</li>
+</ul></li>
+</ul></li>
+<li><span style="color:#D6295E">For LASSO:</span> Discuss the important variables and identify the 1-3 most important ones
+<ul>
+<li>3-4 bullets</li>
+<li>Since our main focus is prediction, we want to discuss variables that most contribute to the prediction of the outcome</li>
+<li>Other interesting trends might include variables that you thought would be important but were not, or variables that you thought would not be important but were
+<ul>
+<li>Were there correlated variables that were important?</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusiondiscussion" class="level3" data-number="2.5">
+<h3 data-number="2.5"><span class="header-section-number">2.5</span> Conclusion/Discussion</h3>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of this section as the <strong>WHY: Why did we get these results?</strong></p>
+<p>Why are they important? Why are they relevant (or not) to the target population? Why might we use these results? Why might we not use these results? Why are they limited (and what are the consequences of those limitations)?</p>
+</div>
+</div>
+<ul>
+<li><strong>Length: 5-10 bullets</strong></li>
+<li><strong>Purpose:</strong> Describe the main conclusions to a non-technical audience and discuss the results and give them context outside of the sample and its analysis</li>
+<li><span style="color:#70AD47">For purposeful model selection:</span> What was the answer to your research question?
+<ul>
+<li>Mention the direction of the association if there was one</li>
+</ul></li>
+<li><span style="color:#D6295E">For LASSO:</span> What was the biggest predictor of food insecurity?
+<ul>
+<li>Did your original variable of interest have any importance?</li>
+</ul></li>
+<li>Any other interesting results?</li>
+<li>Some important things to include
+<ul>
+<li>Include limitations and consequences of the limitations on the results
+<ul>
+<li>You don’t need to hit all the limitations, but think about the big ones (generalizability? independence of samples? large sample size vs. clinical significance? the way we handled variables?)</li>
+<li>A REALLY big limitation of this analysis is that we used survey data, but did not use survey weights. This means we might have biased results that are not generalizable to the US population.</li>
+</ul></li>
+<li>After limitations, discuss the positive parts of the results
+<ul>
+<li>What can we do with these results? What impact can it have?</li>
+</ul></li>
+<li>Any overarching trends that are worth noting?</li>
+</ul></li>
+<li>Should contain some references</li>
+</ul>
+</section>
+<section id="references" class="level3" data-number="2.6">
+<h3 data-number="2.6"><span class="header-section-number">2.6</span> References</h3>
+<ul>
+<li>Include your references here!</li>
+<li>You introduction should have references, especially when discussing the social science behind the analysis</li>
+<li>You must reference the WBNS data source!!</li>
+</ul>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">Categorical Data Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">Categorical Data Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6U2NoZWR1bGU=">Schedule</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3NjaGVkdWxlLmh0bWw=">/schedule.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6U3lsbGFidXM=">Syllabus</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3N5bGxhYnVzLmh0bWw=">/syllabus.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6SW5zdHJ1Y3RvcnM=">Instructors</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2luc3RydWN0b3JzLmh0bWw=">/instructors.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6UXVpenplcw==">Quizzes</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3F1aXouaHRtbA==">/quiz.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6SG9tZXdvcms=">Homework</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2hvbWV3b3Jrcy5odG1s">/homeworks.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6UHJvamVjdA==">Project</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3Byb2plY3QuaHRtbA==">/project.html</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Project Poster Instructions – Categorical Data Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Project Poster Instructions – Categorical Data Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Project Poster Instructions – Categorical Data Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Categorical Data Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Due: Monday June 9, 2025</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Due: Monday June 9, 2025</span></p>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id = "quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+</body>
+
+</html>

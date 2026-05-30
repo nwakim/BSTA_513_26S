@@ -3,7 +3,7 @@ title: "Poster Info and Help"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#C2352F"
-date: "06/04/2025"
+date: "`r library(here); source(here('class_dates.R')); w10d1`"
 format: 
   revealjs:
     theme: "../simple_NW.scss"
@@ -89,10 +89,10 @@ final_model = gapm2 %>%
     -   If purposeful model selection, do NOT skip the odds ratios interpretations!!
     -   If you are limiting your Regression table to only the main variable, you need to explicitly state that this is from the final model and adjusted for other variables
 -   There was A LOT of talk about generalizability being an issue because of the spread of our data
-    -   Sample sistribution ALONE does not mean our results are not generalizable
-    -   The more important question is: Are there enough people (in counts) in each group/demographic/etc to make a decent estimate?
+    -   Sample distribution ALONE does not mean our results are not generalizable
+    -   The more important question is: How were they sampled? **Please note that WBNS is a survey that SHOULD survey weights.** We did not use the weights, so our sample is not representative of the US population!!
 -   Be really careful around language!!
-    -   Using Why or How in your title is a little misleading – we can only answer “does”
+    -   Using Why or How in your title is a little misleading – we can only answer “does” or "what"
     -   Make sure you do not make implications that we are uncovering a causal pathway!!
         -   We are not!
         -   The study design does NOT support this!
@@ -108,6 +108,8 @@ final_model = gapm2 %>%
  
 
 -   Things you cannot assume people know
+    -   How you created variable for any hardship that excludes food insecurity
+    -   How you created a numeric version of categorical variables
     -   How to read R code: do not include your model equation as an `glm()` function
 
 ## Some notes
@@ -118,8 +120,6 @@ final_model = gapm2 %>%
 -   Do NOT make bullet points really long!
     -   This was a big issue in last quarter's poster
     -   Work to make things concise!! You are likely including too much information
--   I tried the QMD poster, and it is REALLY hard to troubleshoot
-    -   I highly suggest making your poster in powerpoint!
 
 ```{css}
 .reveal .sourceCode {
@@ -128,25 +128,10 @@ final_model = gapm2 %>%
 
 ```
 
-## Background
+## Background and Methods
 
--   **Length: 5-8 bullets**
--   **Purpose:** Introduce the research question and why it is important to study
--   This section is non-technical.
-    -   By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are
--   You may start with your bullets from Lab 1, but you should edit it and make sure it flows into your report well!
--   Should contain some references
+- Let's walk through the instructions!
 
-## Methods
-
--   **Length: 8-10 bullets**
--   **Purpose:** Describe the analyses that were conducted and methods used to select variables and check diagnostics
--   **Some important methods to discuss** (You may divide these into your sections, not necessarily with these names)
-    -   General approach to the dataset
-    -   Variables and variable creation
-    -   Model building: we performed purposeful selection
-    -   Final model
-    -   Model diagnostics
 
 ## Methods example-ish
 
@@ -170,7 +155,7 @@ If you did purposeful model selection:
 
 1.  Table 1
 
-2.  Table showing odds ratios for your main variable + variable from interaction
+2.  Table or figure showing odds ratios for your main variable + variable from interaction
 
 3.  One additional figure or table to understand your research question
 
@@ -184,7 +169,7 @@ If you did LASSO:
 
 2.  Table or plot showing most important variables
 
-3.  One additional figure or table to help understand your question
+3.  One additional figure or table to help understand your question (maybe AUC ROC?)
 
 4.  Interpretations of important variables: identify top 1-3 that predict outcome
 :::

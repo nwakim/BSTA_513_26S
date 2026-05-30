@@ -138,7 +138,7 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
   
 
 
-### Introduction
+### Introduction/Background
 
 -   **Length: 5-8 bullets**
 -   **Purpose:** Introduce the research question and why it is important to study
@@ -231,7 +231,8 @@ What were the results of your analyses? What do the numbers mean (not mean like 
 -   **Purpose:** Relay the results from our sample's analysis typically focusing on the numbers and interpretations
 -   Tables & figures (2-3 tables or figures)
     -   The following are required tables or figures
-        -   Table 1 summarizing participant characteristics both **overall**
+        -   Table 1 summarizing participant characteristics
+            - If LASSO, use the top 10 important variables
         -   If [purposeful model selection]{style="color:#70AD47"}: Table or figure with regression results
             -   Can be a forest plot
             -   If you have A LOT of coefficient estimates, the forest plot may not work well!
