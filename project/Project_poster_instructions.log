@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.10.28)  29 MAY 2026 17:58
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.10.28)  1 JUN 2026 11:12
  restricted system commands enabled.
 **Project_poster_instructions.tex
 (./Project_poster_instructions.tex
@@ -1240,25 +1240,27 @@ File: mt-TU-empty.cfg 2021/06/22 v1.1 microtype config. file: fonts with nonstan
 
 
 {/Users/wakim/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<../project/images/poster_printing.png, id=28, 715.67375pt x 527.9725pt>
+<../project/images/poster_printing.png, id=26, 715.67375pt x 527.9725pt>
 File: ../project/images/poster_printing.png Graphic file (type png)
 <use ../project/images/poster_printing.png>
-Package luatex.def Info: ../project/images/poster_printing.png  used on input line 291.
+Package luatex.def Info: ../project/images/poster_printing.png  used on input line 307.
 (luatex.def)             Requested size: 715.672pt x 527.9712pt.
 
-Overfull \hbox (162.87057pt too wide) in paragraph at lines 290--293
+Overfull \hbox (162.87057pt too wide) in paragraph at lines 306--309
 []\TU/lmr/m/n/10.95 You should see some-thing like this: [] 
  []
 
 
 
-[2<../project/images/poster_printing.png>]
+[2]
 
-[3]
+[3<../project/images/poster_printing.png>]
 
 [4]
 
 [5]
+
+[6]
 
 ! LaTeX Error: Too deeply nested.
 
@@ -1266,16 +1268,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.679         \begin{itemize}
+l.695         \begin{itemize}
                            
 
 Here is how much of LuaTeX's memory you used:
- 40876 strings out of 476290
+ 40880 strings out of 476290
  100000,1648299 words of node,token memory allocated
- 22148 words of node memory still in use:
-   164 hlist, 3 vlist, 2 rule, 128 disc, 41 local_par, 1 dir, 641 glue, 105 kern, 111 penalty, 18 margin_kern, 1444 glyph, 514 attribute, 118 glue_spec, 514 attribute_list, 1 if_stack, 4 shape, 2 write, 139 pdf_literal, 2 pdf_dest, 2 pdf_action, 64 pdf_colorstack nodes
-   avail lists: 1:1,2:45,3:414,4:102,5:164,6:15,7:2537,8:1,9:230,10:4,11:134,12:1
- 62290 multiletter control sequences out of 65536+600000
- 64 fonts using 19298291 bytes
- 108i,7n,114p,10940b,1126s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 11995 words of node memory still in use:
+   82 hlist, 1 vlist, 2 rule, 80 disc, 27 local_par, 1 dir, 336 glue, 52 kern, 63 penalty, 13 margin_kern, 820 glyph, 193 attribute, 118 glue_spec, 193 attribute_list, 1 if_stack, 4 shape, 2 pdf_action, 32 pdf_colorstack nodes
+   avail lists: 1:1,2:588,3:572,4:146,5:208,6:33,7:3470,8:1,9:291,10:4,11:171,12:1
+ 62291 multiletter control sequences out of 65536+600000
+ 64 fonts using 19298367 bytes
+ 108i,8n,114p,10940b,1126s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

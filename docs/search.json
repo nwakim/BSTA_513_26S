@@ -4918,7 +4918,7 @@
     "href": "project/Project_poster_instructions.html",
     "title": "Project Poster Instructions",
     "section": "",
-    "text": "Important\n\n\n\nReady to go! (Nicky 5/26/26)\nAnd check out the excel spreadsheet I made that tallies all the needed components for 100%\nThe purpose section was partially developed using ChatGPT by feeding in my previous project report instructions and asking ChatGPT to edit for a poster."
+    "text": "Important\n\n\n\nReady to go! (Nicky 6/1/26)\nAnd check out the excel spreadsheet I made that tallies all the needed components for 100%\n\nEXTRA CREDIT for\n\nBringing food/drink etc. to the Poster Day!\nCompleting the course eval!\nThe purpose section was partially developed using ChatGPT by feeding in my previous project report instructions and asking ChatGPT to edit for a poster."
   },
   {
     "objectID": "project/Project_poster_instructions.html#directions",
@@ -13795,5 +13795,54 @@
     "title": "Poster Info and Help",
     "section": "Background and Methods",
     "text": "Background and Methods\n\nLet’s walk through the instructions!"
+  },
+  {
+    "objectID": "lessons/19_Poster_help/19_Poster_help.html#interactions-important-note",
+    "href": "lessons/19_Poster_help/19_Poster_help.html#interactions-important-note",
+    "title": "Poster Info and Help",
+    "section": "Interactions: Important note",
+    "text": "Interactions: Important note\n\nPlease check your Quiz 3 feedback!\n\nMany of you are not quite interpreting interactions correctly\n\nThere is extra care to reporting results from interactions\nPlease make sure you use estimable() to get the correct effects!\n\nIf you have an interaction with a categorical variable, then your main variable’s “effect” should be reported for each category\n\nSee HW 3 and Lecture 10 for reporting!\nYou will NOT include the adjusting variables in the table/plot\n\nBut you need to say adjusting for all other variables in model from methods"
+  },
+  {
+    "objectID": "lessons/19_Poster_help/19_Poster_help.html#interactions-tableplot",
+    "href": "lessons/19_Poster_help/19_Poster_help.html#interactions-tableplot",
+    "title": "Poster Info and Help",
+    "section": "Interactions: Table/plot",
+    "text": "Interactions: Table/plot\n\nLet’s say my model from HW 3 included other variables and my main research question is about association between death and if infection is probable at ICU intake\n\nTable __: Estimated odds ratios and confidence intervals of death at discharge. Odds ratios are comparing infection probable and not probable at ICU intake depending for two cases when cancer is and is not part of problem. Odds ratios adjust for all other variable in the model presented in methods.\n\n\n\n\n\n\n\n\n\nCancer\nInfection\nEstimated OR\n95% CI\n\n\n\n\nCancer part of present problem\nInfection probable at ICU intake\n\n\n\n\n\n      No\n\n\n\n\n\n      Yes\nFILL HERE\nFILL HERE\n\n\nCancer not part of present problem\nInfection probable at ICU intake\n\n\n\n\n\n      No\n\n\n\n\n\n      Yes\nFILL HERE\nFILL HERE"
+  },
+  {
+    "objectID": "lessons/19_Poster_help/19_Poster_help.html#project-instructions",
+    "href": "lessons/19_Poster_help/19_Poster_help.html#project-instructions",
+    "title": "Poster Info and Help",
+    "section": "Project Instructions",
+    "text": "Project Instructions\n\nLet’s go to the project page"
+  },
+  {
+    "objectID": "lessons/19_Poster_help/19_Poster_help_key_info.html",
+    "href": "lessons/19_Poster_help/19_Poster_help_key_info.html",
+    "title": "Key Info and Announcements",
+    "section": "",
+    "text": "Burritos and bunnies this Wednesday at 12pm!\nWednesday’s class on missing data\n\nBest experience in-person, async will still give you info, but sync and virtual will be hard\nWe have group work!\n\nQuiz 3 scores are up!\nPlease, please, please check your grades!\nMake sure you have your poster printed and ready to go by the day of the poster session\n\nI have meeting at 12pm, so I cannot help with last minute printing eek\n\n\n \n\nCheck out my reference on making a forest plot!\nPoster instructions are up!!\n\nMy focus is on:\n\nCan you concisely describe your analysis process?\n\nCome to office hours and ask for edits on these!!\n\nCorrect interpretations\n\nORs and interactions for purposeful model selection\nMost important variables for LASSO\n\nCan you discuss limitations and importance of work?\n\nCritically think about the decisions we made on the sample, analysis, variables, etc.\n\nWhat might be the consequences of those decisions?\n\n\n\nEXTRA CREDIT for\n\nBringing food/drink etc. to the Poster Day!\nCompleting the course eval!\n\n\n\n\n\n\n\nYou can become a TA or grader for SPH classes!\n\nPaid position\nApply here\nSome extra intel\n\nIt says Summer and Fall only, but Fall TAs often carry over into Winter and Spring\n\n\n\n\n\nLink to site\nThis highly interactive session presents ways to use visual thinking to strengthen research and scientific communication. In order to visualize data well, we have to understand our research deeply. Likewise, in order to understand our research deeply, we need to be able to visualize it well. Centered around a graph makeover, the talk presents three real-world design principles that can clarify both data visualization and critical thinking.\nKate Miller is Director of the Visual Thinking and Data Visualization Program at the Quantitative Sciences Unit at Stanford Medical School, as well as a Senior Biostatistician there. She uses visual thinking every day in her collaborative work with clinical research teams.\n\n\n\nPlease join the SPH Student Success Center on Wednesday, June 3rd from Noon-2pm on the 6th floor in Vanport for our 3rd Annual Bunnies & Burritos event. Come take a break from your busy term and hold a bunny, grab a burrito, and connect with SPH students, faculty, and staff. We look forward to celebrating all your hard work and accomplishments this year!\nPlease RSVP by May 27th, 2026 for food ordering purposes!\nRSVP HERE\n\n\n\nR conference in Portland!! on 6/26-6/27 https://cascadiarconf.com/\n\n~$50 for in-person\nFor the PNW, so good networking for semi-local opportunities\n\n\n\n\nGlobal Biostatistics & Data Sciences in Boehringer Ingelheim currently has a Fall Co-Op internship position open for both Master and PhD students. The internship is well suited for students with strong backgrounds in statistics, biostatistics, data science, or related quantitative fields, and it offers exposure to real‑world data analysis and statistical applications in pharmaceutical research and drug development.\n\nClinical Data Science - Statistics Fall Co-Op MS Job Details | BoehringerPRD"
+  },
+  {
+    "objectID": "lessons/19_Poster_help/19_Poster_help_key_info.html#announcements",
+    "href": "lessons/19_Poster_help/19_Poster_help_key_info.html#announcements",
+    "title": "Key Info and Announcements",
+    "section": "",
+    "text": "Burritos and bunnies this Wednesday at 12pm!\nWednesday’s class on missing data\n\nBest experience in-person, async will still give you info, but sync and virtual will be hard\nWe have group work!\n\nQuiz 3 scores are up!\nPlease, please, please check your grades!\nMake sure you have your poster printed and ready to go by the day of the poster session\n\nI have meeting at 12pm, so I cannot help with last minute printing eek\n\n\n \n\nCheck out my reference on making a forest plot!\nPoster instructions are up!!\n\nMy focus is on:\n\nCan you concisely describe your analysis process?\n\nCome to office hours and ask for edits on these!!\n\nCorrect interpretations\n\nORs and interactions for purposeful model selection\nMost important variables for LASSO\n\nCan you discuss limitations and importance of work?\n\nCritically think about the decisions we made on the sample, analysis, variables, etc.\n\nWhat might be the consequences of those decisions?\n\n\n\nEXTRA CREDIT for\n\nBringing food/drink etc. to the Poster Day!\nCompleting the course eval!\n\n\n\n\n\n\n\nYou can become a TA or grader for SPH classes!\n\nPaid position\nApply here\nSome extra intel\n\nIt says Summer and Fall only, but Fall TAs often carry over into Winter and Spring\n\n\n\n\n\nLink to site\nThis highly interactive session presents ways to use visual thinking to strengthen research and scientific communication. In order to visualize data well, we have to understand our research deeply. Likewise, in order to understand our research deeply, we need to be able to visualize it well. Centered around a graph makeover, the talk presents three real-world design principles that can clarify both data visualization and critical thinking.\nKate Miller is Director of the Visual Thinking and Data Visualization Program at the Quantitative Sciences Unit at Stanford Medical School, as well as a Senior Biostatistician there. She uses visual thinking every day in her collaborative work with clinical research teams.\n\n\n\nPlease join the SPH Student Success Center on Wednesday, June 3rd from Noon-2pm on the 6th floor in Vanport for our 3rd Annual Bunnies & Burritos event. Come take a break from your busy term and hold a bunny, grab a burrito, and connect with SPH students, faculty, and staff. We look forward to celebrating all your hard work and accomplishments this year!\nPlease RSVP by May 27th, 2026 for food ordering purposes!\nRSVP HERE\n\n\n\nR conference in Portland!! on 6/26-6/27 https://cascadiarconf.com/\n\n~$50 for in-person\nFor the PNW, so good networking for semi-local opportunities\n\n\n\n\nGlobal Biostatistics & Data Sciences in Boehringer Ingelheim currently has a Fall Co-Op internship position open for both Master and PhD students. The internship is well suited for students with strong backgrounds in statistics, biostatistics, data science, or related quantitative fields, and it offers exposure to real‑world data analysis and statistical applications in pharmaceutical research and drug development.\n\nClinical Data Science - Statistics Fall Co-Op MS Job Details | BoehringerPRD"
+  },
+  {
+    "objectID": "lessons/19_Poster_help/19_Poster_help_key_info.html#key-dates",
+    "href": "lessons/19_Poster_help/19_Poster_help_key_info.html#key-dates",
+    "title": "Key Info and Announcements",
+    "section": "Key Dates",
+    "text": "Key Dates\n\nQuiz 3 opens 05/27\n\nCloses 05/31\n\nHW 4 due 05/31\nProject poster DAY on 06/08\nPoster due 06/09"
+  },
+  {
+    "objectID": "lessons/19_Poster_help/19_Poster_help.html#poster-day-tips",
+    "href": "lessons/19_Poster_help/19_Poster_help.html#poster-day-tips",
+    "title": "Poster Info and Help",
+    "section": "Poster day tips",
+    "text": "Poster day tips\n\nMake sure you have your poster printed and ready to go by the day of the poster session\nI have meeting at 12pm, so I cannot help with last minute printing eek\nAs people come by your poster…\n\nBe prepared to give a 30 sec breakdown (think mostly intro and conclusion)\n\nResearch question\nDataset\nModel selection technique\nMain finding (overall trend or 1-3 important variables)\nMaybe a limitation or future direction\n\n\n\n“I explored the relationship between food insecurity and ____. We used the Well-being and basic needs survey study from the Urban Institute to investigate this question. I used purposeful model selection to determine the final model and adjust for the appropriate variables and interactions. We found that increasing ____ was associated with more food (in)security.”"
   }
 ]

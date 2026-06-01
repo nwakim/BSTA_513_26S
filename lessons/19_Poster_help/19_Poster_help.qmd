@@ -128,10 +128,57 @@ final_model = gapm2 %>%
 
 ```
 
-## Background and Methods
+## Interactions: Important note
 
-- Let's walk through the instructions!
+-   Please check your Quiz 3 feedback!
 
+    -   Many of you are not quite interpreting interactions correctly
+
+-   There is extra care to reporting results from interactions
+
+-   Please make sure you use `estimable()` to get the correct effects!
+
+    -   If you have an interaction with a categorical variable, then your main variable's "effect" should be reported for each category
+
+-   See HW 3 and Lecture 10 for reporting!
+
+-   You will **NOT include** the adjusting variables in the table/plot
+    - But you **need to say adjusting for all other variables** in model from methods
+
+## Interactions: Table/plot
+
+-   Let's say my model from HW 3 included other variables and my main research question is about association between death and if infection is probable at ICU intake
+
+Table \_\_: Estimated odds ratios and confidence intervals of death at discharge. Odds ratios are comparing infection probable and not probable at ICU intake depending for two cases when cancer is and is not part of problem. Odds ratios adjust for all other variable in the model presented in methods.
+
+| Cancer | Infection | Estimated OR | 95% CI |
+|------------------------|-------------------------|------------|----------|
+| Cancer part of present problem | Infection probable at ICU intake |  |  |
+|  |       No |  |  |
+|  |       Yes | FILL HERE | FILL HERE |
+| Cancer not part of present problem | Infection probable at ICU intake |  |  |
+|  |       No |  |  |
+|  |       Yes | FILL HERE | FILL HERE |
+
+## Poster day tips
+
+-  Make sure you have your poster printed and ready to go by the day of the poster session
+  - I have meeting at 12pm, so I cannot help with last minute printing eek
+- As people come by your poster...
+  - Be prepared to give a 30 sec breakdown (think mostly intro and conclusion)
+    - Research question
+    - Dataset
+    - Model selection technique
+    - Main finding (overall trend or 1-3 important variables)
+    - Maybe a limitation or future direction
+
+"I explored the relationship between food insecurity and ____. We used the Well-being and basic needs survey study from the Urban Institute to investigate this question. I used purposeful model selection to determine the final model and adjust for the appropriate variables and interactions. We found that increasing ____ was associated with more food (in)security."
+
+## Project Instructions
+
+- Let's go to the project page
+
+# Reference materials
 
 ## Methods example-ish
 
@@ -411,38 +458,6 @@ forest_plot
 ```
 :::
 :::::
-
-## Important note if you have interactions
-
--   Please check your Quiz 3 feedback!
-
-    -   Many of you are not quite interpreting interactions correctly
-
--   There is extra care to reporting results from interactions
-
--   Please make sure you use `estimable()` to get the correct effects!
-
-    -   If you have an interaction with a categorical variable, then your main variable's "effect" should be reported for each category
-
--   See HW 3 and Lecture 10 for reporting!
-
--   You will **NOT include** the adjusting variables in the table/plot
-    - But you **need to say adjusting for all other variables** in model from methods
-
-## Table/plot if you have interactions!!
-
--   Let's say my model from HW 3 included other variables and my main research question is about association between death and if infection is probable at ICU intake
-
-Table \_\_: Estimated odds ratios and confidence intervals of death at discharge. Odds ratios are comparing infection probable and not probable at ICU intake depending for two cases when cancer is and is not part of problem. Odds ratios adjust for all other variable in the model presented in methods.
-
-| Cancer | Infection | Estimated OR | 95% CI |
-|------------------------|-------------------------|------------|----------|
-| Cancer part of present problem | Infection probable at ICU intake |  |  |
-|  |       No |  |  |
-|  |       Yes | FILL HERE | FILL HERE |
-| Cancer not part of present problem | Infection probable at ICU intake |  |  |
-|  |       No |  |  |
-|  |       Yes | FILL HERE | FILL HERE |
 
 ## Saving tables
 
