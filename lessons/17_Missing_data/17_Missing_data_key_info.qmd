@@ -8,13 +8,58 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+library(here)
+source(here("class_dates.R"))
+```
+
 ## Announcements
 
-- Poster session on 6/9!
-  - Feel free to bring food again!
-  - A few faculty and staff will be joining us!
-  - Will take place at VPT 515!!
+- Please, please, please check your grades!
+- Make sure you have your poster printed and ready to go by the day of the poster session
+  - I have meeting at 12pm, so I cannot help with last minute printing eek
+- I will have additional, virtual office hours on Friday from 10-11am
+  - [Link to Webex](https://ohsu.webex.com/meet/wakim)
+- Sheetal needs to move her office hours from Friday
+  - Choose preference in today's exit ticket
 
+ 
+
+- **Check out my reference on [making a forest plot!](/references/Forest_plots.qmd)**
+- Poster instructions are up!! 
+  - EXTRA CREDIT for
+    - [Bringing food/drink etc. to the Poster Day!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMzU0RkJVVThPNFZZUERNSkdWVlBBWTdEWCQlQCNjPTEu)
+    - [Completing the course eval!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQ1E0UDQ2QUhSRkpPV0JOMzY5TFA0QTUyMSQlQCNjPTEu)
+    
 ## Key Dates
 
-## Last class
+- Project poster DAY on `{r} w11d1 %>% format("%m/%d")`
+- Poster due `{r} proj %>% format("%m/%d")` at 11pm
+- ALL CLASS ASSIGNMENTS DUE `{r} last_day %>% format("%m/%d")` at 11pm
+
+## Recurring Announcements
+
+### Summer or Fall TA opportunities
+
+You can become a TA or grader for SPH classes! 
+
+- **Paid position**
+- [Apply here](https://ohsu.ca1.qualtrics.com/jfe/form/SV_3dS5vXSEit390jQ?Q_CHL=qr)
+- Some extra intel
+  - It says Summer and Fall only, but Fall TAs often carry over into Winter and Spring
+
+### Visual Thinking and Data Visualization for Clinical Research
+
+[Link to site](https://www.ohsu.edu/octri/visual-thinking-and-data-visualization-clinical-research)
+
+This highly interactive session presents ways to use visual thinking to strengthen research and scientific communication. In order to visualize data well, we have to understand our research deeply. Likewise, in order to understand our research deeply, we need to be able to visualize it well. Centered around a graph makeover, the talk presents three real-world design principles that can clarify both data visualization and critical thinking.
+
+Kate Miller is Director of the Visual Thinking and Data Visualization Program at the Quantitative Sciences Unit at Stanford Medical School, as well as a Senior Biostatistician there. She uses visual thinking every day in her collaborative work with clinical research teams.
+
+### R Cascadia Conference
+
+R conference in Portland!! **on 6/26-6/27** <https://cascadiarconf.com/>
+
+- \~\$50 for in-person
+- For the PNW, so good networking for semi-local opportunities
+
