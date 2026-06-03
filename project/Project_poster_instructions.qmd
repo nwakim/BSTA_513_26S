@@ -17,6 +17,10 @@ editor_options:
   chunk_output_type: console
 ---
 
+::: callout-note
+If you did purposeful model selection, you should have at least one interaction in your model!
+:::
+
 ::: callout-important
 Ready to go! (Nicky 6/1/26)
 
@@ -179,7 +183,7 @@ How did you analyze the data? How did you select variables for your model? How d
             -   1 bullet
         -   What program did you use to analyze the data?
     -   Variables and variable creation
-        -   [For purposeful model selection]{style="color:#70AD47"}: This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+        -   [For purposeful model selection]{style="color:#70AD47"} AND LASSO: This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
             -   More on creation of Table 1, not discussing the results of Table 1
         -   Includes (only include if you did one of the following)
             -   Categorizing a continuous variable (even if performed in model selection)
@@ -196,6 +200,7 @@ How did you analyze the data? How did you select variables for your model? How d
             -   Describe purposeful selection: combining existing literature, clinical significance, and analysis
             -   How did you build the model? Describe the process
             -   Did you consider confounders and effect modifiers?
+                 - **At least one interaction is required!!**
             -   Example: We considered the following potential confounders: list fo them. Based on our research question, existing literature, and clinical significance, we used purposeful selection to identify confounders and effect modifiers.
         -   [For LASSO]{style="color:#D6295E"}, this includes
             -   Percent split for training and testing data
@@ -208,19 +213,19 @@ How did you analyze the data? How did you select variables for your model? How d
             - In [LASSO]{style="color:#D6295E"}, the final model is more of a result
         -   Write out your final model: It can be an equation, but a list might be nicer. 
             - Example: Our final model included main effects for ____ and an interaction between __ and __. 
-    -   Model diagnostics
+    -   Model diagnostics and model fit
         -   1-2 bullets
         -   Includes
-            -   Process of investigating model diagnostics
+            -   Process of investigating model diagnostics (AUC, change in coefficient, pearson reidual, etc. )
 
 ::: callout-caution
 ### Important to keep in mind
 
 Methods typically describe your approach and process, not the results of that process
 
--   For example: I might say "We investigated the linearity of each continuous covariate visually. If continuous variables were not linear, then we divided the variable into categories using existing guidelines from \<insert reference here\> or creating quartiles."
--   In the methods section, I would NOT say: "We investigated the linearity of each continuous covariate visually. We found that age was not linearly related to IAT scores. Thus, we categorized age into the following groups: \_\_\_, \_\_\_\_, \_\_\_\_, \_\_\_\_, and \_\_\_\_."
--   The last two sentences about age would be more appropriate in the Results section
+For example: I can say: "We used numeric representation for the midpoint values of the categorical income groups."
+
+NICKY BETTER EXAMPLE.
 :::
 
 ### Results
@@ -249,7 +254,7 @@ What were the results of your analyses? What do the numbers mean (not mean like 
         -   Table or figure for unadjusted relationship between outcome and explanatory variables
 -   [For purposeful model selection:]{style="color:#70AD47"} Interpret the **important** model coefficients in the context of the research question
     -   3-4 bullets
-    -   Interpreting the explanatory variable's relationship with IAT score is the most important thing to report!!
+    -   Interpreting the explanatory variable's relationship with food insecurity is the most important thing to report!!
         -   When doing this, make sure you account for ALL interactions: If your explanatory variable has multiple interactions and you are trying to interpret one, then what does that mean about the other variables involved in the other interactions? If this is confusing, please make an appointment with me!!
 - [For LASSO:]{style="color:#D6295E"} Discuss the important variables and identify the 1-3 most important ones
     - 3-4 bullets
@@ -270,7 +275,7 @@ Why are they important? Why are they relevant (or not) to the target population?
 -   [For purposeful model selection:]{style="color:#70AD47"} What was the answer to your research question?
     -   Mention the direction of the association if there was one
 -   [For LASSO:]{style="color:#D6295E"} What was the biggest predictor of food insecurity?
-    - Did your original variable of interest have any importance?
+    - Was anything interesting particularly predictive?
 -   Any other interesting results?
 -   Some important things to include
     -   Include limitations and consequences of the limitations on the results

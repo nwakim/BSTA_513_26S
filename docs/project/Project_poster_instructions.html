@@ -4113,6 +4113,19 @@ vertical-align: -.125em;
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you did purposeful model selection, you should have at least one interaction in your model!</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4370,7 +4383,7 @@ Caution
 </ul></li>
 <li>Variables and variable creation
 <ul>
-<li><span style="color:#70AD47">For purposeful model selection</span>: This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+<li><span style="color:#70AD47">For purposeful model selection</span> AND LASSO: This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
 <ul>
 <li>More on creation of Table 1, not discussing the results of Table 1</li>
 </ul></li>
@@ -4395,7 +4408,10 @@ Caution
 <ul>
 <li>Describe purposeful selection: combining existing literature, clinical significance, and analysis</li>
 <li>How did you build the model? Describe the process</li>
-<li>Did you consider confounders and effect modifiers?</li>
+<li>Did you consider confounders and effect modifiers?
+<ul>
+<li><strong>At least one interaction is required!!</strong></li>
+</ul></li>
 <li>Example: We considered the following potential confounders: list fo them. Based on our research question, existing literature, and clinical significance, we used purposeful selection to identify confounders and effect modifiers.</li>
 </ul></li>
 <li><span style="color:#D6295E">For LASSO</span>, this includes
@@ -4418,12 +4434,12 @@ Caution
 <li>Example: Our final model included main effects for ____ and an interaction between __ and __.</li>
 </ul></li>
 </ul></li>
-<li>Model diagnostics
+<li>Model diagnostics and model fit
 <ul>
 <li>1-2 bullets</li>
 <li>Includes
 <ul>
-<li>Process of investigating model diagnostics</li>
+<li>Process of investigating model diagnostics (AUC, change in coefficient, pearson reidual, etc. )</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -4439,11 +4455,8 @@ Caution
 </div>
 <div class="callout-body-container callout-body">
 <p>Methods typically describe your approach and process, not the results of that process</p>
-<ul>
-<li>For example: I might say “We investigated the linearity of each continuous covariate visually. If continuous variables were not linear, then we divided the variable into categories using existing guidelines from &lt;insert reference here&gt; or creating quartiles.”</li>
-<li>In the methods section, I would NOT say: “We investigated the linearity of each continuous covariate visually. We found that age was not linearly related to IAT scores. Thus, we categorized age into the following groups: ___, ____, ____, ____, and ____.”</li>
-<li>The last two sentences about age would be more appropriate in the Results section</li>
-</ul>
+<p>For example: I can say: “We used numeric representation for the midpoint values of the categorical income groups.”</p>
+<p>NICKY BETTER EXAMPLE.</p>
 </div>
 </div>
 </section>
@@ -4492,7 +4505,7 @@ Caution
 <li><span style="color:#70AD47">For purposeful model selection:</span> Interpret the <strong>important</strong> model coefficients in the context of the research question
 <ul>
 <li>3-4 bullets</li>
-<li>Interpreting the explanatory variable’s relationship with IAT score is the most important thing to report!!
+<li>Interpreting the explanatory variable’s relationship with food insecurity is the most important thing to report!!
 <ul>
 <li>When doing this, make sure you account for ALL interactions: If your explanatory variable has multiple interactions and you are trying to interpret one, then what does that mean about the other variables involved in the other interactions? If this is confusing, please make an appointment with me!!</li>
 </ul></li>
@@ -4533,7 +4546,7 @@ Caution
 </ul></li>
 <li><span style="color:#D6295E">For LASSO:</span> What was the biggest predictor of food insecurity?
 <ul>
-<li>Did your original variable of interest have any importance?</li>
+<li>Was anything interesting particularly predictive?</li>
 </ul></li>
 <li>Any other interesting results?</li>
 <li>Some important things to include
